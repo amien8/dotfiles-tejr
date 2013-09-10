@@ -66,6 +66,7 @@ mkdir -p -- "$HOME"/.local/bin
 lns "$dotfiles"/ack/ack "$HOME"/.local/bin/ack
 
 # Link in essential configuration files
+mkdir -p -- "$HOME"/.config
 lns "$dotfiles"/ack/ackrc            "$HOME"/.ackrc
 lns "$dotfiles"/bash/bash_completion "$HOME"/.config/bash_completion
 lns "$dotfiles"/bash/bash_logout     "$HOME"/.bash_logout
@@ -101,7 +102,6 @@ while getopts :gmntx opt; do
             lns "$dotfiles"/tmux/tmux.conf "$HOME"/.tmux.conf
             ;;
         x)
-            mkdir -p -- "$HOME"/.config
             lns "$dotfiles"/X/Xmodmap    "$HOME"/.Xmodmap
             lns "$dotfiles"/X/Xresources "$HOME"/.Xresources
             lns "$dotfiles"/X/xsession   "$HOME"/.xsession
