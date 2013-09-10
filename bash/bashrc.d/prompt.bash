@@ -168,8 +168,12 @@ prompt() {
 
         # Show the count of background jobs in curly brackets
         job)
-            if [[ $(jobs) ]]; then
-                printf '{%d}' "$(jobs | sed -n '$=')"
+            local jobc=0
+            while read -r line; do
+                ((jobc++))
+            done < <(jobs)
+            if ((jobc > 0)); then
+                printf '{%d}' "$jobc"
             fi
             ;;
     esac
