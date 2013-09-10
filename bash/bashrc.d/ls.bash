@@ -11,7 +11,7 @@ lsopts() {
     # at least eight colors, add --color=auto to the options
     local colors=$(tput colors)
     if [[ $lshelp == *--color* ]] && ((colors >= 8)); then
-        lsopts[${#lsopts[@]}]='--color=auto'
+        lsopts=("${lsopts[@]}" '--color=auto')
     fi
 
     # Print the options as a single string, space-delimited
