@@ -40,6 +40,11 @@ prompt() {
 
         # Git prompt function
         git)
+            # Bail if we have no git(1)
+            if ! hash git 2>/dev/null; then
+                return 1
+            fi
+
             # Exit if inside a .git directory
             local gitdir=$(git rev-parse --is-inside-git-dir 2>/dev/null)
             if [[ $gitdir == true ]]; then
@@ -99,6 +104,11 @@ prompt() {
 
         # Mercurial prompt function
         hg)
+            # Bail if we have no hg(1)
+            if ! hash hg 2>/dev/null; then
+                return 1
+            fi
+
             # Exit if not inside a Mercurial tree
             local branch
             if ! branch=$(hg branch 2>/dev/null); then
@@ -121,6 +131,11 @@ prompt() {
 
         # Subversion prompt function
         svn)
+            # Bail if we have no svn(1)
+            if ! hash svn 2>/dev/null; then
+                return 1
+            fi
+
             # Exit if not inside a Subversion working copy
             if ! svn info >/dev/null 2>&1; then
                 return 1
