@@ -51,8 +51,10 @@ Configuration is included for:
 *   [X11][16] — Windowing system with network transparency for Unix
 
 The configurations for Bash, Mutt, tmux, and Vim are the most expansive and
-most likely to be of interest. The rest of the configurations are relatively
-minimal changes to defaults that annoyed me.
+most likely to be of interest. The i3 configuration is mostly changed to make
+window switching behave like Vim windows and Tmux panes do. There's a fair few
+resources defined for rxvt-unicode. Otherwise,but the rest of the configuration
+isn't too distant from the defaults.
 
 Shell
 -----
