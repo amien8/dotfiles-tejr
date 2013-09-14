@@ -57,8 +57,6 @@ shopt -s progcomp
 if ((${BASH_VERSINFO[0]} >= 4)); then
     # Warn me about stopped jobs when exiting
     shopt -s checkjobs
-    # Expand globbing and variables for directory completion
-    shopt -s direxpand
     # Autocorrect fudged paths during completion
     shopt -s dirspell
     # Enable double-starring paths
