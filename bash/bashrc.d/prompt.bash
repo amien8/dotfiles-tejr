@@ -22,7 +22,7 @@ prompt() {
 
             # Check if we have non-bold bright green available
             if ((colors == 256)); then
-                format=$(tput setaf 10 0 0)
+                format=$(tput setaf 10)
 
             # If we have only eight colors, use bold green to make it bright
             elif ((colors == 8)); then
