@@ -23,46 +23,37 @@ setterm -bfreq 0 2>/dev/null
 stty -ixon -ctlecho 2>/dev/null
 
 # Autocorrect fudged paths in cd calls
-shopt -s cdspell 2>/dev/null
-
+shopt -s cdspell
 # Update the hash table properly
-shopt -s checkhash 2>/dev/null
-
-# Warn me about stopped jobs when exiting
-shopt -s checkjobs 2>/dev/null
-
+shopt -s checkhash
 # Update columns and rows if window size changes
-shopt -s checkwinsize 2>/dev/null
-
+shopt -s checkwinsize
 # Put multi-line commands onto one line of history
-shopt -s cmdhist 2>/dev/null
-
-# Expand globbing and variables for directory completion
-shopt -s direxpand 2>/dev/null
-
-# Autocorrect fudged paths during completion
-shopt -s dirspell 2>/dev/null
-
+shopt -s cmdhist
 # Include dotfiles in pattern matching
-shopt -s dotglob 2>/dev/null
-
+shopt -s dotglob
 # Enable advanced pattern matching
-shopt -s extglob 2>/dev/null
-
-# Enable double-starring paths
-shopt -s globstar 2>/dev/null
-
+shopt -s extglob
 # Append rather than overwrite Bash history
-shopt -s histappend 2>/dev/null
-
+shopt -s histappend
 # Don't warn me about new mail all the time
-shopt -u mailwarn 2>/dev/null
-
+shopt -u mailwarn
 # Ignore me if I try to complete an empty line
-shopt -s no_empty_cmd_completion 2>/dev/null
-
+shopt -s no_empty_cmd_completion
 # Use programmable completion, if available
-shopt -s progcomp 2>/dev/null
+shopt -s progcomp
+
+# These options only exist since Bash 4.0-alpha
+if ((${BASH_VERSINFO[0]} >= 4)); then
+    # Warn me about stopped jobs when exiting
+    shopt -s checkjobs
+    # Expand globbing and variables for directory completion
+    shopt -s direxpand
+    # Autocorrect fudged paths during completion
+    shopt -s dirspell
+    # Enable double-starring paths
+    shopt -s globstar
+fi
 
 # Load any supplementary scripts
 if [[ -d $HOME/.bashrc.d ]]; then
