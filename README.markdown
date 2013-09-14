@@ -38,7 +38,7 @@ Configuration is included for:
 *   [Git][5] — Distributed version control system
 *   [GnuPG][6] — GNU Privacy Guard, for private communication and file
     encryption
-*   [i3wm][7] — Tiling window manager
+*   [i3][7] — Tiling window manager
 *   [Mutt][8] — Terminal mail user agent
 *   [Newsbeuter][9] — Terminal RSS/Atom feed reader
 *   [Perl::Critic][10] — Static analysis tool for Perl code
