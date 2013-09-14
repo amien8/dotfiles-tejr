@@ -18,8 +18,10 @@ mutt/signature.*
 newsbeuter/urls
 sh/profile.d/*
 !sh/profile.d/browser.sh
+!sh/profile.d/editor.sh
 !sh/profile.d/keychain.sh
 !sh/profile.d/openbsd.sh
+!sh/profile.d/pager.sh
 !sh/profile.d/timezone.sh
 urxvt/urxvtd-*
 vim/.netrwhist
