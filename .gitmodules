@@ -74,3 +74,8 @@
 	path = vim/bundle/ack
 	url = git://github.com/mileszs/ack.vim
     ignore = dirty
+[submodule "vim/bundle/nextag"]
+	path = vim/bundle/nextag
+	url = https://github.com/tejr/nextag
+    ignore = dirty
+
