@@ -34,7 +34,7 @@ prompt() {
 
         # Revert to simple inexpensive prompt
         off)
-            PROMPT_COMMAND=
+            unset -v PROMPT_COMMAND
             PS1='\$ '
             ;;
 
