@@ -13,3 +13,6 @@ if [[ -r $HOME/.bashrc ]]; then
     source "$HOME"/.bashrc
 fi
 
+# Print Bash version
+printf 'bash: %s\n' "$BASH_VERSION"
+
