@@ -1,3 +1,8 @@
+# Give up completely if no BASH_VERSINFO (<2.0)
+if [ -z "$BASH_VERSINFO" ]; then
+    return
+fi
+
 # Don't do anything if not running interactively
 if [[ $- != *i* ]]; then
     return
