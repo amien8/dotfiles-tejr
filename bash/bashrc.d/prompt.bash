@@ -35,9 +35,6 @@ prompt() {
 
             # String it all together
             PS1='\['"$format"'\]'"$PS1"'\['"$reset"'\] '
-
-            # Print the Bash version number to the terminal
-            printf '%sbash:%s%s\n' "$format" "$BASH_VERSION" "$reset"
             ;;
 
         # Revert to simple inexpensive prompt
