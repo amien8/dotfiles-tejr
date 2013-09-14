@@ -53,7 +53,7 @@ Configuration is included for:
 The configurations for Bash, Mutt, tmux, and Vim are the most expansive and
 most likely to be of interest. The i3 configuration is mostly changed to make
 window switching behave like Vim windows and Tmux panes do. There's a fair few
-resources defined for rxvt-unicode. Otherwise,but the rest of the configuration
+resources defined for rxvt-unicode. Otherwise, the rest of the configuration
 isn't too distant from the defaults.
 
 Shell
