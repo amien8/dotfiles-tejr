@@ -186,7 +186,7 @@ prompt() {
             local jobc=0
             while read -r _; do
                 ((jobc++))
-            done < <(jobs)
+            done < <(jobs -p)
             if ((jobc > 0)); then
                 printf '{%d}' "$jobc"
             fi
