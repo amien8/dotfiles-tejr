@@ -47,3 +47,18 @@ URxvt.urgentOnBell       : true
 *.color14    : #34E2E2
 *.color15    : #EEEEEC
 
+! Xscreensaver
+xscreensaver.Dialog.background             : #222222
+xscreensaver.Dialog.bottomShadowColor      : #222222
+xscreensaver.Dialog.Button.background      : #444444
+xscreensaver.Dialog.Button.foreground      : #ffffff
+xscreensaver.Dialog.foreground             : #dddddd
+xscreensaver.Dialog.internalBorderWidth    : 30
+xscreensaver.Dialog.shadowThickness        : 2
+xscreensaver.Dialog.text.background        : #444444
+xscreensaver.Dialog.text.foreground        : #ffffff
+xscreensaver.Dialog.topShadowColor         : #222222
+xscreensaver.passwd.thermometer.background : #000000
+xscreensaver.passwd.thermometer.foreground : #777777
+xscreensaver.passwd.thermometer.width      : 12
+
