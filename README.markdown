@@ -90,6 +90,10 @@ actually works for arrays with sparse indexes, unlike the above syntax:
 array+=("$item")
 ```
 
+Where I do use features that are only available in versions of Bash newer than
+2.05a, such as newer `shopt` options or `PROMPT_DTRIM`, they are only run after
+testing `BASH_VERSINFO` appropriately.
+
 My prompt generally looks like this, colored bright green:
 
     [user@hostname:~]$
