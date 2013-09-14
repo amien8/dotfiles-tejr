@@ -14,7 +14,7 @@ HISTCONTROL=ignoreboth
 HISTTIMEFORMAT='%F %T  '
 
 # Don't tell me about mail
-unset MAILCHECK
+unset -v MAILCHECK
 
 # Never beep at me
 setterm -bfreq 0 2>/dev/null
@@ -70,5 +70,5 @@ if [[ -d $HOME/.bashrc.d ]]; then
         [[ -f $config ]] && source "$config"
     done
 fi
-unset config
+unset -v config
 
