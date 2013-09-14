@@ -34,6 +34,9 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
+# Mod+slash locks the screen
+bindsym $mod+slash exec xscreensaver-command -lock
+
 # Mod+backslash splits horizontally
 bindsym $mod+backslash split h
 
