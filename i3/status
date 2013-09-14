@@ -1,0 +1,12 @@
+# i3status -- Just show load average and local time
+
+order += "load"
+order += "tztime local"
+
+load {
+    format = "%1min/%5min/%15min"
+}
+tztime local {
+    format = "%Y-%m-%d %H:%M:%S"
+}
+

@@ -102,12 +102,12 @@ while getopts :gmntx opt; do
             lns "$dotfiles"/tmux/tmux.conf "$HOME"/.tmux.conf
             ;;
         x)
+            lns "$dotfiles"/i3           "$HOME"/.i3
             lns "$dotfiles"/X/Xmodmap    "$HOME"/.Xmodmap
             lns "$dotfiles"/X/Xresources "$HOME"/.Xresources
             lns "$dotfiles"/X/xsession   "$HOME"/.xsession
             lns "$dotfiles"/X/xsessionrc "$HOME"/.xsessionrc
             lns "$dotfiles"/vim/gvimrc   "$HOME"/.gvimrc
-            lns "$dotfiles"/awesome      "$HOME"/.config/awesome
             ;;
     esac
 done

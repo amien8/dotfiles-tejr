@@ -1,0 +1,108 @@
+# Use Mod4 as modifier
+set $mod Mod4
+
+# Use Verdana as the system font
+font pango:Verdana 7
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# Mod+Shift+r restarts i3wm
+bindsym $mod+Shift+r restart
+
+# Mod+Shift+q logs out of i3wm
+bindsym $mod+Shift+q exit
+
+# Mod+Enter starts a terminal
+bindsym $mod+Return exec urxvtcd
+
+# Mod+Shift+c kills the focussed window
+bindsym $mod+Shift+c kill
+
+# Mod+Shift+d runs Dmenu
+bindsym $mod+d exec dmenu_run
+
+# Mod+Shift+h/j/k/l change focus in a Vimlike way
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Mod+Shift+h/j/k/l move the window in a Vimlike way
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# Mod+backslash splits horizontally
+bindsym $mod+backslash split h
+
+# Mod+minus splits vertically
+bindsym $mod+minus split v
+
+# Mod+f makes the focussed container fullscreen
+bindsym $mod+f fullscreen
+
+# Mod+s/w/e changes to stacking/tabbed/togglesplit layout
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# Mod+space toggles between tiled and floating
+bindsym $mod+space floating toggle
+
+# Mod+a/z switches focus between container parent and child
+bindsym $mod+a focus parent
+bindsym $mod+z focus child
+
+# Mod+<n> switches to a workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+
+# Mod+Shift+<n> moves a container to a workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+
+# Mod+r resizes a container
+bindsym $mod+r mode "resize"
+mode "resize" {
+    bindsym h resize shrink width  10 px or 10 ppt
+    bindsym j resize grow   height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow   width  10 px or 10 ppt
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# i3bar at bottom of screen
+bar {
+    font              pango:Verdana 7
+    position          bottom
+    status_command    i3status --config ~/.i3/status
+    workspace_buttons yes
+
+    colors {
+        background #111111
+        statusline #eeeeee
+
+        focused_workspace  #ffffff #285577
+        active_workspace   #ffffff #333333
+        inactive_workspace #888888 #222222
+        urgent_workspace   #ffffff #900000
+    }
+}
+

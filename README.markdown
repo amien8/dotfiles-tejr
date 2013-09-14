@@ -32,13 +32,13 @@ Configuration is included for:
 
 *   [ack][2] — Perl alternative to `grep(1)`, including a copy of its
     standalone version
-*   [awesome][3] — Tiling window manager
-*   [Bash][4] — GNU Bourne-Again Shell, including a `~/.profile` configured to
+*   [Bash][3] — GNU Bourne-Again Shell, including a `~/.profile` configured to
     work with most Bourne-compatible shells
-*   [cURL][5] — Command-line tool for transferring data with URL syntax
-*   [Git][6] — Distributed version control system
-*   [GnuPG][7] — GNU Privacy Guard, for private communication and file
+*   [cURL][4] — Command-line tool for transferring data with URL syntax
+*   [Git][5] — Distributed version control system
+*   [GnuPG][6] — GNU Privacy Guard, for private communication and file
     encryption
+*   [i3wm][7] — Tiling window manager
 *   [Mutt][8] — Terminal mail user agent
 *   [Newsbeuter][9] — Terminal RSS/Atom feed reader
 *   [Perl::Critic][10] — Static analysis tool for Perl code
@@ -159,11 +159,11 @@ next time you’re in New Zealand.
 
 [1]: http://git-scm.com/book/en/Git-Tools-Submodules
 [2]: http://beyondgrep.com/
-[3]: http://awesome.naquadah.org/
-[4]: https://www.gnu.org/software/bash/
-[5]: http://curl.haxx.se/
-[6]: http://git-scm.com/
-[7]: http://www.gnupg.org/
+[3]: https://www.gnu.org/software/bash/
+[4]: http://curl.haxx.se/
+[5]: http://git-scm.com/
+[6]: http://www.gnupg.org/
+[7]: http://i3wm.org/
 [8]: http://www.mutt.org/
 [9]: http://www.newsbeuter.org/
 [10]: http://search.cpan.org/~thaljef/Perl-Critic-1.118/lib/Perl/Critic.pm
