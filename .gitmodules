@@ -76,6 +76,6 @@
     ignore = dirty
 [submodule "vim/bundle/nextag"]
 	path = vim/bundle/nextag
-	url = https://github.com/tejr/nextag
+	url = git://github.com/tejr/nextag
     ignore = dirty
 
