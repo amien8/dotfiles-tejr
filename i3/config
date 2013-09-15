@@ -102,6 +102,12 @@ bindsym XF86AudioRaiseVolume exec amixer -q sset Master 5%+ unmute
 bindsym XF86AudioLowerVolume exec amixer -q sset Master 5%- unmute
 bindsym XF86AudioMute        exec amixer -q sset Master toggle
 
+# Special modifier keys control ncmcpp
+bindsym XF86AudioStop exec ncmpcpp stop
+bindsym XF86AudioPlay exec ncmpcpp toggle
+bindsym XF86AudioNext exec ncmpcpp next
+bindsym XF86AudioPrev exec ncmpcpp prev
+
 # i3bar at bottom of screen
 bar {
     font              pango:Verdana 7
