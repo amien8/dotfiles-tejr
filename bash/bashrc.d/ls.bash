@@ -1,4 +1,4 @@
-# Function returns calculated options for ls
+# Return appropriate options for ls
 lsopts() {
 
     # Snarf the output of `ls --help` into a variable

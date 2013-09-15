@@ -1,4 +1,4 @@
-# Function returns calculated options for grep
+# Return appropriate options for grep
 grepopts() {
 
     # Snarf the output of `grep --help` into a variable
