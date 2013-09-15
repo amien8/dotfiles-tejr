@@ -1,4 +1,4 @@
-# Commpletion for ssh/sftp/ssh-copy-id with config hostnames
+# Completion for ssh/sftp/ssh-copy-id with config hostnames
 _ssh() {
     local config=$HOME/.ssh/config
     local word=${COMP_WORDS[COMP_CWORD]}
