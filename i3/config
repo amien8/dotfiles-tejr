@@ -97,6 +97,11 @@ bindsym Print exec sh -c 'mkdir -p "$HOME"/Screenshots && import "$HOME"/Screens
 # Shift-PrintScren selects and takes a screenshot of a section of the screen
 bindsym --release Shift+Print exec sh -c 'mkdir -p "$HOME"/Screenshots && import "$HOME"/Screenshots/snap-"$(date +%Y%m%d%H%M%S)".png'
 
+# Special modifier keys change volume
+bindsym XF86AudioRaiseVolume exec amixer -q sset Master 5%+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q sset Master 5%- unmute
+bindsym XF86AudioMute        exec amixer -q sset Master toggle
+
 # i3bar at bottom of screen
 bar {
     font              pango:Verdana 7
