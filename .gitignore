@@ -1,5 +1,6 @@
 bash/bashrc.d/*
 !bash/bashrc.d/aliases.bash
+!bash/bashrc.d/bell.bash
 !bash/bashrc.d/cd.bash
 !bash/bashrc.d/completion.bash
 !bash/bashrc.d/ed.bash
