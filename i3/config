@@ -109,7 +109,7 @@ bindsym XF86AudioNext exec ncmpcpp next
 bindsym XF86AudioPrev exec ncmpcpp prev
 
 # Special modifier keys run calculator, Thunar, mutt, and Firefox
-bindsym XF86Calculator exec urxvtcd -e bc
+bindsym XF86Calculator exec xcalc
 bindsym XF86Explorer   exec thunar
 bindsym XF86Mail       exec urxvtcd -e mutt
 bindsym XF86HomePage   exec firefox
