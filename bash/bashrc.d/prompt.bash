@@ -8,7 +8,7 @@ prompt() {
         on)
             # Set up pre-prompt command and prompt format
             PROMPT_COMMAND='ret=$? ; history -a'
-            PS1='\[\a\][\u@\h:\w]$(prompt vcs)$(prompt job)$(prompt ret)\$'
+            PS1='[\u@\h:\w]$(prompt vcs)$(prompt job)$(prompt ret)\$'
 
             # If Bash 4.0 is available, trim very long paths in prompt
             if ((${BASH_VERSINFO[0]} >= 4)); then
