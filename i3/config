@@ -20,7 +20,7 @@ bindsym $mod+Return exec urxvtcd
 bindsym $mod+Shift+c kill
 
 # Mod+Shift+d runs Dmenu
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec dmenu_run -fn 'terminus-iso8859-1-12' -nb "#111111" -nf "#eeeeee" -sb "#285577" -sf "#ffffff"
 
 # Mod+Shift+h/j/k/l change focus in a Vimlike way
 bindsym $mod+h focus left
