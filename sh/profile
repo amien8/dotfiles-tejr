@@ -10,5 +10,5 @@ if [ -d "$HOME"/.profile.d ]; then
         [ -f "$config" ] && . "$config"
     done
 fi
-unset config
+unset -v config
 
