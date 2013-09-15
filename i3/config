@@ -94,7 +94,7 @@ mode "resize" {
 # PrintScreen takes a screenshot of the whole display
 bindsym Print exec sh -c 'mkdir -p "$HOME"/Screenshots && import "$HOME"/Screenshots/shot-"$(date +%Y%m%d%H%M%S)".png'
 
-# Shift-PrintScren selects and takes a screenshot of a section of the screen
+# Shift-PrintScreen selects and takes a screenshot of a section of the screen
 bindsym --release Shift+Print exec sh -c 'mkdir -p "$HOME"/Screenshots && import "$HOME"/Screenshots/snap-"$(date +%Y%m%d%H%M%S)".png'
 
 # Special modifier keys change volume
