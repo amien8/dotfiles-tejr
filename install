@@ -10,6 +10,7 @@
 # Bash, cURL, Git, Vim, and some terminfo(5) definitions. You can supply
 # additional flags to link in other configuration files:
 #
+#   -d -- mysql/psql
 #   -g -- GnuPG
 #   -m -- Mutt
 #   -n -- Newsbeuter
@@ -83,8 +84,12 @@ lns "$dotfiles"/vim/vimrc            "$HOME"/.vimrc
 lns "$dotfiles"/vim                  "$HOME"/.vim
 
 # Link in shell stuff
-while getopts :gmntx opt; do
+while getopts :dgmntx opt; do
     case $opt in
+        d)
+            lns "$dotfiles"/mysql/my.cnf "$HOME"/.my.cnf
+            lns "$dotfiles"/psql/psqlrc  "$HOME"/.psqlrc
+            ;;
         g)
             mkdir -p -- "$HOME"/.gnupg
             lns "$dotfiles"/gnupg/gpg.conf       "$HOME"/.gnupg/gpg.conf
