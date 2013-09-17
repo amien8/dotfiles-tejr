@@ -31,7 +31,7 @@ $ ~/.dotfiles/install
 You can add any combination of the following options to add configuration for
 other tools:
 
-*   `-d` — `mysql` and `psql`
+*   `-d` — `mysql(1)` and `psql(1)`
 *   `-g` — GnuPG
 *   `-m` — Mutt
 *   `-n` — Ncmpcpp
@@ -63,10 +63,13 @@ Configuration is included for:
     communication and file encryption
 *   [i3](http://i3wm.org/) — Tiling window manager
 *   [Mutt](http://www.mutt.org/) — Terminal mail user agent
+*   [`mysql(1)`](http://linux.die.net/man/1/mysql) — Command-line MySQL client
 *   [Ncmpcpp](http://ncmpcpp.rybczak.net/) — ncurses music player client
 *   [Newsbeuter](http://www.newsbeuter.org/) — Terminal RSS/Atom feed reader
 *   [Perl::Critic](http://search.cpan.org/~thaljef/Perl-Critic-1.118/lib/Perl/Critic.pm)
     — Static analysis tool for Perl code
+*   [`psql(1)`](http://linux.die.net/man/1/psql) — Command-line PostgreSQL
+    client
 *   [Readline](http://cnswww.cns.cwru.edu/php/chet/readline/rltop.html) — GNU
     library for user input used by Bash, MySQL, and others
 *   [Taskwarrior](http://taskwarrior.org/projects/show/taskwarrior) —
