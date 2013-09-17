@@ -18,7 +18,21 @@ There’s an installation script, but it’s pretty bare-bones, so don’t run i
 without reading it first. You’ll need to have a recent enough version of Git to
 support [submodules][1] for this to work.
 
+To install the core terminal-only files (ack, Bash, cURL, Git, Vim), use the
+following:
+
     $ ~/.dotfiles/install
+
+You can add any combination of the following options to add configuration for
+other tools:
+
+*   `-d` — `mysql` and `psql`
+*   `-g` — GnuPG
+*   `-m` — Mutt
+*   `-n` — Ncmpcpp
+*   `-r` — Newsbeuter
+*   `-t` — tmux
+*   `-x` — X11
 
 The script will prompt you about replacing old files. If you’re brave/insane,
 you can pipe `yes(1)` into it to accept all the replacements:
