@@ -186,6 +186,4 @@ next time you’re in New Zealand.
 [24]: http://www.gnupg.org/related_software/gpgme/
 [25]: http://blog.sanctum.geek.nz/linux-crypto-email/
 [26]: https://github.com/tpope/vim-pathogen
-[27]: http://www.sanctum.geek.nz/about/tom-ryder
-[28]: http://www.opensource.org/licenses/MIT
 
