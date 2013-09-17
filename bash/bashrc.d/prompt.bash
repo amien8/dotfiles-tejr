@@ -142,7 +142,7 @@ prompt() {
             fi
 
             # Determine the repository URL and root directory
-            local url root
+            local key value url root
             while IFS=: read -r key value; do
                 case $key in
                     'URL')
