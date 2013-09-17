@@ -13,39 +13,6 @@ $ git clone git://github.com/tejr/dotfiles.git ~/.dotfiles
 It’s more likely you’ll want to read the configuration files and find snippets
 relevant to your particular workflow.
 
-Installation
-------------
-
-There’s an installation script, but it’s pretty bare-bones, so don’t run it
-without reading it first. You’ll need to have a recent enough version of Git to
-support [submodules](http://git-scm.com/book/en/Git-Tools-Submodules) for this
-to work.
-
-To install the core terminal-only files (ack, Bash, cURL, Git, Vim), use the
-following:
-
-```bash
-$ ~/.dotfiles/install
-```
-
-You can add any combination of the following options to add configuration for
-other tools:
-
-*   `-d` — `mysql(1)` and `psql(1)`
-*   `-g` — GnuPG
-*   `-m` — Mutt
-*   `-n` — Ncmpcpp
-*   `-r` — Newsbeuter
-*   `-t` — tmux
-*   `-x` — X11
-
-The script will prompt you about replacing old files. If you’re brave/insane,
-you can pipe `yes(1)` into it to accept all the replacements:
-
-```bash
-$ yes | ~/.dotfiles/install -dgmnrtx
-```
-
 Tools
 -----
 
@@ -87,6 +54,39 @@ most likely to be of interest. The i3 configuration is mostly changed to make
 window switching behave like Vim windows and Tmux panes do. There's a fair few
 resources defined for rxvt-unicode. Otherwise, the rest of the configuration
 isn't too distant from the defaults.
+
+Installation
+------------
+
+There’s an installation script, but it’s pretty bare-bones, so don’t run it
+without reading it first. You’ll need to have a recent enough version of Git to
+support [submodules](http://git-scm.com/book/en/Git-Tools-Submodules) for this
+to work.
+
+To install the core terminal-only files (ack, Bash, cURL, Git, Vim), use the
+following:
+
+```bash
+$ ~/.dotfiles/install
+```
+
+You can add any combination of the following options to add configuration for
+other tools:
+
+*   `-d` — `mysql(1)` and `psql(1)`
+*   `-g` — GnuPG
+*   `-m` — Mutt
+*   `-n` — Ncmpcpp
+*   `-r` — Newsbeuter
+*   `-t` — tmux
+*   `-x` — X11
+
+The script will prompt you about replacing old files. If you’re brave/insane,
+you can pipe `yes(1)` into it to accept all the replacements:
+
+```bash
+$ yes | ~/.dotfiles/install -dgmnrtx
+```
 
 Shell
 -----
