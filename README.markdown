@@ -97,9 +97,9 @@ Where I do use features that are only available in versions of Bash newer than
 2.05a, such as newer `shopt` options or `PROMPT_DTRIM`, they are only run after
 testing `BASH_VERSINFO` appropriately.
 
-My prompt generally looks like this, colored bright green:
+My prompt looks something like this:
 
-    [user@hostname:~]$
+![Bash prompt](prompt.png)
 
 It expands based on context to include these elements in this order:
 
@@ -107,10 +107,6 @@ It expands based on context to include these elements in this order:
     show whether there are local modifications at a glance
 *   The number of running background jobs
 *   The exit status of the last command, if non-zero
-
-With all of the above (a rare situation), it might look something like this:
-
-    [user@hostname:~/gitrepo](git:master?){1}<127>$
 
 This is all managed within the `prompt` function. Some of the Git stuff was
 adapted from @necolas’ [superb dotfiles][20].
