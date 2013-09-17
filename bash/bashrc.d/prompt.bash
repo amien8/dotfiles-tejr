@@ -73,7 +73,7 @@ prompt() {
             local branch
             branch=$(git symbolic-ref --quiet HEAD 2>/dev/null) \
                 || branch=$(git rev-parse --short HEAD 2>/dev/null) \
-                || branch='unknown'
+                || branch=unknown
             branch=${branch##*/}
 
             # Start collecting working copy state flags
