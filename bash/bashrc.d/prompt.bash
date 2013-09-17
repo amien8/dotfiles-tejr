@@ -168,13 +168,26 @@ prompt() {
             branch=${branch#branches/}
             branch=${branch%%/*}
 
-            # Start collecting working copy state flags
-            local -a state
+            # Parse the output of svn info to determine working copy state
+            local symbol new modified
+            while read -r symbol _; do
+                case $symbol in
+                    *'?'*)
+                        new=1
+                        ;;
+                    *)
+                        modified=1
+                        ;;
+                esac
+            done < <(svn status 2>/dev/null)
 
-            # If there are changes in the working directory, add an exclamation
-            # mark to the state
-            if [[ $(svn status 2>/dev/null) ]]; then
+            # Add appropriate state flags
+            local -a state
+            if [[ $modified ]]; then
                 state=("${state[@]}" '!')
+            fi
+            if [[ $new ]]; then
+                state=("${state[@]}" '?')
             fi
 
             # Print the state in brackets with an svn: prefix
