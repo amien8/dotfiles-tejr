@@ -18,7 +18,8 @@ Installation
 
 There’s an installation script, but it’s pretty bare-bones, so don’t run it
 without reading it first. You’ll need to have a recent enough version of Git to
-support [submodules][1] for this to work.
+support [submodules](http://git-scm.com/book/en/Git-Tools-Submodules) for this
+to work.
 
 To install the core terminal-only files (ack, Bash, cURL, Git, Vim), use the
 following:
@@ -50,26 +51,33 @@ Tools
 
 Configuration is included for:
 
-*   [ack][2] — Perl alternative to `grep(1)`, including a copy of its
-    standalone version
-*   [Bash][3] — GNU Bourne-Again Shell, including a `~/.profile` configured to
-    work with most Bourne-compatible shells
-*   [cURL][4] — Command-line tool for transferring data with URL syntax
-*   [Git][5] — Distributed version control system
-*   [GnuPG][6] — GNU Privacy Guard, for private communication and file
-    encryption
-*   [i3][7] — Tiling window manager
-*   [Mutt][8] — Terminal mail user agent
-*   [Ncmpcpp][9] — ncurses music player client
-*   [Newsbeuter][10] — Terminal RSS/Atom feed reader
-*   [Perl::Critic][11] — Static analysis tool for Perl code
-*   [Readline][12] — GNU library for user input used by Bash, MySQL, and others
-*   [Taskwarrior][13] — Command-line task list manager
-*   [tmux][14] — Terminal multiplexer similar to GNU Screen
-*   [rxvt-unicode][15] — Fork of the rxvt terminal emulator with Unicode
-    support
-*   [Vim][16] — Vi IMproved, a text editor
-*   [X11][17] — Windowing system with network transparency for Unix
+*   [ack](http://beyondgrep.com/) — Perl alternative to `grep(1)`, including a
+    copy of its standalone version
+*   [Bash](https://www.gnu.org/software/bash/) — GNU Bourne-Again Shell,
+    including a `~/.profile` configured to work with most Bourne-compatible
+    shells
+*   [cURL](http://curl.haxx.se/) — Command-line tool for transferring data with
+    URL syntax
+*   [Git](http://git-scm.com/) — Distributed version control system
+*   [GnuPG](http://www.gnupg.org/) — GNU Privacy Guard, for private
+    communication and file encryption
+*   [i3](http://i3wm.org/) — Tiling window manager
+*   [Mutt](http://www.mutt.org/) — Terminal mail user agent
+*   [Ncmpcpp](http://ncmpcpp.rybczak.net/) — ncurses music player client
+*   [Newsbeuter](http://www.newsbeuter.org/) — Terminal RSS/Atom feed reader
+*   [Perl::Critic](http://search.cpan.org/~thaljef/Perl-Critic-1.118/lib/Perl/Critic.pm)
+    — Static analysis tool for Perl code
+*   [Readline](http://cnswww.cns.cwru.edu/php/chet/readline/rltop.html) — GNU
+    library for user input used by Bash, MySQL, and others
+*   [Taskwarrior](http://taskwarrior.org/projects/show/taskwarrior) —
+    Command-line task list manager
+*   [tmux](http://tmux.sourceforge.net/) — Terminal multiplexer similar to GNU
+    Screen
+*   [rxvt-unicode](http://software.schmorp.de/pkg/rxvt-unicode.html) — Fork of
+    the rxvt terminal emulator with Unicode support
+*   [Vim](http://www.vim.org/) — Vi IMproved, a text editor
+*   [X11](http://www.x.org/wiki/) — Windowing system with network transparency
+    for Unix
 
 The configurations for Bash, Mutt, tmux, and Vim are the most expansive and
 most likely to be of interest. The i3 configuration is mostly changed to make
@@ -98,9 +106,10 @@ directory changes all the time depending on the host, and only specific scripts
 in it are versioned; the rest are ignored by `.gitignore`.
 
 As I occasionally have work on very old internal systems, my Bash is written to
-work with [any version 2.05a or newer][19], a few versions after the less
-error-prone `[[` test syntax was introduced. This is why I use older syntax for
-certain things such as appending items to arrays:
+work with [any version 2.05a or
+newer](http://wiki.bash-hackers.org/scripting/bashchanges), a few versions
+after the less error-prone `[[` test syntax was introduced. This is why I use
+older syntax for certain things such as appending items to arrays:
 
 ```bash
 array=("${array[@]}" "$item")
@@ -129,7 +138,7 @@ It expands based on context to include these elements in this order:
 *   The exit status of the last command, if non-zero
 
 This is all managed within the `prompt` function. Some of the Git stuff was
-adapted from @necolas’ [superb dotfiles][20].
+adapted from @necolas’ [superb dotfiles](https://github.com/necolas/dotfiles).
 
 When I use any other Bourne-compatible shell, I’m generally happy to accept its
 defaults for interactive behavior.
@@ -138,12 +147,16 @@ Mutt
 ----
 
 My mail is kept in individual Maildirs under `~/Mail`, with `inbox` being where
-most unfiltered mail is sent. I use [Getmail][21], [Procmail][22], and
-[MSMTP][23]; the configurations for these are not included here. I make heavy
-use of GnuPG for email—everything is signed by default, and I encrypt whenever
-I have a public key available for the recipient. The GnuPG interfacing is done
-with [GPGme][24], rather than defining commands for each crypto operation. I
-wrote [an article about this setup][25] if it sounds appealing.
+most unfiltered mail is sent. I use
+[Getmail](http://pyropus.ca/software/getmail/),
+[Procmail](http://www.procmail.org/), and
+[MSMTP](http://msmtp.sourceforge.net/); the configurations for these are not
+included here. I make heavy use of GnuPG for email—everything is signed by
+default, and I encrypt whenever I have a public key available for the
+recipient. The GnuPG interfacing is done with
+[GPGme](http://www.gnupg.org/related_software/gpgme/), rather than defining
+commands for each crypto operation. I wrote [an article about this
+setup](http://blog.sanctum.geek.nz/linux-crypto-email/) if it sounds appealing.
 
 tmux
 ----
@@ -167,7 +180,7 @@ interactive behavior and keybindings.
 
 The configuration is extensively commented, mostly because I was reading
 through it one day and realised I’d forgotten what half of it did. Plugins are
-loaded using @tpope’s [pathogen.vim][26].
+loaded using @tpope’s [pathogen.vim](https://github.com/tpope/vim-pathogen).
 
 License
 -------
@@ -175,31 +188,4 @@ License
 Public domain. It’s just configuration, do whatever you like with it if any of
 it’s useful to you. If you’re feeling generous, you could always buy me a beer
 next time you’re in New Zealand.
-
-[1]: http://git-scm.com/book/en/Git-Tools-Submodules
-[2]: http://beyondgrep.com/
-[3]: https://www.gnu.org/software/bash/
-[4]: http://curl.haxx.se/
-[5]: http://git-scm.com/
-[6]: http://www.gnupg.org/
-[7]: http://i3wm.org/
-[8]: http://www.mutt.org/
-[9]: http://ncmpcpp.rybczak.net/
-[10]: http://www.newsbeuter.org/
-[11]: http://search.cpan.org/~thaljef/Perl-Critic-1.118/lib/Perl/Critic.pm
-[12]: http://cnswww.cns.cwru.edu/php/chet/readline/rltop.html
-[13]: http://taskwarrior.org/projects/show/taskwarrior
-[14]: http://tmux.sourceforge.net/
-[15]: http://software.schmorp.de/pkg/rxvt-unicode.html
-[16]: http://www.vim.org/
-[17]: http://www.x.org/wiki/
-[18]: http://www.perl.com/doc/FMTEYEWTK/versus/csh.whynot
-[19]: http://wiki.bash-hackers.org/scripting/bashchanges
-[20]: https://github.com/necolas/dotfiles
-[21]: http://pyropus.ca/software/getmail/
-[22]: http://www.procmail.org/
-[23]: http://msmtp.sourceforge.net/
-[24]: http://www.gnupg.org/related_software/gpgme/
-[25]: http://blog.sanctum.geek.nz/linux-crypto-email/
-[26]: https://github.com/tpope/vim-pathogen
 
