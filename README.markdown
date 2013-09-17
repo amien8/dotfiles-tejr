@@ -6,7 +6,9 @@ from machine to machine and that I consider safe to publish. You’re welcome to
 use them, but you’ll probably want to fork it to remove anything peculiar to me
 or my setup that I’ve left in here.
 
-    $ git clone git://github.com/tejr/dotfiles.git ~/.dotfiles
+```bash
+$ git clone git://github.com/tejr/dotfiles.git ~/.dotfiles
+```
 
 It’s more likely you’ll want to read the configuration files and find snippets
 relevant to your particular workflow.
@@ -21,7 +23,9 @@ support [submodules][1] for this to work.
 To install the core terminal-only files (ack, Bash, cURL, Git, Vim), use the
 following:
 
-    $ ~/.dotfiles/install
+```bash
+$ ~/.dotfiles/install
+```
 
 You can add any combination of the following options to add configuration for
 other tools:
@@ -37,7 +41,9 @@ other tools:
 The script will prompt you about replacing old files. If you’re brave/insane,
 you can pipe `yes(1)` into it to accept all the replacements:
 
-    $ yes | ~/.dotfiles/install
+```bash
+$ yes | ~/.dotfiles/install -dgmnrtx
+```
 
 Tools
 -----
