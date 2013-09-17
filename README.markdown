@@ -100,7 +100,7 @@ appropriate to the system and the software it has available.
 
 My interactive and scripting shell of choice is Bash; as a GNU/Linux admin who
 ends up installing Bash on BSD machines anyway, I very rarely have to write
-Bourne-compatible scripts.
+Bourne-compatible scripts, so all of those files are replete with Bashisms.
 
 My `.bash_profile` calls `.profile` for variable exports, and then runs
 `.bashrc` for interactive shells. Subscripts are kept in `.bashrc.d`, and all
