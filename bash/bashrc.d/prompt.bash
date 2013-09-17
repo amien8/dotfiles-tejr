@@ -141,11 +141,6 @@ prompt() {
                 return 1
             fi
 
-            # Exit if not inside a Subversion working copy
-            if ! svn info >/dev/null 2>&1; then
-                return 1
-            fi
-
             # Determine the repository URL and root directory
             local url root
             while IFS=: read key value; do
@@ -158,6 +153,11 @@ prompt() {
                         ;;
                 esac
             done < <(svn info 2>/dev/null)
+
+            # Exit if we couldn't get either
+            if ! [[ $url && $root ]]; then
+                return 1
+            fi
 
             # Remove the root from the URL to get what's hopefully the branch
             # name, removing leading slashes and the 'branches' prefix, and any
