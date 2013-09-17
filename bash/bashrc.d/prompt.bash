@@ -147,9 +147,17 @@ prompt() {
             fi
 
             # Determine the repository URL and root directory
-            local info=$(svn info 2>/dev/null)
-            local url=$(awk -F': ' '$1 == "URL" {print $2}' <<<"$info")
-            local root=$(awk -F': ' '$1 == "Repository Root" {print $2}' <<<"$info")
+            local url root
+            while IFS=: read key value; do
+                case $key in
+                    'URL')
+                        url=${value## }
+                        ;;
+                    'Repository Root')
+                        root=${value## }
+                        ;;
+                esac
+            done < <(svn info 2>/dev/null)
 
             # Remove the root from the URL to get what's hopefully the branch
             # name, removing leading slashes and the 'branches' prefix, and any
