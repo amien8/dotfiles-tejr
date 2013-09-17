@@ -143,7 +143,7 @@ prompt() {
 
             # Determine the repository URL and root directory
             local url root
-            while IFS=: read key value; do
+            while IFS=: read -r key value; do
                 case $key in
                     'URL')
                         url=${value## }
