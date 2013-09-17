@@ -17,6 +17,7 @@ gnupg/*
 mutt/muttrc.alternates
 mutt/signature.*
 newsbeuter/urls
+ncmpcpp/*.log
 sh/profile.d/*
 !sh/profile.d/browser.sh
 !sh/profile.d/editor.sh

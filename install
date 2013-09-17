@@ -13,7 +13,8 @@
 #   -d -- mysql/psql
 #   -g -- GnuPG
 #   -m -- Mutt
-#   -n -- Newsbeuter
+#   -n -- Ncmpcpp
+#   -r -- Newsbeuter
 #   -t -- tmux
 #   -x -- X11
 #
@@ -84,7 +85,7 @@ lns "$dotfiles"/vim/vimrc            "$HOME"/.vimrc
 lns "$dotfiles"/vim                  "$HOME"/.vim
 
 # Link in shell stuff
-while getopts :dgmntx opt; do
+while getopts :dgmnrtx opt; do
     case $opt in
         d)
             lns "$dotfiles"/mysql/my.cnf "$HOME"/.my.cnf
@@ -100,6 +101,9 @@ while getopts :dgmntx opt; do
             lns "$dotfiles"/mutt        "$HOME"/.mutt
             ;;
         n)
+            lns "$dotfiles"/ncmpcpp "$HOME"/.ncmpcpp
+            ;;
+        r)
             mkdir -p -- "$HOME"/.config "$HOME"/.local/share/newsbeuter
             lns "$dotfiles"/newsbeuter "$HOME"/.config/newsbeuter
             ;;

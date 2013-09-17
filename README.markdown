@@ -40,15 +40,16 @@ Configuration is included for:
     encryption
 *   [i3][7] — Tiling window manager
 *   [Mutt][8] — Terminal mail user agent
-*   [Newsbeuter][9] — Terminal RSS/Atom feed reader
-*   [Perl::Critic][10] — Static analysis tool for Perl code
-*   [Readline][11] — GNU library for user input used by Bash, MySQL, and others
-*   [Taskwarrior][12] — Command-line task list manager
-*   [tmux][13] — Terminal multiplexer similar to GNU Screen
-*   [rxvt-unicode][14] — Fork of the rxvt terminal emulator with Unicode
+*   [Ncmpcpp][9] — ncurses music player client
+*   [Newsbeuter][10] — Terminal RSS/Atom feed reader
+*   [Perl::Critic][11] — Static analysis tool for Perl code
+*   [Readline][12] — GNU library for user input used by Bash, MySQL, and others
+*   [Taskwarrior][13] — Command-line task list manager
+*   [tmux][14] — Terminal multiplexer similar to GNU Screen
+*   [rxvt-unicode][15] — Fork of the rxvt terminal emulator with Unicode
     support
-*   [Vim][15] — Vi IMproved, a text editor
-*   [X11][16] — Windowing system with network transparency for Unix
+*   [Vim][16] — Vi IMproved, a text editor
+*   [X11][17] — Windowing system with network transparency for Unix
 
 The configurations for Bash, Mutt, tmux, and Vim are the most expansive and
 most likely to be of interest. The i3 configuration is mostly changed to make
@@ -77,7 +78,7 @@ directory changes all the time depending on the host, and only specific scripts
 in it are versioned; the rest are ignored by `.gitignore`.
 
 As I occasionally have work on very old internal systems, my Bash is written to
-work with [any version 2.05a or newer][18], a few versions after the less
+work with [any version 2.05a or newer][19], a few versions after the less
 error-prone `[[` test syntax was introduced. This is why I use older syntax for
 certain things such as appending items to arrays:
 
@@ -112,7 +113,7 @@ With all of the above (a rare situation), it might look something like this:
     [user@hostname:~/gitrepo](git:master?){1}<127>$
 
 This is all managed within the `prompt` function. Some of the Git stuff was
-adapted from @necolas’ [superb dotfiles][19].
+adapted from @necolas’ [superb dotfiles][20].
 
 When I use any other Bourne-compatible shell, I’m generally happy to accept its
 defaults for interactive behavior.
@@ -121,12 +122,12 @@ Mutt
 ----
 
 My mail is kept in individual Maildirs under `~/Mail`, with `inbox` being where
-most unfiltered mail is sent. I use [Getmail][20], [Procmail][21], and
-[MSMTP][22]; the configurations for these are not included here. I make heavy
+most unfiltered mail is sent. I use [Getmail][21], [Procmail][22], and
+[MSMTP][23]; the configurations for these are not included here. I make heavy
 use of GnuPG for email—everything is signed by default, and I encrypt whenever
 I have a public key available for the recipient. The GnuPG interfacing is done
-with [GPGme][23], rather than defining commands for each crypto operation. I
-wrote [an article about this setup][24] if it sounds appealing.
+with [GPGme][24], rather than defining commands for each crypto operation. I
+wrote [an article about this setup][25] if it sounds appealing.
 
 tmux
 ----
@@ -150,7 +151,7 @@ interactive behavior and keybindings.
 
 The configuration is extensively commented, mostly because I was reading
 through it one day and realised I’d forgotten what half of it did. Plugins are
-loaded using @tpope’s [pathogen.vim][25].
+loaded using @tpope’s [pathogen.vim][26].
 
 License
 -------
@@ -167,23 +168,24 @@ next time you’re in New Zealand.
 [6]: http://www.gnupg.org/
 [7]: http://i3wm.org/
 [8]: http://www.mutt.org/
-[9]: http://www.newsbeuter.org/
-[10]: http://search.cpan.org/~thaljef/Perl-Critic-1.118/lib/Perl/Critic.pm
-[11]: http://cnswww.cns.cwru.edu/php/chet/readline/rltop.html
-[12]: http://taskwarrior.org/projects/show/taskwarrior
-[13]: http://tmux.sourceforge.net/
-[14]: http://software.schmorp.de/pkg/rxvt-unicode.html
-[15]: http://www.vim.org/
-[16]: http://www.x.org/wiki/
-[17]: http://www.perl.com/doc/FMTEYEWTK/versus/csh.whynot
-[18]: http://wiki.bash-hackers.org/scripting/bashchanges
-[19]: https://github.com/necolas/dotfiles
-[20]: http://pyropus.ca/software/getmail/
-[21]: http://www.procmail.org/
-[22]: http://msmtp.sourceforge.net/
-[23]: http://www.gnupg.org/related_software/gpgme/
-[24]: http://blog.sanctum.geek.nz/linux-crypto-email/
-[25]: https://github.com/tpope/vim-pathogen
-[26]: http://www.sanctum.geek.nz/about/tom-ryder
-[27]: http://www.opensource.org/licenses/MIT
+[9]: http://ncmpcpp.rybczak.net/
+[10]: http://www.newsbeuter.org/
+[11]: http://search.cpan.org/~thaljef/Perl-Critic-1.118/lib/Perl/Critic.pm
+[12]: http://cnswww.cns.cwru.edu/php/chet/readline/rltop.html
+[13]: http://taskwarrior.org/projects/show/taskwarrior
+[14]: http://tmux.sourceforge.net/
+[15]: http://software.schmorp.de/pkg/rxvt-unicode.html
+[16]: http://www.vim.org/
+[17]: http://www.x.org/wiki/
+[18]: http://www.perl.com/doc/FMTEYEWTK/versus/csh.whynot
+[19]: http://wiki.bash-hackers.org/scripting/bashchanges
+[20]: https://github.com/necolas/dotfiles
+[21]: http://pyropus.ca/software/getmail/
+[22]: http://www.procmail.org/
+[23]: http://msmtp.sourceforge.net/
+[24]: http://www.gnupg.org/related_software/gpgme/
+[25]: http://blog.sanctum.geek.nz/linux-crypto-email/
+[26]: https://github.com/tpope/vim-pathogen
+[27]: http://www.sanctum.geek.nz/about/tom-ryder
+[28]: http://www.opensource.org/licenses/MIT
 

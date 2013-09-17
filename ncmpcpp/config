@@ -1,0 +1,30 @@
+# Configuration directory
+ncmpcpp_directory = "~/.ncmpcpp"
+
+# Server specifics
+mpd_host               = "localhost"
+mpd_port               = "6600"
+mpd_communication_mode = "notifications"
+mpd_connection_timeout = "5"
+mpd_crossfade_time     = "5"
+mpd_music_dir          = "/home/shares/music"
+
+# Visualization
+visualizer_fifo_path     = "/tmp/mpd.fifo"
+visualizer_in_stereo     = "yes"
+visualizer_look          = "*|"
+visualizer_output_name   = "FIFO"
+visualizer_sync_interval = "30"
+visualizer_type          = "spectrum"
+
+# Use columns everywhere
+browser_display_mode         = "columns"
+playlist_display_mode        = "columns"
+playlist_editor_display_mode = "columns"
+search_engine_display_mode   = "columns"
+song_columns_list_format     = "(40)[]{t|f} (25)[blue]{a} (25)[red]{b} (10)[green]{lr}"
+
+# Don't let me actually delete anything
+allow_physical_directories_deletion = "no"
+allow_physical_files_deletion       = "no"
+
