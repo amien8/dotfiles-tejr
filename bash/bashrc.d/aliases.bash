@@ -7,3 +7,6 @@ alias gdb='gdb -q'
 # Quick way to get ls -al, since I do that a lot
 alias ll='ls -al'
 
+# Re-source ~/.bashrc
+alias sb='source ~/.bashrc'
+
