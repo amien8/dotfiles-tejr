@@ -55,7 +55,7 @@ fi
 
 # Define dotfiles directory and check it exists
 dotfiles=$HOME/.dotfiles
-if [[ ! -d $dotfiles ]]; then
+if ! [[ -d $dotfiles ]]; then
     printf 'install: Could not find %s!\n' "$dotfiles" >&2
     exit 1
 fi
