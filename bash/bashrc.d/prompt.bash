@@ -108,10 +108,23 @@ prompt() {
             # Start collecting working copy state flags
             local -a state
 
-            # If there are changes in the tree, add an exclamation mark to the
-            # state
-            if [[ $(hg status 2>/dev/null) ]]; then
+            # Safely read status from ``git porcelain''
+            local line modified untracked
+            while IFS= read -d $'\0' -r line _; do
+                if [[ $line == '?'* ]]; then
+                    untracked=1
+                else
+                    modified=1
+                fi
+            done < <(hg status -0 2>/dev/null)
+
+            # Build state array from status output flags
+            local -a state
+            if [[ $modified ]]; then
                 state=("${state[@]}" '!')
+            fi
+            if [[ $untracked ]]; then
+                state=("${state[@]}" '?')
             fi
 
             # Print the status in brackets with an hg: prefix
