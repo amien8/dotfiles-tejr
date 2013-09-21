@@ -169,11 +169,14 @@ prompt() {
             branch=${branch%%/*}
 
             # Parse the output of svn info to determine working copy state
-            local symbol new modified
+            local symbol new added modified
             while read -r symbol _; do
                 case $symbol in
                     *'?'*)
                         new=1
+                        ;;
+                    *A*)
+                        added=1
                         ;;
                     *)
                         modified=1
@@ -183,6 +186,9 @@ prompt() {
 
             # Add appropriate state flags
             local -a state
+            if [[ $added ]]; then
+                state=("${state[@]}" '+')
+            fi
             if [[ $modified ]]; then
                 state=("${state[@]}" '!')
             fi
