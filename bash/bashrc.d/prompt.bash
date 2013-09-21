@@ -103,8 +103,8 @@ prompt() {
             fi
 
             # Print the status in brackets with a git: prefix
-            printf '(git:%s%s)' \
-                "${branch:-unknown}" "$(printf %s "${state[@]}")"
+            local IFS=
+            printf '(git:%s%s)' "${branch:-unknown}" "${state[*]}"
             ;;
 
         # Mercurial prompt function
@@ -130,8 +130,8 @@ prompt() {
             fi
 
             # Print the status in brackets with an hg: prefix
-            printf '(hg:%s%s)' \
-                "${branch:-unknown}" "$(printf %s "${state[@]}")"
+            local IFS=
+            printf '(hg:%s%s)' "${branch:-unknown}" "${state[*]}"
             ;;
 
         # Subversion prompt function
@@ -197,8 +197,8 @@ prompt() {
             fi
 
             # Print the state in brackets with an svn: prefix
-            printf '(svn:%s%s)' \
-                "${branch:-unknown}" "$(printf %s "${state[@]}")"
+            local IFS=
+            printf '(svn:%s%s)' "${branch:-unknown}" "${state[*]}"
             ;;
 
         # VCS wrapper prompt function; print the first relevant prompt, if any
