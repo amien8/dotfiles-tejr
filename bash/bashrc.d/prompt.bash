@@ -58,7 +58,7 @@ prompt() {
 
             # Safely read status with -z --porcelain
             local line ready modified untracked
-            while IFS= read -d $'\0' -r line _; do
+            while IFS= read -d $'\0' -r line; do
                 if [[ $line == [MADRC]* ]]; then
                     ready=1
                 fi
@@ -110,7 +110,7 @@ prompt() {
 
             # Safely read status from ``git porcelain''
             local line modified untracked
-            while IFS= read -d $'\0' -r line _; do
+            while IFS= read -d $'\0' -r line; do
                 if [[ $line == '?'* ]]; then
                     untracked=1
                 else
@@ -168,7 +168,7 @@ prompt() {
 
             # Parse the output of svn info to determine working copy state
             local symbol modified untracked
-            while read -r symbol; do
+            while read -r symbol _; do
                 if [[ $symbol == *'?'* ]]; then
                     untracked=1
                 else
