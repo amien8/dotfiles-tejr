@@ -43,63 +43,53 @@ prompt() {
             PS1='\$ '
             ;;
 
-        # Git prompt function
         git)
-            # Bail if we have no git(1)
+            # Bail if we have no git(1) or if our git status call fails
             if ! hash git 2>/dev/null; then
                 return 1
             fi
 
-            # Exit if inside a .git directory
-            local gitdir=$(git rev-parse --is-inside-git-dir 2>/dev/null)
-            if [[ $gitdir == true ]]; then
+            # Bail if the required git status call fails
+            if ! git status -z --porcelain >/dev/null 2>&1; then
                 return 1
             fi
 
-            # Exit if not inside a working tree
-            local worktree=$(git rev-parse --is-inside-work-tree 2>/dev/null)
-            if [[ $worktree != true ]]; then
-                return 1
-            fi
-
-            # Read the repository's status to refresh its info; ignore all the
-            # output; give up if this fails
-            if ! git status >/dev/null 2>&1; then
-                return 1
-            fi
-
-            # Figure out the branch to show for HEAD, whether a symbolic
-            # reference or a short SHA-1; chop off any leading path
+            # Attempt to determine git branch
             local branch
             branch=$(git symbolic-ref --quiet HEAD 2>/dev/null) \
                 || branch=$(git rev-parse --short HEAD 2>/dev/null) \
                 || branch=unknown
             branch=${branch##*/}
 
-            # Start collecting working copy state flags
-            local -a state
+            # Safely read status from ``git porcelain''
+            local line ready modified untracked
+            while IFS= read -d $'\0' -r line _; do
+                if [[ $line == [MADRC]* ]]; then
+                    ready=1
+                fi
+                if [[ $line == ?[MADRC]* ]]; then
+                    modified=1
+                fi
+                if [[ $line == '??'* ]]; then
+                    untracked=1
+                fi
+            done < <(git status -z --porcelain 2>/dev/null)
 
-            # If there are staged changes in the working tree, add a plus sign
-            # to the state
-            if ! git diff --quiet --ignore-submodules --cached; then
+            # Build state array from status output flags
+            local -a state
+            if [[ $ready ]]; then
                 state=("${state[@]}" '+')
             fi
-
-            # If there are any modified tracked files in the working tree, add
-            # an exclamation mark to the state
-            if ! git diff-files --quiet --ignore-submodules --; then
+            if [[ $modified ]]; then
                 state=("${state[@]}" '!')
             fi
-
-            # If there are any stashed changes, add a circumflex to the state
-            if git rev-parse --verify refs/stash >/dev/null 2>&1; then
-                state=("${state[@]}" '^')
+            if [[ $untracked ]]; then
+                state=("${state[@]}" '?')
             fi
 
-            # If there are any new unignored files in the working tree, add a
-            # question mark to the state
-            if [[ $(git ls-files --others --exclude-standard) ]]; then
-                state=("${state[@]}" '?')
+            # Add another indicator if we have stashed changes
+            if git rev-parse --verify refs/stash >/dev/null 2>&1; then
+                state=("${state[@]}" '^')
             fi
 
             # Print the status in brackets with a git: prefix

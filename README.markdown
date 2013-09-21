@@ -140,8 +140,7 @@ It expands based on context to include these elements in this order:
 *   The number of running background jobs
 *   The exit status of the last command, if non-zero
 
-This is all managed within the `prompt` function. Some of the Git stuff was
-adapted from @necolas’ [superb dotfiles](https://github.com/necolas/dotfiles).
+This is all managed within the `prompt` function.
 
 When I use any other Bourne-compatible shell, I’m generally happy to accept its
 defaults for interactive behavior.
