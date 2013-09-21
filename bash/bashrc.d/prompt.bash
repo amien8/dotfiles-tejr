@@ -49,19 +49,14 @@ prompt() {
                 return 1
             fi
 
-            # Bail if the required git status call fails
-            if ! git status -z --porcelain >/dev/null 2>&1; then
-                return 1
-            fi
-
-            # Attempt to determine git branch
+            # Attempt to determine git branch, bail if we can't
             local branch
             branch=$(git symbolic-ref --quiet HEAD 2>/dev/null) \
                 || branch=$(git rev-parse --short HEAD 2>/dev/null) \
-                || branch=unknown
+                || return 1
             branch=${branch##*/}
 
-            # Safely read status from ``git porcelain''
+            # Safely read status with -z --porcelain
             local line ready modified untracked
             while IFS= read -d $'\0' -r line _; do
                 if [[ $line == [MADRC]* ]]; then
