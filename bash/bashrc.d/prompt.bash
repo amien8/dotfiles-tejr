@@ -63,9 +63,13 @@ prompt() {
 
             # Attempt to determine git branch, bail if we can't
             local branch
-            branch=$(git symbolic-ref --quiet HEAD 2>/dev/null) \
-                || branch=$(git rev-parse --short HEAD 2>/dev/null) \
-                || return 1
+            branch=$( {
+                git symbolic-ref --quiet HEAD \
+                || git rev-parse --short HEAD
+            } 2>/dev/null );
+            if ! [[ $branch ]]; then
+                return 1
+            fi
             branch=${branch##*/}
 
             # Safely read status with -z --porcelain
