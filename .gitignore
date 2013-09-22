@@ -13,6 +13,7 @@ bash/bashrc.d/*
 !bash/bashrc.d/sprunge.bash
 !bash/bashrc.d/ssh.bash
 !bash/bashrc.d/tmux.bash
+!bash/bashrc.d/vim.bash
 gnupg/*
 !gnupg/*.conf
 mutt/muttrc.alternates
