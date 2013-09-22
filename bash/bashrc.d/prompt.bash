@@ -28,7 +28,7 @@ prompt() {
             if ((colors == 256)); then
                 format=$( {
                     tput AF 10 || tput setaf 10 \
-                        || tput AF 10 0 0 || tput AF 10 0 0
+                        || tput AF 10 0 0 || tput setaf 10 0 0
                 } 2>/dev/null )
 
             # If we have only eight colors, use bold green to make it bright
