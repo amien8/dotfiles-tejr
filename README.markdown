@@ -143,7 +143,11 @@ It expands based on context to include these elements in this order:
 *   The number of running background jobs
 *   The exit status of the last command, if non-zero
 
-This is all managed within the `prompt` function.
+This is all managed within the `prompt` function. There's some mildly hacky
+logic on `tput` codes included such that it should work correctly for most
+common terminals using both `termcap(5)` and `terminfo(5)`, including \*BSD
+systems. It's also designed to degrade gracefully for eight-color and no-color
+terminals.
 
 Mutt
 ----
