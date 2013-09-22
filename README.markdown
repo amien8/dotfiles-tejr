@@ -126,8 +126,8 @@ array+=("$item")
 ```
 
 Where I do use features that are only available in versions of Bash newer than
-2.05a, such as newer `shopt` options or `PROMPT_DTRIM`, they are only run after
-testing `BASH_VERSINFO` appropriately.
+2.05a, such as newer `shopt` options or `PROMPT_DIRTRIM`, they are only run
+after testing `BASH_VERSINFO` appropriately.
 
 When I use any other Bourne-compatible shell, I’m generally happy to accept its
 defaults for interactive behavior.
