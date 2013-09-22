@@ -16,21 +16,33 @@ prompt() {
             fi
 
             # Count available colors, reset, and format (decided shortly)
-            local colors=$(tput colors)
-            local reset=$(tput sgr0)
+            local colors=$( {
+                tput Co || tput colors
+            } 2>/dev/null );
+            local reset=$( {
+                tput me || tput sgr0
+            } 2>/dev/null );
             local format
 
             # Check if we have non-bold bright green available
             if ((colors == 256)); then
-                format=$(tput setaf 10)
+                format=$( {
+                    tput AF 10 || tput setaf 10 \
+                        || tput AF 10 0 0 || tput AF 10 0 0
+                } 2>/dev/null )
 
             # If we have only eight colors, use bold green to make it bright
             elif ((colors == 8)); then
-                format=$(tput setaf 2)$(tput bold)
+                format=$( {
+                    tput AF 2 || tput setaf 2
+                    tput md || tput bold
+                } 2>/dev/null )
 
             # For non-color terminals (!), just use bold
             else
-                format=$(tput bold)
+                format=$( {
+                    tput md || tput bold
+                } 2>/dev/null )
             fi
 
             # String it all together
