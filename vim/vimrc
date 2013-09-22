@@ -96,11 +96,6 @@ cnoremap <C-E> <End>
 " the open buffers; I'll open the file if I want to complete from it
 set complete-=i
 
-" I use the file completion feature quite a lot, but typing ^X ^F is
-" a bit unwieldy, so I abbreviate it to just ^F, the default behavior for
-" which I simply don't use
-inoremap <C-F> <C-X><C-F>
-
 " Rebind Ctrl-C in insert mode to not only leave insert mode without firing
 " InsertLeave events, but also to actually undo the current insert operation
 inoremap <C-c> <C-c>u
