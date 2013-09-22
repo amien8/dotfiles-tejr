@@ -124,7 +124,7 @@ prompt() {
             # Start collecting working copy state flags
             local -a state
 
-            # Safely read status from ``git porcelain''
+            # Safely read status with -0
             local line modified untracked
             while IFS= read -d $'\0' -r line; do
                 if [[ $line == '?'* ]]; then
