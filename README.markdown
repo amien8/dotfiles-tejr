@@ -129,6 +129,9 @@ Where I do use features that are only available in versions of Bash newer than
 2.05a, such as newer `shopt` options or `PROMPT_DTRIM`, they are only run after
 testing `BASH_VERSINFO` appropriately.
 
+When I use any other Bourne-compatible shell, I’m generally happy to accept its
+defaults for interactive behavior.
+
 My prompt looks something like this:
 
 ![Bash prompt](prompt.png)
@@ -141,9 +144,6 @@ It expands based on context to include these elements in this order:
 *   The exit status of the last command, if non-zero
 
 This is all managed within the `prompt` function.
-
-When I use any other Bourne-compatible shell, I’m generally happy to accept its
-defaults for interactive behavior.
 
 Mutt
 ----
