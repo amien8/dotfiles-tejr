@@ -26,7 +26,7 @@
     prompt = false
 
 [grep]
-	extendRegexp = true
+    extendRegexp = true
     lineNumber = true
 
 [log]
