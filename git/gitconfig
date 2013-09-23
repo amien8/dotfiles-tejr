@@ -14,7 +14,7 @@
     statusHints = false
 
 [alias]
-    ack = grep --break --heading --line-number --extended-regexp
+    ack = grep --break --heading
 
 [color]
     ui = true
