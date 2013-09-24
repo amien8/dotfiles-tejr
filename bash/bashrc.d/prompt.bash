@@ -67,7 +67,7 @@ prompt() {
                 git symbolic-ref --quiet HEAD \
                 || git rev-parse --short HEAD
             } 2>/dev/null );
-            if ! [[ $branch ]]; then
+            if [[ ! $branch ]]; then
                 return 1
             fi
             branch=${branch##*/}
