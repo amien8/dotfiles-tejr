@@ -57,6 +57,8 @@ shopt -s no_empty_cmd_completion
 shopt -s progcomp
 # Warn me if I try to shift when there's nothing there
 shopt -s shift_verbose
+# Don't use PATH to find files to source
+shopt -u sourcepath
 
 # These options only exist since Bash 4.0-alpha
 if ((${BASH_VERSINFO[0]} >= 4)); then
