@@ -80,7 +80,6 @@ lns "$dotfiles"/git/gitconfig        "$HOME"/.gitconfig
 lns "$dotfiles"/readline/inputrc     "$HOME"/.inputrc
 lns "$dotfiles"/sh/profile           "$HOME"/.profile
 lns "$dotfiles"/sh/profile.d         "$HOME"/.profile.d
-lns "$dotfiles"/terminfo             "$HOME"/.terminfo
 lns "$dotfiles"/vim/vimrc            "$HOME"/.vimrc
 lns "$dotfiles"/vim                  "$HOME"/.vim
 
@@ -121,4 +120,11 @@ while getopts :dgmnrtx opt; do
     esac
 done
 shift $((OPTIND-1))
+
+# Compile terminfo files
+if hash tic 2>/dev/null; then
+    for info in "$dotfiles"/terminfo/*.info; do
+        tic "$info"
+    done
+fi
 
