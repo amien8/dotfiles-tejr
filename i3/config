@@ -14,7 +14,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+q exit
 
 # Mod+Enter starts a terminal
-bindsym $mod+Return exec urxvtcd
+bindsym $mod+Return exec st
 
 # Mod+Shift+c kills the focussed window
 bindsym $mod+Shift+c kill
