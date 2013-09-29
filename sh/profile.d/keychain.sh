@@ -6,6 +6,7 @@ fi
 
 # keychain setup
 if command -v keychain >/dev/null 2>&1; then
-    eval "$(keychain --eval --ignore-missing --quiet id_dsa id_rsa id_ecsda)"
+    eval "$(TERM=${TERM:-ansi} keychain \
+        --eval --ignore-missing --quiet id_dsa id_rsa id_ecsda)"
 fi
 
