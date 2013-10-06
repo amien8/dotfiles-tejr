@@ -39,6 +39,7 @@ Configuration is included for:
     client
 *   [Readline](http://cnswww.cns.cwru.edu/php/chet/readline/rltop.html) — GNU
     library for user input used by Bash, MySQL, and others
+*   [st](http://st.suckless.org/) — Suckless simple terminal
 *   [Taskwarrior](http://taskwarrior.org/projects/show/taskwarrior) —
     Command-line task list manager
 *   [tmux](http://tmux.sourceforge.net/) — Terminal multiplexer similar to GNU
