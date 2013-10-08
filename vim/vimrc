@@ -535,6 +535,14 @@ nnoremap ZA :wa!<CR>
 " done with yy anyway); this fixes it so it only yanks the rest of the line
 nnoremap Y y$
 
+" Allow jumping between windows and tabs to find an open instance of a given
+" buffer with :sbuffer.
+if v:version >= 701
+  set switchbuf=useopen,usetab
+else
+  set switchbuf=useopen
+endif
+
 " Fedora's default environment adds a few auto commands that I don't like,
 " including the 'return to previous position in buffer' one; fortunately
 " they're nice enough to group the commands, so I can just clear them
