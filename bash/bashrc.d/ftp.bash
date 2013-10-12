@@ -5,6 +5,7 @@ _ftp() {
     # Bail if the .netrc file is illegible
     local netrc=$HOME/.netrc
     if [[ ! -r $netrc ]]; then
+        COMPREPLY=()
         return 1
     fi
 
@@ -27,5 +28,5 @@ _ftp() {
     # Generate completion reply
     COMPREPLY=( $(compgen -W "${machines[*]}" -- "$word") )
 }
-complete -F _ftp ftp
+complete -F _ftp -o default ftp
 

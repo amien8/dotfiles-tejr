@@ -30,6 +30,7 @@ _mysql() {
         files=("$dir"/*.cnf)
         ((! ${#files[@]}))
     ); then
+        COMPREPLY=()
         return 1
     fi
 
@@ -40,5 +41,5 @@ _mysql() {
     items=("${items[@]%%.cnf}")
     COMPREPLY=( $(compgen -W "${items[*]}" -- "$word") )
 }
-complete -F _mysql mysql
+complete -F _mysql -o default mysql
 

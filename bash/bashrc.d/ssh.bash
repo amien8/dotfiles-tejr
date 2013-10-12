@@ -5,6 +5,7 @@ _ssh() {
     # Bail if the configuration file is illegible
     local config=$HOME/.ssh/config
     if [[ ! -r $config ]]; then
+        COMPREPLY=()
         return 1
     fi
 
@@ -20,5 +21,5 @@ _ssh() {
     # Generate completion reply
     COMPREPLY=( $(compgen -W "${hosts[*]}" -- "$word") )
 }
-complete -F _ssh ssh sftp ssh-copy-id
+complete -F _ssh -o default ssh sftp ssh-copy-id
 
