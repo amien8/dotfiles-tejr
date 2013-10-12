@@ -4,6 +4,7 @@ bash/bashrc.d/*
 !bash/bashrc.d/cd.bash
 !bash/bashrc.d/completion.bash
 !bash/bashrc.d/ed.bash
+!bash/bashrc.d/ftp.bash
 !bash/bashrc.d/grep.bash
 !bash/bashrc.d/ls.bash
 !bash/bashrc.d/mysql.bash
