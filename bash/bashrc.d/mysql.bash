@@ -9,8 +9,7 @@
 #   password=SsJ2pICe226jM
 #
 mysql() {
-    local database=$1
-    local config="$HOME"/.mysql/"$database".cnf
+    local config="$HOME"/.mysql/"$1".cnf
     if [[ -f $config ]]; then
         shift
         command mysql --defaults-extra-file="$config" "$@"
