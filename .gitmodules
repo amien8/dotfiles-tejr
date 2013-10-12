@@ -46,10 +46,6 @@
     path = vim/bundle/tabular
     url = git://github.com/godlygeek/tabular.git
     ignore = dirty
-[submodule "vim/bundle/characterize"]
-    path = vim/bundle/characterize
-    url = git://github.com/tpope/vim-characterize.git
-    ignore = dirty
 [submodule "vim/bundle/twig"]
     path = vim/bundle/twig
     url = git://github.com/lunaru/vim-twig
@@ -61,9 +57,5 @@
 [submodule "vim/bundle/ack"]
     path = vim/bundle/ack
     url = git://github.com/mileszs/ack.vim
-    ignore = dirty
-[submodule "vim/bundle/nextag"]
-    path = vim/bundle/nextag
-    url = git://github.com/tejr/nextag
     ignore = dirty
 
