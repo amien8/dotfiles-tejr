@@ -1,10 +1,9 @@
 # Completion for ftp with .netrc machines
 _ftp() {
-    local netrc=$HOME/.netrc
     local word=${COMP_WORDS[COMP_CWORD]}
-    local -a machines
 
     # Bail if the .netrc file is illegible
+    local netrc=$HOME/.netrc
     if [[ ! -r $netrc ]]; then
         return 1
     fi
@@ -14,7 +13,8 @@ _ftp() {
     IFS=$' \t\n' read -a tokens -d '' -r < "$netrc"
 
     # Iterate through tokens and collect machine names
-    local machine=0
+    local -a machines
+    local token machine
     for token in "${tokens[@]}"; do
         if ((machine)); then
             machines=("${machines[@]}" "$token")

@@ -20,6 +20,7 @@ mysql() {
 
 # Completion setup for MySQL for configured databases
 _mysql() {
+    local word=${COMP_WORDS[COMP_CWORD]}
 
     # Check directory exists and has at least one .cnf file
     local dir="$HOME"/.mysql
@@ -33,7 +34,6 @@ _mysql() {
     fi
 
     # Return the names of the .cnf files sans prefix as completions
-    local word=${COMP_WORDS[COMP_CWORD]}
     local -a items
     items=("$dir"/*.cnf)
     items=("${items[@]##*/}")
