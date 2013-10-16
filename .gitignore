@@ -7,6 +7,7 @@ bash/bashrc.d/*
 !bash/bashrc.d/ftp.bash
 !bash/bashrc.d/grep.bash
 !bash/bashrc.d/gnupg.bash
+!bash/bashrc.d/keychain.bash
 !bash/bashrc.d/ls.bash
 !bash/bashrc.d/mysql.bash
 !bash/bashrc.d/options.bash
