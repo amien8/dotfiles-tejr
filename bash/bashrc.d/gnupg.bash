@@ -1,0 +1,22 @@
+# Completion for gpg with long options
+_gpg() {
+    local word=${COMP_WORDS[COMP_CWORD]}
+
+    # Bail if no gpg(1) or the word doesn't start with two dashes
+    if ! hash gpg 2>/dev/null || [[ $word != --* ]]; then
+        COMPREPLY=()
+        return 1
+    fi
+
+    # Read options from the output of gpg --dump-options
+    local -a options
+    local option
+    while read -r option; do
+        options=("${options[@]}" "$option")
+    done < <(gpg --dump-options 2>/dev/null)
+
+    # Generate completion reply
+    COMPREPLY=( $(compgen -W "${options[*]}" -- "$word") )
+}
+complete -F _gpg -o default gpg
+
