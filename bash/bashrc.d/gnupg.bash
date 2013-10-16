@@ -1,3 +1,8 @@
+# Bail if no gpg(1)
+if ! hash gpg 2>/dev/null; then
+    return
+fi
+
 # Completion for gpg with long options
 _gpg() {
     local word=${COMP_WORDS[COMP_CWORD]}

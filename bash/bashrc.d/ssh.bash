@@ -1,3 +1,8 @@
+# Bail if no ssh(1)
+if ! hash ssh 2>/dev/null; then
+    return
+fi
+
 # Completion for ssh/sftp/ssh-copy-id with config hostnames
 _ssh() {
     local word=${COMP_WORDS[COMP_CWORD]}

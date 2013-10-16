@@ -1,3 +1,8 @@
+# Bail if no pass(1)
+if ! hash pass 2>/dev/null; then
+    return
+fi
+
 # Completion for pass(1), adapted from source package; still needs some tweaking
 _pass()
 {

@@ -1,23 +1,16 @@
+# Bail if no vim(1)
+if ! hash vim 2>/dev/null; then
+    return
+fi
+
 # If Vim exists on the system, use it instead of ex, vi, and view
 ex() {
-    if hash vim 2>/dev/null; then
-        command vim -e "$@"
-    else
-        command ex "$@"
-    fi
+    command vim -e "$@"
 }
 vi() {
-    if hash vim 2>/dev/null; then
-        command vim "$@"
-    else
-        command vi "$@"
-    fi
+    command vim "$@"
 }
 view() {
-    if hash vim 2>/dev/null; then
-        command vim -R "$@"
-    else
-        command view "$@"
-    fi
+    command vim -R "$@"
 }
 

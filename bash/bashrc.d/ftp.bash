@@ -1,3 +1,8 @@
+# Bail if no ftp(1)
+if ! hash ftp 2>/dev/null; then
+    return
+fi
+
 # Completion for ftp with .netrc machines
 _ftp() {
     local word=${COMP_WORDS[COMP_CWORD]}
