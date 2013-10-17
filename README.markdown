@@ -107,7 +107,11 @@ My `.bash_profile` calls `.profile` for variable exports, and then runs
 `.bashrc` for interactive shells. Subscripts are kept in `.bashrc.d`, and all
 are loaded for the creation of any new interactive shell. The contents of this
 directory changes all the time depending on the host, and only specific scripts
-in it are versioned; the rest are ignored by `.gitignore`.
+in it are versioned; the rest are ignored locally:
+
+```bash
+$ git ls-files --others --exclude-standard >>.git/info/exclude
+```
 
 As I occasionally have work on very old internal systems, my Bash is written to
 work with [any version 2.05a or
