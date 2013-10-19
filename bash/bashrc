@@ -1,5 +1,8 @@
 # Give up completely if no BASH_VERSINFO (<2.0)
 if [ -z "$BASH_VERSINFO" ]; then
+    printf \
+        '%s: %s is too old to work with this configuration.\n' \
+        "${BASH##*/}" "$BASH_VERSION" >&2
     return
 fi
 
