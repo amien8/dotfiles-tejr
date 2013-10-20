@@ -1,3 +1,6 @@
+# Print a terminal bell
+alias bell='printf %s '$'\a'
+
 # Use a unified format for diff by default
 alias diff='diff -u'
 
