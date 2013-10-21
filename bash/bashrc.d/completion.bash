@@ -1,21 +1,41 @@
-# builtin with builtins
-complete -b builtin
+# Various easy completions
 
-# cd/pushd with directories
-complete -d cd pushd
+# Alias names
+complete -A alias unalias
 
-# command/hash/type with commands
-complete -c command hash type
+# Bash builtins
+complete -A builtin builtin
 
-# help with topics
-complete -A helptopic help
-
-# set with options
+# Bash options
 complete -A setopt set
 
-# shopt with shell options
+# Commands
+complete -A command alias command complete coproc exec hash type
+
+# Directories
+complete -A directory cd pushd mkdir rmdir
+
+# Functions
+complete -A function function
+
+# Help topics
+complete -A helptopic help
+
+# Jobspecs
+complete -A job bg fg disown jobs
+
+# Readline bindings
+complete -A binding bind
+
+# Shell options
 complete -A shopt shopt
 
-# unset with shell variables and functions
-complete -v -A function unset
+# Signal names
+complete -A signal trap
+
+# Variables
+complete -A variable declare export readonly typeset
+
+# Both functions and variables
+complete -A function -A variable unset
 
