@@ -7,8 +7,8 @@ fi
 _gpg() {
     local word=${COMP_WORDS[COMP_CWORD]}
 
-    # Bail if no gpg(1) or the word doesn't start with two dashes
-    if ! hash gpg 2>/dev/null || [[ $word != --* ]]; then
+    # Bail if word doesn't start with two dashes
+    if [[ $word != --* ]]; then
         COMPREPLY=()
         return 1
     fi
