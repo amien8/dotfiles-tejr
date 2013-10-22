@@ -2,11 +2,17 @@
 
 order += "load"
 order += "tztime local"
+order += "battery 0"
 
 load {
     format = "%1min/%5min/%15min"
 }
 tztime local {
     format = "%Y-%m-%d %H:%M:%S"
+}
+battery 0 {
+    format = "%status %percentage %remaining %emptytime"
+    path = "/sys/class/power_supply/BAT%d/uevent"
+    low_threshold = 15
 }
 
