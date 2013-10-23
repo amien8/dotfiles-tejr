@@ -112,6 +112,12 @@ in it are versioned; the rest are ignored locally:
 $ git ls-files --others --exclude-standard >>.git/info/exclude
 ```
 
+There’s an `others` alias for the above command in `~/.gitconfig`:
+
+```bash
+$ git others >>.git/info/exclude
+```
+
 As I occasionally have work on very old internal systems, my Bash is written to
 work with [any version 2.05a or
 newer](http://wiki.bash-hackers.org/scripting/bashchanges), a few versions

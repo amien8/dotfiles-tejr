@@ -15,6 +15,7 @@
 
 [alias]
     ack = grep --break --heading
+    others = ls-files --others --exclude-standard
 
 [color]
     ui = true
