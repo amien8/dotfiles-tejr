@@ -182,7 +182,7 @@ prompt() {
             branch=${branch#branches/}
             branch=${branch%%/*}
 
-            # Parse the output of svn info to determine working copy state
+            # Parse the output of svn status to determine working copy state
             local symbol modified untracked
             while read -r symbol _; do
                 if [[ $symbol == *'?'* ]]; then
