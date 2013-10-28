@@ -111,6 +111,7 @@ while getopts :dgmnrtx opt; do
             ;;
         x)
             lns "$dotfiles"/i3           "$HOME"/.i3
+            lns "$dotfiles"/urxvt        "$HOME"/.urxvt
             lns "$dotfiles"/X/Xmodmap    "$HOME"/.Xmodmap
             lns "$dotfiles"/X/Xresources "$HOME"/.Xresources
             lns "$dotfiles"/X/xsession   "$HOME"/.xsession
