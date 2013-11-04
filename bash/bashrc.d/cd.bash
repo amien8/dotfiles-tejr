@@ -12,9 +12,10 @@ cd() {
             dirs=("${dirs[@]}" "$arg")
         fi
     done
-    if (($# == 2)); then
-        if [[ $PWD == *"$1"* ]]; then
-            builtin cd "${opts[@]}" "${PWD/$1/$2}"
+    if ((${#dirs} == 2)); then
+        if [[ $PWD == *"${dirs[0]}"* ]]; then
+            builtin cd "${opts[@]}" \
+                "${PWD/${dirs[0]}/${dirs[1]}}"
         else
             printf '%s\n' 'bash: cd: could not replace substring' >&2
             return 1
