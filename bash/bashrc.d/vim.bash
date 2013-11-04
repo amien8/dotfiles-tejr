@@ -27,7 +27,8 @@ vis() {
 
     # Check all the commands, if they don't exist, we'll create them
     for cmd in "${cmds[@]}"; do
-        if ! file=$(type -P "${cmd##*/}"); then
+        file=$(type -p "${cmd##*/}")
+        if [[ ! $file ]]; then
             mkdir -p "$HOME"/.local/bin || exit
             file="$HOME"/.local/bin/"${cmd##*/}"
         fi
