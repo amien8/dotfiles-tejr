@@ -1,12 +1,17 @@
 # If given two arguments to cd, replace the first with the second in $PWD,
 # emulating a Zsh function that I often find useful; preserves options too
 cd() {
-    local opt OPTIND=0
-    local -a opts
-    while getopts elP opt; do
-        opts=("${opts[@]}" -"$opt")
+    local arg dir endopts
+    local -a opts dirs
+    for arg in "$@"; do
+        if [[ $arg == -- ]]; then
+            endopts=1
+        elif [[ $arg == -* ]] && ! ((endopts)); then
+            opts=("${opts[@]}" "$arg")
+        else
+            dirs=("${dirs[@]}" "$arg")
+        fi
     done
-    shift $((OPTIND-1))
     if (($# == 2)); then
         if [[ $PWD == *"$1"* ]]; then
             builtin cd "${opts[@]}" "${PWD/$1/$2}"
@@ -15,7 +20,7 @@ cd() {
             return 1
         fi
     else
-        builtin cd "${opts[@]}" "$@"
+        builtin cd "${opts[@]}" "${dirs[@]}"
     fi
 }
 
