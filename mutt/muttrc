@@ -88,7 +88,7 @@ set include           = yes
 set use_envelope_from = yes
 
 # Searching/sorting
-set sort            = 'reverse-threads'
+set sort            = 'threads'
 set sort_aux        = 'last-date-received'
 set strict_threads  = yes
 set thorough_search = yes
