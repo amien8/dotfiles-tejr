@@ -95,7 +95,6 @@ set thorough_search = yes
 
 # Signature
 set signature  = '~/.mutt/signature'
-set sig_on_top = yes
 
 # Encryption settings
 set crypt_autosign           = yes
