@@ -100,11 +100,10 @@ set complete-=i
 " InsertLeave events, but also to actually undo the current insert operation
 inoremap <C-c> <C-c>u
 
-" Vim lacks a built-in digraph for an ellipsis character (three dots); I like
-" to use the proper character in UTF-8 HTML documents so I nicked this from
-" Tim Pope
+" A couple of custom digraphs
 if has('digraphs')
-  digraph ./ 8230
+  digraph ./ 8230  " Ellipsis (HORIZONTAL ELLIPSIS U+2026)
+  digraph %% 8984  " Mac command key (PLACE OF INTEREST SIGN U+2318)
 endif
 
 " Try Mac line-endings if UNIX or DOS don't make sense; this has never
