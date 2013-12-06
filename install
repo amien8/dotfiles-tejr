@@ -87,29 +87,43 @@ lns "$dotfiles"/vim                  "$HOME"/.vim
 # Link in shell stuff
 while getopts :dgmnrtx opt; do
     case $opt in
+
+        # mysql(1), psql(1)
         d)
             lns "$dotfiles"/mysql/my.cnf "$HOME"/.my.cnf
             lns "$dotfiles"/psql/psqlrc  "$HOME"/.psqlrc
             ;;
+
+        # GnuPG
         g)
             mkdir -p -- "$HOME"/.gnupg
             lns "$dotfiles"/gnupg/gpg.conf       "$HOME"/.gnupg/gpg.conf
             lns "$dotfiles"/gnupg/gpg-agent.conf "$HOME"/.gnupg/gpg-agent.conf
             ;;
+
+        # Mutt
         m)
             lns "$dotfiles"/mutt/muttrc "$HOME"/.muttrc
             lns "$dotfiles"/mutt        "$HOME"/.mutt
             ;;
+
+        # Ncmcpp
         n)
             lns "$dotfiles"/ncmpcpp "$HOME"/.ncmpcpp
             ;;
+
+        # Newsbeuter
         r)
             mkdir -p -- "$HOME"/.config "$HOME"/.local/share/newsbeuter
             lns "$dotfiles"/newsbeuter "$HOME"/.config/newsbeuter
             ;;
+
+        # Tmux
         t)
             lns "$dotfiles"/tmux/tmux.conf "$HOME"/.tmux.conf
             ;;
+
+        # X11
         x)
             lns "$dotfiles"/i3           "$HOME"/.i3
             lns "$dotfiles"/urxvt        "$HOME"/.urxvt
