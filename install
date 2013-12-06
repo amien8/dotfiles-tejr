@@ -116,8 +116,7 @@ while getopts :dgmnrtx opt; do
             lns "$dotfiles"/mutt        "$HOME"/.mutt
 
             # Create empty stubs if applicable
-            touch "$HOME"/.mutt/muttrc.local \
-                "$HOME"/.mutt/signature
+            touch "$dotfiles"/mutt/{muttrc.local,signature}
 
             # Create mailboxes and cache directories
             mkdir -p "$HOME"/Mail/{inbox,sent} \
