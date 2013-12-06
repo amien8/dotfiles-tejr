@@ -25,6 +25,7 @@
 #
 # Run this at your own risk!
 #   
+self=install
 
 # Replace existing file with link if user confirms
 lns() {
@@ -49,7 +50,7 @@ lns() {
 
 # Bail if we don't have git(1)
 if ! hash git 2>/dev/null; then
-    printf 'install: Could not find git(1)!\n' >&2
+    printf '%s: Could not find git(1)!\n' "$self" >&2
     exit 1
 fi
 
