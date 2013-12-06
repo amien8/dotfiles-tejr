@@ -94,7 +94,7 @@ set strict_threads  = yes
 set thorough_search = yes
 
 # Signature
-set signature  = '~/.mutt/signature'
+set signature = '~/.mutt/signature'
 
 # Encryption settings
 set crypt_autosign           = yes
