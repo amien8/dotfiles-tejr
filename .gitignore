@@ -1,7 +1,6 @@
 gnupg/*
 !gnupg/*.conf
-mutt/muttrc.alternates
-mutt/signature.*
+mutt/muttrc.local
 newsbeuter/urls
 ncmpcpp/*.log
 urxvt/urxvtd-*

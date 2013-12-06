@@ -1,8 +1,11 @@
+# Person-specific settings
+# (Define 'from', 'realname', and specify alternate addresses in here)
+source ~/.mutt/muttrc.local
+
 # Names
-set from       = 'tom@sanctum.geek.nz'
-set realname   = 'Tom Ryder'
-set use_domain = yes
-set use_from   = yes
+set use_domain   = yes
+set use_from     = yes
+set reverse_name = yes
 
 # SMTP implementation
 set sendmail = '/usr/bin/msmtp'
@@ -19,10 +22,6 @@ mailboxes !
 
 # Addresses
 set query_command = 'abook --mutt-query %s'
-
-# Alternates
-source ~/.mutt/muttrc.alternates
-set reverse_name = yes
 
 # Alerts
 set beep_new = yes
