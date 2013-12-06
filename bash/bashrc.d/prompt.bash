@@ -56,7 +56,7 @@ prompt() {
             ;;
 
         git)
-            # Bail if we have no git(1) or if our git status call fails
+            # Bail if we have no git(1)
             if ! hash git 2>/dev/null; then
                 return 1
             fi
