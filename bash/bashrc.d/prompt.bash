@@ -231,6 +231,9 @@ prompt() {
     esac
 }
 
+# Complete words
+complete -W 'on off git hg svn vcs ret job' prompt
+
 # Start with full-fledged prompt
 prompt on
 
