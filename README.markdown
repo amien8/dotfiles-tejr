@@ -3,8 +3,9 @@ Dotfiles (Tom Ryder)
 
 Personal repository of dotfiles. This is for those settings that migrate well
 from machine to machine and that I consider safe to publish. You’re welcome to
-use them, but you’ll probably want to fork it to remove anything peculiar to me
-or my setup that I’ve left in here.
+use them, and there's an attempt to keep my own personal data out of the files,
+but you’ll probably want to fork it to remove anything peculiar to my setup
+that I’ve left in here.
 
 ```bash
 $ git clone git://github.com/tejr/dotfiles.git ~/.dotfiles
