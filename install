@@ -103,8 +103,25 @@ while getopts :dgmnrtx opt; do
 
         # Mutt
         m)
+            # Warn about some non-obvious dependencies if necessary
+            for depends in abook msmtp; do
+                if ! hash "$depends" 2>/dev/null; then
+                    printf '%s: warning: %s(1) not found\n' \
+                        "$self" "$depends" >&2
+                fi
+            done
+
+            # Link in files
             lns "$dotfiles"/mutt/muttrc "$HOME"/.muttrc
             lns "$dotfiles"/mutt        "$HOME"/.mutt
+
+            # Create empty stubs if applicable
+            touch "$HOME"/.mutt/muttrc.local \
+                "$HOME"/.mutt/signature
+
+            # Create mailboxes and cache directories
+            mkdir -p "$HOME"/Mail/{inbox,sent} \
+                "$HOME"/.cache/mutt
             ;;
 
         # Ncmcpp
