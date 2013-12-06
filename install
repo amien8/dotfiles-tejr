@@ -10,7 +10,7 @@
 # Bash, cURL, Git, Vim, and some terminfo(5) definitions. You can supply
 # additional flags to link in other configuration files:
 #
-#   -d -- mysql/psql
+#   -d -- mysql(1), psql(1)
 #   -g -- GnuPG
 #   -m -- Mutt
 #   -n -- Ncmpcpp
