@@ -24,7 +24,7 @@
 # on systems other than GNU/Linux or BSD.
 #
 # Run this at your own risk!
-#   
+#
 self=install
 
 # Replace existing file with link if user confirms
@@ -33,7 +33,7 @@ lns() {
     if [[ -e $link ]]; then
         read -p "$link already exists; remove? [y/N] " confirm
         case $confirm in
-            y*|Y*) 
+            y*|Y*)
                 rm -r -- "$link"
                 ln -s -- "$file" "$link"
                 return
