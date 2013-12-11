@@ -6,7 +6,7 @@ fi
 # Wrapper around gpg(1) to stop ``--batch'' breaking things
 gpg() {
     case $* in
-        *--ed*|*--sign-k*)
+        *--ed*|*--gen-k*|*--sign-k*)
             command gpg --no-batch "$@"
             ;;
         *)
