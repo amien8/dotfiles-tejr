@@ -3,6 +3,18 @@ if ! hash gpg 2>/dev/null; then
     return
 fi
 
+# Wrapper around gpg(1) to stop ``--batch'' breaking things
+gpg() {
+    case $* in
+        *--ed*|*--sign-k*)
+            command gpg --no-batch "$@"
+            ;;
+        *)
+            command gpg "$@"
+            ;;
+    esac
+}
+
 # Completion for gpg with long options
 _gpg() {
     local word=${COMP_WORDS[COMP_CWORD]}
