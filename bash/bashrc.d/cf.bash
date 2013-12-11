@@ -20,8 +20,8 @@ cf() {
     files=("$dir"/*)
 
     # Reset our options
-    ((dgs)) && shopt -s dotglob
-    ((ngs)) && shopt -s nullglob
+    ((dgs)) || shopt -u dotglob
+    ((ngs)) || shopt -u nullglob
 
     # Print result
     printf '%d\t%s\n' \
