@@ -5,8 +5,18 @@ cf() {
 
     # Specify directory to check
     dir=${1:-$PWD}
-    if [[ ! -d $dir ]]; then
+
+    # Error conditions
+    if [[ ! -e $dir ]]; then
+        printf 'bash: cf: %s does not exist\n' \
+            "$dir" >&2
+        return 1
+    elif [[ ! -d $dir ]]; then
         printf 'bash: cf: %s is not a directory\n' \
+            "$dir" >&2
+        return 1
+    elif [[ ! -r $dir ]]; then
+        printf 'bash: cf: %s is not readable\n' \
             "$dir" >&2
         return 1
     fi
