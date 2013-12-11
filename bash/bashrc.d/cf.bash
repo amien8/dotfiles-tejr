@@ -19,7 +19,7 @@ cf() {
     ((ngs)) && shopt -s nullglob
 
     # Print result
-    printf 'cf: %'\''.f files in %s\n' \
+    printf '%d\t%s\n' \
         "${#files[@]}" "$dir"
 }
 
