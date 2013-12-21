@@ -8,7 +8,7 @@ tmux() {
 
     # If sessions exist, default the arguments to the attach-session command
     if ! (($#)) && command tmux has-session 2>/dev/null; then
-        command tmux attach-session
+        command tmux attach-session -d
 
     # Otherwise, just call tmux directly with the given arguments
     else
