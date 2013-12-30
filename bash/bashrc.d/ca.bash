@@ -1,5 +1,5 @@
 # Count arguments
 ca() {
-    printf '%s\n' "$#"
+    printf '%d\n' "$#"
 }
 
