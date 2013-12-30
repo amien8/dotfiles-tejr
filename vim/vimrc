@@ -220,6 +220,9 @@ set shellslash
 " editing
 if has('eval')
 
+  " Don't show the preamble banner
+  let g:netrw_banner = 0
+
   " Perform file transfers silently
   let g:netrw_silent = 1
 
