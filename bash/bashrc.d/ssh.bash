@@ -3,6 +3,15 @@ if ! hash ssh 2>/dev/null; then
     return
 fi
 
+# Wrap scp to check for missing colons
+scp() {
+    if (($# >= 2)) && [[ $* != *:* ]] ; then
+        printf '%s\n' 'scp: Missing colon, probably an error' >&2
+        return 1
+    fi
+    command scp "$@"
+}
+
 # Completion for ssh/sftp/ssh-copy-id with config hostnames
 _ssh() {
     local word=${COMP_WORDS[COMP_CWORD]}
