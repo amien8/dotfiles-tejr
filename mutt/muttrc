@@ -120,3 +120,6 @@ bind generic,index,browser,pager \Cb previous-page
 macro generic,index,browser,pager gi '<change-folder>=inbox<enter>' 'Change to inbox folder'
 macro generic,index,browser,pager gs '<change-folder>=sent<enter>' 'Change to sent folder'
 
+# Run getmails(1) to retrieve all mail
+macro generic,index,browser,pager gm '!getmails<enter>' 'Run getmails'
+
