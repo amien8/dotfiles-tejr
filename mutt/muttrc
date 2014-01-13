@@ -117,6 +117,6 @@ bind generic,index,browser,pager \Cf next-page
 bind generic,index,browser,pager \Cb previous-page
 
 # Jump to mailboxes
-macro generic,index,browser,pager gi '<change-folder>=inbox<enter>'
-macro generic,index,browser,pager gs '<change-folder>=sent<enter>'
+macro generic,index,browser,pager gi '<change-folder>=inbox<enter>' 'Change to inbox folder'
+macro generic,index,browser,pager gs '<change-folder>=sent<enter>' 'Change to sent folder'
 
