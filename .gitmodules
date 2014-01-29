@@ -55,3 +55,6 @@
     url = git://github.com/mileszs/ack.vim
     ignore = dirty
 
+[submodule "vim/bundle/argumentative"]
+	path = vim/bundle/argumentative
+	url = https://github.com/PeterRincker/vim-argumentative
