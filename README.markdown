@@ -102,15 +102,15 @@ scripts called by `.profile` are saved in `.profile.d` and iterated on login
 for ease of management. All of these boil down to exporting variables
 appropriate to the system and the software it has available.
 
-My interactive and scripting shell of choice is Bash; as a GNU/Linux admin who
-ends up installing Bash on BSD machines anyway, I very rarely have to write
-Bourne-compatible scripts, so all of those files are replete with Bashisms.
-
 My `.bash_profile` calls `.profile` for variable exports, and then runs
 `.bashrc` for interactive shells. Subscripts are kept in `.bashrc.d`, and all
 are loaded for the creation of any new interactive shell. The contents of this
 directory changes all the time depending on the host, and only specific scripts
 in it are versioned; the rest are ignored locally:
+
+My interactive and scripting shell of choice is Bash; as a GNU/Linux admin who
+ends up installing Bash on BSD machines anyway, I very rarely have to write
+Bourne-compatible scripts, so all of these files are replete with Bashisms.
 
 ```bash
 $ git ls-files --others --exclude-standard >>.git/info/exclude
