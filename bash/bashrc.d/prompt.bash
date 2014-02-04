@@ -16,7 +16,7 @@ prompt() {
             fi
 
             # Count available colors, reset, and format (decided shortly)
-            local colors=$( {
+            local -i colors=$( {
                 tput Co || tput colors
             } 2>/dev/null );
             local reset=$( {
@@ -73,7 +73,8 @@ prompt() {
             branch=${branch##*/}
 
             # Safely read status with -z --porcelain
-            local line ready modified untracked
+            local line
+            local -i ready modified untracked
             while IFS= read -d $'\0' -r line; do
                 if [[ $line == [MADRC]* ]]; then
                     ready=1
@@ -125,7 +126,8 @@ prompt() {
             local -a state
 
             # Safely read status with -0
-            local line modified untracked
+            local line
+            local -i modified untracked
             while IFS= read -d $'\0' -r line; do
                 if [[ $line == '?'* ]]; then
                     untracked=1
@@ -183,7 +185,8 @@ prompt() {
             branch=${branch%%/*}
 
             # Parse the output of svn status to determine working copy state
-            local symbol modified untracked
+            local symbol
+            local -i modified untracked
             while read -r symbol _; do
                 if [[ $symbol == *'?'* ]]; then
                     untracked=1
@@ -220,7 +223,7 @@ prompt() {
 
         # Show the count of background jobs in curly brackets
         job)
-            local jobc=0
+            local -i jobc=0
             while read -r _; do
                 ((jobc++))
             done < <(jobs -p)
