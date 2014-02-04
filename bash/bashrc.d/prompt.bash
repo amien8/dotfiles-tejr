@@ -52,6 +52,8 @@ prompt() {
         # Revert to simple inexpensive prompt
         off)
             unset -v PROMPT_COMMAND
+            unset -v PROMPT_DIRTRIM
+            unset -v ret
             PS1='\$ '
             ;;
 
