@@ -24,8 +24,3 @@ alias ls="ls $(lsopts)"
 # Unset helper function
 unset -f lsopts
 
-# Define and store appropriate colors for ls
-if hash dircolors 2>/dev/null; then
-    eval "$(dircolors --sh)"
-fi
-
