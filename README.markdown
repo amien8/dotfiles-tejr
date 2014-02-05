@@ -47,6 +47,8 @@ Configuration is included for:
 *   [rxvt-unicode](http://software.schmorp.de/pkg/rxvt-unicode.html) — Fork of
     the rxvt terminal emulator with Unicode support
 *   [Vim](http://www.vim.org/) — Vi IMproved, a text editor
+*   [Wyrd](http://pessimization.com/software/wyrd/) — a `curses` calendar
+    frontend for [Remind](http://www.roaringpenguin.com/products/remind)
 *   [X11](http://www.x.org/wiki/) — Windowing system with network transparency
     for Unix
 

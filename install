@@ -16,6 +16,7 @@
 #   -n -- Ncmpcpp
 #   -r -- Newsbeuter
 #   -t -- tmux
+#   -w -- Wyrd
 #   -x -- X11
 #
 # You should be prompted about replacing any file or directory that already
@@ -85,7 +86,7 @@ lns "$dotfiles"/vim/vimrc            "$HOME"/.vimrc
 lns "$dotfiles"/vim                  "$HOME"/.vim
 
 # Link in shell stuff
-while getopts :dgmnrtx opt; do
+while getopts :dgmnrtwx opt; do
     case $opt in
 
         # mysql(1), psql(1)
@@ -137,6 +138,11 @@ while getopts :dgmnrtx opt; do
         # Tmux
         t)
             lns "$dotfiles"/tmux/tmux.conf "$HOME"/.tmux.conf
+            ;;
+
+        # Wyrd
+        w)
+            lns "$dotfiles"/wyrd/wyrdrc "$HOME"/.wyrdrc
             ;;
 
         # X11
