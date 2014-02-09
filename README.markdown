@@ -85,13 +85,14 @@ other tools:
 *   `-n` — Ncmpcpp
 *   `-r` — Newsbeuter
 *   `-t` — tmux
+*   `-w` — Wyrd
 *   `-x` — X11
 
 The script will prompt you about replacing old files. If you’re brave/insane,
 you can pipe `yes(1)` into it to accept all the replacements:
 
 ```bash
-$ yes | ~/.dotfiles/install -dgmnrtx
+$ yes | ~/.dotfiles/install -dgmnrtwx
 ```
 
 Shell
