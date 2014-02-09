@@ -79,7 +79,7 @@ fi
 
 # Load any supplementary scripts
 if [[ -d $HOME/.bashrc.d ]]; then
-    for config in "$HOME"/.bashrc.d/*; do
+    for config in "$HOME"/.bashrc.d/*.bash; do
         [[ -r $config ]] && source "$config"
     done
 fi
