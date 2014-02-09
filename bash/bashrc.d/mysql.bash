@@ -15,7 +15,7 @@ fi
 #
 mysql() {
     local config="$HOME"/.mysql/"$1".cnf
-    if [[ -f $config ]]; then
+    if [[ -r $config ]]; then
         shift
         command mysql --defaults-extra-file="$config" "$@"
     else
