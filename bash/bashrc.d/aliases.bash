@@ -13,3 +13,6 @@ alias ll='ls -al'
 # Re-source ~/.bashrc
 alias sb='source ~/.bashrc'
 
+# sudo(8) should always attempt to use the target user's $HOME
+alias sudo='sudo -H'
+
