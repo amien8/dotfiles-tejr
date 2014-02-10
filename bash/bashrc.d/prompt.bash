@@ -18,10 +18,10 @@ prompt() {
             # Count available colors, reset, and format (decided shortly)
             local -i colors=$( {
                 tput Co || tput colors
-            } 2>/dev/null );
+            } 2>/dev/null )
             local reset=$( {
                 tput me || tput sgr0
-            } 2>/dev/null );
+            } 2>/dev/null )
             local format
 
             # Check if we have non-bold bright green available
@@ -66,7 +66,7 @@ prompt() {
             branch=$( {
                 git symbolic-ref --quiet HEAD \
                 || git rev-parse --short HEAD
-            } 2>/dev/null );
+            } 2>/dev/null )
             if [[ ! $branch ]]; then
                 return 1
             fi
