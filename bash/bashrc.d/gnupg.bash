@@ -1,5 +1,5 @@
 # Bail if no gpg(1)
-if ! hash gpg 2>/dev/null; then
+if ! hash gpg 2>/dev/null ; then
     return
 fi
 
@@ -20,7 +20,7 @@ _gpg() {
     local word=${COMP_WORDS[COMP_CWORD]}
 
     # Bail if word doesn't start with two dashes
-    if [[ $word != --* ]]; then
+    if [[ $word != --* ]] ; then
         COMPREPLY=()
         return 1
     fi
@@ -28,7 +28,7 @@ _gpg() {
     # Read options from the output of gpg --dump-options
     local -a options
     local option
-    while read -r option; do
+    while read -r option ; do
         options=("${options[@]}" "$option")
     done < <(gpg --dump-options 2>/dev/null)
 

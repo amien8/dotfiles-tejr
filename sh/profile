@@ -1,13 +1,13 @@
 # Add ~/.local/bin to PATH if it exists
-if [ -d "$HOME"/.local/bin ]; then
+if [ -d "$HOME"/.local/bin ] ; then
     PATH="$HOME"/.local/bin:"$PATH"
 fi
 export PATH
 
 # Load all supplementary scripts in ~/.profile.d
-if [ -d "$HOME"/.profile.d ]; then
-    for config in "$HOME"/.profile.d/*.sh; do
-        if [ -r "$config" ]; then
+if [ -d "$HOME"/.profile.d ] ; then
+    for config in "$HOME"/.profile.d/*.sh ; do
+        if [ -r "$config" ] ; then
             . "$config"
         fi
     done

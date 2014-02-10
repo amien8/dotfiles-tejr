@@ -1,5 +1,5 @@
 # Bail if no ftp(1)
-if ! hash ftp 2>/dev/null; then
+if ! hash ftp 2>/dev/null ; then
     return
 fi
 
@@ -9,7 +9,7 @@ _ftp() {
 
     # Bail if the .netrc file is illegible
     local netrc=$HOME/.netrc
-    if [[ ! -r $netrc ]]; then
+    if [[ ! -r $netrc ]] ; then
         COMPREPLY=()
         return 1
     fi
@@ -21,11 +21,11 @@ _ftp() {
     # Iterate through tokens and collect machine names
     local -a machines
     local token machine
-    for token in "${tokens[@]}"; do
-        if ((machine)); then
+    for token in "${tokens[@]}" ; do
+        if ((machine)) ; then
             machines=("${machines[@]}" "$token")
             machine=0
-        elif [[ $token == machine ]]; then
+        elif [[ $token == machine ]] ; then
             machine=1
         fi
     done

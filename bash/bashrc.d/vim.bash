@@ -1,5 +1,5 @@
 # Bail if no vim(1)
-if ! hash vim 2>/dev/null; then
+if ! hash vim 2>/dev/null ; then
     return
 fi
 
@@ -15,10 +15,10 @@ vis() {
 
     # Distinguish options from file arguments
     endopts=0
-    for arg in "$@"; do
-        if [[ $arg == -- ]]; then
+    for arg in "$@" ; do
+        if [[ $arg == -- ]] ; then
             endopts=1
-        elif [[ $arg == -* ]] && ! ((endopts)); then
+        elif [[ $arg == -* ]] && ! ((endopts)) ; then
             opts=("${opts[@]}" "$arg")
         else
             cmds=("${cmds[@]}" "$arg")
@@ -26,9 +26,9 @@ vis() {
     done
 
     # Check all the commands, if they don't exist, we'll create them
-    for cmd in "${cmds[@]}"; do
+    for cmd in "${cmds[@]}" ; do
         file=$(type -p "${cmd##*/}")
-        if [[ ! $file ]]; then
+        if [[ ! $file ]] ; then
             mkdir -p "$HOME"/.local/bin || exit
             file="$HOME"/.local/bin/"${cmd##*/}"
         fi

@@ -1,5 +1,5 @@
 # Browser
-if [ -n "$DISPLAY" ]; then
+if [ -n "$DISPLAY" ] ; then
     BROWSER=firefox
 else
     BROWSER=lynx

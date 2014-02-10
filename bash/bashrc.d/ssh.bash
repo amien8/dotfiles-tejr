@@ -1,5 +1,5 @@
 # Bail if no ssh(1)
-if ! hash ssh 2>/dev/null; then
+if ! hash ssh 2>/dev/null ; then
     return
 fi
 
@@ -18,7 +18,7 @@ _ssh() {
 
     # Bail if the configuration file is illegible
     local config=$HOME/.ssh/config
-    if [[ ! -r $config ]]; then
+    if [[ ! -r $config ]] ; then
         COMPREPLY=()
         return 1
     fi
@@ -26,8 +26,8 @@ _ssh() {
     # Read hostnames from the file, no asterisks
     local -a hosts
     local option value
-    while read -r option value _; do
-        if [[ $option == Host && $value != *'*'* ]]; then
+    while read -r option value _ ; do
+        if [[ $option == Host && $value != *'*'* ]] ; then
             hosts=("${hosts[@]}" "$value")
         fi
     done < "$config"

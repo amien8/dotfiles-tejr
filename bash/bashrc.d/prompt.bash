@@ -11,7 +11,7 @@ prompt() {
             PS1='[\u@\h:\w]$(prompt vcs)$(prompt job)$(prompt ret)\$'
 
             # If Bash 4.0 is available, trim very long paths in prompt
-            if ((${BASH_VERSINFO[0]} >= 4)); then
+            if ((${BASH_VERSINFO[0]} >= 4)) ; then
                 PROMPT_DIRTRIM=4
             fi
 
@@ -25,14 +25,14 @@ prompt() {
             local format
 
             # Check if we have non-bold bright green available
-            if ((colors == 256)); then
+            if ((colors == 256)) ; then
                 format=$( {
                     tput AF 10 || tput setaf 10 \
                         || tput AF 10 0 0 || tput setaf 10 0 0
                 } 2>/dev/null )
 
             # If we have only eight colors, use bold green to make it bright
-            elif ((colors == 8)); then
+            elif ((colors == 8)) ; then
                 format=$( {
                     tput AF 2 || tput setaf 2
                     tput md || tput bold
@@ -57,7 +57,7 @@ prompt() {
 
         git)
             # Bail if we have no git(1)
-            if ! hash git 2>/dev/null; then
+            if ! hash git 2>/dev/null ; then
                 return 1
             fi
 
@@ -67,7 +67,7 @@ prompt() {
                 git symbolic-ref --quiet HEAD \
                 || git rev-parse --short HEAD
             } 2>/dev/null )
-            if [[ ! $branch ]]; then
+            if [[ ! $branch ]] ; then
                 return 1
             fi
             branch=${branch##*/}
@@ -75,32 +75,32 @@ prompt() {
             # Safely read status with -z --porcelain
             local line
             local -i ready modified untracked
-            while IFS= read -d $'\0' -r line; do
-                if [[ $line == [MADRC]* ]]; then
+            while IFS= read -d $'\0' -r line ; do
+                if [[ $line == [MADRC]* ]] ; then
                     ready=1
                 fi
-                if [[ $line == ?[MADRC]* ]]; then
+                if [[ $line == ?[MADRC]* ]] ; then
                     modified=1
                 fi
-                if [[ $line == '??'* ]]; then
+                if [[ $line == '??'* ]] ; then
                     untracked=1
                 fi
             done < <(git status -z --porcelain 2>/dev/null)
 
             # Build state array from status output flags
             local -a state
-            if [[ $ready ]]; then
+            if [[ $ready ]] ; then
                 state=("${state[@]}" '+')
             fi
-            if [[ $modified ]]; then
+            if [[ $modified ]] ; then
                 state=("${state[@]}" '!')
             fi
-            if [[ $untracked ]]; then
+            if [[ $untracked ]] ; then
                 state=("${state[@]}" '?')
             fi
 
             # Add another indicator if we have stashed changes
-            if git rev-parse --verify refs/stash >/dev/null 2>&1; then
+            if git rev-parse --verify refs/stash >/dev/null 2>&1 ; then
                 state=("${state[@]}" '^')
             fi
 
@@ -112,13 +112,13 @@ prompt() {
         # Mercurial prompt function
         hg)
             # Bail if we have no hg(1)
-            if ! hash hg 2>/dev/null; then
+            if ! hash hg 2>/dev/null ; then
                 return 1
             fi
 
             # Exit if not inside a Mercurial tree
             local branch
-            if ! branch=$(hg branch 2>/dev/null); then
+            if ! branch=$(hg branch 2>/dev/null) ; then
                 return 1
             fi
 
@@ -128,8 +128,8 @@ prompt() {
             # Safely read status with -0
             local line
             local -i modified untracked
-            while IFS= read -d $'\0' -r line; do
-                if [[ $line == '?'* ]]; then
+            while IFS= read -d $'\0' -r line ; do
+                if [[ $line == '?'* ]] ; then
                     untracked=1
                 else
                     modified=1
@@ -138,10 +138,10 @@ prompt() {
 
             # Build state array from status output flags
             local -a state
-            if [[ $modified ]]; then
+            if [[ $modified ]] ; then
                 state=("${state[@]}" '!')
             fi
-            if [[ $untracked ]]; then
+            if [[ $untracked ]] ; then
                 state=("${state[@]}" '?')
             fi
 
@@ -153,13 +153,13 @@ prompt() {
         # Subversion prompt function
         svn)
             # Bail if we have no svn(1)
-            if ! hash svn 2>/dev/null; then
+            if ! hash svn 2>/dev/null ; then
                 return 1
             fi
 
             # Determine the repository URL and root directory
             local key value url root
-            while IFS=: read -r key value; do
+            while IFS=: read -r key value ; do
                 case $key in
                     'URL')
                         url=${value## }
@@ -171,7 +171,7 @@ prompt() {
             done < <(svn info 2>/dev/null)
 
             # Exit if we couldn't get either
-            if ! [[ $url && $root ]]; then
+            if ! [[ $url && $root ]] ; then
                 return 1
             fi
 
@@ -187,8 +187,8 @@ prompt() {
             # Parse the output of svn status to determine working copy state
             local symbol
             local -i modified untracked
-            while read -r symbol _; do
-                if [[ $symbol == *'?'* ]]; then
+            while read -r symbol _ ; do
+                if [[ $symbol == *'?'* ]] ; then
                     untracked=1
                 else
                     modified=1
@@ -197,10 +197,10 @@ prompt() {
 
             # Add appropriate state flags
             local -a state
-            if [[ $modified ]]; then
+            if [[ $modified ]] ; then
                 state=("${state[@]}" '!')
             fi
-            if [[ $untracked ]]; then
+            if [[ $untracked ]] ; then
                 state=("${state[@]}" '?')
             fi
 
@@ -216,7 +216,7 @@ prompt() {
 
         # Show the return status of the last command in angle brackets
         ret)
-            if ((ret > 0)); then
+            if ((ret > 0)) ; then
                 printf '<%d>' "$ret"
             fi
             ;;
@@ -224,10 +224,10 @@ prompt() {
         # Show the count of background jobs in curly brackets
         job)
             local -i jobc=0
-            while read -r _; do
+            while read -r _ ; do
                 ((jobc++))
             done < <(jobs -p)
-            if ((jobc > 0)); then
+            if ((jobc > 0)) ; then
                 printf '{%d}' "$jobc"
             fi
             ;;

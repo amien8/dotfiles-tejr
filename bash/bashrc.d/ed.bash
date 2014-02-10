@@ -1,5 +1,5 @@
 # Bail if no ed(1)
-if ! hash ed 2>/dev/null; then
+if ! hash ed 2>/dev/null ; then
     return
 fi
 
@@ -7,7 +7,7 @@ fi
 # it feel a lot more like using ex. Only do this when stdin is a terminal,
 # however.
 ed() {
-    if [[ -t 0 ]]; then
+    if [[ -t 0 ]] ; then
         command ed -p: "$@"
     else
         command ed "$@"

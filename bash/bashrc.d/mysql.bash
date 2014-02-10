@@ -1,5 +1,5 @@
 # Bail if no mysql(1)
-if ! hash mysql 2>/dev/null; then
+if ! hash mysql 2>/dev/null ; then
     return
 fi
 
@@ -15,7 +15,7 @@ fi
 #
 mysql() {
     local config="$HOME"/.mysql/"$1".cnf
-    if [[ -r $config ]]; then
+    if [[ -r $config ]] ; then
         shift
         command mysql --defaults-extra-file="$config" "$@"
     else
@@ -34,7 +34,7 @@ _mysql() {
         shopt -s nullglob dotglob
         files=("$dir"/*.cnf)
         ((! ${#files[@]}))
-    ); then
+    ) ; then
         COMPREPLY=()
         return 1
     fi

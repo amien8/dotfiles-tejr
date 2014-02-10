@@ -10,7 +10,7 @@ lsopts() {
     # If the --color option is available and we have a terminal that supports
     # at least eight colors, add --color=auto to the options
     local colors=$(tput colors)
-    if [[ $lshelp == *--color* ]] && ((colors >= 8)); then
+    if [[ $lshelp == *--color* ]] && ((colors >= 8)) ; then
         lsopts=("${lsopts[@]}" '--color=auto')
     fi
 

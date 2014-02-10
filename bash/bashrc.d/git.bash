@@ -1,5 +1,5 @@
 # Bail if no git(1)
-if ! hash git 2>/dev/null; then
+if ! hash git 2>/dev/null ; then
     return
 fi
 

@@ -1,5 +1,5 @@
 # Give up completely if no BASH_VERSINFO (<2.0)
-if [ -z "$BASH_VERSINFO" ]; then
+if [ -z "$BASH_VERSINFO" ] ; then
     printf \
         '%s: %s is too old to work with this configuration.\n' \
         "${BASH##*/}" "$BASH_VERSION" >&2
@@ -7,13 +7,13 @@ if [ -z "$BASH_VERSINFO" ]; then
 fi
 
 # Don't do anything if not running interactively
-if [[ $- != *i* ]]; then
+if [[ $- != *i* ]] ; then
     return
 fi
 
 # Keep plenty of history; unlimited, if we have >=4.3
 if ((${BASH_VERSINFO[0]} >= 4 \
-&& 10#${BASH_VERSINFO[1]%%[![:digit:]]*} >= 3)); then
+&& 10#${BASH_VERSINFO[1]%%[![:digit:]]*} >= 3)) ; then
     HISTFILESIZE=-1
     HISTSIZE=-1
 else
@@ -28,7 +28,7 @@ HISTCONTROL=ignoreboth
 HISTTIMEFORMAT='%F %T  '
 
 # Only tell me about new mail if MAIL is set and in $HOME
-if [[ $MAIL == "$HOME"/* ]]; then
+if [[ $MAIL == "$HOME"/* ]] ; then
     MAILCHECK=15
 else
     unset -v MAILCHECK
@@ -68,7 +68,7 @@ shopt -s shift_verbose
 shopt -u sourcepath
 
 # These options only exist since Bash 4.0-alpha
-if ((${BASH_VERSINFO[0]} >= 4)); then
+if ((${BASH_VERSINFO[0]} >= 4)) ; then
     # Warn me about stopped jobs when exiting
     shopt -s checkjobs
     # Autocorrect fudged paths during completion
@@ -78,9 +78,9 @@ if ((${BASH_VERSINFO[0]} >= 4)); then
 fi
 
 # Load any supplementary scripts
-if [[ -d $HOME/.bashrc.d ]]; then
-    for config in "$HOME"/.bashrc.d/*.bash; do
-        if [[ -r $config ]]; then
+if [[ -d $HOME/.bashrc.d ]] ; then
+    for config in "$HOME"/.bashrc.d/*.bash ; do
+        if [[ -r $config ]] ; then
             source "$config"
         fi
     done
