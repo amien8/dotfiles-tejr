@@ -1,5 +1,5 @@
 # Set editor
-EDITOR='vi'
+EDITOR=vi
 VISUAL=$EDITOR
 export EDITOR VISUAL
 

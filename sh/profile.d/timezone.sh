@@ -1,3 +1,3 @@
-TZ='Pacific/Auckland'
+TZ=Pacific/Auckland
 export TZ
 

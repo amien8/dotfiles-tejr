@@ -1,8 +1,8 @@
 # Browser
 if [ -n "$DISPLAY" ]; then
-    BROWSER='firefox'
+    BROWSER=firefox
 else
-    BROWSER='lynx'
+    BROWSER=lynx
 fi
 export BROWSER
 

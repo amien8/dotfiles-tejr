@@ -1,4 +1,4 @@
 # Set pager
-PAGER='less'
+PAGER=less
 export PAGER
 
