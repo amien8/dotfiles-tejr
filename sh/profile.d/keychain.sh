@@ -11,9 +11,8 @@ if command -v keychain >/dev/null 2>&1; then
 
     # Set and export TTY/GPG_TTY for interactive shells
     if [ -t 0 ]; then
-        TTY=$(tty)
-        GPG_TTY=$TTY
-        export TTY GPG_TTY
+        GPG_TTY=$(tty)
+        export GPG_TTY
     fi
 fi
 
