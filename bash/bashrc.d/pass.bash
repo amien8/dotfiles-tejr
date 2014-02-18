@@ -47,7 +47,7 @@ _pass()
 }
 
 # Completion only has -o nospace in Bash >=3.0
-if ((${BASH_VERSINFO[0]} >= 3)) ; then
+if ((BASH_VERSINFO[0] >= 3)) ; then
     complete -o filenames -o nospace -F _pass pass
 else
     complete -o filenames -F _pass pass

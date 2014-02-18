@@ -11,7 +11,7 @@ prompt() {
             PS1='[\u@\h:\w]$(prompt vcs)$(prompt job)$(prompt ret)\$'
 
             # If Bash 4.0 is available, trim very long paths in prompt
-            if ((${BASH_VERSINFO[0]} >= 4)) ; then
+            if ((BASH_VERSINFO[0] >= 4)) ; then
                 PROMPT_DIRTRIM=4
             fi
 
