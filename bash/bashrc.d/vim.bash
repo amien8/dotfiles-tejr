@@ -29,7 +29,9 @@ vis() {
     for cmd in "${cmds[@]}" ; do
         file=$(type -p "${cmd##*/}")
         if [[ ! $file ]] ; then
-            mkdir -p "$HOME"/.local/bin || exit
+            if ! mkdir -p "$HOME"/.local/bin ; then
+                exit
+            fi
             file="$HOME"/.local/bin/"${cmd##*/}"
         fi
         files=("${files[@]}" "$file")

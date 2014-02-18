@@ -22,16 +22,24 @@ cf() {
     fi
 
     # Record current state of dotglob and nullglob
-    shopt -pq dotglob && dgs=1
-    shopt -pq nullglob && ngs=1
+    if shopt -pq dotglob ; then
+        dgs=1
+    fi
+    if shopt -pq nullglob ; then
+        ngs=1
+    fi
 
     # Retrieve the files array
     shopt -s dotglob nullglob
     files=("$dir"/*)
 
     # Reset our options
-    ((dgs)) || shopt -u dotglob
-    ((ngs)) || shopt -u nullglob
+    if ! ((dgs)) ; then
+        shopt -u dotglob
+    fi
+    if ! ((ngs)) ; then
+        shopt -u nullglob
+    fi
 
     # Print result
     printf '%d\t%s\n' \
