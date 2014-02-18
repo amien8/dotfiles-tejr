@@ -86,12 +86,6 @@ if has('cmdline_info')
   set showmode
 endif
 
-" Some mild heresy; use the familiar Readline bindings of ^A and ^E on the
-" command line to move to the start and end of the line respectively; note
-" that this also works when entering search terms
-cnoremap <C-A> <Home>
-cnoremap <C-E> <End>
-
 " Don't try to complete strings from included files, just use the strings in
 " the open buffers; I'll open the file if I want to complete from it
 set complete-=i
