@@ -39,6 +39,9 @@ vis() {
 
     # Run Vim with all the options and full path file arguments
     command vim "${opts[@]}" -- "${files[@]}"
+
+    # Attempt to make the new files executable by us
+    chmod -f -- u+x "${files[@]}"
 }
 
 # Complete the vis function with command names
