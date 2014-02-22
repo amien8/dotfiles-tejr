@@ -111,10 +111,6 @@ are loaded for the creation of any new interactive shell. The contents of this
 directory changes all the time depending on the host, and only specific scripts
 in it are versioned; the rest are ignored locally:
 
-My interactive and scripting shell of choice is Bash; as a GNU/Linux admin who
-ends up installing Bash on BSD machines anyway, I very rarely have to write
-Bourne-compatible scripts, so all of these files are replete with Bashisms.
-
 ```bash
 $ git ls-files --others --exclude-standard >>.git/info/exclude
 ```
@@ -124,6 +120,10 @@ There’s an `others` alias for the above command in `~/.gitconfig`:
 ```bash
 $ git others >>.git/info/exclude
 ```
+
+My interactive and scripting shell of choice is Bash; as a GNU/Linux admin who
+ends up installing Bash on BSD machines anyway, I very rarely have to write
+Bourne-compatible scripts, so all of these files are replete with Bashisms.
 
 As I occasionally have work on very old internal systems, my Bash is written to
 work with [any version 2.05a or
