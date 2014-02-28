@@ -510,6 +510,9 @@ nnoremap <leader>w :set wrap!<CR>
 " start and end of the line
 set listchars+=precedes:<,extends:>
 
+" Don't write the output of :make to the terminal
+set shellpipe=>
+
 " When wrapping, j and k should move by screen row, and not to the same
 " column number in the previous logical line, which feels very clumsy and is
 " seldom particularly helpful; you can use n| to jump to the nth column in a
