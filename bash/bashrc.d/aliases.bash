@@ -10,6 +10,8 @@ alias diff='diff -u'
 # Don't print the GDB copyright message on every invocation
 alias gdb='gdb -q'
 
+# Use a unified format for rcsdiff(1) by default
+alias rcsdiff='rcsdiff -u'
 
 # sudo(8) should always attempt to use the target user's $HOME
 alias sudo='sudo -H'
