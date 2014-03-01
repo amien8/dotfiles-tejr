@@ -50,8 +50,7 @@ lns() {
 }
 
 # Bail if we don't have git(1)
-if ! hash git 2>/dev/null; then
-    printf '%s: Could not find git(1)!\n' "$self" >&2
+if ! hash git; then
     exit 1
 fi
 
