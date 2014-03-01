@@ -64,36 +64,31 @@ the defaults.
 Installation
 ------------
 
-There’s an installation script, but it’s pretty bare-bones, so don’t run it
-without reading it first. You’ll need to have a recent enough version of Git to
-support [submodules](http://git-scm.com/book/en/Git-Tools-Submodules) for this
-to work.
+The installation `Makefile` will delete things standing in the way of its
+symbolic links, so read the output of `make -n` first to make sure you aren’t
+going to lose anything unexpected.
 
-To install the core terminal-only files (ack, Bash, cURL, Git, Vim), use the
-following:
+You’ll need to have a recent enough version of Git to support
+[submodules](http://git-scm.com/book/en/Git-Tools-Submodules) for the Vim
+installation to work; it’s required for the plugin setup.
 
-```bash
-$ ~/.dotfiles/install
-```
-
-You can add any combination of the following options to add configuration for
-other tools:
-
-*   `-d` — `mysql(1)` and `psql(1)`
-*   `-g` — GnuPG
-*   `-m` — Mutt
-*   `-n` — Ncmpcpp
-*   `-r` — Newsbeuter
-*   `-t` — tmux
-*   `-w` — Wyrd
-*   `-x` — X11
-
-The script will prompt you about replacing old files. If you’re brave/insane,
-you can pipe `yes(1)` into it to accept all the replacements:
+To install the core terminal-only files (ack, Bash, cURL, Git, GnuPG, Vim), use
+the following:
 
 ```bash
-$ yes | ~/.dotfiles/install -dgmnrtwx
+$ make install
 ```
+
+The remaining dotfiles can be installed with the other targets:
+
+*   `install-mutt`
+*   `install-ncmcpp`
+*   `install-newsbeuter`
+*   `install-mysql`
+*   `install-psql`
+*   `install-tmux`
+*   `install-wyrd`
+*   `install-x`
 
 Shell
 -----
