@@ -104,12 +104,7 @@ while getopts :dgmnrtwx opt ; do
         # Mutt
         m)
             # Warn about some non-obvious dependencies if necessary
-            for depends in abook msmtp ; do
-                if ! hash "$depends" 2>/dev/null ; then
-                    printf '%s: warning: %s(1) not found\n' \
-                        "$self" "$depends" >&2
-                fi
-            done
+            hash abook msmtp
 
             # Link in files
             lns "$dotfiles"/mutt/muttrc "$HOME"/.muttrc
@@ -159,7 +154,7 @@ done
 shift $((OPTIND-1))
 
 # Compile terminfo files
-if hash tic 2>/dev/null ; then
+if hash tic ; then
     for info in "$dotfiles"/terminfo/*.info ; do
         tic "$info"
     done
