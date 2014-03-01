@@ -94,6 +94,7 @@ install-tmux :
 	ln -s $(PWD)/tmux/tmux.conf $(HOME)/.tmux.conf
 
 install-vim :
+	mkdir -p ~/.vim
 	rm -fr $(HOME)/.vim/after $(HOME)/.vim/autoload $(HOME)/.vim/bundle
 	rm -f $(HOME)/.vimrc $(HOME)/.gvimrc
 	ln -s $(PWD)/vim/after $(HOME)/.vim/after
