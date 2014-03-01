@@ -31,7 +31,7 @@ self=install
 # Replace existing file with link if user confirms
 lns() {
     local file=$1 link=$2
-    if [[ -e $link ]]; then
+    if [[ -e $link ]] ; then
         read -p "$link already exists; remove? [y/N] " confirm
         case $confirm in
             y*|Y*)
@@ -50,13 +50,13 @@ lns() {
 }
 
 # Bail if we don't have git(1)
-if ! hash git; then
+if ! hash git ; then
     exit 1
 fi
 
 # Define dotfiles directory and check it exists
 dotfiles=$HOME/.dotfiles
-if ! [[ -d $dotfiles ]]; then
+if ! [[ -d $dotfiles ]] ; then
     printf 'install: Could not find %s!\n' "$dotfiles" >&2
     exit 1
 fi
@@ -85,7 +85,7 @@ lns "$dotfiles"/vim/vimrc            "$HOME"/.vimrc
 lns "$dotfiles"/vim                  "$HOME"/.vim
 
 # Link in shell stuff
-while getopts :dgmnrtwx opt; do
+while getopts :dgmnrtwx opt ; do
     case $opt in
 
         # mysql(1), psql(1)
@@ -104,8 +104,8 @@ while getopts :dgmnrtwx opt; do
         # Mutt
         m)
             # Warn about some non-obvious dependencies if necessary
-            for depends in abook msmtp; do
-                if ! hash "$depends" 2>/dev/null; then
+            for depends in abook msmtp ; do
+                if ! hash "$depends" 2>/dev/null ; then
                     printf '%s: warning: %s(1) not found\n' \
                         "$self" "$depends" >&2
                 fi
@@ -159,8 +159,8 @@ done
 shift $((OPTIND-1))
 
 # Compile terminfo files
-if hash tic 2>/dev/null; then
-    for info in "$dotfiles"/terminfo/*.info; do
+if hash tic 2>/dev/null ; then
+    for info in "$dotfiles"/terminfo/*.info ; do
         tic "$info"
     done
 fi
