@@ -88,6 +88,7 @@ The remaining dotfiles can be installed with the other targets:
 *   `install-perl`
 *   `install-psql`
 *   `install-tmux`
+*   `install-urxvt`
 *   `install-wyrd`
 *   `install-x`
 

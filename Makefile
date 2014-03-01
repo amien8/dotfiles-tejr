@@ -97,6 +97,11 @@ install-tmux :
 	rm -f $(HOME)/.tmux.conf
 	ln -s $(PWD)/tmux/tmux.conf $(HOME)/.tmux.conf
 
+install-urxvt :
+	mkdir -p $(HOME)/.urxvt
+	rm -f $(HOME)/.urxvt/clipboard
+	ln -s $(PWD)/urxvt/clipboard $(HOME)/.urxvt/clipboard
+
 install-vim :
 	mkdir -p $(HOME)/.vim
 	rm -fr $(HOME)/.vim/after $(HOME)/.vim/autoload $(HOME)/.vim/bundle
