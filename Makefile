@@ -94,7 +94,6 @@ install-tmux :
 	ln -s $(PWD)/tmux/tmux.conf $(HOME)/.tmux.conf
 
 install-vim :
-	(cd $(PWD) && git submodule update --init)
 	rm -fr $(HOME)/.vim/after $(HOME)/.vim/autoload $(HOME)/.vim/bundle
 	rm -f $(HOME)/.vimrc $(HOME)/.gvimrc
 	ln -s $(PWD)/vim/after $(HOME)/.vim/after
@@ -102,6 +101,7 @@ install-vim :
 	ln -s $(PWD)/vim/bundle $(HOME)/.vim/bundle
 	ln -s $(PWD)/vim/vimrc $(HOME)/.vimrc
 	ln -s $(PWD)/vim/gvimrc $(HOME)/.gvimrc
+	(cd $(PWD) && git submodule update --init)
 
 install-wyrd :
 	rm -f $(HOME)/.wyrdrc
