@@ -4,8 +4,6 @@ if ! hash make 2>/dev/null ; then
 fi
 
 # Completion setup for Make, completing targets
-#
-# Note that because of the 
 _make() {
     local word=${COMP_WORDS[COMP_CWORD]}
 
