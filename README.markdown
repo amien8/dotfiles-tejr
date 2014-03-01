@@ -85,6 +85,7 @@ The remaining dotfiles can be installed with the other targets:
 *   `install-ncmcpp`
 *   `install-newsbeuter`
 *   `install-mysql`
+*   `install-perl`
 *   `install-psql`
 *   `install-tmux`
 *   `install-wyrd`
