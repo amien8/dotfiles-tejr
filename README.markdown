@@ -193,6 +193,10 @@ recipient. The GnuPG interfacing is done with
 commands for each crypto operation. I wrote [an article about this
 setup](http://blog.sanctum.geek.nz/linux-crypto-email/) if it sounds appealing.
 
+You’ll need [Abook](http://abook.sourceforge.net/) installed if you want to use
+the `query_command` I have defined, and [msmtp](http://msmtp.sourceforge.net/)
+for the `sendmail` command.
+
 tmux
 ----
 
