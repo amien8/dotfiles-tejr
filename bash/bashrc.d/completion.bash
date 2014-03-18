@@ -22,7 +22,8 @@ complete -A function function
 complete -A helptopic help
 
 # Jobspecs
-complete -A job bg fg disown jobs
+complete -A job disown fg jobs
+complete -A stopped bg
 
 # Readline bindings
 complete -A binding bind
