@@ -152,9 +152,9 @@ My prompt looks something like this:
 
 It expands based on context to include these elements in this order:
 
-*   Whether in a Git, Mercurial, or Subversion repository, and punctuation to
-    show whether there are local modifications at a glance
-*   The number of running background jobs
+*   Whether in a Git, Mercurial, or Subversion repository if applicable, and
+    punctuation to show whether there are local modifications at a glance
+*   The number of running background jobs, if non-zero
 *   The exit status of the last command, if non-zero
 
 This is all managed within the `prompt` function. There’s some mildly hacky
