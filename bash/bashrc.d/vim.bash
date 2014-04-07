@@ -15,7 +15,7 @@ vis() {
 
     # Distinguish options from file arguments
     endopts=0
-    for arg in "$@" ; do
+    for arg in "${@:?}" ; do
         if [[ $arg == -- ]] ; then
             endopts=1
         elif [[ $arg == -* ]] && ! ((endopts)) ; then
