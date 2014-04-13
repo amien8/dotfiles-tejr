@@ -28,7 +28,7 @@ vis() {
     done
 
     # Run editor with all the options and full path file arguments
-    command vim "${opts[@]}" -- "${files[@]}"
+    command "${VISUAL:-${EDITOR:-vi}}" "${opts[@]}" -- "${files[@]}"
 
     # Attempt to make the new files executable by us
     chmod -f -- u+x "${files[@]}"
