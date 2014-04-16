@@ -175,6 +175,10 @@ if has('eval')
   nnoremap <silent> <leader>t :<C-U>call ToggleFormatFlag('t')<CR>
 endif
 
+" Strip trailing whitespace with \x
+nnoremap <silent> <leader>x
+    \ :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+
 " Keep plenty of command and search history, because disk space is cheap
 set history=2000
 
