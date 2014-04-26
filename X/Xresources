@@ -7,7 +7,6 @@ Xft.rgba      : none
 
 ! Urxvt
 URxvt.buffered           : false
-URxvt.clipboard.autocopy : true
 URxvt.cursorBlink        : on
 URxvt.cutchars           : <>[]{}|*
 URxvt.depth              : 32
@@ -16,8 +15,7 @@ URxvt.font               : xft:Ubuntu Mono:size=12,xft:Deja Vu Sans Mono,xft:Loh
 URxvt.internalBorder     : 0
 URxvt.iso14755           : false
 URxvt.iso14755_52        : false
-URxvt.perl-ext           : clipboard
-URxvt.perl-ext-common    : clipboard
+URxvt.perl-ext-common    : clip
 URxvt.perl-lib           : /home/tom/.urxvt
 URxvt.pointerBlank       : true
 URxvt.saveLines          : 10000

@@ -1,0 +1,22 @@
+#!/usr/bin/env perl
+
+# Copy PRIMARY selections to the clipboard too with xsel(1).
+
+use strict;
+use warnings;
+
+sub on_start {
+    my ($self) = @_;
+    $self->enable( sel_grab => \&clip );
+    return;
+}
+
+sub clip {
+    my ($self) = @_;
+    if ( open CLIPBOARD, '| xsel -ib' ) {
+        print CLIPBOARD $self->selection();
+        close CLIPBOARD;
+    }
+    return;
+}
+

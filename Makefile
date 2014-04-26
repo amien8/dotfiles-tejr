@@ -99,8 +99,8 @@ install-tmux :
 
 install-urxvt :
 	mkdir -p $(HOME)/.urxvt
-	rm -f $(HOME)/.urxvt/clipboard
-	ln -s $(PWD)/urxvt/clipboard $(HOME)/.urxvt/clipboard
+	rm -f $(HOME)/.urxvt/clip
+	ln -s $(PWD)/urxvt/clip $(HOME)/.urxvt/clip
 
 install-vim :
 	mkdir -p $(HOME)/.vim
