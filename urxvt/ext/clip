@@ -5,6 +5,10 @@
 use strict;
 use warnings;
 
+use Carp;
+
+our $VERSION = 1.0;
+
 sub on_start {
     my ($self) = @_;
     $self->enable( sel_grab => \&clip );
@@ -13,12 +17,14 @@ sub on_start {
 
 sub clip {
     my ($self) = @_;
-    if ( open CLIPBOARD, '| xsel -ib' ) {
-        my $sel = $self->selection();
-        utf8::encode($sel);
-        print CLIPBOARD $sel;
-        close CLIPBOARD;
-    }
+    my $selection = $self->selection();
+    utf8::encode($selection);
+    open my $clipboard, q{|-}, 'xsel -ib'
+      or croak('xsel(1) not available');
+    print {$clipboard} $selection
+      or croak('Failed to write to xsel(1) pipe');
+    close $clipboard
+      or croak('Failed to close xsel(1) pipe');
     return;
 }
 
