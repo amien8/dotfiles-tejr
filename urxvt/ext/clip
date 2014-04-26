@@ -14,7 +14,9 @@ sub on_start {
 sub clip {
     my ($self) = @_;
     if ( open CLIPBOARD, '| xsel -ib' ) {
-        print CLIPBOARD $self->selection();
+        my $sel = $self->selection();
+        utf8::encode($sel);
+        print CLIPBOARD $sel;
         close CLIPBOARD;
     }
     return;
