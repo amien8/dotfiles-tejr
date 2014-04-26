@@ -170,7 +170,9 @@ things I really do get tired of typing repeatedly:
 
 *   Builtins, commands, help topics, shell options, and variables
 *   `ftp(1)` hostnames from `~/.netrc`
+*   `git(1)` branch names
 *   `gpg(1)` long options
+*   `make(1)` targets read from a `Makefile`
 *   `mysql(1)` databases from `~/.mysql/*.cnf`
 *   `pass(1)` entries
 *   `ssh(1)` hostnames from `~/.ssh/config`
