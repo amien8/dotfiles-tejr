@@ -82,6 +82,7 @@ The remaining dotfiles can be installed with the other targets:
 *   `install-newsbeuter`
 *   `install-mysql`
 *   `install-psql`
+*   `install-task`
 *   `install-tmux`
 *   `install-urxvt`
 *   `install-wyrd`
