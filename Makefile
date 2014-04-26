@@ -12,7 +12,7 @@ install : install-bash \
 	install-terminfo \
 	install-vim
 
-install-bash :
+install-bash : test-bash
 	mkdir -p $(HOME)/.config
 	rm -f $(HOME)/.bashrc $(HOME)/.bash_profile \
 		$(HOME)/.bash_logout $(HOME)/.config/bash_completion
@@ -78,7 +78,7 @@ install-readline :
 	rm -f $(HOME)/.inputrc
 	ln -s $(PWD)/readline/inputrc $(HOME)/.inputrc
 
-install-sh :
+install-sh : test-sh
 	rm -f $(HOME)/.profile
 	rm -fr $(HOME)/.profile.d
 	ln -s $(PWD)/sh/profile $(HOME)/.profile
@@ -122,4 +122,22 @@ install-x : install-i3
 	ln -s $(PWD)/X/Xresources $(HOME)/.Xresources
 	ln -s $(PWD)/X/xsession $(HOME)/.xsession
 	ln -s $(PWD)/X/xsessionrc $(HOME)/.xsessionrc
+
+test : test-sh test-bash
+
+test-sh :
+	@for sh in $(PWD)/sh/* $(PWD)/sh/profile.d/* ; do \
+		if [ -f "$$sh" ] && ! sh -n "$$sh" ; then \
+			exit 1 ; \
+		fi \
+	done
+	@echo "All sh(1) scripts parsed successfully."
+
+test-bash :
+	@for bash in $(PWD)/bash/* $(PWD)/bash/bashrc.d/* ; do \
+		if [ -f "$$bash" ] && ! bash -n "$$bash" ; then \
+			exit 1 ; \
+		fi \
+	done
+	@echo "All bash(1) scripts parsed successfully."
 

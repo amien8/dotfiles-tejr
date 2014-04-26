@@ -189,6 +189,11 @@ There are a few other little tricks in `bash/bashrc.d`:
 *   `vis` — View/edit an existing file in `$PATH` with `$EDITOR`, or create one
     in `~/.local/bin`
 
+### Testing
+
+You can test that both sets of shell scripts are syntactically correct with
+`make test-bash`, `make test-sh`, or `make test` for both.
+
 Mutt
 ----
 
