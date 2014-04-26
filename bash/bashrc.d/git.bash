@@ -13,12 +13,12 @@ _git() {
 
     # Get current and previous word
     local word=${COMP_WORDS[COMP_CWORD]}
-    local prev=${COMP_WORDS[COMP_CWORD-1]}
+    local first=${COMP_WORDS[1]}
 
     # Switch on the previous word
-    case $prev in
+    case $first in
 
-        # If the previous word is appropriate, complete with branch/tag names
+        # If the first word is appropriate, complete with branch/tag names
         checkout|merge|rebase)
             local -a branches
             local branch
