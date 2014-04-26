@@ -55,7 +55,7 @@ most likely to be of interest. The configuration for GnuPG is tweaked to follow
 [RiseUp’s OpenPGP best
 practices](https://we.riseup.net/riseuplabs+paow/openpgp-best-practices). The
 i3 configuration is mostly changed to make window switching behave like Vim
-windows and Tmux panes do, and there’s a fair few resources defined for
+windows and tmux panes do, and there’s a fair few resources defined for
 rxvt-unicode. Otherwise, the rest of the configuration isn’t too distant from
 the defaults.
 
