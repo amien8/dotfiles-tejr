@@ -211,7 +211,7 @@ should allow falling back to the more common [Deja Vu Sans
 Mono](http://dejavu-fonts.org/wiki/Main_Page). I’ve found
 [Terminus](http://terminus-font.sourceforge.net/) works well too, but bitmap
 fonts are not really my cup of tea. The Lohit Kannada font bit is purely to
-make ಠ\_ಠ work correctly.
+make ಠ\_ಠ work correctly. ( ͡° ͜ʖ ͡°) seems to work out of the box.
 
 tmux
 ----
