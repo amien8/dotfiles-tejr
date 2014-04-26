@@ -194,6 +194,25 @@ You’ll need [Abook](http://abook.sourceforge.net/) installed if you want to us
 the `query_command` I have defined, and [msmtp](http://msmtp.sourceforge.net/)
 for the `sendmail` command.
 
+rxvt-unicode
+------------
+
+A tiny script called `clip` is included in `~/.urxvt/ext` to make selections
+that go into the X `PRIMARY` paste buffer also goes into `CLIPBOARD`. This is
+purely preference as I find it pretty maddening otherwise, particularly when
+dealing with URLs from IRC.
+
+The included `.Xresources` file assumes that `urxvt` can use 256 colors and
+Perl extensions, and has its standard `selection` script available. If you’re
+missing functionality, try changing `perl-ext-common` to `default`.
+
+My choice of font is [Ubuntu Mono](http://font.ubuntu.com/), but the file
+should allow falling back to the more common [Deja Vu Sans
+Mono](http://dejavu-fonts.org/wiki/Main_Page). I’ve found
+[Terminus](http://terminus-font.sourceforge.net/) works well too, but bitmap
+fonts are not really my cup of tea. The Lohit Kannada font bit is purely to
+make ಠ\_ಠ work correctly.
+
 tmux
 ----
 
