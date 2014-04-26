@@ -177,6 +177,17 @@ things I really do get tired of typing repeatedly:
 *   `pass(1)` entries
 *   `ssh(1)` hostnames from `~/.ssh/config`
 
+### Functions
+
+There are a few other little tricks in `bash/bashrc.d`:
+
+*   `ca` — Count given arguments (e.g. `ca ~/.*` to count all dotfiles)
+*   `cf` — Count files in a directory (e.g. `cf ~` to count all files in
+    `$HOME`)
+*   `sprunge` — Pastebin frontend tool I pilfered from `#bash` on Freenode
+*   `vis` — View/edit an existing file in `$PATH` with `$EDITOR`, or create one
+    in `~/.local/bin`
+
 Mutt
 ----
 
