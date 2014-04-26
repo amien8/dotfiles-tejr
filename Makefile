@@ -1,3 +1,8 @@
+usage :
+	@echo "tejr/dotfiles: Nothing to do."
+	@echo "Run make -n install, and read the output carefully."
+	@echo "If you're happy with what it'll do, then run make install."
+
 install : install-bash \
 	install-curl \
 	install-git \

@@ -63,8 +63,8 @@ Installation
 ------------
 
 The installation `Makefile` will delete things standing in the way of its
-symbolic links, so read the output of `make -n` first to make sure you aren’t
-going to lose anything unexpected.
+symbolic links, so read the output of `make -n install` first to make sure you
+aren’t going to lose anything unexpected.
 
 You’ll need to have a recent enough version of Git to support
 [submodules](http://git-scm.com/book/en/Git-Tools-Submodules) for the Vim
