@@ -15,7 +15,6 @@ URxvt.font              : xft:Ubuntu Mono:size=12,xft:Deja Vu Sans Mono,xft:Lohi
 URxvt.internalBorder    : 0
 URxvt.iso14755          : false
 URxvt.iso14755_52       : false
-URxvt.perl-ext          : clip,selection
 URxvt.perl-ext-common   : clip,selection
 URxvt.pointerBlank      : true
 URxvt.saveLines         : 10000
