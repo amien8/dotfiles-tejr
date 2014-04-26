@@ -50,10 +50,6 @@
     path = vim/bundle/undotree
     url = git://github.com/mbbill/undotree
     ignore = dirty
-[submodule "vim/bundle/ack"]
-    path = vim/bundle/ack
-    url = git://github.com/mileszs/ack.vim
-    ignore = dirty
 [submodule "vim/bundle/argumentative"]
 	path = vim/bundle/argumentative
 	url = git://github.com/PeterRincker/vim-argumentative

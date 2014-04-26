@@ -19,8 +19,6 @@ Tools
 
 Configuration is included for:
 
-*   [ack](http://beyondgrep.com/) — Perl alternative to `grep(1)`, including a
-    copy of its standalone version
 *   [Bash](https://www.gnu.org/software/bash/) — GNU Bourne-Again Shell,
     including a `~/.profile` configured to work with most Bourne-compatible
     shells
@@ -72,8 +70,8 @@ You’ll need to have a recent enough version of Git to support
 [submodules](http://git-scm.com/book/en/Git-Tools-Submodules) for the Vim
 installation to work; it’s required for the plugin setup.
 
-To install the core terminal-only files (ack, Bash, cURL, Git, GnuPG, Vim), use
-the following:
+To install the core terminal-only files (Bash, cURL, Git, GnuPG, Vim), use the
+following:
 
 ```bash
 $ make install

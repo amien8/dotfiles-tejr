@@ -1,5 +1,4 @@
-install : install-ack \
-	install-bash \
+install : install-bash \
 	install-curl \
 	install-git \
 	install-gnupg \
@@ -7,12 +6,6 @@ install : install-ack \
 	install-sh \
 	install-terminfo \
 	install-vim
-
-install-ack :
-	mkdir -p $(HOME)/.local/bin
-	rm -fr $(HOME)/.local/bin/ack $(HOME)/.ackrc
-	ln -s $(PWD)/ack/ack $(HOME)/.local/bin/ack
-	ln -s $(PWD)/ack/ackrc $(HOME)/.ackrc
 
 install-bash :
 	mkdir -p $(HOME)/.config
