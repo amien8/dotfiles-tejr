@@ -87,6 +87,10 @@ install-sh :
 install-terminfo :
 	for info in $(PWD)/terminfo/*.info ; do tic "$$info" ; done
 
+install-task :
+	rm -f $(HOME)/.taskrc
+	ln -s $(PWD)/task/taskrc $(HOME)/.taskrc
+
 install-tmux :
 	rm -f $(HOME)/.tmux.conf
 	ln -s $(PWD)/tmux/tmux.conf $(HOME)/.tmux.conf
