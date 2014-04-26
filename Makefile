@@ -70,10 +70,6 @@ install-mysql :
 	rm -f $(HOME)/.my.cnf
 	ln -s $(PWD)/mysql/my.cnf $(HOME)/.my.cnf
 
-install-perl :
-	rm -f $(HOME)/.perlcriticrc
-	ln -s $(PWD)/perl/perlcriticrc $(HOME)/.perlcriticrc
-
 install-psql :
 	rm -f $(HOME)/.psqlrc
 	ln -s $(PWD)/psql/psqlrc $(HOME)/.psqlrc

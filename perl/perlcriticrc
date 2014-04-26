@@ -1,5 +1,0 @@
-severity = 1
-
-[Bangs::ProhibitNumberedNames]
-exceptions = ipv4 ipv6 md5 x11 utf8
-
