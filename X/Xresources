@@ -8,15 +8,15 @@ Xft.rgba      : none
 ! Urxvt
 URxvt.buffered          : false
 URxvt.cursorBlink       : on
-URxvt.cutchars          : <>[]{}|*
+URxvt.cutchars          : <>[]{}|│*
 URxvt.depth             : 32
 URxvt.fading            : 40
 URxvt.font              : xft:Ubuntu Mono:size=12,xft:Deja Vu Sans Mono,xft:Lohit Kannada
 URxvt.internalBorder    : 0
 URxvt.iso14755          : false
 URxvt.iso14755_52       : false
-URxvt.perl-ext          : clip
-URxvt.perl-ext-common   : clip
+URxvt.perl-ext          : clip,selection
+URxvt.perl-ext-common   : clip,selection
 URxvt.perl-lib          : /home/tom/.urxvt
 URxvt.pointerBlank      : true
 URxvt.saveLines         : 10000
