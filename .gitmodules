@@ -51,9 +51,11 @@
     url = git://github.com/mbbill/undotree
     ignore = dirty
 [submodule "vim/bundle/argumentative"]
-	path = vim/bundle/argumentative
-	url = git://github.com/PeterRincker/vim-argumentative
+    path = vim/bundle/argumentative
+    url = git://github.com/PeterRincker/vim-argumentative
     ignore = dirty
 [submodule "vim/bundle/exchange"]
-	path = vim/bundle/exchange
-	url = git://github.com/tommcdo/vim-exchange
+    path = vim/bundle/exchange
+    url = git://github.com/tommcdo/vim-exchange
+    ignore = dirty
+
