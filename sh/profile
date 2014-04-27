@@ -2,7 +2,6 @@
 if [ -d "$HOME"/.local/bin ] ; then
     PATH="$HOME"/.local/bin:"$PATH"
 fi
-export PATH
 
 # Load all supplementary scripts in ~/.profile.d
 if [ -d "$HOME"/.profile.d ] ; then
