@@ -159,11 +159,11 @@ test-bash :
 
 test-bin :
 	@for bin in $(PWD)/bin/* ; do \
-		if sed 1q "$$bin"" | grep -q bash && ! bash -n "$$bin" ; then \
-			exit 1 ; \
-		elsif sed 1q "$$bin"" | grep -q sh && ! sh -n "$$sh" ; then \
-			exit 1 ; \
+		if sed 1q "$$bin" | grep -q bash ; then \
+			bash -n "$$bin" || exit 1 ; \
+		elif sed 1q "$$bin" | grep -q sh ; then \
+			sh -n "$$bin" || exit 1 ; \
 		fi ; \
 	done
-	@echo "All shell scripts in /bin/ parsed successfully."
+	@echo "All shell scripts in bin parsed successfully."
 
