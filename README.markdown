@@ -197,7 +197,8 @@ There are a few other little tricks in `bash/bashrc.d`:
 ### Testing
 
 You can test that both sets of shell scripts are syntactically correct with
-`make test-bash`, `make test-sh`, or `make test` for both.
+`make test-bash`, `make test-sh`, or `make test` for everything including the
+scripts in `bin`.
 
 Mutt
 ----

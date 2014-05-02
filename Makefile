@@ -139,7 +139,7 @@ install-x : install-i3
 	ln -s $(PWD)/X/xsession $(HOME)/.xsession
 	ln -s $(PWD)/X/xsessionrc $(HOME)/.xsessionrc
 
-test : test-sh test-bash
+test : test-sh test-bash test-bin
 
 test-sh :
 	@for sh in $(PWD)/sh/* $(PWD)/sh/profile.d/* ; do \
