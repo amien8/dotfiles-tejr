@@ -1,0 +1,18 @@
+.TH SHOAL 1 "May 2014" "Manual page for shoal"
+.SH NAME
+.B shoal
+\- list the first hostname on each line of an ssh_config(5) file
+.SH SYNOPSIS
+.B shoal
+.I [SSH_CONFIG]
+.SH DESCRIPTION
+.B shoal
+reads an ssh_config(5) file, defaulting to ~/.ssh/config, and returns a
+newline-delimited list of the first of the hostnames on each Host line in the
+file, ignoring all other lines. Suitable for use in batch scripts like
+scatter(1).
+.SH SEE ALSO
+scatter(1), shock(1), ssh(1), ssh_config(5)
+.SH AUTHOR
+Tom Ryder <tom@sanctum.geek.nz>
+

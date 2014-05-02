@@ -4,10 +4,12 @@ usage :
 	@echo "If you're happy with what it'll do, then run make install."
 
 install : install-bash \
+	install-bin \
 	install-curl \
 	install-git \
 	install-gnupg \
 	install-readline \
+	install-man \
 	install-sh \
 	install-terminfo \
 	install-vim
@@ -22,6 +24,20 @@ install-bash : test-bash
 	ln -s $(PWD)/bash/bash_profile $(HOME)/.bash_profile
 	ln -s $(PWD)/bash/bash_logout $(HOME)/.bash_logout
 	ln -s $(PWD)/bash/bash_completion $(HOME)/.config/bash_completion
+
+install-bin : test-bin
+	mkdir -p $(HOME)/.local/bin
+	for bin in $(PWD)/bin/* ; do \
+		rm -f $(HOME)/.local/bin/"$${bin##*/}" ; \
+		ln -s "$$bin" $(HOME)/.local/bin/"$${bin##*/}" ; \
+	done
+
+install-man :
+	for man in $(PWD)/man/* ; do \
+		mkdir -p $(HOME)/.local/share/man/man"$${man##*.}" ; \
+		rm -f $(HOME)/.local/share/man/man"$${man##*.}"/"$${man##*/}" ; \
+		ln -s "$$man" $(HOME)/.local/share/man/man"$${man##*.}"/"$${man##*/}" ; \
+	done
 
 install-curl :
 	rm -f $(HOME)/.curlrc
@@ -140,4 +156,14 @@ test-bash :
 		fi \
 	done
 	@echo "All bash(1) scripts parsed successfully."
+
+test-bin :
+	@for bin in $(PWD)/bin/* ; do \
+		if sed 1q "$$bin"" | grep -q bash && ! bash -n "$$bin" ; then \
+			exit 1 ; \
+		elsif sed 1q "$$bin"" | grep -q sh && ! sh -n "$$sh" ; then \
+			exit 1 ; \
+		fi ; \
+	done
+	@echo "All shell scripts in /bin/ parsed successfully."
 

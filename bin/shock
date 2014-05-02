@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+#
+# shock(1) -- Run a command on every hostname returned by shock(1) and print
+# the hostname if the command's return value was zero. Discard stdout, but do
+# print stderr.
+#
+
+# Name self
+self=shock
+
+# Handle ^C interrupts
+trap 'trap - INT; kill -INT $$' INT
+
+# Bail if we couldn't find shoal(1)
+hash shoal || exit
+
+# Exit with usage method if no command given
+if ! (($#)) ; then
+    printf 'USAGE: %s <command>\n' "$self" >&2
+    exit 1
+fi
+
+# Execute command, print hostname if it returns zero
+while read -r hostname ; do
+    if ssh -nq -- "$hostname" "$@" >/dev/null ; then
+        printf '%s\n' "$hostname"
+    fi
+done < <(shoal)
+

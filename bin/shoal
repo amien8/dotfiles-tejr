@@ -1,0 +1,15 @@
+#!/bin/sh
+
+#
+# shoal(1) -- Print all the non-wildcard Host names (first
+# one per line) from an ssh_config(5) file, defaulting to
+# $HOME/.ssh/config.
+#
+# Author: Tom Ryder <tom@sanctum.geek.nz>
+# Copyright: 2014
+# License: Public domain
+#
+
+prog='$1 == "Host" && $2 !~ /[^a-z0-9_-]/ {print $2}'
+awk "$prog" "${1:-$HOME/.ssh/config}"
+

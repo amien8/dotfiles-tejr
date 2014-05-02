@@ -1,0 +1,17 @@
+.TH SHOCK 1 "May 2014" "Manual page for shock"
+.SH NAME
+.B shock
+\- run a command on shoal(1) hosts and print the hostname if successful
+.SH SYNOPSIS
+.B shock
+.I COMMAND
+.SH DESCRIPTION
+.B shock
+runs a nominated command on all the hosts returned by shoal(1), and prints the
+hostname if the command has an exit value of 0. The stdout from the commands is
+discarded.
+.SH SEE ALSO
+scatter(1), shoal(1)
+.SH AUTHOR
+Tom Ryder <tom@sanctum.geek.nz>
+

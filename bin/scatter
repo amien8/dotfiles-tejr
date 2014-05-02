@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+#
+# scatter(1) -- Run a command on every hostname returned by shoal(1) and print
+# both stdout and stderr, including allocating a pty with -t.
+#
+# Author: Tom Ryder <tom@sanctum.geek.nz>
+# Copyright: 2014
+# License: Public domain
+#
+
+# Name self
+self=scatter
+
+# Handle ^C interrupts
+trap 'trap - INT; kill -INT $$' INT
+
+# Bail if we couldn't find shoal(1)
+hash shoal || exit
+
+# Exit with usage method if no arguments given
+if ! (($#)) ; then
+    printf 'USAGE: %s <command>\n' "$self" >&2
+    exit 1
+fi
+
+# Execute command, print both stdout and stderr, and use file descriptor 3 to
+# avoid clobbering any of the standard streams
+while read -r hostname <&3 ; do
+    printf '%s: %s\n' "$self" "$hostname"
+    ssh -qt -- "$hostname" "$@"
+    printf '\n'
+done 3< <(shoal)
+

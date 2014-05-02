@@ -48,6 +48,8 @@ Configuration is included for:
 *   [X11](http://www.x.org/wiki/) — Windowing system with network transparency
     for Unix
 
+Also included are a few scripts for `~/.local/bin`, and their `man(1)` pages.
+
 The configurations for Bash, Mutt, tmux, and Vim are the most expansive and
 most likely to be of interest. The configuration for GnuPG is tweaked to follow
 [RiseUp’s OpenPGP best
@@ -87,6 +89,9 @@ The remaining dotfiles can be installed with the other targets:
 *   `install-urxvt`
 *   `install-wyrd`
 *   `install-x`
+
+The miscellaneous `bin` scripts and their manuals can be installed with
+`install-bin` and `install-man` respectively.
 
 Shell
 -----
@@ -255,6 +260,20 @@ interactive behavior and keybindings.
 The configuration is extensively commented, mostly because I was reading
 through it one day and realised I’d forgotten what half of it did. Plugins are
 loaded using @tpope’s [pathogen.vim](https://github.com/tpope/vim-pathogen).
+
+Scripts
+-------
+
+Three SSH-related scripts and their manuals are included:
+
+*   `scatter(1)` -- Run command on multiple hosts read from `shoal(1)` and
+    print output
+*   `shock(1)` -- Run command on multiple hosts read from `shoal(1)` and print
+    the hostname if the command returns zero
+*   `shoal(1)` -- Print hostnames read from a `ssh_config(5)` file
+
+If you want to use the manuals, you may need to add `~/.local/share/man` to
+your `/etc/manpath` configuration, depending on your system.
 
 License
 -------
