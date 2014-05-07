@@ -25,15 +25,10 @@ _gpg() {
         return 1
     fi
 
-    # Read options from the output of gpg --dump-options
-    local -a options
-    local option
-    while read -r option ; do
-        options=("${options[@]}" "$option")
-    done < <(gpg --dump-options 2>/dev/null)
-
     # Generate completion reply
-    COMPREPLY=( $(compgen -W "${options[*]}" -- "$word") )
+    COMPREPLY=( $(compgen -W \
+        "$(gpg --dump-options 2>/dev/null)" \
+        -- "$word") )
 }
 complete -F _gpg -o default gpg
 
