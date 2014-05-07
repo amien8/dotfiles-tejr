@@ -111,7 +111,7 @@ install-tmux :
 	rm -f $(HOME)/.tmux.conf
 	ln -s $(PWD)/tmux/tmux.conf $(HOME)/.tmux.conf
 
-install-urxvt :
+install-urxvt : test-urxvt
 	mkdir -p $(HOME)/.urxvt
 	rm -fr $(HOME)/.urxvt/clip/ext
 	ln -s $(PWD)/urxvt/ext $(HOME)/.urxvt/ext
@@ -139,7 +139,7 @@ install-x : install-i3
 	ln -s $(PWD)/X/xsession $(HOME)/.xsession
 	ln -s $(PWD)/X/xsessionrc $(HOME)/.xsessionrc
 
-test : test-sh test-bash test-bin
+test : test-sh test-bash test-bin test-urxvt
 
 test-sh :
 	@for sh in $(PWD)/sh/* $(PWD)/sh/profile.d/* ; do \
@@ -166,4 +166,10 @@ test-bin :
 		fi ; \
 	done
 	@echo "All shell scripts in bin parsed successfully."
+
+test-urxvt:
+	@for perl in $(PWD)/urxvt/ext/* ; do \
+		perl -c "$$perl" >/dev/null || exit 1 ; \
+	done
+	@echo "All Perl scripts in urxvt/ext parsed successfully."
 
