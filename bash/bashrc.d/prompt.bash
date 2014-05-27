@@ -214,14 +214,14 @@ prompt() {
             prompt git || prompt svn || prompt hg
             ;;
 
-        # Show the return status of the last command in angle brackets
+        # Show return status of previous command in angle brackets, if not zero
         ret)
             if ((ret > 0)) ; then
                 printf '<%d>' "$ret"
             fi
             ;;
 
-        # Show the count of background jobs in curly brackets
+        # Show the count of background jobs in curly brackets, if not zero
         job)
             local -i jobc=0
             while read -r _ ; do
