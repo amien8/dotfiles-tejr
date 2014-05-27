@@ -1,5 +1,5 @@
 # Give up completely if no BASH_VERSINFO (<2.0)
-if [ -z "$BASH_VERSINFO" ] ; then
+if ! [ "$BASH_VERSINFO" ] ; then
     return
 fi
 
