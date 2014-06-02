@@ -24,6 +24,8 @@ Configuration is included for:
     shells
 *   [cURL](http://curl.haxx.se/) — Command-line tool for transferring data with
     URL syntax
+*   [`dircolors(1)`](https://www.gnu.org/software/coreutils/manual/html_node/dircolors-invocation.html)
+    — Color GNU `ls(1)` output
 *   [Git](http://git-scm.com/) — Distributed version control system
 *   [GnuPG](http://www.gnupg.org/) — GNU Privacy Guard, for private
     communication and file encryption
