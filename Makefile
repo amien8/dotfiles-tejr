@@ -6,6 +6,7 @@ usage :
 install : install-bash \
 	install-bin \
 	install-curl \
+	install-dircolors \
 	install-git \
 	install-gnupg \
 	install-readline \
@@ -42,6 +43,10 @@ install-man :
 install-curl :
 	rm -f $(HOME)/.curlrc
 	ln -s $(PWD)/curl/curlrc $(HOME)/.curlrc
+
+install-dircolors :
+	rm -f $(HOME)/.dircolors
+	ln -s $(PWD)/dircolors/dircolors $(HOME)/.dircolors
 
 install-git :
 	rm -f $(HOME)/.gitconfig
