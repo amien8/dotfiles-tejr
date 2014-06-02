@@ -70,8 +70,8 @@ You’ll need to have a recent enough version of Git to support
 [submodules](http://git-scm.com/book/en/Git-Tools-Submodules) for the Vim
 installation to work; it’s required for the plugin setup.
 
-To install the core terminal-only files (Bash, cURL, Git, GnuPG, Vim), use the
-following:
+To install the core terminal-only files (cURL, Git, GnuPG, Vim, and shell and
+terminal setup files), use the following:
 
 ```bash
 $ make install

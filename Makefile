@@ -4,13 +4,11 @@ usage :
 	@echo "If you're happy with what it'll do, then run make install."
 
 install : install-bash \
-	install-bin \
 	install-curl \
 	install-dircolors \
 	install-git \
 	install-gnupg \
 	install-readline \
-	install-man \
 	install-sh \
 	install-terminfo \
 	install-vim
