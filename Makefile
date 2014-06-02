@@ -30,8 +30,6 @@ install-bin : test-bin
 		rm -f $(HOME)/.local/bin/"$${bin##*/}" ; \
 		ln -s "$$bin" $(HOME)/.local/bin/"$${bin##*/}" ; \
 	done
-
-install-man :
 	for man in $(PWD)/man/* ; do \
 		mkdir -p $(HOME)/.local/share/man/man"$${man##*.}" ; \
 		rm -f $(HOME)/.local/share/man/man"$${man##*.}"/"$${man##*/}" ; \
