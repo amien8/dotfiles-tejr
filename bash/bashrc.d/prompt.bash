@@ -76,10 +76,10 @@ prompt() {
             local line
             local -i ready modified untracked
             while IFS= read -d $'\0' -r line ; do
-                if [[ $line == [MADRC]* ]] ; then
+                if [[ $line == [MADRCT]* ]] ; then
                     ready=1
                 fi
-                if [[ $line == ?[MADRC]* ]] ; then
+                if [[ $line == ?[MADRCT]* ]] ; then
                     modified=1
                 fi
                 if [[ $line == '??'* ]] ; then
