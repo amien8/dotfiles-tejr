@@ -20,12 +20,8 @@ HISTCONTROL=ignoreboth
 # Keep the times of the commands in history
 HISTTIMEFORMAT='%F %T  '
 
-# Only tell me about new mail if MAIL is set and in $HOME
-if [[ $MAIL == "$HOME"/* ]] ; then
-    MAILCHECK=15
-else
-    unset -v MAILCHECK
-fi
+# Don't warn me about new mail
+unset -v MAILCHECK
 
 # Never beep at me
 setterm -bfreq 0 2>/dev/null
