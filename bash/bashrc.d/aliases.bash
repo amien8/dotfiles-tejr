@@ -1,5 +1,5 @@
 # Print a terminal bell
-alias bell='printf %s '$'\a'
+alias bell='printf '$'\a'
 
 # Don't print the bc(1) welcome message
 alias bc='bc -q'

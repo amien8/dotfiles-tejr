@@ -16,7 +16,7 @@ cd() {
         if [[ $PWD == *"${dirs[0]}"* ]] ; then
             builtin cd "${opts[@]}" -- "${PWD/${dirs[0]}/${dirs[1]}}"
         else
-            printf '%s\n' 'bash: cd: could not replace substring' >&2
+            printf 'bash: cd: could not replace substring\n' >&2
             return 1
         fi
     else
