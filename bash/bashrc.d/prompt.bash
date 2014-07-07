@@ -7,7 +7,7 @@ prompt() {
         # Turn complex, colored prompt on
         on)
             # Set up pre-prompt command and prompt format
-            PROMPT_COMMAND='declare -i ret=$? ; history -a'
+            PROMPT_COMMAND='declare -i PROMPT_RETURN=$? ; history -a'
             PS1='[\u@\h:\w]$(prompt vcs)$(prompt job)$(prompt ret)\$'
 
             # If Bash 4.0 is available, trim very long paths in prompt
@@ -51,7 +51,7 @@ prompt() {
 
         # Revert to simple inexpensive prompt
         off)
-            unset -v PROMPT_COMMAND PROMPT_DIRTRIM ret
+            unset -v PROMPT_COMMAND PROMPT_DIRTRIM PROMPT_RETURN
             PS1='\$ '
             ;;
 
@@ -216,8 +216,8 @@ prompt() {
 
         # Show return status of previous command in angle brackets, if not zero
         ret)
-            if ((ret > 0)) ; then
-                printf '<%d>' "$ret"
+            if ((PROMPT_RETURN > 0)) ; then
+                printf '<%d>' "$PROMPT_RETURN"
             fi
             ;;
 
