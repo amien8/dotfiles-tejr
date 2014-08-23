@@ -10,7 +10,6 @@ URxvt.buffered          : false
 URxvt.cursorBlink       : on
 URxvt.cutchars          : <>[]{}|│*
 URxvt.depth             : 32
-URxvt.fading            : 40
 URxvt.font              : xft:Ubuntu Mono:size=12,xft:Deja Vu Sans Mono,xft:Lohit Kannada
 URxvt.internalBorder    : 0
 URxvt.iso14755          : false
