@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #
-# shock(1) -- Run a command on every hostname returned by shock(1) and print
+# shock(1) -- Run a command on every hostname returned by shoal(1) and print
 # the hostname if the command's return value was zero. Discard stdout, but do
 # print stderr.
 #
