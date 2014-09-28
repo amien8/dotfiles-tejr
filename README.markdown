@@ -64,9 +64,15 @@ the defaults.
 Installation
 ------------
 
-The installation `Makefile` will delete things standing in the way of its
-symbolic links, so read the output of `make -n install` first to make sure you
-aren’t going to lose anything unexpected.
+The installation `Makefile` will overwrite things standing in the way of its
+installed files without backing them up, so read the output of `make -n
+install` first to make sure you aren’t going to lose anything unexpected. Even
+better, if you’re still not sure, give it a temporary directory to which it can
+install to check things out:
+
+    $ mktemp -d
+    /tmp/tmp.YZFW8ScFZP
+    $ make install HOME=/tmp/tmp.YZFW8ScFZP
 
 You’ll need to have a recent enough version of Git to support
 [submodules](http://git-scm.com/book/en/Git-Tools-Submodules) for the Vim
@@ -109,17 +115,7 @@ My `.bash_profile` calls `.profile` for variable exports, and then runs
 `.bashrc` for interactive shells. Subscripts are kept in `.bashrc.d`, and all
 are loaded for the creation of any new interactive shell. The contents of this
 directory changes all the time depending on the host, and only specific scripts
-in it are versioned; the rest are ignored locally:
-
-```bash
-$ git ls-files --others --exclude-standard >>.git/info/exclude
-```
-
-There’s an `others` alias for the above command in `~/.gitconfig`:
-
-```bash
-$ git others >>.git/info/exclude
-```
+in it are versioned.
 
 My interactive and scripting shell of choice is Bash; as a GNU/Linux admin who
 ends up installing Bash on BSD machines anyway, I very rarely have to write
