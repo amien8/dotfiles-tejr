@@ -103,7 +103,7 @@ install-vim :
 	cp -fR vim/bundle/* $(HOME)/.vim/bundle
 	rm -fr $(HOME)/.vim/bundle/*/.git*
 	rm -f $(HOME)/.vim/autoload/pathogen.vim
-	ln -s $(HOME)/.vim/bundle/pathogen/autoload/pathogen.vim \
+	ln -s ../bundle/pathogen/autoload/pathogen.vim \
 		$(HOME)/.vim/autoload/pathogen.vim
 
 install-wyrd :
