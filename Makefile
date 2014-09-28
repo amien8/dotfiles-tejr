@@ -15,25 +15,25 @@ install : install-bash \
 
 install-bash : test-bash
 	install -d $(HOME)/.config $(HOME)/.bashrc.d
-	install bash/bashrc $(HOME)/.bashrc
-	install bash/bashrc.d/* $(HOME)/.bashrc.d
-	install bash/bash_profile $(HOME)/.bash_profile
-	install bash/bash_logout $(HOME)/.bash_logout
-	install bash/bash_completion $(HOME)/.config/bash_completion
+	install -m 0644 bash/bashrc $(HOME)/.bashrc
+	install -m 0644 bash/bashrc.d/* $(HOME)/.bashrc.d
+	install -m 0644 bash/bash_profile $(HOME)/.bash_profile
+	install -m 0644 bash/bash_logout $(HOME)/.bash_logout
+	install -m 0644 bash/bash_completion $(HOME)/.config/bash_completion
 
 install-bin : test-bin
 	install -d $(HOME)/.local/bin $(HOME)/.local/share/man/man1
-	install bin/* $(HOME)/.local/bin
-	install man/* $(HOME)/.local/share/man/man1
+	install -m 0755 bin/* $(HOME)/.local/bin
+	install -m 0644 man/* $(HOME)/.local/share/man/man1
 
 install-curl :
-	install curl/curlrc $(HOME)/.curlrc
+	install -m 0644 curl/curlrc $(HOME)/.curlrc
 
 install-dircolors :
-	install dircolors/dircolors $(HOME)/.dircolors
+	install -m 0644 dircolors/dircolors $(HOME)/.dircolors
 
 install-git :
-	install git/gitconfig $(HOME)/.gitconfig
+	install -m 0644 git/gitconfig $(HOME)/.gitconfig
 
 install-gnupg :
 	install -m 0700 -d $(HOME)/.gnupg
@@ -41,7 +41,7 @@ install-gnupg :
 
 install-i3 :
 	install -d $(HOME)/.i3
-	install i3/* $(HOME)/.i3
+	install -m 0644 i3/* $(HOME)/.i3
 
 install-mutt :
 	install -d $(HOME)/.mutt \
@@ -52,53 +52,53 @@ install-mutt :
 		$(HOME)/Mail/sent/cur \
 		$(HOME)/Mail/sent/new \
 		$(HOME)/Mail/sent/tmp
-	install mutt/muttrc $(HOME)/.muttrc
+	install -m 0644 mutt/muttrc $(HOME)/.muttrc
 	touch $(HOME)/.mutt/muttrc.local $(HOME)/.mutt/signature
 
 install-ncmcpp :
 	install -d $(HOME)/.ncmpcpp
-	install ncmpcpp/config $(HOME)/.ncmpcpp/config
+	install -m 0644 ncmpcpp/config $(HOME)/.ncmpcpp/config
 
 install-newsbeuter :
 	install -d $(HOME)/.config/newsbeuter $(HOME)/.local/share/newsbeuter
-	install newsbeuter/config $(HOME)/.config/newsbeuter/config
+	install -m 0644 newsbeuter/config $(HOME)/.config/newsbeuter/config
 
 install-mysql :
-	install mysql/my.cnf $(HOME)/.my.cnf
+	install -m 0644 mysql/my.cnf $(HOME)/.my.cnf
 
 install-psql :
-	install psql/psqlrc $(HOME)/.psqlrc
+	install -m 0644 psql/psqlrc $(HOME)/.psqlrc
 
 install-readline :
-	install readline/inputrc $(HOME)/.inputrc
+	install -m 0644 readline/inputrc $(HOME)/.inputrc
 
 install-sh : test-sh
 	install -d $(HOME)/.profile.d
-	install sh/profile $(HOME)/.profile
-	install sh/profile.d/* $(HOME)/.profile.d
+	install -m 0644 sh/profile $(HOME)/.profile
+	install -m 0644 sh/profile.d/* $(HOME)/.profile.d
 
 install-terminfo :
 	for info in terminfo/*.info ; do tic "$$info" ; done
 
 install-task :
-	install task/taskrc $(HOME)/.taskrc
+	install -m 0644 task/taskrc $(HOME)/.taskrc
 
 install-tmux :
-	install tmux/tmux.conf $(HOME)/.tmux.conf
+	install -m 0644 tmux/tmux.conf $(HOME)/.tmux.conf
 
 install-urxvt : test-urxvt
 	install -d $(HOME)/.urxvt/ext
-	install urxvt/ext/* $(HOME)/.urxvt/ext
+	install -m 0755 urxvt/ext/* $(HOME)/.urxvt/ext
 
 install-vim :
 	install -d $(HOME)/.vim/after/ftplugin \
 		$(HOME)/.vim/after/plugin \
 		$(HOME)/.vim/autoload \
 		$(HOME)/.vim/bundle
-	install vim/vimrc $(HOME)/.vimrc
-	install vim/gvimrc $(HOME)/.gvimrc
-	install vim/after/ftplugin/* $(HOME)/.vim/after/ftplugin
-	install vim/after/plugin/* $(HOME)/.vim/after/plugin
+	install -m 0644 vim/vimrc $(HOME)/.vimrc
+	install -m 0644 vim/gvimrc $(HOME)/.gvimrc
+	install -m 0644 vim/after/ftplugin/* $(HOME)/.vim/after/ftplugin
+	install -m 0644 vim/after/plugin/* $(HOME)/.vim/after/plugin
 	git submodule update --init
 	cp -fR vim/bundle/* $(HOME)/.vim/bundle
 	rm -f $(HOME)/.vim/after/pathogen.vim
@@ -106,13 +106,13 @@ install-vim :
 		$(HOME)/.vim/autoload/pathogen.vim
 
 install-wyrd :
-	install wyrd/wyrdrc $(HOME)/.wyrdrc
+	install -m 0644 wyrd/wyrdrc $(HOME)/.wyrdrc
 
 install-x : install-i3
-	install X/Xmodmap $(HOME)/.Xmodmap
-	install X/Xresources $(HOME)/.Xresources
-	install X/xsession $(HOME)/.xsession
-	install X/xsessionrc $(HOME)/.xsessionrc
+	install -m 0644 X/Xmodmap $(HOME)/.Xmodmap
+	install -m 0644 X/Xresources $(HOME)/.Xresources
+	install -m 0644 X/xsession $(HOME)/.xsession
+	install -m 0644 X/xsessionrc $(HOME)/.xsessionrc
 
 test : test-sh test-bash test-bin test-urxvt
 
