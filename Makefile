@@ -101,6 +101,7 @@ install-vim :
 	install -m 0644 vim/after/plugin/* $(HOME)/.vim/after/plugin
 	git submodule update --init
 	cp -fR vim/bundle/* $(HOME)/.vim/bundle
+	rm -f $(HOME)/.vim/bundle/*/.git*
 	rm -f $(HOME)/.vim/autoload/pathogen.vim
 	ln -s $(HOME)/.vim/bundle/pathogen/autoload/pathogen.vim \
 		$(HOME)/.vim/autoload/pathogen.vim
