@@ -102,7 +102,8 @@ install-vim :
 	git submodule update --init
 	cp -fR vim/bundle/* $(HOME)/.vim/bundle
 	rm -f $(HOME)/.vim/after/pathogen.vim
-	ln -s $(HOME)/.vim/bundle/pathogen/autoload/pathogen.vim $(HOME)/.vim/after/pathogen.vim
+	ln -s $(HOME)/.vim/bundle/pathogen/autoload/pathogen.vim \
+		$(HOME)/.vim/autoload/pathogen.vim
 
 install-wyrd :
 	install wyrd/wyrdrc $(HOME)/.wyrdrc
