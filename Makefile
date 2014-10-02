@@ -1,3 +1,10 @@
+.PHONY: usage install install-bash install-bin install-curl \
+	install-dircolors install-git install-gnupg install-i3 \
+	install-mutt install-ncmcpp install-newsbeuter install-mysql \
+	install-psql install-readline install-sh install-terminfo \
+	install-task install-tmux install-urxvt install-vim \
+	install-wyrd install-x test test-sh test-bash test-vim test-urxvt
+
 usage :
 	@echo "tejr/dotfiles: Nothing to do."
 	@echo "Run make -n install, and read the output carefully."
