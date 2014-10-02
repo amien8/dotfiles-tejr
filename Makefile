@@ -100,10 +100,11 @@ install-vim :
 	install -m 0644 vim/after/ftplugin/* $(HOME)/.vim/after/ftplugin
 	install -m 0644 vim/after/plugin/* $(HOME)/.vim/after/plugin
 	git submodule update --init
-	for plugin in vim/bundle/* ; do \
-		rm -fr $(HOME)/.vim/bundle/"$${plugin##*/}" ; \
-		cp -r "$$plugin" $(HOME)/.vim/bundle ; \
-		rm -fr $(HOME)/.vim/bundle/"$${plugin##*/}"/.git* ; \
+	find vim/bundle -type d \( -name .git -prune -o -type d -print \) | while IFS= read -r dir ; do \
+		install -d -- "$${dir}" $(HOME)/.vim/"$${dir#vim/}" ; \
+	done
+	find vim/bundle -type f ! -name '.git*' | while IFS= read -r file ; do \
+		install -- "$${file}" $(HOME)/.vim/"$${file#vim/}" ; \
 	done
 	rm -f $(HOME)/.vim/autoload/pathogen.vim
 	ln -s ../bundle/pathogen/autoload/pathogen.vim \
