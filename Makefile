@@ -68,7 +68,9 @@ install-ncmcpp :
 	install -m 0644 -- ncmpcpp/config $(HOME)/.ncmpcpp/config
 
 install-newsbeuter :
-	install -m 0755 -d -- $(HOME)/.config/newsbeuter $(HOME)/.local/share/newsbeuter
+	install -m 0755 -d -- \
+		$(HOME)/.config/newsbeuter \
+		$(HOME)/.local/share/newsbeuter
 	install -m 0644 -- newsbeuter/config $(HOME)/.config/newsbeuter/config
 
 install-mysql :
