@@ -21,71 +21,71 @@ install : install-bash \
 	install-vim
 
 install-bash : test-bash
-	install -m 0755 -d -- $(HOME)/.config $(HOME)/.bashrc.d
-	install -m 0644 -- bash/bashrc $(HOME)/.bashrc
-	install -m 0644 -- bash/bashrc.d/* $(HOME)/.bashrc.d
-	install -m 0644 -- bash/bash_profile $(HOME)/.bash_profile
-	install -m 0644 -- bash/bash_logout $(HOME)/.bash_logout
-	install -m 0644 -- bash/bash_completion $(HOME)/.config/bash_completion
+	install -m 0755 -d -- "$(HOME)"/.config "$(HOME)"/.bashrc.d
+	install -m 0644 -- bash/bashrc "$(HOME)"/.bashrc
+	install -m 0644 -- bash/bashrc.d/* "$(HOME)"/.bashrc.d
+	install -m 0644 -- bash/bash_profile "$(HOME)"/.bash_profile
+	install -m 0644 -- bash/bash_logout "$(HOME)"/.bash_logout
+	install -m 0644 -- bash/bash_completion "$(HOME)"/.config/bash_completion
 
 install-bin : test-bin
-	install -m 0755 -d -- $(HOME)/.local/bin $(HOME)/.local/share/man/man1
-	install -m 0755 -- bin/* $(HOME)/.local/bin
-	install -m 0644 -- man/* $(HOME)/.local/share/man/man1
+	install -m 0755 -d -- "$(HOME)"/.local/bin "$(HOME)"/.local/share/man/man1
+	install -m 0755 -- bin/* "$(HOME)"/.local/bin
+	install -m 0644 -- man/* "$(HOME)"/.local/share/man/man1
 
 install-curl :
-	install -m 0644 -- curl/curlrc $(HOME)/.curlrc
+	install -m 0644 -- curl/curlrc "$(HOME)"/.curlrc
 
 install-dircolors :
-	install -m 0644 -- dircolors/dircolors $(HOME)/.dircolors
+	install -m 0644 -- dircolors/dircolors "$(HOME)"/.dircolors
 
 install-git :
-	install -m 0644 -- git/gitconfig $(HOME)/.gitconfig
+	install -m 0644 -- git/gitconfig "$(HOME)"/.gitconfig
 
 install-gnupg :
-	install -m 0700 -d -- $(HOME)/.gnupg
-	install -m 0600 -- gnupg/*.conf $(HOME)/.gnupg
+	install -m 0700 -d -- "$(HOME)"/.gnupg
+	install -m 0600 -- gnupg/*.conf "$(HOME)"/.gnupg
 
 install-i3 :
-	install -m 0755 -d -- $(HOME)/.i3
-	install -m 0644 -- i3/* $(HOME)/.i3
+	install -m 0755 -d -- "$(HOME)"/.i3
+	install -m 0644 -- i3/* "$(HOME)"/.i3
 
 install-mutt :
 	install -m 0755 -d -- \
-		$(HOME)/.mutt \
-		$(HOME)/.cache/mutt \
-		$(HOME)/Mail/inbox/cur \
-		$(HOME)/Mail/inbox/new \
-		$(HOME)/Mail/inbox/tmp \
-		$(HOME)/Mail/sent/cur \
-		$(HOME)/Mail/sent/new \
-		$(HOME)/Mail/sent/tmp
-	install -m 0644 -- mutt/muttrc $(HOME)/.muttrc
-	touch -- $(HOME)/.mutt/muttrc.local $(HOME)/.mutt/signature
+		"$(HOME)"/.mutt \
+		"$(HOME)"/.cache/mutt \
+		"$(HOME)"/Mail/inbox/cur \
+		"$(HOME)"/Mail/inbox/new \
+		"$(HOME)"/Mail/inbox/tmp \
+		"$(HOME)"/Mail/sent/cur \
+		"$(HOME)"/Mail/sent/new \
+		"$(HOME)"/Mail/sent/tmp
+	install -m 0644 -- mutt/muttrc "$(HOME)"/.muttrc
+	touch -- "$(HOME)"/.mutt/muttrc.local "$(HOME)"/.mutt/signature
 
 install-ncmcpp :
-	install -m 0755 -d -- $(HOME)/.ncmpcpp
-	install -m 0644 -- ncmpcpp/config $(HOME)/.ncmpcpp/config
+	install -m 0755 -d -- "$(HOME)"/.ncmpcpp
+	install -m 0644 -- ncmpcpp/config "$(HOME)"/.ncmpcpp/config
 
 install-newsbeuter :
 	install -m 0755 -d -- \
-		$(HOME)/.config/newsbeuter \
-		$(HOME)/.local/share/newsbeuter
-	install -m 0644 -- newsbeuter/config $(HOME)/.config/newsbeuter/config
+		"$(HOME)"/.config/newsbeuter \
+		"$(HOME)"/.local/share/newsbeuter
+	install -m 0644 -- newsbeuter/config "$(HOME)"/.config/newsbeuter/config
 
 install-mysql :
-	install -m 0644 -- mysql/my.cnf $(HOME)/.my.cnf
+	install -m 0644 -- mysql/my.cnf "$(HOME)"/.my.cnf
 
 install-psql :
-	install -m 0644 -- psql/psqlrc $(HOME)/.psqlrc
+	install -m 0644 -- psql/psqlrc "$(HOME)"/.psqlrc
 
 install-readline :
-	install -m 0644 -- readline/inputrc $(HOME)/.inputrc
+	install -m 0644 -- readline/inputrc "$(HOME)"/.inputrc
 
 install-sh : test-sh
-	install -m 0755 -d -- $(HOME)/.profile.d
-	install -m 0644 -- sh/profile $(HOME)/.profile
-	install -m 0644 -- sh/profile.d/* $(HOME)/.profile.d
+	install -m 0755 -d -- "$(HOME)"/.profile.d
+	install -m 0644 -- sh/profile "$(HOME)"/.profile
+	install -m 0644 -- sh/profile.d/* "$(HOME)"/.profile.d
 
 install-terminfo :
 	for info in terminfo/*.info ; do \
@@ -93,46 +93,46 @@ install-terminfo :
 	done
 
 install-task :
-	install -m 0644 -- task/taskrc $(HOME)/.taskrc
+	install -m 0644 -- task/taskrc "$(HOME)"/.taskrc
 
 install-tmux :
-	install -m 0644 -- tmux/tmux.conf $(HOME)/.tmux.conf
+	install -m 0644 -- tmux/tmux.conf "$(HOME)"/.tmux.conf
 
 install-urxvt : test-urxvt
-	install -m 0755 -d -- $(HOME)/.urxvt/ext
-	install -m 0755 -- urxvt/ext/* $(HOME)/.urxvt/ext
+	install -m 0755 -d -- "$(HOME)"/.urxvt/ext
+	install -m 0755 -- urxvt/ext/* "$(HOME)"/.urxvt/ext
 
 install-vim :
 	install -m 0755 -d -- \
-		$(HOME)/.vim/after/ftplugin \
-		$(HOME)/.vim/after/plugin \
-		$(HOME)/.vim/autoload \
-		$(HOME)/.vim/bundle
-	install -m 0644 -- vim/vimrc $(HOME)/.vimrc
-	install -m 0644 -- vim/gvimrc $(HOME)/.gvimrc
-	install -m 0644 -- vim/after/ftplugin/* $(HOME)/.vim/after/ftplugin
-	install -m 0644 -- vim/after/plugin/* $(HOME)/.vim/after/plugin
+		"$(HOME)"/.vim/after/ftplugin \
+		"$(HOME)"/.vim/after/plugin \
+		"$(HOME)"/.vim/autoload \
+		"$(HOME)"/.vim/bundle
+	install -m 0644 -- vim/vimrc "$(HOME)"/.vimrc
+	install -m 0644 -- vim/gvimrc "$(HOME)"/.gvimrc
+	install -m 0644 -- vim/after/ftplugin/* "$(HOME)"/.vim/after/ftplugin
+	install -m 0644 -- vim/after/plugin/* "$(HOME)"/.vim/after/plugin
 	git submodule update --init
 	cd vim && find bundle -type d \( -name .git -prune -o -type d -print \) | \
 		while IFS= read -r dir ; do \
-			install -m 0755 -d -- "$${dir}" $(HOME)/.vim/"$$dir" ; \
+			install -m 0755 -d -- "$${dir}" "$(HOME)"/.vim/"$$dir" ; \
 		done
 	cd vim && find bundle -type f ! -name '.git*' | \
 		while IFS= read -r file ; do \
-			install -m 0644 -- "$${file}" $(HOME)/.vim/"$$file" ; \
+			install -m 0644 -- "$${file}" "$(HOME)"/.vim/"$$file" ; \
 		done
-	rm -f -- $(HOME)/.vim/autoload/pathogen.vim
+	rm -f -- "$(HOME)"/.vim/autoload/pathogen.vim
 	ln -s -- ../bundle/pathogen/autoload/pathogen.vim \
-		$(HOME)/.vim/autoload/pathogen.vim
+		"$(HOME)"/.vim/autoload/pathogen.vim
 
 install-wyrd :
-	install -m 0644 -- wyrd/wyrdrc $(HOME)/.wyrdrc
+	install -m 0644 -- wyrd/wyrdrc "$(HOME)"/.wyrdrc
 
 install-x : install-i3
-	install -m 0644 -- X/Xmodmap $(HOME)/.Xmodmap
-	install -m 0644 -- X/Xresources $(HOME)/.Xresources
-	install -m 0644 -- X/xsession $(HOME)/.xsession
-	install -m 0644 -- X/xsessionrc $(HOME)/.xsessionrc
+	install -m 0644 -- X/Xmodmap "$(HOME)"/.Xmodmap
+	install -m 0644 -- X/Xresources "$(HOME)"/.Xresources
+	install -m 0644 -- X/xsession "$(HOME)"/.xsession
+	install -m 0644 -- X/xsessionrc "$(HOME)"/.xsessionrc
 
 test : test-sh test-bash test-bin test-urxvt
 
