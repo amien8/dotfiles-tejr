@@ -22,7 +22,9 @@ install : install-bash \
 	install-vim-plugins
 
 install-bash : test-bash
-	install -m 0755 -d -- "$(HOME)"/.config "$(HOME)"/.bashrc.d
+	install -m 0755 -d -- \
+		"$(HOME)"/.config \
+		"$(HOME)"/.bashrc.d
 	install -m 0644 -- bash/bashrc "$(HOME)"/.bashrc
 	install -m 0644 -- bash/bashrc.d/* "$(HOME)"/.bashrc.d
 	install -m 0644 -- bash/bash_profile "$(HOME)"/.bash_profile
@@ -30,7 +32,9 @@ install-bash : test-bash
 	install -m 0644 -- bash/bash_completion "$(HOME)"/.config/bash_completion
 
 install-bin : test-bin
-	install -m 0755 -d -- "$(HOME)"/.local/bin "$(HOME)"/.local/share/man/man1
+	install -m 0755 -d -- \
+		"$(HOME)"/.local/bin \
+		"$(HOME)"/.local/share/man/man1
 	install -m 0755 -- bin/* "$(HOME)"/.local/bin
 	install -m 0644 -- man/* "$(HOME)"/.local/share/man/man1
 
