@@ -18,7 +18,8 @@ install : install-bash \
 	install-readline \
 	install-sh \
 	install-terminfo \
-	install-vim
+	install-vim \
+	install-vim-plugins
 
 install-bash : test-bash
 	install -m 0755 -d -- "$(HOME)"/.config "$(HOME)"/.bashrc.d
@@ -105,17 +106,17 @@ install-urxvt : test-urxvt
 	install -m 0755 -d -- "$(HOME)"/.urxvt/ext
 	install -m 0755 -- urxvt/ext/* "$(HOME)"/.urxvt/ext
 
-install-vim :
-	install -m 0755 -d -- \
-		"$(HOME)"/.vim/after/ftplugin \
-		"$(HOME)"/.vim/after/plugin \
-		"$(HOME)"/.vim/autoload \
-		"$(HOME)"/.vim/bundle
+install-vim : install-vim-config \
+	install-vim-plugins \
+	install-vim-pathogen
+
+install-vim-config :
 	install -m 0644 -- vim/vimrc "$(HOME)"/.vimrc
 	install -m 0644 -- vim/gvimrc "$(HOME)"/.gvimrc
-	install -m 0644 -- vim/after/ftplugin/* "$(HOME)"/.vim/after/ftplugin
-	install -m 0644 -- vim/after/plugin/* "$(HOME)"/.vim/after/plugin
+
+install-vim-plugins : install-vim-config
 	git submodule update --init
+	install -m 0755 -d -- "$(HOME)"/.vim/bundle
 	cd vim && find bundle -name .git -prune -o \
 		\( -type d -print \) | \
 			while IFS= read -r dir ; do \
@@ -128,6 +129,14 @@ install-vim :
 				install -m 0644 -- \
 					"$$file" "$(HOME)"/.vim/"$$file" ; \
 			done
+	install -m 0755 -d -- \
+		"$(HOME)"/.vim/after/ftplugin \
+		"$(HOME)"/.vim/after/plugin
+	install -m 0644 -- vim/after/ftplugin/* "$(HOME)"/.vim/after/ftplugin
+	install -m 0644 -- vim/after/plugin/* "$(HOME)"/.vim/after/plugin
+
+install-vim-pathogen : install-vim-plugins
+	install -m 0755 -d -- "$(HOME)"/.vim/autoload
 	rm -f -- "$(HOME)"/.vim/autoload/pathogen.vim
 	ln -s -- ../bundle/pathogen/autoload/pathogen.vim \
 		"$(HOME)"/.vim/autoload/pathogen.vim
