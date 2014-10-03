@@ -7,17 +7,17 @@ fi
 tmux() {
     local -a tcmd
 
-    # If sessions exist, default the arguments to the attach-session command
+    # If given any arguments, just use them as they are
     if ! (($#)) ; then
-        if command tmux has-session 2>/dev/null ; then
-            tcmd=(attach-session -d)
-        else
-            tcmd=(new-session -s "${TMUX_SESSION:-default}")
-        fi
-
-    # Otherwise, just call tmux directly with the given arguments
-    else
         tcmd=("$@")
+
+    # If a session exists, just attach to it
+    elif command tmux has-session 2>/dev/null ; then
+        tcmd=(attach-session -d)
+
+    # Create a new session with an appropriate name
+    else
+        tcmd=(new-session -s "${TMUX_SESSION:-default}")
     fi
 
     # Run tmux command with concluded arguments
