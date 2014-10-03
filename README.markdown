@@ -277,9 +277,6 @@ your `/etc/manpath` configuration, depending on your system.
 Known issues
 ------------
 
-*   Something in `newsbeuter(1)` keeps crashing randomly when I leave it open
-    for a long time, and I can’t figure out what. It might be something in the
-    configuration included here, for all I know.
 *   The `muttrc(5)` configuration assumes you have `msmtp(1)` and `abook(1)`,
     which is probably a bit too presumptuous, but I’m unsure how to make it
     conditional, or if that’s even possible.
