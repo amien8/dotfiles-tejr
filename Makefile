@@ -50,16 +50,19 @@ install-i3 :
 	install -m 0755 -d -- "$(HOME)"/.i3
 	install -m 0644 -- i3/* "$(HOME)"/.i3
 
-install-mutt :
+install-maildir :
 	install -m 0755 -d -- \
-		"$(HOME)"/.mutt \
-		"$(HOME)"/.cache/mutt \
 		"$(HOME)"/Mail/inbox/cur \
 		"$(HOME)"/Mail/inbox/new \
 		"$(HOME)"/Mail/inbox/tmp \
 		"$(HOME)"/Mail/sent/cur \
 		"$(HOME)"/Mail/sent/new \
 		"$(HOME)"/Mail/sent/tmp
+
+install-mutt : install-maildir
+	install -m 0755 -d -- \
+		"$(HOME)"/.mutt \
+		"$(HOME)"/.cache/mutt
 	install -m 0644 -- mutt/muttrc "$(HOME)"/.muttrc
 	touch -- "$(HOME)"/.mutt/muttrc.local "$(HOME)"/.mutt/signature
 
