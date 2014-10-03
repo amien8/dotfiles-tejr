@@ -277,9 +277,6 @@ your `/etc/manpath` configuration, depending on your system.
 Known issues
 ------------
 
-*   Not being a `make(1)` guru, I’m positive the shell scripts doing the
-    installation work in the Makefile could be improved while still remaining
-    generally POSIX compliant. I’d particularly welcome patches for this.
 *   Something in `newsbeuter(1)` keeps crashing randomly when I leave it open
     for a long time, and I can’t figure out what. It might be something in the
     configuration included here, for all I know.
