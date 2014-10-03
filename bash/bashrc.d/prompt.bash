@@ -1,6 +1,12 @@
 # Frontend to controlling prompt
 prompt() {
 
+    # If no arguments, print the prompt strings as they are
+    if [[ ! $1 ]] ; then
+        declare -p PS1 PS2 PS3 PS4
+        return
+    fi
+
     # What's done next depends on the first argument to the function
     case $1 in
 
