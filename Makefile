@@ -144,9 +144,17 @@ install-vim-pathogen : install-vim-plugins
 install-wyrd :
 	install -m 0644 -- wyrd/wyrdrc "$(HOME)"/.wyrdrc
 
-install-x : install-i3
-	install -m 0644 -- X/Xmodmap "$(HOME)"/.Xmodmap
+install-x : install-xmodmap \
+	install-xresources \
+	install-xsession
+
+install-xmodmap :
 	install -m 0644 -- X/Xresources "$(HOME)"/.Xresources
+
+install-xresources :
+	install -m 0644 -- X/Xmodmap "$(HOME)"/.Xmodmap
+
+install-xsession :
 	install -m 0644 -- X/xsession "$(HOME)"/.xsession
 	install -m 0644 -- X/xsessionrc "$(HOME)"/.xsessionrc
 
