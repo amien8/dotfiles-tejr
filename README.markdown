@@ -99,7 +99,7 @@ The remaining dotfiles can be installed with the other targets:
 *   `install-x`
 
 The miscellaneous `bin` scripts and their manuals can be installed with
-`install-bin` and `install-man` respectively.
+`install-bin`.
 
 Shell
 -----
