@@ -8,7 +8,7 @@ tmux() {
     local -a tcmd
 
     # If given any arguments, just use them as they are
-    if ! (($#)) ; then
+    if (($#)) ; then
         tcmd=("$@")
 
     # If a session exists, just attach to it
