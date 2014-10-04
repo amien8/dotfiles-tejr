@@ -483,6 +483,9 @@ if has('windows')
   " more than one window on the screen or in the current tab
   set laststatus=1
 
+  " Don't resize windows we're not splitting (Tmux-like; think Mondrian)
+  set noequalalways
+
   " New split windows appear below or to the right of the existing window,
   " not above or to the left per the default
   set splitbelow
