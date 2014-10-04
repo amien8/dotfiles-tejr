@@ -192,6 +192,9 @@ nnoremap <leader>l :setlocal list!<CR>
 " is one; extends % to match more than it does by default
 silent! runtime macros/matchit.vim
 
+" Match all forms of brackets in pairs (including angle brackets)
+set matchpairs=(:),{:},[:],<:>
+
 " Don't show the Vim startup message, I have registered Vim and donated to
 " Uganda
 set shortmess+=I
