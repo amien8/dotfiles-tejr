@@ -1,7 +1,6 @@
 # Count files
 cf() {
-    local dir dgs ngs
-    local -a files
+    local dir
 
     # Specify directory to check
     dir=${1:-$PWD}
@@ -18,27 +17,12 @@ cf() {
         return 1
     fi
 
-    # Record current state of dotglob and nullglob
-    if shopt -pq dotglob ; then
-        dgs=1
-    fi
-    if shopt -pq nullglob ; then
-        ngs=1
-    fi
-
-    # Retrieve the files array
-    shopt -s dotglob nullglob
-    files=("$dir"/*)
-
-    # Reset our options
-    if ! ((dgs)) ; then
-        shopt -u dotglob
-    fi
-    if ! ((ngs)) ; then
-        shopt -u nullglob
-    fi
-
-    # Print result
-    printf '%d\t%s\n' "${#files[@]}" "$dir"
+    # Count files and print; use a subshell so options are unaffected
+    (
+        declare -a files
+        shopt -s dotglob nullglob
+        files=("$dir"/*)
+        printf '%d\t%s\n' "${#files[@]}" "$dir"
+    )
 }
 
