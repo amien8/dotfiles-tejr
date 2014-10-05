@@ -28,9 +28,6 @@
 [submodule "vim/bundle/sahara"]
     path = vim/bundle/sahara
     url = git://github.com/tejr/sahara.git
-[submodule "vim/bundle/tabular"]
-    path = vim/bundle/tabular
-    url = git://github.com/godlygeek/tabular.git
 [submodule "vim/bundle/twig"]
     path = vim/bundle/twig
     url = git://github.com/lunaru/vim-twig
@@ -43,4 +40,6 @@
 [submodule "vim/bundle/exchange"]
     path = vim/bundle/exchange
     url = git://github.com/tommcdo/vim-exchange
-
+[submodule "vim/bundle/lion"]
+	path = vim/bundle/lion
+	url = http://github.com/tommcdo/vim-lion
