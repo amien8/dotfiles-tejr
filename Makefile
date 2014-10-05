@@ -163,10 +163,8 @@ install-vim-plugins : install-vim-config
 					"$$file" "$(HOME)"/.vim/"$$file" ; \
 			done
 	install -m 0755 -d -- \
-		"$(HOME)"/.vim/after/ftplugin \
-		"$(HOME)"/.vim/after/plugin
+		"$(HOME)"/.vim/after/ftplugin
 	install -m 0644 -- vim/after/ftplugin/* "$(HOME)"/.vim/after/ftplugin
-	install -m 0644 -- vim/after/plugin/* "$(HOME)"/.vim/after/plugin
 
 install-vim-pathogen : install-vim-plugins
 	install -m 0755 -d -- "$(HOME)"/.vim/autoload
