@@ -42,4 +42,4 @@
     url = git://github.com/tommcdo/vim-exchange
 [submodule "vim/bundle/lion"]
 	path = vim/bundle/lion
-	url = http://github.com/tommcdo/vim-lion
+	url = git://github.com/tommcdo/vim-lion
