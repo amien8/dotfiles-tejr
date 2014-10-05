@@ -183,11 +183,15 @@ things I really do get tired of typing repeatedly:
 
 ### Functions
 
-There are a few other little tricks in `bash/bashrc.d`:
+There are a few other little tricks in `bash/bashrc.d`, including:
 
-*   `ca` — Count given arguments (e.g. `ca ~/.*` to count all dotfiles)
-*   `cf` — Count files in a directory (e.g. `cf ~` to count all files in
-    `$HOME`)
+*   `bd` — Change back into a named ancestor directory
+*   `ca` — Count given arguments
+*   `cf` — Count files in a given directory
+*   `hgrep` — `HISTFILE` search
+*   `mkcd` — Create a directory and change into it
+*   `mkmv` — Create a directory and move arguments into it
+*   `scr` — Create a temporary directory and change into it
 *   `sprunge` — Pastebin frontend tool I pilfered from `#bash` on Freenode
 *   `vis` — View/edit an existing file in `$PATH` with `$EDITOR`, or create one
     in `~/.local/bin`
