@@ -19,9 +19,8 @@ cf() {
 
     # Count files and print; use a subshell so options are unaffected
     (
-        declare -a files
         shopt -s dotglob nullglob
-        files=("$dir"/*)
+        declare -a files=("$dir"/*)
         printf '%d\t%s\n' "${#files[@]}" "$dir"
     )
 }

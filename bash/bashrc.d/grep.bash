@@ -1,14 +1,11 @@
 # Return appropriate options for grep
 grepopts() {
 
+    # Start with ignoring binary files
+    local -a grepopts=(-I)
+
     # Snarf the output of `grep --help` into a variable
     local grephelp=$(grep --help 2>/dev/null)
-
-    # Start collecting available options
-    local -a grepopts
-
-    # Add option to ignore binary files
-    grepopts=("${grepopts[@]}" '-I')
 
     # If the --exclude option is available, exclude some VCS files
     if [[ $grephelp == *--exclude* ]] ; then

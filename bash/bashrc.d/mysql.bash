@@ -30,9 +30,8 @@ _mysql() {
     # Check directory exists and has at least one .cnf file
     local dir="$HOME"/.mysql
     if [[ ! -d $dir ]] || (
-        declare -a files
         shopt -s nullglob dotglob
-        files=("$dir"/*.cnf)
+        declare -a files=("$dir"/*.cnf)
         ((! ${#files[@]}))
     ) ; then
         COMPREPLY=()
@@ -40,8 +39,7 @@ _mysql() {
     fi
 
     # Return the names of the .cnf files sans prefix as completions
-    local -a items
-    items=("$dir"/*.cnf)
+    local -a items=("$dir"/*.cnf)
     items=("${items[@]##*/}")
     items=("${items[@]%%.cnf}")
     COMPREPLY=( $(compgen -W "${items[*]}" -- "$word") )
