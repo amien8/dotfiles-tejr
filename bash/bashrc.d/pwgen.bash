@@ -9,7 +9,7 @@ pwgen() {
     if (($#)) ; then
         command pwgen "$@"
     else
-        command pwgen -s "${PWGEN_LENGTH:-15}" "${PWGEN_COUNT:-1}"
+        command pwgen -s -- "${PWGEN_LENGTH:-15}" "${PWGEN_COUNT:-1}"
     fi
 }
 
