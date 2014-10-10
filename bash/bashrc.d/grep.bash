@@ -12,19 +12,23 @@ grepopts() {
 
     # If the --exclude option is available, exclude some VCS files
     if [[ $grephelp == *--exclude* ]] ; then
-        grepopts=("${grepopts[@]}" '--exclude=.git{,ignore,modules}')
+        for exclude_file in .gitignore .gitmodules ; do
+            grepopts=("${grepopts[@]}" --exclude="$exclude_file")
+        done
     fi
 
     # If the --exclude-dir option is available, exclude some VCS dirs
     if [[ $grephelp == *--exclude-dir* ]] ; then
-        grepopts=("${grepopts[@]}" '--exclude-dir=.{cvs,git,hg,svn}')
+        for exclude_dir in .cvs .git .hg .svn ; do
+            grepopts=("${grepopts[@]}" --exclude-dir="$exclude_dir")
+        done
     fi
 
     # If the --color option is available and we have a terminal that supports
     # at least eight colors, add --color=auto to the options
     local colors=$(tput colors)
     if [[ $grephelp == *--color* ]] && ((colors >= 8)) ; then
-        grepopts=("${grepopts[@]}" '--color=auto')
+        grepopts=("${grepopts[@]}" --color=auto)
     fi
 
     # Print the options as a single string, space-delimited
