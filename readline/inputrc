@@ -16,10 +16,8 @@ set echo-control-characters Off
 # Expand tilde to full path on completion
 set expand-tilde On
 
-# When completing directories, add a trailing slash
-set mark-directories On
 
-# Do the same for symlinked directories
+# Add a trailing slash for completed symlink directories
 set mark-symlinked-directories On
 
 # Don't paginate possible completions
