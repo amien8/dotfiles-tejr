@@ -193,8 +193,6 @@ There are a few other little tricks in `bash/bashrc.d`, including:
 *   `mkmv` — Create a directory and move arguments into it
 *   `scr` — Create a temporary directory and change into it
 *   `sprunge` — Pastebin frontend tool I pilfered from `#bash` on Freenode
-*   `vis` — View/edit an existing file in `$PATH` with `$EDITOR`, or create one
-    in `~/.local/bin`
 
 ### Testing
 
