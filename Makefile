@@ -5,6 +5,8 @@
 	install-dircolors \
 	install-git \
 	install-gnupg \
+	install-gvim \
+	install-gvim-config \
 	install-i3 \
 	install-maildir \
 	install-mutt \
@@ -47,8 +49,7 @@ install : install-bash \
 	install-readline \
 	install-sh \
 	install-terminfo \
-	install-vim \
-	install-vim-plugins
+	install-vim
 
 install-bash : test-bash
 	install -m 0755 -d -- \
