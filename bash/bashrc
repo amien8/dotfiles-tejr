@@ -30,7 +30,7 @@ HISTTIMEFORMAT='%F %T  '
 unset -v MAILCHECK
 
 # Never beep at me
-setterm -bfreq 0 2>/dev/null
+setterm -bfreq -blength 2>/dev/null
 
 # Turn off flow control and control character echo
 stty -ixon -ctlecho 2>/dev/null
