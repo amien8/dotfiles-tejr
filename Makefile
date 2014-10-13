@@ -143,8 +143,13 @@ install-vim : install-vim-config \
 	install-vim-plugins \
 	install-vim-pathogen
 
+install-gvim : install-vim \
+	install-gvim-config
+
 install-vim-config :
 	install -m 0644 -- vim/vimrc "$(HOME)"/.vimrc
+
+install-gvim-config :
 	install -m 0644 -- vim/gvimrc "$(HOME)"/.gvimrc
 
 install-vim-plugins : install-vim-config
