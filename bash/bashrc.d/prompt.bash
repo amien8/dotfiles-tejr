@@ -95,13 +95,13 @@ prompt() {
 
             # Build state array from status output flags
             local -a state
-            if [[ $ready ]] ; then
+            if ((ready)) ; then
                 state=("${state[@]}" '+')
             fi
-            if [[ $modified ]] ; then
+            if ((modified)) ; then
                 state=("${state[@]}" '!')
             fi
-            if [[ $untracked ]] ; then
+            if ((untracked)) ; then
                 state=("${state[@]}" '?')
             fi
 
@@ -144,10 +144,10 @@ prompt() {
 
             # Build state array from status output flags
             local -a state
-            if [[ $modified ]] ; then
+            if ((modified)) ; then
                 state=("${state[@]}" '!')
             fi
-            if [[ $untracked ]] ; then
+            if ((untracked)) ; then
                 state=("${state[@]}" '?')
             fi
 
@@ -203,10 +203,10 @@ prompt() {
 
             # Add appropriate state flags
             local -a state
-            if [[ $modified ]] ; then
+            if ((modified)) ; then
                 state=("${state[@]}" '!')
             fi
-            if [[ $untracked ]] ; then
+            if ((untracked)) ; then
                 state=("${state[@]}" '?')
             fi
 
