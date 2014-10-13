@@ -80,7 +80,7 @@ prompt() {
 
             # Safely read status with -z --porcelain
             local line
-            local -i ready modified untracked
+            local -i ready=0 modified=0 untracked=0
             while IFS= read -d $'\0' -r line ; do
                 if [[ $line == [MADRCT]* ]] ; then
                     ready=1
@@ -133,7 +133,7 @@ prompt() {
 
             # Safely read status with -0
             local line
-            local -i modified untracked
+            local -i modified=0 untracked=0
             while IFS= read -d $'\0' -r line ; do
                 if [[ $line == '?'* ]] ; then
                     untracked=1
@@ -192,7 +192,7 @@ prompt() {
 
             # Parse the output of svn status to determine working copy state
             local symbol
-            local -i modified untracked
+            local -i modified=0 untracked=0
             while read -r symbol _ ; do
                 if [[ $symbol == *'?'* ]] ; then
                     untracked=1
