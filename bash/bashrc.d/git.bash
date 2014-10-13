@@ -1,12 +1,7 @@
-# Bail if no git(1)
-if ! hash git 2>/dev/null ; then
-    return
-fi
-
 # Completion for git local branch names
 _git() {
 
-    # Bail if not a git repo
+    # Bail if not a git repo (or no git!)
     if ! git rev-parse --git-dir >/dev/null 2>&1 ; then
         return 1
     fi

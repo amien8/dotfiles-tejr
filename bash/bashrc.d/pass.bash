@@ -1,11 +1,12 @@
-# Bail if no pass(1)
-if ! hash pass 2>/dev/null ; then
-    return
-fi
-
 # Completion for pass(1), adapted from source package; still needs some tweaking
 _pass()
 {
+    # Bail if no pass(1)
+    if ! hash pass 2>/dev/null ; then
+        COMPREPLY=()
+        return 1
+    fi
+
     # Get current word, prefix, and suffix
     local word=${COMP_WORDS[COMP_CWORD]}
     local prefix=${PASSWORD_STORE_DIR:-$HOME/.password-store}

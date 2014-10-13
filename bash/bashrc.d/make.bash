@@ -1,8 +1,3 @@
-# Bail if no make(1)
-if ! hash make 2>/dev/null ; then
-    return
-fi
-
 # Completion setup for Make, completing targets
 _make() {
     local word=${COMP_WORDS[COMP_CWORD]}

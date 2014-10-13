@@ -1,8 +1,3 @@
-# Bail if no ssh(1)
-if ! hash ssh 2>/dev/null ; then
-    return
-fi
-
 # Wrap scp to check for missing colons
 scp() {
     if (($# >= 2)) && [[ $* != *:* ]] ; then

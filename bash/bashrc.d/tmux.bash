@@ -1,8 +1,3 @@
-# Bail if no tmux(1)
-if ! hash tmux 2>/dev/null ; then
-    return
-fi
-
 # Attach to existing tmux session rather than create a new one if possible
 tmux() {
 

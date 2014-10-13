@@ -1,8 +1,3 @@
-# Bail if no mysql(1)
-if ! hash mysql 2>/dev/null ; then
-    return
-fi
-
 # If a file ~/.mysql/$1.cnf exists, call mysql(1) using that file. Otherwise
 # just run MySQL with given args. Use restrictive permissions on these files.
 # Examples:

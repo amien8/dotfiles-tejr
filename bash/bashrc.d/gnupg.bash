@@ -1,8 +1,3 @@
-# Bail if no gpg(1)
-if ! hash gpg 2>/dev/null ; then
-    return
-fi
-
 # Wrapper around gpg(1) to stop ``--batch'' breaking things
 gpg() {
     case $* in
@@ -18,6 +13,12 @@ gpg() {
 # Completion for gpg with long options
 _gpg() {
     local word=${COMP_WORDS[COMP_CWORD]}
+
+    # Bail if no gpg(1)
+    if ! hash gpg 2>/dev/null ; then
+        COMPREPLY=()
+        return 1
+    fi
 
     # Bail if word doesn't start with two dashes
     if [[ $word != --* ]] ; then
