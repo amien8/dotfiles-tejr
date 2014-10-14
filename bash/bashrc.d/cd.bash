@@ -4,13 +4,19 @@ cd() {
     local arg
     local -a opts
     for arg in "$@" ; do
-        if [[ $arg == -- ]] ; then
-            shift
-            break
-        elif [[ $arg == -* ]] ; then
-            shift
-            opts=("${opts[@]}" "$arg")
-        fi
+        case $arg in
+            --)
+                shift
+                break
+                ;;
+            -*)
+                shift
+                opts=("${opts[@]}" "$arg")
+                ;;
+            *)
+                break
+                ;;
+        esac
     done
     if (($# == 2)) ; then
         if [[ $PWD == *"$1"* ]] ; then
