@@ -9,7 +9,7 @@
 #   password=SsJ2pICe226jM
 #
 mysql() {
-    local config="$HOME"/.mysql/"$1".cnf
+    local config=$HOME/.mysql/$1.cnf
     if [[ -r $config ]] ; then
         shift
         command mysql --defaults-extra-file="$config" "$@"
@@ -23,7 +23,7 @@ _mysql() {
     local word=${COMP_WORDS[COMP_CWORD]}
 
     # Check directory exists and has at least one .cnf file
-    local dir="$HOME"/.mysql
+    local dir=$HOME/.mysql
     if [[ ! -d $dir ]] || (
         shopt -s nullglob dotglob
         declare -a files=("$dir"/*.cnf)
