@@ -13,7 +13,7 @@
 self=shoal
 
 while read -r option value _ ; do
-    if [[ $option == 'Host' && $value != *[^[:alnum:]_-]* ]] ; then
+    if [[ $option == 'Host' && $value != *[^[:alnum:]._-]* ]] ; then
         printf '%s\n' "$value"
     fi
 done < "${1:-$HOME/.ssh/config}"
