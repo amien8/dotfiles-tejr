@@ -2,7 +2,7 @@
 alias bc='bc -q'
 
 # Print a terminal bell
-alias bell='printf '$'\a'
+alias bell='printf \\a'
 
 # Use a unified format for diff(1) by default
 alias diff='diff -u'
