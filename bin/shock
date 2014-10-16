@@ -5,6 +5,10 @@
 # the hostname if the command's return value was zero. Discard stdout, but do
 # print stderr.
 #
+# Author: Tom Ryder <tom@sanctum.geek.nz>
+# Copyright: 2014
+# License: Public domain
+#
 
 # Name self
 self=shock

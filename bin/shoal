@@ -8,6 +8,10 @@
 # Copyright: 2014
 # License: Public domain
 #
+
+# Name self
+self=shoal
+
 while read -r option value _ ; do
     if [[ $option == 'Host' && $value != *[^[:alnum:]_-]* ]] ; then
         printf '%s\n' "$value"
