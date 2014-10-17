@@ -267,11 +267,11 @@ Scripts
 
 Three SSH-related scripts and their manuals are included:
 
+*   `shoal(1)` — Print hostnames read from a `ssh_config(5)` file
 *   `scatter(1)` — Run command on multiple hosts read from `shoal(1)` and print
     output
 *   `shock(1)` — Run command on multiple hosts read from `shoal(1)` and print
     the hostname if the command returns zero
-*   `shoal(1)` — Print hostnames read from a `ssh_config(5)` file
 
 If you want to use the manuals, you may need to add `~/.local/share/man` to
 your `/etc/manpath` configuration, depending on your system.
