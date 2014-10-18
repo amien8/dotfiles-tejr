@@ -10,7 +10,7 @@ prompt() {
     # What's done next depends on the first argument to the function
     case $1 in
 
-        # Turn complex, colored prompt on
+        # Turn complex, colored PS1 and debugging PS4 prompts on
         on)
             # Set up pre-prompt command and prompt format
             PROMPT_COMMAND='declare -i PROMPT_RETURN=$? ; history -a'
@@ -53,12 +53,18 @@ prompt() {
 
             # String it all together
             PS1='\['"$format"'\]'"$PS1"'\['"$reset"'\] '
+            PS2='> '
+            PS3='? '
+            PS4='+<$?> ${BASH_SOURCE:-$BASH}:$FUNCNAME:$LINENO:'
             ;;
 
-        # Revert to simple inexpensive prompt
+        # Revert to simple inexpensive prompts
         off)
             unset -v PROMPT_COMMAND PROMPT_DIRTRIM PROMPT_RETURN
             PS1='\$ '
+            PS2='> '
+            PS3='? '
+            PS4='+ '
             ;;
 
         git)
