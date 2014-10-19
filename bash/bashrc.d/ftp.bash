@@ -15,7 +15,8 @@ _ftp() {
 
     # Iterate through tokens and collect machine names
     local -a machines
-    local token machine
+    local -i machine=0
+    local token
     for token in "${tokens[@]}" ; do
         if ((machine)) ; then
             machines=("${machines[@]}" "$token")
