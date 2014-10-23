@@ -240,7 +240,7 @@ prompt() {
                 ((jobc++))
             done < <(jobs -p)
             if ((jobc > 0)) ; then
-                printf '{%d}' "$jobc"
+                printf '{%u}' "$jobc"
             fi
             ;;
 
@@ -248,10 +248,10 @@ prompt() {
         # systems only)
         nice)
             if [[ -r /proc/"$$"/stat ]] ; then
-                read -r _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ nice _ \
+                read -r _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ nice _ \
                     < /proc/"$$"/stat
-                if ((nice != 20)) ; then
-                    printf '^%d' "$((nice - 20))"
+                if ((nice != 0)) ; then
+                    printf '^%d' "$nice"
                 fi
             fi
             ;;
