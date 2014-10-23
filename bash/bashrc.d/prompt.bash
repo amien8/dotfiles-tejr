@@ -243,6 +243,10 @@ prompt() {
                 printf '{%d}' "$jobc"
             fi
             ;;
+        # Print error
+        *)
+            printf '%s: Unknown command %s\n' "$FUNCNAME" "$1" >&2
+            return 1
     esac
 }
 
