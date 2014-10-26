@@ -282,6 +282,7 @@ Known issues
 *   The `muttrc(5)` configuration assumes you have `msmtp(1)` and `abook(1)`,
     which is probably a bit too presumptuous, but I’m unsure how to make it
     conditional, or if that’s even possible.
+*   The `install-terminfo` target does not work correctly on NetBSD.
 
 License
 -------
