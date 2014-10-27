@@ -4,6 +4,6 @@
 #     $ history | grep PATTERN
 #
 hgrep() {
-    grep -- "${@:?}" "${HISTFILE:?}"
+    grep "${@:?}" "${HISTFILE:?}"
 }
 
