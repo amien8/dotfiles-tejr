@@ -55,8 +55,8 @@ Also included are a few scripts for `~/.local/bin`, and their `man(1)` pages.
 The configurations for Bash, Mutt, tmux, and Vim are the most expansive and
 most likely to be of interest. The configuration for GnuPG is tweaked to follow
 [RiseUp’s OpenPGP best
-practices](https://we.riseup.net/riseuplabs+paow/openpgp-best-practices). The
-i3 configuration is mostly changed to make window switching behave like Vim
+practices](https://help.riseup.net/en/security/message-security/openpgp/best-practices).
+The i3 configuration is mostly changed to make window switching behave like Vim
 windows and tmux panes do, and there’s a fair few resources defined for
 rxvt-unicode. Otherwise, the rest of the configuration isn’t too distant from
 the defaults.
