@@ -14,7 +14,7 @@ prompt() {
         on)
             # Set up pre-prompt command and prompt format
             PROMPT_COMMAND='declare -i PROMPT_RETURN=$? ; history -a'
-            PS1='[\u@\h:\w]$(prompt nice)$(prompt job)$(prompt vcs)$(prompt ret)\$'
+            PS1='[\u@\h:\w]$(prompt job)$(prompt vcs)$(prompt ret)\$'
 
             # If Bash 4.0 is available, trim very long paths in prompt
             if ((BASH_VERSINFO[0] >= 4)) ; then
@@ -244,18 +244,6 @@ prompt() {
             fi
             ;;
 
-        # Show the nice level of the current process with a circumflex (/proc
-        # systems only)
-        nice)
-            if [[ -r /proc/"$$"/stat ]] ; then
-                read -r _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ nice _ \
-                    < /proc/"$$"/stat
-                if ((nice != 0)) ; then
-                    printf '^%d' "$nice"
-                fi
-            fi
-            ;;
-
         # Print error
         *)
             printf '%s: Unknown command %s\n' "$FUNCNAME" "$1" >&2
@@ -264,7 +252,7 @@ prompt() {
 }
 
 # Complete words
-complete -W 'on off git hg svn vcs ret job nice' prompt
+complete -W 'on off git hg svn vcs ret job' prompt
 
 # Start with full-fledged prompt
 prompt on
