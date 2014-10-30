@@ -14,7 +14,9 @@ syntax clear shDerefWordError
 " I don't like having 'restart', 'start" etc highlighted
 syntax clear bashAdminStatement
 
-" Limit bashStatement only to alphanumeric shell builtins
+" Limit bashStatement only to alphanumeric shell builtins, except for the ones
+" that declare variables (declare, typeset, local, export, unset) as they're
+" used in shSetList
 syntax clear bashStatement
 syntax keyword bashStatement
     \ alias
@@ -29,7 +31,6 @@ syntax keyword bashStatement
     \ complete
     \ compopt
     \ continue
-    \ declare
     \ dirs
     \ disown
     \ echo
@@ -37,7 +38,6 @@ syntax keyword bashStatement
     \ eval
     \ exec
     \ exit
-    \ export
     \ false
     \ fc
     \ fg
@@ -48,7 +48,6 @@ syntax keyword bashStatement
     \ jobs
     \ kill
     \ let
-    \ local
     \ logout
     \ mapfile
     \ popd
@@ -69,10 +68,8 @@ syntax keyword bashStatement
     \ trap
     \ true
     \ type
-    \ typeset
     \ ulimit
     \ umask
     \ unalias
-    \ unset
     \ wait
 
