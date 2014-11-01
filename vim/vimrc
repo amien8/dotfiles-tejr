@@ -64,13 +64,6 @@ if has('syntax')
   " the default is, and it usually cares about my background
   set background=dark
   silent! colorscheme sahara
-
-  " Don't syntax highlight beyond 300 characters; mostly for efficiency
-  " reasons, but also useful for prodding me into breaking up unreadable
-  " long lines as well when writing code
-  if exists('&synmaxcol')
-    set synmaxcol=300
-  endif
 endif
 
 " Command-line based features
@@ -565,6 +558,20 @@ if has('autocmd')
   augroup fedora
     autocmd!
   augroup END
+endif
+
+" When opening a file greater than 10 megabytes in size, take some measures to
+" keep things loading quickly
+let g:bigfilesize = 10 * 1024 * 1024
+if has('autocmd')
+  augroup bigfilesize
+    autocmd!
+    autocmd BufReadPre * let f=expand("<afile>")
+      \ | if getfsize(f) > g:bigfilesize
+      \ | setlocal nobackup nowritebackup noswapfile noundofile
+      \ | if exists('&synmaxcol') | setlocal synmaxcol=10 | endif
+      \ | endif
+  augroup end
 endif
 
 " If a file named ~/.vimrc.local exists, source its configuration; this is
