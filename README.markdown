@@ -85,21 +85,8 @@ terminal setup files), use the following:
 $ make install
 ```
 
-The remaining dotfiles can be installed with the other targets:
-
-*   `install-mutt`
-*   `install-ncmcpp`
-*   `install-newsbeuter`
-*   `install-mysql`
-*   `install-psql`
-*   `install-task`
-*   `install-tmux`
-*   `install-urxvt`
-*   `install-wyrd`
-*   `install-x`
-
-The miscellaneous `bin` scripts and their manuals can be installed with
-`install-bin`.
+The remaining dotfiles can be installed with the other targets; take a look at
+the `Makefile` to see what’s available.
 
 Shell
 -----
