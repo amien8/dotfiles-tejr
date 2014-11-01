@@ -569,7 +569,7 @@ if has('autocmd')
     autocmd BufReadPre * let f=expand("<afile>")
       \ | if getfsize(f) > g:bigfilesize
       \ | setlocal nobackup nowritebackup noswapfile noundofile
-      \ | if exists('&synmaxcol') | setlocal synmaxcol=10 | endif
+      \ | if exists('&synmaxcol') | setlocal synmaxcol=256 | endif
       \ | endif
   augroup end
 endif
