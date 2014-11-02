@@ -13,6 +13,9 @@ xscreensaver &
 # Start urxvtd(1)
 urxvtd -f -o
 
+# Start xbindkeys(1)
+xbindkeys
+
 # Start window manager
 exec i3
 
