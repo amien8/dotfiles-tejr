@@ -1,0 +1,21 @@
+# Read X resources
+xrdb "$HOME"/.Xresources
+
+# Apply xmodmap definitions
+xmodmap "$HOME"/.Xmodmap
+
+# Apply background image
+feh --bg-scale -- "$HOME"/.i3/draugen.jpg
+
+# Start xscreensaver(1)
+xscreensaver &
+
+# Start urxvtd(1)
+urxvtd -f -o
+
+# Bind keys
+xbindkeys
+
+# Start window manager
+exec i3
+

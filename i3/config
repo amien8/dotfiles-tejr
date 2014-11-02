@@ -13,14 +13,8 @@ bindsym $mod+Shift+r restart
 # Mod+Shift+q logs out of i3wm
 bindsym $mod+Shift+q exit
 
-# Mod+Enter starts a terminal
-bindsym $mod+Return exec urxvtcd
-
 # Mod+Shift+c kills the focussed window
 bindsym $mod+Shift+c kill
-
-# Mod+Shift+d runs Dmenu
-bindsym $mod+d exec dmenu_run -fn 'terminus-iso8859-1-12' -nb "#111111" -nf "#eeeeee" -sb "#285577" -sf "#ffffff"
 
 # Mod+Shift+h/j/k/l change focus in a Vimlike way
 bindsym $mod+h focus left
@@ -33,9 +27,6 @@ bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
-
-# Mod+slash locks the screen
-bindsym $mod+slash exec xscreensaver-command -lock
 
 # Mod+backslash splits horizontally
 bindsym $mod+backslash split h
@@ -90,29 +81,6 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-
-# PrintScreen takes a screenshot of the whole display
-bindsym Print exec sh -c 'mkdir -p "$HOME"/Screenshots && import "$HOME"/Screenshots/shot-"$(date +%Y%m%d%H%M%S)".png'
-
-# Shift-PrintScreen selects and takes a screenshot of a section of the screen
-bindsym --release Shift+Print exec sh -c 'mkdir -p "$HOME"/Screenshots && import "$HOME"/Screenshots/snap-"$(date +%Y%m%d%H%M%S)".png'
-
-# Special modifier keys change volume
-bindsym XF86AudioRaiseVolume exec amixer -q sset Master 5%+ unmute
-bindsym XF86AudioLowerVolume exec amixer -q sset Master 5%- unmute
-bindsym XF86AudioMute        exec amixer -q sset Master toggle
-
-# Special modifier keys control ncmcpp
-bindsym XF86AudioStop exec ncmpcpp stop
-bindsym XF86AudioPlay exec ncmpcpp toggle
-bindsym XF86AudioNext exec ncmpcpp next
-bindsym XF86AudioPrev exec ncmpcpp prev
-
-# Special modifier keys run calculator, Thunar, mutt, and Firefox
-bindsym XF86Calculator exec xcalc
-bindsym XF86Explorer   exec thunar
-bindsym XF86Mail       exec urxvtcd -e mutt
-bindsym XF86HomePage   exec firefox
 
 # i3bar at bottom of screen
 bar {

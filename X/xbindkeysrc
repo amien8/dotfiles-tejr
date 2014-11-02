@@ -1,0 +1,18 @@
+"urxvtcd"
+  Mod4 + Return
+
+"dmenu_run -fn 'terminus-iso8860-1-12' -nb '#111111' -nf '#eeeeee' -sb '#285577' -sf '#ffffff'"
+  Mod4 + d
+
+"xscreensaver-command -lock"
+  Mod4 + slash
+
+"amixer -q sset Master toggle"
+  XF86AudioMute
+
+"amixer -q sset Master 5%+ unmute"
+  XF86AudioRaiseVolume
+
+"amixer -q sset Master 5%- unmute"
+  XF86AudioLowerVolume
+

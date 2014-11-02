@@ -26,9 +26,6 @@
 	install-vim-plugins \
 	install-wyrd \
 	install-x \
-	install-xinitrc \
-	install-xmodmap \
-	install-xresources \
 	test \
 	test-bash \
 	test-bin \
@@ -81,7 +78,7 @@ install-gnupg :
 	install -m 0700 -d -- "$(HOME)"/.gnupg
 	install -m 0600 -- gnupg/*.conf "$(HOME)"/.gnupg
 
-install-i3 :
+install-i3 : install-x
 	install -m 0755 -d -- "$(HOME)"/.i3
 	install -m 0644 -- i3/* "$(HOME)"/.i3
 
@@ -185,17 +182,10 @@ install-vim-pathogen : install-vim-plugins
 install-wyrd :
 	install -m 0644 -- wyrd/wyrdrc "$(HOME)"/.wyrdrc
 
-install-x : install-xmodmap \
-	install-xresources \
-	install-xinitrc
-
-install-xmodmap :
+install-x :
 	install -m 0644 -- X/Xresources "$(HOME)"/.Xresources
-
-install-xresources :
 	install -m 0644 -- X/Xmodmap "$(HOME)"/.Xmodmap
-
-install-xinitrc :
+	install -m 0644 -- X/xbindkeysrc "$(HOME)"/.xbindkeysrc
 	install -m 0644 -- X/xinitrc "$(HOME)"/.xinitrc
 
 test : test-sh test-bash test-bin test-urxvt
