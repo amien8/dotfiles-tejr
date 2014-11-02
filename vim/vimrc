@@ -568,8 +568,8 @@ if has('eval') && has('autocmd')
 
   " Declare function for turning off slow options
   function! BigFileMeasures()
-    let file = expand("<afile>")
-    if getfsize(file) > g:bigfilesize
+    let l:file = expand("<afile>")
+    if getfsize(l:file) > g:bigfilesize
       setlocal nobackup
       setlocal nowritebackup
       setlocal noswapfile
