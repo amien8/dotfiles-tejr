@@ -1,5 +1,5 @@
-" .xsession and .xsessionrc are shell scripts
+" .xinitrc is a shell script
 autocmd BufNewFile,BufRead
-    \ .xsession,.xsessionrc
+    \ .xinitrc
     \ setlocal filetype=sh
 
