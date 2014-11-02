@@ -184,9 +184,9 @@ install-wyrd :
 
 install-x :
 	install -m 0644 -- X/Xresources "$(HOME)"/.Xresources
-	install -m 0644 -- X/Xmodmap "$(HOME)"/.Xmodmap
 	install -m 0644 -- X/xbindkeysrc "$(HOME)"/.xbindkeysrc
 	install -m 0644 -- X/xinitrc "$(HOME)"/.xinitrc
+	install -m 0644 -- X/xmodmap "$(HOME)"/.xmodmap
 
 test : test-sh test-bash test-bin test-urxvt
 

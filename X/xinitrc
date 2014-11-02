@@ -2,7 +2,7 @@
 xrdb "$HOME"/.Xresources
 
 # Apply xmodmap definitions
-xmodmap "$HOME"/.Xmodmap
+xmodmap "$HOME"/.xmodmap
 
 # Apply background image
 feh --bg-scale -- "$HOME"/.i3/draugen.jpg
