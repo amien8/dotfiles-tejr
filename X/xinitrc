@@ -10,6 +10,9 @@ feh --bg-scale -- "$HOME"/.i3/draugen.jpg
 # Start xscreensaver(1)
 xscreensaver &
 
+# Start urxvtd(1)
+urxvtd -f -o
+
 # Start window manager
 exec i3
 
