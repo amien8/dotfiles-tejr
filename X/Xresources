@@ -22,26 +22,24 @@ URxvt.scrollTTyKeypress : true
 URxvt.scrollTTyOutput   : false
 URxvt.secondaryScroll   : true
 URxvt.urgentOnBell      : true
-
-! Common terminal colors
-*.background : #030303
-*.foreground : #E0E0E0
-*.color0     : #030303
-*.color1     : #CC0000
-*.color2     : #3EAA06
-*.color3     : #C4A000
-*.color4     : #3465A4
-*.color5     : #75507B
-*.color6     : #06989A
-*.color7     : #D3D7CF
-*.color8     : #303030
-*.color9     : #EF2929
-*.color10    : #7AF234
-*.color11    : #FCE94F
-*.color12    : #729FCF
-*.color13    : #AD7FA8
-*.color14    : #34E2E2
-*.color15    : #EEEEEC
+URxvt.background        : #030303
+URxvt.foreground        : #E0E0E0
+URxvt.color0            : #030303
+URxvt.color1            : #CC0000
+URxvt.color10           : #7AF234
+URxvt.color11           : #FCE94F
+URxvt.color12           : #729FCF
+URxvt.color13           : #AD7FA8
+URxvt.color14           : #34E2E2
+URxvt.color15           : #EEEEEC
+URxvt.color2            : #3EAA06
+URxvt.color3            : #C4A000
+URxvt.color4            : #3465A4
+URxvt.color5            : #75507B
+URxvt.color6            : #06989A
+URxvt.color7            : #D3D7CF
+URxvt.color8            : #303030
+URxvt.color9            : #EF2929
 
 ! Xscreensaver
 xscreensaver.Dialog.background             : #222222
