@@ -560,17 +560,30 @@ if has('autocmd')
   augroup END
 endif
 
-" When opening a file greater than 10 megabytes in size, take some measures to
-" keep things loading quickly
-let g:bigfilesize = 10 * 1024 * 1024
-if has('autocmd')
+" When opening a large file, take some measures to keep things loading quickly
+if has('eval') && has('autocmd')
+
+  " Threshold is 10 MB in size
+  let g:bigfilesize = 10 * 1024 * 1024
+
+  " Declare function for turning off slow options
+  function! BigFileMeasures()
+    let file = expand("<afile>")
+    if getfsize(file) > g:bigfilesize
+      setlocal nobackup
+      setlocal nowritebackup
+      setlocal noswapfile
+      setlocal noundofile
+      if exists('&synmaxcol')
+        setlocal synmaxcol=256
+      endif
+    endif
+  endfunction
+
+  " Define autocmd for calling to check filesize
   augroup bigfilesize
     autocmd!
-    autocmd BufReadPre * let f=expand("<afile>")
-      \ | if getfsize(f) > g:bigfilesize
-      \ | setlocal nobackup nowritebackup noswapfile noundofile
-      \ | if exists('&synmaxcol') | setlocal synmaxcol=256 | endif
-      \ | endif
+    autocmd BufReadPre * call BigFileMeasures()
   augroup end
 endif
 
