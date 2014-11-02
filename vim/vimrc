@@ -170,8 +170,15 @@ if has('eval')
 endif
 
 " Strip trailing whitespace with \x
-nnoremap <silent> <leader>x
-    \ :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+if has('eval')
+  function! StripTrailingWhitespace()
+      let l:search = @/
+      %s/\s\+$//e
+      let @/ = l:search
+      nohlsearch
+  endfunction
+  nnoremap <silent> <leader>x :<C-U>call StripTrailingWhitespace()<CR>
+endif
 
 " Keep plenty of command and search history, because disk space is cheap
 set history=2000
