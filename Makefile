@@ -26,9 +26,9 @@
 	install-vim-plugins \
 	install-wyrd \
 	install-x \
+	install-xinitrc \
 	install-xmodmap \
 	install-xresources \
-	install-xsession \
 	test \
 	test-bash \
 	test-bin \
@@ -187,7 +187,7 @@ install-wyrd :
 
 install-x : install-xmodmap \
 	install-xresources \
-	install-xsession
+	install-xinitrc
 
 install-xmodmap :
 	install -m 0644 -- X/Xresources "$(HOME)"/.Xresources
@@ -195,9 +195,8 @@ install-xmodmap :
 install-xresources :
 	install -m 0644 -- X/Xmodmap "$(HOME)"/.Xmodmap
 
-install-xsession :
-	install -m 0644 -- X/xsession "$(HOME)"/.xsession
-	install -m 0644 -- X/xsessionrc "$(HOME)"/.xsessionrc
+install-xinitrc :
+	install -m 0644 -- X/xinitrc "$(HOME)"/.xinitrc
 
 test : test-sh test-bash test-bin test-urxvt
 

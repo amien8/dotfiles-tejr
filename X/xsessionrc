@@ -1,4 +1,0 @@
-feh --bg-scale "$HOME"/.i3/draugen.jpg
-xmodmap ~/.Xmodmap
-xscreensaver &
-
