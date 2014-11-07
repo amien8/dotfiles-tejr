@@ -1,10 +1,12 @@
 " Don't make any effort to be compatible with vi, use more sensible settings
 set nocompatible
 
-" If Pathogen is available, call it to load all the plugins in .vim/bundle;
-" these are saved as submodules
-silent! call pathogen#infect()
-silent! call pathogen#helptags()
+" If our version isn't ancient and Pathogen is available, call it to load all
+" the plugins in .vim/bundle; these are saved as submodules
+if v:version >= 701
+  silent! call pathogen#infect()
+  silent! call pathogen#helptags()
+endif
 
 " Load plugins and indentation for file types
 if has('autocmd')
