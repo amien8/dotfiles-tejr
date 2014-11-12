@@ -1,4 +1,8 @@
-.PHONY: install \
+.PHONY: all \
+	clean \
+	distclean \
+	gnupg \
+	install \
 	install-bash \
 	install-bin \
 	install-curl \
@@ -30,13 +34,21 @@
 	test-bash \
 	test-bin \
 	test-sh \
-	test-urxvt \
-	usage
+	test-urxvt
 
-usage :
-	@echo "tejr/dotfiles: Nothing to do."
+all : gnupg
 	@echo "Run make -n install, and read the output carefully."
 	@echo "If you're happy with what it'll do, then run make install."
+
+clean :
+	rm -f gnupg/gpg.conf
+
+distclean : clean
+
+gnupg : gnupg/gpg.conf
+
+gnupg/gpg.conf :
+	m4 -D DOTFILES_HOME="$(HOME)" gnupg/gpg.conf.m4 > gnupg/gpg.conf
 
 install : install-bash \
 	install-curl \
@@ -74,9 +86,12 @@ install-dircolors :
 install-git :
 	install -m 0644 -- git/gitconfig "$(HOME)"/.gitconfig
 
-install-gnupg :
-	install -m 0700 -d -- "$(HOME)"/.gnupg
+install-gnupg : gnupg/gpg.conf
+	install -m 0700 -d -- \
+		"$(HOME)"/.gnupg \
+		"$(HOME)"/.gnupg/sks-keyservers.net
 	install -m 0600 -- gnupg/*.conf "$(HOME)"/.gnupg
+	install -m 0644 -- gnupg/sks-keyservers.net/* "$(HOME)"/.gnupg/sks-keyservers.net
 
 install-i3 : install-x
 	install -m 0755 -d -- "$(HOME)"/.i3

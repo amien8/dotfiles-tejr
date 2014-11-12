@@ -26,7 +26,7 @@ keyserver hkps://hkps.pool.sks-keyservers.net
 
 # Retrieve keys automatically; check the keyserver port cert; use whichever
 # server is proffered from the pool
-keyserver-options auto-key-retrieve check-cert no-honor-keyserver-url
+keyserver-options auto-key-retrieve check-cert no-honor-keyserver-url ca-certfile=DOTFILES_HOME/.gnupg/sks-keyservers.net/sks-keyservers.netCA.pem
 
 # Include trust/validity for UIDs in listings
 list-options show-uid-validity
