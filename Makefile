@@ -2,6 +2,7 @@
 	clean \
 	distclean \
 	gnupg \
+	vim-plugins \
 	install \
 	install-bash \
 	install-bin \
@@ -36,7 +37,7 @@
 	test-sh \
 	test-urxvt
 
-all : gnupg
+all : gnupg vim-plugins
 	@echo "Run make -n install, and read the output carefully."
 	@echo "If you're happy with what it'll do, then run make install."
 
@@ -49,6 +50,9 @@ gnupg : gnupg/gpg.conf
 
 gnupg/gpg.conf :
 	m4 -D DOTFILES_HOME="$(HOME)" gnupg/gpg.conf.m4 > gnupg/gpg.conf
+
+vim-plugins :
+	git submodule update --init
 
 install : install-bash \
 	install-curl \
@@ -165,8 +169,7 @@ install-vim-config :
 install-gvim-config :
 	install -m 0644 -- vim/gvimrc "$(HOME)"/.gvimrc
 
-install-vim-plugins : install-vim-config
-	git submodule update --init
+install-vim-plugins : vim-plugins install-vim-config
 	install -m 0755 -d -- "$(HOME)"/.vim/bundle
 	cd vim && find bundle -name .git -prune -o \
 		\( -type d -print \) | \
