@@ -3,7 +3,6 @@ _pass()
 {
     # Bail if no pass(1)
     if ! hash pass 2>/dev/null ; then
-        COMPREPLY=()
         return 1
     fi
 

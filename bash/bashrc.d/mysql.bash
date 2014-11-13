@@ -29,7 +29,6 @@ _mysql() {
         declare -a files=("$dir"/*.cnf)
         ((! ${#files[@]}))
     ) ; then
-        COMPREPLY=()
         return 1
     fi
 

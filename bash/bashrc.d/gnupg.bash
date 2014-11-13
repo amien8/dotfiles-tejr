@@ -16,13 +16,11 @@ _gpg() {
 
     # Bail if no gpg(1)
     if ! hash gpg 2>/dev/null ; then
-        COMPREPLY=()
         return 1
     fi
 
     # Bail if word doesn't start with two dashes
     if [[ $word != --* ]] ; then
-        COMPREPLY=()
         return 1
     fi
 

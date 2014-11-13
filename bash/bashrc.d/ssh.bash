@@ -14,7 +14,6 @@ _ssh() {
     # Bail if the configuration file is illegible
     local config=$HOME/.ssh/config
     if [[ ! -r $config ]] ; then
-        COMPREPLY=()
         return 1
     fi
 

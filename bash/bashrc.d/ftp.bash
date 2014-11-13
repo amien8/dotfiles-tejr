@@ -5,7 +5,6 @@ _ftp() {
     # Bail if the .netrc file is illegible
     local netrc=$HOME/.netrc
     if [[ ! -r $netrc ]] ; then
-        COMPREPLY=()
         return 1
     fi
 
