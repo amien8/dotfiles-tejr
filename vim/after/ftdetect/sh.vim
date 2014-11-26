@@ -9,3 +9,8 @@ autocmd BufNewFile,BufRead
     \ let g:is_bash = 1 |
     \ setlocal filetype=sh
 
+" Files in /etc/default are shell script
+autocmd BufNewFile,BufRead
+    \ /etc/default/*
+    \ setlocal filetype=sh
+
