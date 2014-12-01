@@ -582,7 +582,9 @@ if has('eval') && has('autocmd')
       setlocal nobackup
       setlocal nowritebackup
       setlocal noswapfile
-      setlocal noundofile
+      if has('persistent_undo')
+        setlocal noundofile
+      endif
       if exists('&synmaxcol')
         setlocal synmaxcol=256
       endif
