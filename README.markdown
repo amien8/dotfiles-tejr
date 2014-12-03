@@ -178,6 +178,7 @@ There are a few other little tricks in `bash/bashrc.d`, including:
 *   `hgrep` — `HISTFILE` search
 *   `mkcd` — Create a directory and change into it
 *   `mkmv` — Create a directory and move arguments into it
+*   `pa` — Print given arguments, one per line
 *   `scr` — Create a temporary directory and change into it
 *   `sprunge` — Pastebin frontend tool I pilfered from `#bash` on Freenode
 
