@@ -184,9 +184,11 @@ install-vim-plugins : vim-plugins install-vim-config
 					"$$file" "$(HOME)"/.vim/"$$file" ; \
 			done
 	install -m 0755 -d -- \
+		"$(HOME)"/.vim/after/indent \
 		"$(HOME)"/.vim/after/ftdetect \
 		"$(HOME)"/.vim/after/ftplugin \
 		"$(HOME)"/.vim/after/syntax
+	install -m 0644 -- vim/after/indent/* "$(HOME)"/.vim/after/indent
 	install -m 0644 -- vim/after/ftdetect/* "$(HOME)"/.vim/after/ftdetect
 	install -m 0644 -- vim/after/ftplugin/* "$(HOME)"/.vim/after/ftplugin
 	install -m 0644 -- vim/after/syntax/* "$(HOME)"/.vim/after/syntax
