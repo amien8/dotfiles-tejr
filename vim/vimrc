@@ -220,23 +220,6 @@ set report=0
 " more than scratch space anyway
 set shellslash
 
-" Configure the netrw plugin included with Vim for file listings and network
-" editing
-if has('eval')
-
-  " Don't show the preamble banner
-  let g:netrw_banner = 0
-
-  " Perform file transfers silently
-  let g:netrw_silent = 1
-
-  " Use a tree-style file listing
-  let g:netrw_liststyle = 3
-
-  " Don't list the current directory shortcut, and don't show tags files
-  let g:netrw_list_hide = '^\.$,^tags$'
-endif
-
 " Don't show line numbers by default, but \n toggles them
 set nonumber
 nnoremap <leader>n :setlocal number!<CR>
