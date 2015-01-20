@@ -175,7 +175,7 @@ endif
 if has('eval')
   function! StripTrailingWhitespace()
       let l:search = @/
-      %s/\s\+$//e
+      %substitute/\s\+$//e
       let @/ = l:search
       nohlsearch
   endfunction
