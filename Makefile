@@ -183,10 +183,10 @@ install-vim-plugins : vim-plugins install-vim-config
 				install -m 0644 -- \
 					"$$file" "$(HOME)"/.vim/"$$file" ; \
 			done
-	for dir in indent ftdetect ftplugin syntax ; do \
-		install -m 0755 -d -- "$(HOME)"/.vim/after/"$$dir" ; \
-		install -m 0644 -- vim/after/"$$dir"/* \
-			"$(HOME)"/.vim/after/"$$dir" ; \
+	for dir in vim/after/* ; do \
+		install -m 0755 -d -- "$(HOME)"/.vim/after/"$${dir##*/}" ; \
+		install -m 0644 -- "$$dir"/* \
+			"$(HOME)"/.vim/after/"$${dir##*/}" ; \
 	done
 
 install-vim-pathogen : install-vim-plugins
