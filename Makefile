@@ -95,7 +95,8 @@ install-gnupg : gnupg/gpg.conf
 		"$(HOME)"/.gnupg \
 		"$(HOME)"/.gnupg/sks-keyservers.net
 	install -m 0600 -- gnupg/*.conf "$(HOME)"/.gnupg
-	install -m 0644 -- gnupg/sks-keyservers.net/* "$(HOME)"/.gnupg/sks-keyservers.net
+	install -m 0644 -- gnupg/sks-keyservers.net/* \
+		"$(HOME)"/.gnupg/sks-keyservers.net
 
 install-i3 : install-x
 	install -m 0755 -d -- "$(HOME)"/.i3
