@@ -6,9 +6,7 @@ fi
 # Load all supplementary scripts in ~/.profile.d
 if [ -d "$HOME"/.profile.d ] ; then
     for config in "$HOME"/.profile.d/*.sh ; do
-        if [ -r "$config" ] ; then
-            . "$config"
-        fi
+        . "$config"
     done
 fi
 unset -v config
