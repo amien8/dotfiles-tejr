@@ -29,6 +29,7 @@
 	install-vim-config \
 	install-vim-pathogen \
 	install-vim-plugins \
+	install-vimperator \
 	install-wyrd \
 	install-x \
 	test \
@@ -195,6 +196,9 @@ install-vim-pathogen : install-vim-plugins
 	rm -f -- "$(HOME)"/.vim/autoload/pathogen.vim
 	ln -s -- ../bundle/pathogen/autoload/pathogen.vim \
 		"$(HOME)"/.vim/autoload/pathogen.vim
+
+install-vimperator :
+	install -m 0644 -- vimperator/vimperatorrc "$(HOME)"/.vimperatorrc
 
 install-wyrd :
 	install -m 0644 -- wyrd/wyrdrc "$(HOME)"/.wyrdrc
