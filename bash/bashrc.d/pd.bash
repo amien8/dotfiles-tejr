@@ -4,7 +4,7 @@
 # containing directory. In the absence of an argument, this just shifts up a
 # directory, i.e. `cd ..`
 pd() {
-    local arg
+    local arg target
     local -a opts
     for arg in "$@" ; do
         case $arg in
@@ -21,21 +21,20 @@ pd() {
                 ;;
         esac
     done
-    if (($#)) ; then
-        case $# in
-            1)
-                target=$1
-                target=${target%/}
-                target=${target%/*}
-                ;;
-            *)
-                printf 'bash: pd: too many arguments\n' >&2
-                return 1
-                ;;
-        esac
-    else
-        target=..
-    fi
+    case $# in
+        0)
+            target=..
+            ;;
+        1)
+            target=$1
+            target=${target%/}
+            target=${target%/*}
+            ;;
+        *)
+            printf 'bash: pd: too many arguments\n' >&2
+            return 1
+            ;;
+    esac
     if [[ $target ]] ; then
         builtin cd "${opts[@]}" -- "$target"
     else
