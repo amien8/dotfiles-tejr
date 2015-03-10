@@ -28,7 +28,7 @@ pd() {
                 target=${target%/}
                 target=${target%/*}
                 ;;
-            2)
+            *)
                 printf 'bash: pd: too many arguments\n' >&2
                 return 1
                 ;;
