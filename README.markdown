@@ -54,14 +54,11 @@ Configuration is included for:
 
 Also included are a few scripts for `~/.local/bin`, and their `man(1)` pages.
 
-The configurations for Bash, Mutt, tmux, and Vim are the most expansive and
-most likely to be of interest. The configuration for GnuPG is tweaked to follow
-[RiseUp’s OpenPGP best
-practices](https://help.riseup.net/en/security/message-security/openpgp/best-practices).
-The i3 configuration is mostly changed to make window switching behave like Vim
-windows and tmux panes do, and there’s a fair few resources defined for
-rxvt-unicode. Otherwise, the rest of the configuration isn’t too distant from
-the defaults.
+The configurations for Bash, GnuPG, Mutt, tmux, and Vim are the most expansive
+and most likely to be of interest. The i3 configuration is mostly changed to
+make window switching behave like Vim windows and tmux panes do, and there’s a
+fair few resources defined for rxvt-unicode. Otherwise, the rest of the
+configuration isn’t too distant from the defaults.
 
 Installation
 ------------
@@ -189,6 +186,15 @@ There are a few other little tricks in `bash/bashrc.d`, including:
 You can test that both sets of shell scripts are syntactically correct with
 `make test-bash`, `make test-sh`, or `make test` for everything including the
 scripts in `bin`.
+
+GnuPG
+-----
+
+The configuration for GnuPG is intended to follow [RiseUp’s OpenPGP best
+practices](https://help.riseup.net/en/security/message-security/openpgp/best-practices).
+The configuration file is rebuilt using `m4` and `make` because it requires
+hard-coding a path to the SKS keyserver certificate authority, and neither
+tilde nor `$HOME` expansion works for this.
 
 Mutt
 ----
