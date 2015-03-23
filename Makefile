@@ -42,7 +42,7 @@ all : gnupg vim-plugins
 
 clean :
 	rm -f gnupg/gpg.conf
-	git submodule deinit .
+	git submodule deinit --force .
 
 distclean : clean
 
