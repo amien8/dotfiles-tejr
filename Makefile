@@ -38,7 +38,7 @@
 	test-sh \
 	test-urxvt
 
-all : gnupg vim-plugins
+all : gnupg vim
 
 clean :
 	rm -f gnupg/gpg.conf
@@ -50,6 +50,8 @@ gnupg : gnupg/gpg.conf
 
 gnupg/gpg.conf :
 	m4 -D DOTFILES_HOME="$(HOME)" gnupg/gpg.conf.m4 > gnupg/gpg.conf
+
+vim : vim-plugins
 
 vim-plugins : vim/bundle/abolish/.git \
 	vim/bundle/argumentative/.git \
