@@ -51,8 +51,26 @@ gnupg : gnupg/gpg.conf
 gnupg/gpg.conf :
 	m4 -D DOTFILES_HOME="$(HOME)" gnupg/gpg.conf.m4 > gnupg/gpg.conf
 
-vim-plugins :
-	git submodule update --init
+vim-plugins : vim/bundle/abolish/.git \
+	vim/bundle/argumentative/.git \
+	vim/bundle/commentary/.git \
+	vim/bundle/ctrlp/.git \
+	vim/bundle/exchange/.git \
+	vim/bundle/html5/.git \
+	vim/bundle/lion/.git \
+	vim/bundle/nagios/.git \
+	vim/bundle/pathogen/.git \
+	vim/bundle/repeat/.git \
+	vim/bundle/sahara/.git \
+	vim/bundle/surround/.git \
+	vim/bundle/tmux/.git \
+	vim/bundle/twig/.git \
+	vim/bundle/undotree/.git \
+	vim/bundle/unimpaired/.git \
+	vim/bundle/vimperator/.git
+
+%/.git : .gitmodules
+	git submodule update --init "$(@D)"
 
 install : install-bash \
 	install-curl \
