@@ -39,8 +39,6 @@
 	test-urxvt
 
 all : gnupg vim-plugins
-	@echo 'Run `make -n install` and read the output carefully.'
-	@echo 'If you'\''re happy with what it'\''ll do, then run `make install`.'
 
 clean :
 	rm -f gnupg/gpg.conf
