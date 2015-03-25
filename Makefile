@@ -71,39 +71,39 @@ vim-plugins : vim/bundle/abolish/.git \
 	vim/bundle/unimpaired/.git \
 	vim/bundle/vimperator/.git
 
-vim/bundle/abolish/.git : .gitmodules
+vim/bundle/abolish/.git :
 	git submodule update --init "$(@D)"
-vim/bundle/argumentative/.git : .gitmodules
+vim/bundle/argumentative/.git :
 	git submodule update --init "$(@D)"
-vim/bundle/commentary/.git : .gitmodules
+vim/bundle/commentary/.git :
 	git submodule update --init "$(@D)"
-vim/bundle/ctrlp/.git : .gitmodules
+vim/bundle/ctrlp/.git :
 	git submodule update --init "$(@D)"
-vim/bundle/exchange/.git : .gitmodules
+vim/bundle/exchange/.git :
 	git submodule update --init "$(@D)"
-vim/bundle/html5/.git : .gitmodules
+vim/bundle/html5/.git :
 	git submodule update --init "$(@D)"
-vim/bundle/lion/.git : .gitmodules
+vim/bundle/lion/.git :
 	git submodule update --init "$(@D)"
-vim/bundle/nagios/.git : .gitmodules
+vim/bundle/nagios/.git :
 	git submodule update --init "$(@D)"
-vim/bundle/pathogen/.git : .gitmodules
+vim/bundle/pathogen/.git :
 	git submodule update --init "$(@D)"
-vim/bundle/repeat/.git : .gitmodules
+vim/bundle/repeat/.git :
 	git submodule update --init "$(@D)"
-vim/bundle/sahara/.git : .gitmodules
+vim/bundle/sahara/.git :
 	git submodule update --init "$(@D)"
-vim/bundle/surround/.git : .gitmodules
+vim/bundle/surround/.git :
 	git submodule update --init "$(@D)"
-vim/bundle/tmux/.git : .gitmodules
+vim/bundle/tmux/.git :
 	git submodule update --init "$(@D)"
-vim/bundle/twig/.git : .gitmodules
+vim/bundle/twig/.git :
 	git submodule update --init "$(@D)"
-vim/bundle/undotree/.git : .gitmodules
+vim/bundle/undotree/.git :
 	git submodule update --init "$(@D)"
-vim/bundle/unimpaired/.git : .gitmodules
+vim/bundle/unimpaired/.git :
 	git submodule update --init "$(@D)"
-vim/bundle/vimperator/.git : .gitmodules
+vim/bundle/vimperator/.git :
 	git submodule update --init "$(@D)"
 
 install : install-bash \
@@ -168,7 +168,6 @@ install-mutt : install-maildir
 		"$(HOME)"/.mutt \
 		"$(HOME)"/.cache/mutt
 	install -m 0644 -- mutt/muttrc "$(HOME)"/.muttrc
-	touch -- "$(HOME)"/.mutt/muttrc.local "$(HOME)"/.mutt/signature
 
 install-ncmcpp :
 	install -m 0755 -d -- "$(HOME)"/.ncmpcpp
