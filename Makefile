@@ -71,7 +71,39 @@ vim-plugins : vim/bundle/abolish/.git \
 	vim/bundle/unimpaired/.git \
 	vim/bundle/vimperator/.git
 
-%/.git : .gitmodules
+vim/bundle/abolish/.git : .gitmodules
+	git submodule update --init "$(@D)"
+vim/bundle/argumentative/.git : .gitmodules
+	git submodule update --init "$(@D)"
+vim/bundle/commentary/.git : .gitmodules
+	git submodule update --init "$(@D)"
+vim/bundle/ctrlp/.git : .gitmodules
+	git submodule update --init "$(@D)"
+vim/bundle/exchange/.git : .gitmodules
+	git submodule update --init "$(@D)"
+vim/bundle/html5/.git : .gitmodules
+	git submodule update --init "$(@D)"
+vim/bundle/lion/.git : .gitmodules
+	git submodule update --init "$(@D)"
+vim/bundle/nagios/.git : .gitmodules
+	git submodule update --init "$(@D)"
+vim/bundle/pathogen/.git : .gitmodules
+	git submodule update --init "$(@D)"
+vim/bundle/repeat/.git : .gitmodules
+	git submodule update --init "$(@D)"
+vim/bundle/sahara/.git : .gitmodules
+	git submodule update --init "$(@D)"
+vim/bundle/surround/.git : .gitmodules
+	git submodule update --init "$(@D)"
+vim/bundle/tmux/.git : .gitmodules
+	git submodule update --init "$(@D)"
+vim/bundle/twig/.git : .gitmodules
+	git submodule update --init "$(@D)"
+vim/bundle/undotree/.git : .gitmodules
+	git submodule update --init "$(@D)"
+vim/bundle/unimpaired/.git : .gitmodules
+	git submodule update --init "$(@D)"
+vim/bundle/vimperator/.git : .gitmodules
 	git submodule update --init "$(@D)"
 
 install : install-bash \
