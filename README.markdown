@@ -63,6 +63,11 @@ configuration isn’t too distant from the defaults.
 Installation
 ------------
 
+For the default target, you’ll need `bash(1)`, `git(1)`, `install(1)`,
+`make(1)`, `m4(1)`, and `tic(1)`. You’ll need to have a recent enough version
+of Git to support [submodules](http://git-scm.com/book/en/Git-Tools-Submodules)
+for the Vim installation to work; it’s required for the plugin setup.
+
 The installation `Makefile` will overwrite things standing in the way of its
 installed files without backing them up, so read the output of `make -n
 install` first to make sure you aren’t going to lose anything unexpected. Even
@@ -72,10 +77,6 @@ install to check things out:
     $ mktemp -d
     /tmp/tmp.YZFW8ScFZP
     $ make install HOME=/tmp/tmp.YZFW8ScFZP
-
-You’ll need to have a recent enough version of Git to support
-[submodules](http://git-scm.com/book/en/Git-Tools-Submodules) for the Vim
-installation to work; it’s required for the plugin setup.
 
 To install the core terminal-only files (cURL, Git, GnuPG, Vim, and shell and
 terminal setup files), use the following:
