@@ -30,26 +30,33 @@ prompt() {
             } 2>/dev/null )
             local format
 
-            # Check if we have non-bold bright green available
-            if ((colors == 256)) ; then
-                format=$( {
-                    tput AF 10 || tput setaf 10 \
-                        || tput AF 10 0 0 || tput setaf 10 0 0
-                } 2>/dev/null )
+            # Decide prompt color formatting based on color availability
+            case $colors in
 
-            # If we have only eight colors, use bold green to make it bright
-            elif ((colors == 8)) ; then
-                format=$( {
-                    tput AF 2 || tput setaf 2
-                    tput md || tput bold
-                } 2>/dev/null )
+                # Check if we have non-bold bright green available
+                256)
+                    format=$( {
+                        tput AF 10 || tput setaf 10 \
+                            || tput AF 10 0 0 || tput setaf 10 0 0
+                    } 2>/dev/null )
+                    ;;
 
-            # For non-color terminals (!), just use bold
-            else
-                format=$( {
-                    tput md || tput bold
-                } 2>/dev/null )
-            fi
+                # If we have only eight colors, use bold green
+                8)
+                    format=$( {
+                        tput AF 2 || tput setaf 2
+                        tput md || tput bold
+                    } 2>/dev/null )
+                    ;;
+
+                # For all other terminals, we assume non-color (!), and we just
+                # use bold
+                *)
+                    format=$( {
+                        tput md || tput bold
+                    } 2>/dev/null )
+                    ;;
+            esac
 
             # String it all together
             PS1='\['"$format"'\]'"$PS1"'\['"$reset"'\] '
