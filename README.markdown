@@ -280,11 +280,6 @@ I’d welcome patches or advice on fixing any of these problems.
 
 *   The `install-terminfo` target does not work correctly on NetBSD due to the
     different way `tic(1)` works, which I don’t understand at all.
-*   Parts of the `Makefile` are inelegant. For example, I'd love to have a
-    target pattern for checking out the Git submodules used for the Vim plugins
-    that's POSIX compliant or at least works on all the major open-source
-    UNIXes. `%` doesn't seem to match pathnames for BSD `make(1)`, only
-    filenames.
 
 License
 -------
