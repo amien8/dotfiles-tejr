@@ -11,20 +11,18 @@ scp() {
 _ssh() {
     local word=${COMP_WORDS[COMP_CWORD]}
 
-    # Bail if the configuration file is illegible
-    local config=$HOME/.ssh/config
-    if [[ ! -r $config ]] ; then
-        return 1
-    fi
-
-    # Read hostnames from the file, no asterisks
+    # Read hostnames from existent config files, no asterisks
     local -a hosts
-    local option value
-    while read -r option value _ ; do
-        if [[ $option == Host && $value != *'*'* ]] ; then
-            hosts=("${hosts[@]}" "$value")
+    local config option value
+    for config in "$HOME"/.ssh/config /etc/ssh/ssh_config ; do
+        if [[ -e $config ]] ; then
+            while read -r option value _ ; do
+                if [[ $option == Host && $value != *'*'* ]] ; then
+                    hosts=("${hosts[@]}" "$value")
+                fi
+            done < "$config"
         fi
-    done < "$config"
+    done
 
     # Generate completion reply
     COMPREPLY=( $(compgen -W "${hosts[*]}" -- "$word") )
