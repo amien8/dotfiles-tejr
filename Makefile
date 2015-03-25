@@ -2,6 +2,7 @@
 	clean \
 	distclean \
 	gnupg \
+	vim \
 	vim-plugins \
 	install \
 	install-bash \
