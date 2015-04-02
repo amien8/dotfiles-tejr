@@ -172,15 +172,22 @@ things I really do get tired of typing repeatedly:
 
 There are a few other little tricks in `bash/bashrc.d`, including:
 
-*   `bd` — Change back into a named ancestor directory
+*   `bd` — Change into a named ancestor of the current directory
 *   `ca` — Count given arguments
 *   `cf` — Count files in a given directory
 *   `hgrep` — `HISTFILE` search
 *   `mkcd` — Create a directory and change into it
+*   `mkcp` — Create a directory and copy arguments into it
 *   `mkmv` — Create a directory and move arguments into it
 *   `pa` — Print given arguments, one per line
+*   `pd` — Change to the argument’s parent directory
 *   `scr` — Create a temporary directory and change into it
 *   `sprunge` — Pastebin frontend tool I pilfered from `#bash` on Freenode
+
+I also wrap a few command calls with functions to stop me from doing silly
+things that the commands themselves don’t catch. My favourite is the one that
+stops me from calling `scp(1)` with no colon in either argument. I also do
+things like give default arguments to `remind(1)` and `pwgen(1)`.
 
 ### Testing
 
