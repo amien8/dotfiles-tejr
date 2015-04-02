@@ -522,6 +522,21 @@ nnoremap k gk
 if has('linebreak')
   set linebreak
   set showbreak=...
+
+  " Bind \b to turn off linebreak and toggle the showbreak characters on and
+  " off for convenience of copypasting multiple lines from terminal emulators.
+  if has('eval')
+    function! ToggleBreak()
+      if &linebreak
+        set nolinebreak showbreak=
+        set showbreak=
+      else
+        set linebreak
+        set showbreak=...
+      endif
+    endfunction
+    nnoremap <silent> <leader>b :<C-U>call ToggleBreak()<CR>
+  endif
 endif
 
 " I really like ZZ and ZQ, so I wrote a couple more mappings; ZW forces a
