@@ -528,7 +528,7 @@ if has('linebreak')
   if has('eval')
     function! ToggleBreak()
       if &linebreak
-        set nolinebreak showbreak=
+        set nolinebreak
         set showbreak=
       else
         set linebreak
