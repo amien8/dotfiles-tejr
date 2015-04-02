@@ -280,6 +280,9 @@ I’d welcome patches or advice on fixing any of these problems.
 
 *   The `install-terminfo` target does not work correctly on NetBSD due to the
     different way `tic(1)` works, which I don’t understand at all.
+*   The `Makefile` doesn’t catch required `git submodule update` runs in its
+    default target; it would be really nice if it did, as I’d like to abstract
+    all the submodule mess behind it if I can.
 
 License
 -------
