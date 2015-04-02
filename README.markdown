@@ -193,9 +193,9 @@ GnuPG
 
 The configuration for GnuPG is intended to follow [RiseUp’s OpenPGP best
 practices](https://help.riseup.net/en/security/message-security/openpgp/best-practices).
-The configuration file is rebuilt using `m4` and `make` because it requires
-hard-coding a path to the SKS keyserver certificate authority, and neither
-tilde nor `$HOME` expansion works for this.
+The configuration file is rebuilt using `m4(1)` and `make(1)` because it
+requires hard-coding a path to the SKS keyserver certificate authority, and
+neither tilde nor `$HOME` expansion works for this.
 
 Mutt
 ----
