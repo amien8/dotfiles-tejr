@@ -596,10 +596,3 @@ if has('eval') && has('autocmd')
   augroup end
 endif
 
-" If a file named ~/.vimrc.local exists, source its configuration; this is
-" useful for defining filetype rules on systems which happen to have files of
-" a known type with atypical suffixes or locations
-if filereadable(glob('~/.vimrc.local'))
-  source ~/.vimrc.local
-endif
-
