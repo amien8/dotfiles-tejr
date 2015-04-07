@@ -12,9 +12,30 @@
 # Name self
 self=shoal
 
+# Start by assuming we should parse all hosts
+declare -i shoal
+shoal=1
+
+# Iterate through the config
 while read -r option value _ ; do
-    if [[ $option == 'Host' && $value != *[^[:alnum:]._-]* ]] ; then
-        printf '%s\n' "$value"
-    fi
+
+    # "### shoal" and "### noshoal" toggles parsing
+    case $option in
+        '###')
+            case $value in
+                noshoal)
+                    shoal=0
+                    ;;
+                shoal)
+                    shoal=1
+                    ;;
+            esac
+            ;;
+        'Host')
+            if ((shoal)) && [[ $value != *[^[:alnum:]_-]*  ]] ; then
+                printf '%s\n' "$value"
+            fi
+            ;;
+    esac
 done < "${1:-$HOME/.ssh/config}"
 
