@@ -420,9 +420,6 @@ if !strlen($SUDO_USER) && has('unix') && has('persistent_undo')
   endif
 endif
 
-" Unmap F1, I don't use it, I prefer :help
-noremap <F1> <nop>
-
 " Unmap K, which normally pulls up the man(1) page for a given binary or
 " function; I don't find this terribly helpful in most filetypes and often hit
 " it accidentally
