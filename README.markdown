@@ -91,11 +91,11 @@ Shell
 -----
 
 My `.profile` and other files in `sh` are written in Bourne/POSIX shell script
-so that they can be parsed by any Bourne-compatible shell, including the `dash`
-shell used as the system shell on modern Debian-derived systems. Individual
-scripts called by `.profile` are saved in `.profile.d` and iterated on login
-for ease of management. All of these boil down to exporting variables
-appropriate to the system and the software it has available.
+so that they can be parsed by any Bourne-compatible shell, including `zsh`,
+`dash`, and \*BSD implementations of `sh`. Individual scripts called by
+`.profile` are saved in `.profile.d` and iterated on login for ease of
+management. All of these boil down to exporting variables appropriate to the
+system and the software it has available.
 
 My `.bash_profile` calls `.profile` for variable exports, and then runs
 `.bashrc` for interactive shells. Subscripts are kept in `.bashrc.d`, and all
@@ -104,7 +104,7 @@ directory changes all the time depending on the host, and only specific scripts
 in it are versioned.
 
 My interactive and scripting shell of choice is Bash; as a GNU/Linux admin who
-ends up installing Bash on BSD machines anyway, I very rarely have to write
+ends up installing Bash on \*BSD machines anyway, I very rarely have to write
 Bourne-compatible scripts, so all of these files are replete with Bashisms.
 
 As I occasionally have work on very old internal systems, my Bash is written to
