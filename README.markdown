@@ -7,10 +7,6 @@ use them, and there’s an attempt to keep my own personal data out of the files
 but you’ll probably want to fork it to remove anything peculiar to my setup
 that I’ve left in here.
 
-```bash
-$ git clone git://github.com/tejr/dotfiles.git ~/.dotfiles
-```
-
 It’s more likely you’ll want to read the configuration files and find snippets
 relevant to your particular workflow.
 
@@ -63,6 +59,14 @@ configuration isn’t too distant from the defaults.
 Installation
 ------------
 
+```bash
+$ git clone git://github.com/tejr/dotfiles.git ~/.dotfiles
+$ cd .dotfiles
+$ make
+$ make -n install
+$ make install
+```
+
 For the default target, you’ll need `bash(1)`, `git(1)`, `install(1)`,
 `make(1)`, `m4(1)`, and `tic(1)`. You’ll need to have a recent enough version
 of Git to support [submodules](http://git-scm.com/book/en/Git-Tools-Submodules)
@@ -78,15 +82,10 @@ install to check things out:
     /tmp/tmp.YZFW8ScFZP
     $ make install HOME=/tmp/tmp.YZFW8ScFZP
 
-To install the core terminal-only files (cURL, Git, GnuPG, Vim, and shell and
-terminal setup files), use the following:
-
-```bash
-$ make install
-```
-
-The remaining dotfiles can be installed with the other targets; take a look at
-the `Makefile` to see what’s available.
+The default target will install the core terminal-only files (cURL, Git, GnuPG,
+Vim, and shell and terminal setup files). The remaining dotfiles can be
+installed with the other targets. Take a look at the `Makefile` to see what’s
+available.
 
 Shell
 -----
