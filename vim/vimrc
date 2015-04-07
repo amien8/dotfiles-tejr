@@ -420,11 +420,6 @@ if !strlen($SUDO_USER) && has('unix') && has('persistent_undo')
   endif
 endif
 
-" Unmap K, which normally pulls up the man(1) page for a given binary or
-" function; I don't find this terribly helpful in most filetypes and often hit
-" it accidentally
-nnoremap K <nop>
-
 " Unmap Q, which normally starts an ex mode, which I've never wanted or needed
 nnoremap Q <nop>
 
