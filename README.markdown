@@ -61,7 +61,8 @@ Installation
 
 ```bash
 $ git clone git://github.com/tejr/dotfiles.git ~/.dotfiles
-$ cd .dotfiles
+$ cd ~/.dotfiles
+$ git submodule init
 $ make
 $ make -n install
 $ make install
@@ -74,9 +75,9 @@ for the Vim installation to work; it’s required for the plugin setup.
 
 The installation `Makefile` will overwrite things standing in the way of its
 installed files without backing them up, so read the output of `make -n
-install` first to make sure you aren’t going to lose anything unexpected. Even
-better, if you’re still not sure, give it a temporary directory to which it can
-install to check things out:
+install` before running `make install` to make sure you aren’t going to lose
+anything unexpected. If you’re still not sure, install it in a temporary
+directory so you can explore:
 
     $ mktemp -d
     /tmp/tmp.YZFW8ScFZP
@@ -286,9 +287,6 @@ I’d welcome patches or advice on fixing any of these problems.
 
 *   The `install-terminfo` target does not work correctly on NetBSD due to the
     different way `tic(1)` works, which I don’t understand at all.
-*   The `Makefile` doesn’t catch required `git submodule update` runs in its
-    default target; it would be really nice if it did, as I’d like to abstract
-    all the submodule mess behind it if I can.
 
 License
 -------
