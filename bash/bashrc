@@ -46,6 +46,8 @@ shopt -s dotglob
 shopt -s extglob
 # Append rather than overwrite Bash history
 shopt -s histappend
+# Expand history commands on a new line for confirmation
+shopt -s histverify
 # Don't use Bash's builtin host completion
 shopt -u hostcomplete
 # Don't warn me about new mail all the time
