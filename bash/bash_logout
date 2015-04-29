@@ -8,3 +8,6 @@ if ((SHLVL == 1)) ; then
     clear_console -q 2>/dev/null
 fi
 
+# Write PWD to a file if set
+printf '%s\n' "$PWD" > "${OLDPWD_FILE:-$HOME/.oldpwd}"
+
