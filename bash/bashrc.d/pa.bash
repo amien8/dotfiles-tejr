@@ -1,5 +1,7 @@
 # Print arguments
 pa() {
-    printf '%s\n' "$@"
+    if (($#)) ; then
+        printf '%s\n' "$@"
+    fi
 }
 
