@@ -5,7 +5,8 @@ scr() {
     if (($# <= 1)) ; then
         pushd -- "$(mktemp -dt "${1:-scr}".XXXXX)"
     else
-        printf 'bash: scr: too many arguments\n' >&2
+        printf 'bash: %s: too many arguments\n' \
+            "$FUNCNAME" >&2
         return 1
     fi
 }

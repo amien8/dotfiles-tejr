@@ -31,14 +31,16 @@ pd() {
             target=${target%/*}
             ;;
         *)
-            printf 'bash: pd: too many arguments\n' >&2
+            printf 'bash: %s: too many arguments\n' \
+                "$FUNCNAME" >&2
             return 1
             ;;
     esac
     if [[ $target ]] ; then
         builtin cd "${opts[@]}" -- "$target"
     else
-        printf 'bash: pd: error calculating parent directory\n' >&2
+        printf 'bash: %s: error calculating parent directory\n' \
+            "$FUNCNAME" >&2
         return 1
     fi
 }

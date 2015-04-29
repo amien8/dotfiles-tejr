@@ -12,7 +12,8 @@ bd() {
     if [[ -d $dir ]] ; then
         builtin cd -- "$dir"
     else
-        printf 'bash: No dir found in PWD named %s\n' "$1" >&2
+        printf 'bash: %s: No dir found in PWD named %s\n' \
+            "$FUNCNAME" "$1" >&2
         return 1
     fi
 }
