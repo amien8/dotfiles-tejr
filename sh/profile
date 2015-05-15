@@ -8,6 +8,6 @@ if [ -d "$HOME"/.profile.d ] ; then
     for config in "$HOME"/.profile.d/*.sh ; do
         . "$config"
     done
+    unset -v config
 fi
-unset -v config
 
