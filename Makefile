@@ -168,17 +168,17 @@ install-gvim-config :
 
 install-vim-plugins : vim-plugins install-vim-config
 	install -m 0755 -d -- "$(HOME)"/.vim/bundle
-	cd vim && find bundle -name .git -prune -o \
+	find vim/bundle -name .git -prune -o \
 		\( -type d -print \) | \
 			while IFS= read -r dir ; do \
 				install -m 0755 -d -- \
-					"$$dir" "$(HOME)"/.vim/"$$dir" ; \
+					"$$dir" "$(HOME)"/.vim/"$${dir#vim/}" ; \
 			done
-	cd vim && find bundle -name .git -prune -o \
+	find vim/bundle -name .git -prune -o \
 		\( -type f ! -name '.git*' -print \) | \
 			while IFS= read -r file ; do \
 				install -m 0644 -- \
-					"$$file" "$(HOME)"/.vim/"$$file" ; \
+					"$$file" "$(HOME)"/.vim/"$${file#vim/}" ; \
 			done
 	for dir in vim/after/* ; do \
 		install -m 0755 -d -- "$(HOME)"/.vim/after/"$${dir##*/}" ; \
