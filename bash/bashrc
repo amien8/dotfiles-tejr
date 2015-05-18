@@ -73,9 +73,8 @@ fi
 
 # Load any supplementary scripts
 if [[ -d $HOME/.bashrc.d ]] ; then
-    for config in "$HOME"/.bashrc.d/*.bash ; do
-        source "$config"
+    for _ in "$HOME"/.bashrc.d/*.bash ; do
+        source "$_"
     done
-    unset -v config
 fi
 
