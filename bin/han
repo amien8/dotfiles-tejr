@@ -44,10 +44,10 @@ trap cleanup EXIT
 # If we have exactly one argument and a call to the help builtin with that
 # argument succeeds, display its output with `pager -s`.
 if (($# == 1)) && help "${helpopts[@]}" "$1" >"$out" 2>/dev/null ; then
-    exec pager -s -- "$out"
+    pager -s -- "$out"
 
 # Otherwise, just pass all the arguments to man(1).
 else
-    exec man "$@"
+    man "$@"
 fi
 
