@@ -280,6 +280,10 @@ Three SSH-related scripts and their manuals are included:
 If you want to use the manuals, you may need to add `~/.local/share/man` to
 your `/etc/manpath` configuration, depending on your system.
 
+There's also a script `han(1)` to provide a `keywordprg` for Bash script
+development that will look for `help` topics. You could use it from the shell
+too. It also has a brief manual.
+
 Known issues
 ------------
 
