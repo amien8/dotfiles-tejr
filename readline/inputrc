@@ -28,3 +28,8 @@ set show-all-if-ambiguous On
 # Don't re-complete already completed text in the middle of a word
 set skip-completed-text On
 
+# In Bash, Alt-E to prepend "exec " to a command and return to the end of the line
+$if Bash
+    "\ee": "\C-aexec \C-e"
+$endif
+
