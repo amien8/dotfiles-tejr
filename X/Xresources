@@ -8,7 +8,6 @@ Xft.rgba      : none
 ! Urxvt
 URxvt.buffered          : false
 URxvt.cursorBlink       : on
-URxvt.cutchars          : <>[]{}|│*
 URxvt.depth             : 32
 URxvt.font              : xft:Ubuntu Mono:size=12,xft:Deja Vu Sans Mono,xft:Lohit Kannada
 URxvt.internalBorder    : 0
