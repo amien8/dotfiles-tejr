@@ -11,7 +11,7 @@ feh --bg-scale -- "$HOME"/.i3/draugen.jpg
 xscreensaver &
 
 # Start urxvtd(1)
-urxvtd -foq
+urxvtd -o -q &
 
 # Start xbindkeys(1)
 xbindkeys
