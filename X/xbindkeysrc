@@ -7,6 +7,9 @@
 "dmenu_run -fn 'terminus-iso8860-1-12' -nb '#111111' -nf '#eeeeee' -sb '#285577' -sf '#ffffff'"
   Mod4 + d
 
+"exec gimp"
+  Mod4 + g
+
 "exec i3lock --color=#111111 --nofork"
   Mod4 + slash
 
