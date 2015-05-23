@@ -1,10 +1,10 @@
-"urxvtcd"
+"exec urxvtcd"
   Mod4 + Return
 
 "exec firefox"
   Mod4 + b
 
-"dmenu_run -fn 'terminus-iso8860-1-12' -nb '#111111' -nf '#eeeeee' -sb '#285577' -sf '#ffffff'"
+"exec dmenu_run -fn 'terminus-iso8860-1-12' -nb '#111111' -nf '#eeeeee' -sb '#285577' -sf '#ffffff'"
   Mod4 + d
 
 "exec gimp"
@@ -13,12 +13,12 @@
 "exec i3lock --color=#111111 --nofork"
   Mod4 + slash
 
-"amixer -q sset Master toggle"
+"exec amixer -q sset Master toggle"
   XF86AudioMute
 
-"amixer -q sset Master 5%+ unmute"
+"exec amixer -q sset Master 5%+ unmute"
   XF86AudioRaiseVolume
 
-"amixer -q sset Master 5%- unmute"
+"exec amixer -q sset Master 5%- unmute"
   XF86AudioLowerVolume
 
