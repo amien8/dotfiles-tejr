@@ -1,8 +1,8 @@
 # Read X resources
 xrdb "$HOME"/.Xresources
 
-# Apply xmodmap definitions
-xmodmap "$HOME"/.xmodmap
+# Map Caps Lock as a Ctrl key
+setxkbmap -option ctrl:nocaps
 
 # Apply background image
 feh --bg-scale -- "$HOME"/.i3/draugen.jpg
