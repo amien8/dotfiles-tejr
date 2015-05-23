@@ -7,7 +7,7 @@
 "dmenu_run -fn 'terminus-iso8860-1-12' -nb '#111111' -nf '#eeeeee' -sb '#285577' -sf '#ffffff'"
   Mod4 + d
 
-"xscreensaver-command -lock"
+"exec i3lock --color=#111111 --nofork"
   Mod4 + slash
 
 "amixer -q sset Master toggle"
