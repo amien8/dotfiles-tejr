@@ -7,9 +7,6 @@ setxkbmap -option ctrl:nocaps
 # Apply background image
 feh --bg-scale -- "$HOME"/.i3/draugen.jpg
 
-# Start xscreensaver(1)
-xscreensaver &
-
 # Start urxvtd(1)
 urxvtd -o -q &
 
