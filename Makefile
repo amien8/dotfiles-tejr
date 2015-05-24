@@ -199,6 +199,8 @@ install-wyrd :
 	install -m 0644 -- wyrd/wyrdrc "$(HOME)"/.wyrdrc
 
 install-x :
+	install -m 0755 -d -- "$(HOME)"/.config
+	install -m 0644 -- X/redshift.conf "$(HOME)"/.config/redshift.conf
 	install -m 0644 -- X/Xresources "$(HOME)"/.Xresources
 	install -m 0644 -- X/xbindkeysrc "$(HOME)"/.xbindkeysrc
 	install -m 0644 -- X/xinitrc "$(HOME)"/.xinitrc
