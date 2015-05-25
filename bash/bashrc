@@ -1,4 +1,4 @@
-# Give up completely if no BASH_VERSINFO (<2.0)
+# Don't do anything if no BASH_VERSINFO set (implying bash < 2.0)
 if ! test "$BASH_VERSINFO" ; then
     return
 fi
