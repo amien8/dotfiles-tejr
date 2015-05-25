@@ -8,6 +8,11 @@ if [[ $- != *i* ]] ; then
     return
 fi
 
+# Don't do anything if running a restricted shell
+if shopt -q restricted_shell ; then
+    return
+fi
+
 # Keep around a million lines of history in file
 HISTFILESIZE=$((2 ** 20))
 
