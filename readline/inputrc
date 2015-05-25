@@ -30,7 +30,8 @@ set skip-completed-text On
 
 # Bash macros
 $if Bash
-    # Alt-E (for exec) to prepend "exec " to a command and return to the end of the line
+    # Alt-E (for exec) to prepend "exec " to a command and return to the end of
+    # the line
     "\ee": "\C-aexec \C-e"
     # Alt-M (for muxer) to run tmux
     "\em": "tmux\C-j"
