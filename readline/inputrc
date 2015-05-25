@@ -37,5 +37,7 @@ $if Bash
     "\eh": "cd\C-j"
     # Alt-M (for muxer) to run tmux
     "\em": "tmux\C-j"
+    # Alt-L (for ls) to run ls -Al
+    "\el": "ls -Al\C-j"
 $endif
 
