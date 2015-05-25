@@ -33,6 +33,8 @@ $if Bash
     # Alt-E (for exec) to prepend "exec " to a command and return to the end of
     # the line
     "\ee": "\C-aexec \C-e"
+    # Alt-H (for home) to go $HOME
+    "\eh": "cd\C-j"
     # Alt-M (for muxer) to run tmux
     "\em": "tmux\C-j"
 $endif
