@@ -76,7 +76,7 @@ if ((10#${BASH_VERSINFO[0]%%[![:digit:]]*} >= 4)) ; then
     # Enable double-starring paths
     shopt -s globstar
 
-    # Warn me about stopped jobs when exiting; only if >4.1 due to bug
+    # Warn me about stopped jobs when exiting; only if >=4.1 due to bug
     # <https://lists.gnu.org/archive/html/bug-bash/2009-02/msg00176.html>
     if ((10#${BASH_VERSINFO[0]%%[![:digit:]]*} > 4)) \
         || ((10#${BASH_VERSINFO[1]%%[![:digit:]]*} > 0)) ; then
