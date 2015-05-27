@@ -12,7 +12,7 @@ elif ((10#${BASH_VERSINFO[0]%%[![:digit:]]} == 2)) \
 fi
 
 # Source interactive Bash config if it exists
-if [[ -r $HOME/.bashrc ]] ; then
+if [[ -e $HOME/.bashrc ]] ; then
     source "$HOME"/.bashrc
 fi
 
