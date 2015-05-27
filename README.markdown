@@ -110,8 +110,7 @@ Bourne-compatible scripts, so all of these files are replete with Bashisms.
 
 As I occasionally have work on very old internal systems, my Bash is written to
 work with [any version 2.05a or
-newer](http://wiki.bash-hackers.org/scripting/bashchanges), a few versions
-after the less error-prone `[[` test syntax was introduced. This is why I use
+newer](http://wiki.bash-hackers.org/scripting/bashchanges). This is why I use
 older syntax for certain things such as appending items to arrays:
 
 ```bash

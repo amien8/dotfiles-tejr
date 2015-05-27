@@ -3,9 +3,12 @@ if test -e "$HOME"/.profile ; then
     . "$HOME"/.profile
 fi
 
-# Give up completely if no BASH_VERSINFO (<2.0)
-if ! test "$BASH_VERSINFO" ; then
+# Ensure we're using at least version 2.05
+if ! test -n "$BASH_VERSINFO" ; then
     return
+elif ((10#${BASH_VERSINFO[0]%%[![:digit:]]} == 2)) \
+    && ((10#${BASH_VERSINFO[1]%%[![:digit:]]} < 5)) ; then
+        return
 fi
 
 # Source interactive Bash config if it exists

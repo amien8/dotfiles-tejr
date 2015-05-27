@@ -1,6 +1,9 @@
-# Don't do anything if no BASH_VERSINFO set (implying bash < 2.0)
-if ! test "$BASH_VERSINFO" ; then
+# Ensure we're using at least version 2.04
+if ! test -n "$BASH_VERSINFO" ; then
     return
+elif ((10#${BASH_VERSINFO[0]%%[![:digit:]]} == 2)) \
+    && ((10#${BASH_VERSINFO[1]%%[![:digit:]]} < 5)) ; then
+        return
 fi
 
 # Don't do anything if not running interactively
@@ -67,7 +70,7 @@ shopt -s shift_verbose
 shopt -u sourcepath
 
 # These options only exist since Bash 4.0-alpha
-if ((BASH_VERSINFO[0] >= 4)) ; then
+if ((10#${BASH_VERSINFO[0]%%[![:digit:]]} >= 4)) ; then
     # Warn me about stopped jobs when exiting
     shopt -s checkjobs
     # Autocorrect fudged paths during completion
