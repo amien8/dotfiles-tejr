@@ -35,10 +35,10 @@ $if Bash
     "\ee": "\C-aexec \C-e"
     # Alt-H (for home) to go $HOME
     "\eh": "cd\C-j"
-    # Alt-M (for muxer) to run tmux
-    "\em": "tmux\C-j"
     # Alt-L (for ls) to run ls -Al
     "\el": "ls -Al\C-j"
+    # Alt-M (for muxer) to run tmux
+    "\em": "tmux\C-j"
     # Alt-S (for set) to wrap current command in (set -x ; ...)
     "\es": "\C-a(set -x ; \C-e)"
 $endif
