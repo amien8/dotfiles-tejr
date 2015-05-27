@@ -40,6 +40,6 @@ $if Bash
     # Alt-M (for muxer) to run tmux
     "\em": "tmux\C-j"
     # Alt-S (for set) to wrap current command in (set -x ; ...)
-    "\es": "\C-a(set -x ; \C-e)"
+    "\es": "\C-a(set -x ; \C-e)\C-b"
 $endif
 
