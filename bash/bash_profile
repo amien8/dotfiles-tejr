@@ -6,8 +6,8 @@ fi
 # Ensure we're using at least version 2.05
 if ! test -n "$BASH_VERSINFO" ; then
     return
-elif ((10#${BASH_VERSINFO[0]%%[![:digit:]]} == 2)) \
-    && ((10#${BASH_VERSINFO[1]%%[![:digit:]]} < 5)) ; then
+elif ((10#${BASH_VERSINFO[0]%%[![:digit:]]*} == 2)) \
+    && ((10#${BASH_VERSINFO[1]%%[![:digit:]]*} < 5)) ; then
         return
 fi
 
