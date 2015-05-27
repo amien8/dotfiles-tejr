@@ -22,30 +22,12 @@
 [submodule "vim/bundle/nagios"]
     path = vim/bundle/nagios
     url = git://github.com/tejr/vim-nagios.git
-[submodule "vim/bundle/ctrlp"]
-    path = vim/bundle/ctrlp
-    url = git://github.com/kien/ctrlp.vim.git
 [submodule "vim/bundle/sahara"]
     path = vim/bundle/sahara
     url = git://github.com/tejr/sahara.git
-[submodule "vim/bundle/twig"]
-    path = vim/bundle/twig
-    url = git://github.com/lunaru/vim-twig
-[submodule "vim/bundle/undotree"]
-    path = vim/bundle/undotree
-    url = git://github.com/mbbill/undotree
-[submodule "vim/bundle/argumentative"]
-    path = vim/bundle/argumentative
-    url = git://github.com/PeterRincker/vim-argumentative
-[submodule "vim/bundle/exchange"]
-    path = vim/bundle/exchange
-    url = git://github.com/tommcdo/vim-exchange
 [submodule "vim/bundle/lion"]
     path = vim/bundle/lion
     url = git://github.com/tommcdo/vim-lion
 [submodule "vim/bundle/html5"]
     path = vim/bundle/html5
     url = git://github.com/othree/html5.vim
-[submodule "vim/bundle/vimperator"]
-    path = vim/bundle/vimperator
-    url = git://github.com/superbrothers/vim-vimperator
