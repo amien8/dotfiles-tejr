@@ -39,5 +39,7 @@ $if Bash
     "\em": "tmux\C-j"
     # Alt-L (for ls) to run ls -Al
     "\el": "ls -Al\C-j"
+    # Alt-S (for set) to wrap current command in (set -x ; ...)
+    "\es": "\C-a(set -x ; \C-e)"
 $endif
 
