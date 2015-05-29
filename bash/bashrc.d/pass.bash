@@ -1,55 +1,39 @@
-# Completion for pass(1), adapted from source package; still needs some tweaking
+# Requires Bash >= 4.0 for dotglob and globstar
+if ((${BASH_VERSINFO[0]} < 4)) ; then
+    return
+fi
+
+# Custom completion for pass(1), because I don't like the one included with the
+# distribution
 _pass()
 {
-    # Bail if no pass(1)
-    if ! hash pass 2>/dev/null ; then
-        return 1
-    fi
-
-    # Get current word, prefix, and suffix
     local word=${COMP_WORDS[COMP_CWORD]}
-    local prefix=${PASSWORD_STORE_DIR:-$HOME/.password-store}
-    local suffix=.gpg
 
-    # Iterate through possible completions
-    local IFS=$'\n'
-    local items=( $(compgen -f "$prefix"/"$word") )
-    local item
-    for item in "${items[@]}" ; do
-        if [[ $item == "$prefix"/.* ]] ; then
-            continue
+    # Iterate through list of .gpg paths, extension stripped, null-delimited
+    local entry
+    while read -d '' -r entry ; do
+        if [[ $entry == "$word"* ]] ; then
+            COMPREPLY=("${COMPREPLY[@]}" "$entry")
         fi
 
-        # If there is a unique match, and it is a directory with one entry, then
-        # recursively autocomplete the subentry as well
-        if ((${#items[@]} == 1)) ; then
-            local subitems
-            while [[ -d $item ]] ; do
-                subitems=( $(compgen -f "$item"/) )
-                if ((${#subitems[@]} == 1)) ; then
-                    item=${subitems[0]}
-                else
-                    break
-                fi
-            done
-        fi
+    # This part provides the input to the while loop
+    done < <(
 
-        # Append slash to directories
-        if [[ -d $item ]] ; then
-            item=$item/
-        fi
+        # Set shell options to expand globs the way we expect
+        shopt -u dotglob
+        shopt -s globstar
 
-        # Add item to possible completions
-        item=${item%$suffix}
-        item=${item#$prefix/}
-        COMPREPLY=("${COMPREPLY[@]}" "$item")
-    done
+        # Figure out password directory and change into it
+        passdir=${PASSWORD_STORE_DIR:-$HOME/.password-store}
+        cd -- "$passdir" || return
+
+        # Gather the entries and remove their .gpg suffix
+        entries=(**/*.gpg)
+        entries=("${entries[@]%.gpg}")
+
+        # Print all the entries, null-delimited
+        printf '%s\0' "${entries[@]}"
+    )
 }
-
-# Completion only has -o nospace in Bash >=3.0
-if ((BASH_VERSINFO[0] >= 3)) ; then
-    complete -o filenames -o nospace -F _pass pass
-else
-    complete -o filenames -F _pass pass
-fi
+complete -F _pass pass
 
