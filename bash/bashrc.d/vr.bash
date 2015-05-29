@@ -7,17 +7,17 @@ vr() {
     if ! [[ -e $path ]] ; then
         printf 'bash: %s: %s: No such file or directory\n' \
             "$FUNCNAME" "$path"
-        return
+        return 1
     fi
     if ! [[ -d $path ]] ; then
         printf 'bash: %s: %s: Not a directory\n' \
             "$FUNCNAME" "$path"
-        return
+        return 1
     fi
     if ! [[ -x $path ]] ; then
         printf 'bash: %s: %s: Permission denied\n' \
             "$FUNCNAME" "$path"
-        return
+        return 1
     fi
     
     # Ask Git the top level
