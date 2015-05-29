@@ -182,6 +182,7 @@ There are a few other little tricks in `bash/bashrc.d`, including:
 *   `pd` — Change to the argument’s parent directory
 *   `scr` — Create a temporary directory and change into it
 *   `sprunge` — Pastebin frontend tool I pilfered from `#bash` on Freenode
+*   `ud` — Change into an indexed ancestor of a directory
 
 I also wrap a few command calls with functions to stop me from doing silly
 things that the commands themselves don’t catch. My favourite is the one that
