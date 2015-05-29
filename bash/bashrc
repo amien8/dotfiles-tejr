@@ -1,9 +1,9 @@
 # Ensure we're using at least version 2.05
 if ! test -n "$BASH_VERSINFO" ; then
     return
-elif ((10#${BASH_VERSINFO[0]%%[![:digit:]]*} == 2)) \
-    && ((10#${BASH_VERSINFO[1]%%[![:digit:]]*} < 5)) ; then
-        return
+elif ((10#${BASH_VERSINFO[0]%%[![:digit:]]*} == 2)) && \
+     ((10#${BASH_VERSINFO[1]%%[![:digit:]]*} < 5)) ; then
+    return
 fi
 
 # Don't do anything if not running interactively
@@ -78,8 +78,8 @@ if ((10#${BASH_VERSINFO[0]%%[![:digit:]]*} >= 4)) ; then
 
     # Warn me about stopped jobs when exiting; only if >=4.1 due to bug
     # <https://lists.gnu.org/archive/html/bug-bash/2009-02/msg00176.html>
-    if ((10#${BASH_VERSINFO[0]%%[![:digit:]]*} > 4)) \
-        || ((10#${BASH_VERSINFO[1]%%[![:digit:]]*} > 0)) ; then
+    if ((10#${BASH_VERSINFO[0]%%[![:digit:]]*} > 4)) || \
+       ((10#${BASH_VERSINFO[1]%%[![:digit:]]*} > 0)) ; then
             shopt -s checkjobs
     fi
 fi
