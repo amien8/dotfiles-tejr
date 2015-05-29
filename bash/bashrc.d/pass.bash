@@ -7,9 +7,16 @@ fi
 # distribution
 _pass()
 {
-    local word=${COMP_WORDS[COMP_CWORD]}
+    # If we can't read the password directory, just bail
+    local passdir=${PASSWORD_STORE_DIR:-$HOME/.password-store}
+    if [[ ! -r "$passdir" ]] ; then
+        return 1
+    fi
 
-    # Iterate through list of .gpg paths, extension stripped, null-delimited
+    # Iterate through list of .gpg paths, extension stripped, null-delimited,
+    # and filter them down to the ones matching the completing word (compgen
+    # doesn't seem to do this properly with a null delimiter)
+    local word=${COMP_WORDS[COMP_CWORD]}
     local entry
     while read -d '' -r entry ; do
         if [[ $entry == "$word"* ]] ; then
@@ -23,11 +30,11 @@ _pass()
         shopt -u dotglob
         shopt -s globstar
 
-        # Figure out password directory and change into it
-        passdir=${PASSWORD_STORE_DIR:-$HOME/.password-store}
-        cd -- "$passdir" || return
+        # Change into password directory, or bail
+        cd -- "$passdir" 2>/dev/null || exit
 
         # Gather the entries and remove their .gpg suffix
+        declare -a entries
         entries=(**/*.gpg)
         entries=("${entries[@]%.gpg}")
 
