@@ -24,7 +24,7 @@ cd() {
         else
             printf 'bash: %s: could not replace substring\n' \
                 "$FUNCNAME" >&2
-            return 1
+            return 2
         fi
     else
         builtin cd "${opts[@]}" -- "$@"

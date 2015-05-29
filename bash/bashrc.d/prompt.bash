@@ -254,7 +254,7 @@ prompt() {
         # Print error
         *)
             printf '%s: Unknown command %s\n' "$FUNCNAME" "$1" >&2
-            return 1
+            return 2
     esac
 }
 

@@ -7,7 +7,7 @@ scr() {
     else
         printf 'bash: %s: too many arguments\n' \
             "$FUNCNAME" >&2
-        return 1
+        return 2
     fi
 }
 
