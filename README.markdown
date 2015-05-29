@@ -187,7 +187,7 @@ There are a few other little tricks in `bash/bashrc.d`, including:
 I also wrap a few command calls with functions to stop me from doing silly
 things that the commands themselves don’t catch. My favourite is the one that
 stops me from calling `scp(1)` with no colon in either argument. I also do
-things like give default arguments to `remind(1)` and `pwgen(1)`.
+things like give default arguments to `pwgen(1)`.
 
 ### Testing
 
