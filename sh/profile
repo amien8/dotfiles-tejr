@@ -5,8 +5,9 @@ fi
 
 # Load all supplementary scripts in ~/.profile.d
 if [ -d "$HOME"/.profile.d ] ; then
-    for _ in "$HOME"/.profile.d/*.sh ; do
-        . "$_"
+    for profile in "$HOME"/.profile.d/*.sh ; do
+        . "$profile"
     done
+    unset -v profile
 fi
 
