@@ -1,6 +1,7 @@
 # Wrap scp to check for missing colons
 scp() {
-    if (($# >= 2)) && [[ $* != *:* ]] ; then
+    local optstring=$*
+    if (($# >= 2)) && [[ $optstring != *:* ]] ; then
         printf 'bash: %s: Missing colon, probably an error\n' \
             "$FUNCNAME" >&2
         return 2
