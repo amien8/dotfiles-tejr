@@ -23,7 +23,7 @@ grepopts() {
 
     # If the --color option is available and we have a terminal that supports
     # at least eight colors, add --color=auto to the options
-    local colors=$(tput colors)
+    local colors=$(tput colors 2>/dev/null)
     if [[ $grephelp == *--color* ]] && ((colors >= 8)) ; then
         grepopts=("${grepopts[@]}" --color=auto)
     fi
