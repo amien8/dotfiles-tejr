@@ -2,7 +2,9 @@
 # checks that color is available in the terminal within the function
 if [[ $LS_COLORS ]] ; then
     ls() {
-        local -i colors=$(tput colors 2>/dev/null)
+        local -i colors=$( {
+            tput Co || tput colors
+        } 2>/dev/null )
         if ((colors >= 8)) ; then
             command ls --color=auto "$@"
         else
