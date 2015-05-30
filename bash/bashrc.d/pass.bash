@@ -1,5 +1,5 @@
 # Requires Bash >= 4.0 for dotglob and globstar
-if ((${BASH_VERSINFO[0]} < 4)) ; then
+if ((10#${BASH_VERSINFO[0]%%[![:digit:]]*} < 4)) ; then
     return
 fi
 
