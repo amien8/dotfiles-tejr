@@ -91,10 +91,9 @@ available.
 Shell
 -----
 
-My `.profile` and other files in `sh` are written in Bourne/POSIX shell script
-so that they can be parsed by any Bourne-compatible shell, including `zsh`,
-`dash`, and \*BSD implementations of `sh`. Individual scripts called by
-`.profile` are saved in `.profile.d` and iterated on login for ease of
+My `.profile` and other files in `sh` are written in Bourne/POSIX shell script,
+so they should work in most `sh(1)` implementations. Individual scripts called
+by `.profile` are saved in `.profile.d` and iterated on login for ease of
 management. All of these boil down to exporting variables appropriate to the
 system and the software it has available.
 
