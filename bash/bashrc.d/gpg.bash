@@ -1,7 +1,7 @@
 # Wrapper around gpg(1) to stop ``--batch'' breaking things
 gpg() {
-    local optstring=$*
-    case $optstring in
+    local argstring=$*
+    case $argstring in
         *--ed*|*--gen-k*|*--sign-k*)
             command gpg --no-batch "$@"
             ;;
