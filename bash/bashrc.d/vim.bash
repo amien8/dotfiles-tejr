@@ -5,12 +5,12 @@ fi
 
 # Define functions proper
 ex() {
-    command vim -e "$@"
+    vim -e "$@"
 }
 vi() {
-    command vim "$@"
+    vim "$@"
 }
 view() {
-    command vim -R "$@"
+    vim -R "$@"
 }
 
