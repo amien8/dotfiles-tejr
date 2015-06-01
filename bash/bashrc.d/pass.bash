@@ -1,4 +1,4 @@
-# Requires Bash >= 4.0 for dotglob and globstar
+# Requires Bash >= 4.0 for dotglob, nullglob, and globstar
 if ((10#${BASH_VERSINFO[0]%%[![:digit:]]*} < 4)) ; then
     return
 fi
@@ -19,7 +19,7 @@ _pass()
     local word=${COMP_WORDS[COMP_CWORD]}
     local entry
     while read -d '' -r entry ; do
-        if [[ $entry == "$word"* ]] ; then
+        if [[ $entry && $entry == "$word"* ]] ; then
             COMPREPLY=("${COMPREPLY[@]}" "$entry")
         fi
 
@@ -28,6 +28,7 @@ _pass()
 
         # Set shell options to expand globs the way we expect
         shopt -u dotglob
+        shopt -s nullglob
         shopt -s globstar
 
         # Change into password directory, or bail
