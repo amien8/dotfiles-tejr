@@ -13,7 +13,7 @@ ud() {
     # Check and save optional second argument, target directory; default to
     # $PWD (typical usage case)
     local dir=${2:-$PWD}
-    if [[ ! -e "$dir" ]] ; then
+    if [[ ! -e $dir ]] ; then
         printf 'bash: %s: Target dir %s does not exist\n' "$FUNCNAME" "$2" >&2
         return 1
     fi

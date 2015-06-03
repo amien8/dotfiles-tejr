@@ -9,7 +9,7 @@ _pass()
 {
     # If we can't read the password directory, just bail
     local passdir=${PASSWORD_STORE_DIR:-$HOME/.password-store}
-    if [[ ! -r "$passdir" ]] ; then
+    if [[ ! -r $passdir ]] ; then
         return 1
     fi
 
