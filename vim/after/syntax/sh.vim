@@ -31,6 +31,7 @@ syntax keyword bashStatement
     \ complete
     \ compopt
     \ continue
+    \ coproc
     \ dirs
     \ disown
     \ echo
@@ -41,6 +42,7 @@ syntax keyword bashStatement
     \ false
     \ fc
     \ fg
+    \ function
     \ getopts
     \ hash
     \ help
@@ -64,6 +66,7 @@ syntax keyword bashStatement
     \ source
     \ suspend
     \ test
+    \ time
     \ times
     \ trap
     \ true
