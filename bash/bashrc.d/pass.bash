@@ -19,11 +19,9 @@ _pass()
     local word=${COMP_WORDS[COMP_CWORD]}
     local entry
     while read -d '' -r entry ; do
-        if [[ $entry && $entry == "$word"* ]] ; then
+        if [[ $entry == "$word"* ]] ; then
             COMPREPLY=("${COMPREPLY[@]}" "$entry")
         fi
-
-    # This part provides the input to the while loop
     done < <(
 
         # Set shell options to expand globs the way we expect
@@ -40,7 +38,9 @@ _pass()
         entries=("${entries[@]%.gpg}")
 
         # Print all the entries, null-delimited
-        printf '%s\0' "${entries[@]}"
+        if ((${#entries[@]})) ; then
+            printf '%s\0' "${entries[@]}"
+        fi
     )
 }
 complete -F _pass pass
