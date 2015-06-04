@@ -21,6 +21,7 @@
 # Author: Tom Ryder <tom@sanctum.geek.nz>
 # Copyright: 2015 Inspire Net Ltd
 #
+self=han
 
 # Give up completely if no BASH_VERSINFO (<2.0)
 if ! test "$BASH_VERSINFO" ; then
@@ -35,16 +36,17 @@ if ((BASH_VERSINFO[0] >= 4)) ; then
 fi
 
 # Create a temporary file and set up a trap to get rid of it.
-out=$(mktemp)
+tmpdir=$(mktemp -dt "$self".XXXXX) || exit
 cleanup() {
-    rm -f -- "$out"
+    rm -fr -- "$tmpdir"
 }
 trap cleanup EXIT
 
 # If we have exactly one argument and a call to the help builtin with that
 # argument succeeds, display its output with `pager -s`.
-if (($# == 1)) && help "${helpopts[@]}" "$1" >"$out" 2>/dev/null ; then
-    pager -s -- "$out"
+if (($# == 1)) && \
+   help "${helpopts[@]}" "$1" >"$tmpdir"/"$1".help 2>/dev/null ; then
+    (cd -- "$tmpdir" && pager -s -- "$1".help)
 
 # Otherwise, just pass all the arguments to man(1).
 else
