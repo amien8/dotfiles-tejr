@@ -126,7 +126,7 @@ path() {
             PATH="${newpatharr[*]}"
             ;;
 
-        # Return whether DIR is a component of PATH
+        # Return whether directory is a component of PATH
         check|c)
             local -a patharr
             IFS=: read -a patharr < <(printf '%s\n' "$PATH")

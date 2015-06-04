@@ -178,7 +178,7 @@ There are a few other little tricks in `bash/bashrc.d`, including:
 *   `mkcp` — Create a directory and copy arguments into it
 *   `mkmv` — Create a directory and move arguments into it
 *   `pa` — Print given arguments, one per line
-*   `path` — Manage the contents of PATH conveniently
+*   `path` — Manage the contents of `PATH` conveniently
 *   `pd` — Change to the argument’s parent directory
 *   `scr` — Create a temporary directory and change into it
 *   `sprunge` — Pastebin frontend tool I pilfered from `#bash` on Freenode
