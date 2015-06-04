@@ -4,17 +4,17 @@ vr() {
     path=${path%/}
 
     # Raise some helpful errors
-    if ! [[ -e $path ]] ; then
+    if [[ ! -e $path ]] ; then
         printf 'bash: %s: %s: No such file or directory\n' \
             "$FUNCNAME" "$path"
         return 1
     fi
-    if ! [[ -d $path ]] ; then
+    if [[ ! -d $path ]] ; then
         printf 'bash: %s: %s: Not a directory\n' \
             "$FUNCNAME" "$path"
         return 1
     fi
-    if ! [[ -x $path ]] ; then
+    if [[ ! -x $path ]] ; then
         printf 'bash: %s: %s: Permission denied\n' \
             "$FUNCNAME" "$path"
         return 1
@@ -22,14 +22,14 @@ vr() {
     
     # Ask Git the top level
     local git_root=$(cd -- "$path" && git rev-parse --show-toplevel 2>/dev/null)
-    if [[ $git_root ]] ; then
+    if [[ -n $git_root ]] ; then
         cd -- "$git_root"
         return
     fi
 
     # Ask Mercurial the top level
     local hg_root=$(cd -- "$path" && hg root 2>/dev/null)
-    if [[ $hg_root ]] ; then
+    if [[ -n $hg_root ]] ; then
         cd -- "$hg_root"
         return
     fi
@@ -38,7 +38,7 @@ vr() {
     # doesn't; hopefully that's the root
     if [[ -d $path/.svn ]] ; then
         local search=$path
-        while [[ $search ]] ; do
+        while [[ -n $search ]] ; do
             if [[ -d ${search%/*}/.svn ]] ; then
                 search=${search%/*}
             else

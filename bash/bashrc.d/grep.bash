@@ -1,6 +1,6 @@
 # Define function wrapper for grep(1) with --color option if GREP_COLORS is
 # set; checks that color is available in the terminal within the function
-if ! [[ $GREP_COLORS ]] ; then
+if [[ ! -n $GREP_COLORS ]] ; then
     return
 fi
 

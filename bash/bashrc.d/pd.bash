@@ -36,7 +36,7 @@ pd() {
             return 2
             ;;
     esac
-    if [[ $target ]] ; then
+    if [[ -n $target ]] ; then
         builtin cd "${opts[@]}" -- "$target"
     else
         printf 'bash: %s: error calculating parent directory\n' \

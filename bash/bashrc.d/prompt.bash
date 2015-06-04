@@ -86,7 +86,7 @@ prompt() {
                 git symbolic-ref --quiet HEAD \
                 || git rev-parse --short HEAD
             } 2>/dev/null )
-            if [[ ! $branch ]] ; then
+            if [[ ! -n $branch ]] ; then
                 return 1
             fi
             branch=${branch##*/}
@@ -190,7 +190,7 @@ prompt() {
             done < <(svn info 2>/dev/null)
 
             # Exit if we couldn't get either
-            if ! [[ $url && $root ]] ; then
+            if [[ ! -n $url || ! -n $root ]] ; then
                 return 1
             fi
 

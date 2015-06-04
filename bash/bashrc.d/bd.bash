@@ -25,7 +25,7 @@ _bd() {
     # Build a list of dirs in $PWD
     local -a dirs
     while read -d / -r dir ; do
-        if [[ $dir ]] ; then
+        if [[ -n $dir ]] ; then
             dirs=("${dirs[@]}" "$dir")
         fi
     done < <(printf %s "$PWD")
