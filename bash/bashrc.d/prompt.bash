@@ -2,7 +2,7 @@
 prompt() {
 
     # If no arguments, print the prompt strings as they are
-    if [[ ! $1 ]] ; then
+    if ! (($#)) ; then
         declare -p PS1 PS2 PS3 PS4
         return
     fi
