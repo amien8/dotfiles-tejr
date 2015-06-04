@@ -46,7 +46,7 @@ path() {
         insert|i)
             local -a patharr
             IFS=: read -a patharr < <(printf '%s\n' "$PATH")
-            local dir=${1:?}
+            local dir=$1
             if [[ -z "$dir" ]] ; then
                 printf 'bash: %s: need a directory path to insert\n' \
                     "$FUNCNAME" >&2
@@ -130,7 +130,7 @@ path() {
         check|c)
             local -a patharr
             IFS=: read -a patharr < <(printf '%s\n' "$PATH")
-            local dir=${1:?}
+            local dir=$1
             if [[ -z "$dir" ]] ; then
                 printf 'bash: %s: need a directory path to check\n' \
                     "$FUNCNAME" >&2
