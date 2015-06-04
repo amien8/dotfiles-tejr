@@ -57,6 +57,11 @@ path() {
                     "$FUNCNAME" "$dir" >&2
                 return 1
             fi
+            if [[ $dir == *:* ]] ; then
+                printf 'bash: %s: Cannot add insert directory %s with colon in name\n' \
+                    "$FUNCNAME" "$dir" >&2
+                return 1
+            fi
             if path check "$dir" ; then
                 printf 'bash: %s: %s already in PATH\n' \
                     "$FUNCNAME" "$dir" >&2
@@ -78,6 +83,11 @@ path() {
             fi
             if [[ ! -d $dir ]] ; then
                 printf 'bash: %s: %s not a directory\n' \
+                    "$FUNCNAME" "$dir" >&2
+                return 1
+            fi
+            if [[ $dir == *:* ]] ; then
+                printf 'bash: %s: Cannot append directory %s with colon in name\n' \
                     "$FUNCNAME" "$dir" >&2
                 return 1
             fi
