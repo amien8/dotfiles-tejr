@@ -180,7 +180,7 @@ _path() {
         case ${COMP_WORDS[1]} in
 
             # Complete with one directory
-            insert|i|append|a|check|c)
+            insert|i|append|add|a|check|c)
                 if ((COMP_CWORD == 2)) ; then
                     COMPREPLY=( $(compgen -A directory -- "$word") )
                 fi
