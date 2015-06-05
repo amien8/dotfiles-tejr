@@ -39,7 +39,9 @@ path() {
         list|l)
             local -a patharr
             IFS=: read -a patharr < <(printf '%s\n' "$PATH")
-            printf '%s\n' "${patharr[@]}"
+            if ((${#patharr[@]})) ; then
+                printf '%s\n' "${patharr[@]}"
+            fi
             ;;
 
         # Add a directory to the front of PATH, checking for existence and uniqueness
