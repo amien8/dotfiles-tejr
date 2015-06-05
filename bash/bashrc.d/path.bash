@@ -166,5 +166,49 @@ path() {
             ;;
     esac
 }
-complete -W 'help list insert append remove set check' path
+
+# Completion for path
+_path() {
+    local word=${COMP_WORDS[COMP_CWORD]}
+
+    # Complete operation as first word
+    if ((COMP_CWORD == 1)) ; then
+        COMPREPLY=( $(compgen -W \
+            'help list insert append remove set check' \
+            -- "$word") )
+    else
+        case ${COMP_WORDS[1]} in
+
+            # Complete with one directory
+            insert|i|append|a|check|c)
+                if ((COMP_CWORD == 2)) ; then
+                    COMPREPLY=( $(compgen -A directory -- "$word") )
+                fi
+                ;;
+
+            # Complete with any number of directories
+            set|s)
+                COMPREPLY=( $(compgen -A directory -- "$word") )
+                ;;
+
+            # Complete with directories from PATH
+            remove|rm|r)
+                local -a promptarr
+                IFS=: read -a promptarr < <(printf '%s\n' "$PATH")
+                local part
+                for part in "${promptarr[@]}" ; do
+                    if [[ $part && $part == "$word"* ]] ; then
+                        COMPREPLY=("${COMPREPLY[@]}" "$part")
+                    fi
+                done
+                ;;
+
+            # No completion
+            *)
+                return 1
+                ;;
+        esac
+    fi
+}
+complete -F _path path
 
