@@ -144,9 +144,6 @@ prompt() {
                 return 1
             fi
 
-            # Start collecting working copy state flags
-            local -a state
-
             # Safely read status with -0
             local line
             local -i modified untracked
