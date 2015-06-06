@@ -30,6 +30,8 @@ set skip-completed-text On
 
 # Bash macros
 $if Bash
+    # Expand ! history with a spacebar press
+    Space: magic-space
     # Alt-E (for exec) to prepend "exec " to a command and return to the end of
     # the line
     "\ee": "\C-aexec \C-e"
