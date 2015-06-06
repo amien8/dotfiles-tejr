@@ -22,10 +22,12 @@ prompt() {
             fi
 
             # Count available colors, reset, and format (decided shortly)
-            local -i colors=$( {
+            local -i colors
+            colors=$( {
                 tput Co || tput colors
             } 2>/dev/null )
-            local reset=$( {
+            local reset
+            reset=$( {
                 tput me || tput sgr0
             } 2>/dev/null )
             local format

@@ -21,14 +21,16 @@ vr() {
     fi
     
     # Ask Git the top level
-    local git_root=$(cd -- "$path" && git rev-parse --show-toplevel 2>/dev/null)
+    local git_root
+    git_root=$(cd -- "$path" && git rev-parse --show-toplevel 2>/dev/null)
     if [[ -n $git_root ]] ; then
         cd -- "$git_root"
         return
     fi
 
     # Ask Mercurial the top level
-    local hg_root=$(cd -- "$path" && hg root 2>/dev/null)
+    local hg_root
+    hg_root=$(cd -- "$path" && hg root 2>/dev/null)
     if [[ -n $hg_root ]] ; then
         cd -- "$hg_root"
         return

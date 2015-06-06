@@ -6,7 +6,8 @@ fi
 
 # Define function proper
 ls() {
-    local -i colors=$( {
+    local -i colors
+    colors=$( {
         tput Co || tput colors
     } 2>/dev/null )
     if ((colors >= 8)) ; then
