@@ -1,6 +1,7 @@
 # Completion setup for Make, completing targets
 _make() {
-    local word=${COMP_WORDS[COMP_CWORD]}
+    local word
+    word=${COMP_WORDS[COMP_CWORD]}
 
     # Quietly bail if no legible Makefile
     if [[ ! -r Makefile ]] ; then

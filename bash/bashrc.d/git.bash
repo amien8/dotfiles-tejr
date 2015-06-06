@@ -7,8 +7,9 @@ _git() {
     fi
 
     # Get current and previous word
-    local word=${COMP_WORDS[COMP_CWORD]}
-    local first=${COMP_WORDS[1]}
+    local word first
+    word=${COMP_WORDS[COMP_CWORD]}
+    first=${COMP_WORDS[1]}
 
     # Switch on the previous word
     case $first in

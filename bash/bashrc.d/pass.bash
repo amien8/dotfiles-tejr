@@ -8,7 +8,8 @@ fi
 _pass()
 {
     # If we can't read the password directory, just bail
-    local passdir=${PASSWORD_STORE_DIR:-$HOME/.password-store}
+    local passdir
+    passdir=${PASSWORD_STORE_DIR:-$HOME/.password-store}
     if [[ ! -r $passdir ]] ; then
         return 1
     fi
@@ -16,8 +17,8 @@ _pass()
     # Iterate through list of .gpg paths, extension stripped, null-delimited,
     # and filter them down to the ones matching the completing word (compgen
     # doesn't seem to do this properly with a null delimiter)
-    local word=${COMP_WORDS[COMP_CWORD]}
-    local entry
+    local word entry
+    word=${COMP_WORDS[COMP_CWORD]}
     while read -d '' -r entry ; do
         if [[ $entry == "$word"* ]] ; then
             COMPREPLY=("${COMPREPLY[@]}" "$entry")

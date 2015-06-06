@@ -1,6 +1,7 @@
 # Completion for ssh/sftp/ssh-copy-id with config hostnames
 _ssh() {
-    local word=${COMP_WORDS[COMP_CWORD]}
+    local word
+    word=${COMP_WORDS[COMP_CWORD]}
 
     # Read hostnames from existent config files, no asterisks
     local -a hosts

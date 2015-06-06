@@ -9,7 +9,8 @@
 #   password=SsJ2pICe226jM
 #
 mysql() {
-    local config=$HOME/.mysql/$1.cnf
+    local config
+    config=$HOME/.mysql/$1.cnf
     if [[ -r $config ]] ; then
         shift
         command mysql --defaults-extra-file="$config" "$@"
@@ -20,10 +21,12 @@ mysql() {
 
 # Completion setup for MySQL for configured databases
 _mysql() {
-    local word=${COMP_WORDS[COMP_CWORD]}
+    local word
+    word=${COMP_WORDS[COMP_CWORD]}
 
     # Check directory exists and has at least one .cnf file
-    local dir=$HOME/.mysql
+    local dir
+    dir=$HOME/.mysql
     if [[ ! -d $dir ]] || (
         shopt -s nullglob dotglob
         declare -a files=("$dir"/*.cnf)
@@ -33,7 +36,8 @@ _mysql() {
     fi
 
     # Return the names of the .cnf files sans prefix as completions
-    local -a items=("$dir"/*.cnf)
+    local -a items
+    items=("$dir"/*.cnf)
     items=("${items[@]##*/}")
     items=("${items[@]%%.cnf}")
     COMPREPLY=( $(compgen -W "${items[*]}" -- "$word") )

@@ -1,6 +1,7 @@
 # Move to the root directory of a VCS working copy
 vr() {
-    local path=${1:-$PWD}
+    local path
+    path=${1:-$PWD}
     path=${path%/}
 
     # Raise some helpful errors
@@ -39,7 +40,8 @@ vr() {
     # If we have a .svn dir, iterate upwards until we find an ancestor that
     # doesn't; hopefully that's the root
     if [[ -d $path/.svn ]] ; then
-        local search=$path
+        local search
+        search=$path
         while [[ -n $search ]] ; do
             if [[ -d ${search%/*}/.svn ]] ; then
                 search=${search%/*}

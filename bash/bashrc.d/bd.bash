@@ -20,7 +20,8 @@ bd() {
 
 # Completion setup for bd
 _bd() {
-    local word=${COMP_WORDS[COMP_CWORD]}
+    local word
+    word=${COMP_WORDS[COMP_CWORD]}
 
     # Build a list of dirs in $PWD
     local -a dirs

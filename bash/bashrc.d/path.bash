@@ -2,10 +2,12 @@
 path() {
 
     # Figure out command being called
-    local pathcmd=list
+    local pathcmd
     if (($#)) ; then
         pathcmd=$1
         shift
+    else
+        pathcmd=list
     fi
 
     # Switch between commands
@@ -48,7 +50,8 @@ path() {
         insert|i)
             local -a patharr
             IFS=: read -a patharr < <(printf '%s\n' "$PATH")
-            local dir=$1
+            local dir
+            dir=$1
             if [[ -z "$dir" ]] ; then
                 printf 'bash: %s: need a directory path to insert\n' \
                     "$FUNCNAME" >&2
@@ -77,7 +80,8 @@ path() {
         append|add|a)
             local -a patharr
             IFS=: read -a patharr < <(printf '%s\n' "$PATH")
-            local dir=$1
+            local dir
+            dir=$1
             if [[ -z "$dir" ]] ; then
                 printf 'bash: %s: need a directory path to append\n' \
                     "$FUNCNAME" >&2
@@ -106,7 +110,8 @@ path() {
         remove|rm|r)
             local -a patharr
             IFS=: read -a patharr < <(printf '%s\n' "$PATH")
-            local dir=$1
+            local dir
+            dir=$1
             if [[ -z "$dir" ]] ; then
                 printf 'bash: %s: need a directory path to remove\n' \
                     "$FUNCNAME" >&2
@@ -134,15 +139,15 @@ path() {
             for part in "$@" ; do
                 newpatharr=("${newpatharr[@]}" "${part%/}")
             done
-            local IFS=:
-            PATH="${newpatharr[*]}"
+            PATH=$(IFS=: ; printf '%s' "${newpatharr[*]}")
             ;;
 
         # Return whether directory is a component of PATH
         check|c)
             local -a patharr
             IFS=: read -a patharr < <(printf '%s\n' "$PATH")
-            local dir=$1
+            local dir
+            dir=$1
             if [[ -z "$dir" ]] ; then
                 printf 'bash: %s: need a directory path to check\n' \
                     "$FUNCNAME" >&2
@@ -169,7 +174,8 @@ path() {
 
 # Completion for path
 _path() {
-    local word=${COMP_WORDS[COMP_CWORD]}
+    local word
+    word=${COMP_WORDS[COMP_CWORD]}
 
     # Complete operation as first word
     if ((COMP_CWORD == 1)) ; then

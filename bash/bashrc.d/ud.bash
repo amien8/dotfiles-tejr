@@ -4,7 +4,8 @@ ud() {
 
     # Check and save optional first argument, number of steps upward; default
     # to 1 if absent
-    local -i steps=${1:-1}
+    local -i steps
+    steps=${1:-1}
     if ! ((steps > 0)) ; then
         printf 'bash: %s: Invalid step count %s\n' "$FUNCNAME" "$1" >&2
         return 2
@@ -12,7 +13,8 @@ ud() {
 
     # Check and save optional second argument, target directory; default to
     # $PWD (typical usage case)
-    local dir=${2:-$PWD}
+    local dir
+    dir=${2:-$PWD}
     if [[ ! -e $dir ]] ; then
         printf 'bash: %s: Target dir %s does not exist\n' "$FUNCNAME" "$2" >&2
         return 1
@@ -31,7 +33,8 @@ ud() {
 # Completion is only useful for the second argument
 _ud() {
     if ((COMP_CWORD == 2)) ; then
-        local word=${COMP_WORDS[COMP_CWORD]}
+        local word
+        word=${COMP_WORDS[COMP_CWORD]}
         COMPREPLY=( $(compgen -A directory -- "$word" ) )
     else
         return 1

@@ -95,7 +95,7 @@ prompt() {
 
             # Safely read status with -z --porcelain
             local line
-            local -i ready=0 modified=0 untracked=0
+            local -i ready modified untracked
             while IFS= read -r -d '' line ; do
                 if [[ $line == [MADRCT]* ]] ; then
                     ready=1
@@ -126,8 +126,7 @@ prompt() {
             fi
 
             # Print the status in brackets with a git: prefix
-            local IFS=
-            printf '(git:%s%s)' "${branch:-unknown}" "${state[*]}"
+            (IFS= ; printf '(git:%s%s)' "${branch:-unknown}" "${state[*]}")
             ;;
 
         # Mercurial prompt function
@@ -148,7 +147,7 @@ prompt() {
 
             # Safely read status with -0
             local line
-            local -i modified=0 untracked=0
+            local -i modified untracked
             while IFS= read -r -d '' line ; do
                 if [[ $line == '?'* ]] ; then
                     untracked=1
@@ -167,8 +166,7 @@ prompt() {
             fi
 
             # Print the status in brackets with an hg: prefix
-            local IFS=
-            printf '(hg:%s%s)' "${branch:-unknown}" "${state[*]}"
+            (IFS= ; printf '(hg:%s%s)' "${branch:-unknown}" "${state[*]}")
             ;;
 
         # Subversion prompt function
@@ -207,7 +205,7 @@ prompt() {
 
             # Parse the output of svn status to determine working copy state
             local symbol
-            local -i modified=0 untracked=0
+            local -i modified untracked
             while read -r symbol _ ; do
                 if [[ $symbol == *'?'* ]] ; then
                     untracked=1
@@ -226,8 +224,7 @@ prompt() {
             fi
 
             # Print the state in brackets with an svn: prefix
-            local IFS=
-            printf '(svn:%s%s)' "${branch:-unknown}" "${state[*]}"
+            (IFS= ; printf '(svn:%s%s)' "${branch:-unknown}" "${state[*]}")
             ;;
 
         # VCS wrapper prompt function; print the first relevant prompt, if any
@@ -244,7 +241,7 @@ prompt() {
 
         # Show the count of background jobs in curly brackets, if not zero
         job)
-            local -i jobc=0
+            local -i jobc
             while read -r _ ; do
                 ((jobc++))
             done < <(jobs -p)
