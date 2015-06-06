@@ -21,18 +21,20 @@ prompt() {
                 PROMPT_DIRTRIM=4
             fi
 
-            # Count available colors, reset, and format (decided shortly)
+            # Count available colors
             local -i colors
             colors=$( {
                 tput Co || tput colors
             } 2>/dev/null )
+
+            # Prepare reset code
             local reset
             reset=$( {
                 tput me || tput sgr0
             } 2>/dev/null )
-            local format
 
             # Decide prompt color formatting based on color availability
+            local format
             case $colors in
 
                 # Check if we have non-bold bright green available
