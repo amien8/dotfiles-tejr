@@ -69,6 +69,7 @@ shopt -u sourcepath
 
 # These options only exist since Bash 4.0-alpha
 if ((10#${BASH_VERSINFO[0]%%[![:digit:]]*} >= 4)) ; then
+
     # Autocorrect fudged paths during completion
     shopt -s dirspell
     # Enable double-starring paths
