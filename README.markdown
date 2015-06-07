@@ -297,6 +297,6 @@ License
 
 Public domain; see the included `UNLICENSE` file. It’s just configuration, do
 whatever you like with it if any of it’s useful to you. If you’re feeling
-generous, you could always [buy me a beer](https://sanctum.geek.nz/) next time
-you’re in New Zealand.
+generous, you could always [buy me a coffee](https://sanctum.geek.nz/) next
+time you’re in New Zealand.
 
