@@ -79,9 +79,9 @@ install` before running `make install` to make sure you aren’t going to lose
 anything unexpected. If you’re still not sure, install it in a temporary
 directory so you can explore:
 
-    $ mktemp -d
-    /tmp/tmp.YZFW8ScFZP
-    $ make install HOME=/tmp/tmp.YZFW8ScFZP
+    $ tmpdir=$(mktemp -d)
+    $ make install HOME="$tmpdir"
+    $ env -i HOME="$tmpdir" TERM="$TERM" bash -l
 
 The default target will install the core terminal-only files (cURL, Git, GnuPG,
 Vim, and shell and terminal setup files). The remaining dotfiles can be
