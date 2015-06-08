@@ -50,6 +50,8 @@ shopt -s checkwinsize
 shopt -s cmdhist
 # Include dotfiles in pattern matching
 shopt -s dotglob
+# Don't use aliases, functions are better
+shopt -u expand_aliases
 # Enable advanced pattern matching
 shopt -s extglob
 # Append rather than overwrite Bash history
