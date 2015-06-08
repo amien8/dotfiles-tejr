@@ -12,7 +12,7 @@ _ftp() {
 
     # Tokenize the file
     local -a tokens
-    IFS=$' \t\n' read -a tokens -d '' -r < "$netrc"
+    read -a tokens -d '' -r < "$netrc"
 
     # Iterate through tokens and collect machine names
     local -a machines
