@@ -56,6 +56,10 @@ shopt -u expand_aliases
 shopt -s extglob
 # Append rather than overwrite Bash history
 shopt -s histappend
+# Repeat the line on failed history expansion
+shopt -s histreedit
+# Repeat the expanded line on successful history expansion
+shopt -s histverify
 # Don't use Bash's builtin host completion
 shopt -u hostcomplete
 # Don't warn me about new mail all the time
