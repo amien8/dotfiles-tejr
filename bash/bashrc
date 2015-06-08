@@ -81,6 +81,12 @@ if ((10#${BASH_VERSINFO[0]%%[![:digit:]]*} >= 4)) ; then
        ((10#${BASH_VERSINFO[1]%%[![:digit:]]*} >= 1)) ; then
         shopt -s checkjobs
     fi
+
+    # Expand variables in directory completion
+    if ((10#${BASH_VERSINFO[0]%%[![:digit:]]*} > 4)) || \
+       ((10#${BASH_VERSINFO[1]%%[![:digit:]]*} >= 3)) ; then
+        shopt -s direxpand
+    fi
 fi
 
 # Load any supplementary scripts
