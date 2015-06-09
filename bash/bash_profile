@@ -11,8 +11,9 @@ elif ((10#${BASH_VERSINFO[0]%%[![:digit:]]*} == 2)) && \
     return
 fi
 
-# Load any supplementary scripts
+# Load any supplementary scripts, print a newline first
 if [[ -d $HOME/.bash_profile.d ]] ; then
+    printf '\n'
     for bash_profile in "$HOME"/.bash_profile.d/*.bash ; do
         if [[ -e $bash_profile ]] ; then
             source "$bash_profile"
