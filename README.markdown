@@ -141,6 +141,9 @@ It expands based on context to include these elements in this order:
 *   The number of running background jobs, if non-zero
 *   The exit status of the last command, if non-zero
 
+You can set `PROMPT_PREFIX` and/or `PROMPT_SUFFIX` too, which do about what
+you’d expect.
+
 This is all managed within the `prompt` function. There’s some mildly hacky
 logic on `tput` codes included such that it should work correctly for most
 common terminals using both `termcap(5)` and `terminfo(5)`, including \*BSD

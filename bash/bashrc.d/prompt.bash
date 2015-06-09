@@ -12,9 +12,18 @@ prompt() {
 
         # Turn complex, colored PS1 and debugging PS4 prompts on
         on)
-            # Set up pre-prompt command and prompt format
+            # Set up pre-prompt command
             PROMPT_COMMAND='declare -i PROMPT_RETURN=$? ; history -a'
-            PS1='[\u@\h:\w]$(prompt job)$(prompt vcs)$(prompt ret)\$'
+
+            # Set up prompt, including optional PROMPT_PREFIX and PROMPT_SUFFIX
+            # variables
+            PS1='[\u@\h:\w]'
+            PS1=$PS1'$(prompt job)'
+            PS1=$PS1'$(prompt vcs)'
+            PS1=$PS1'$(prompt ret)'
+            PS1='$PROMPT_PREFIX'$PS1
+            PS1=$PS1'$PROMPT_SUFFIX'
+            PS1=$PS1'\$'
 
             # If Bash 4.0 is available, trim very long paths in prompt
             if ((10#${BASH_VERSINFO[0]%%[![:digit:]]*} >= 4)) ; then
