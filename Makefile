@@ -64,10 +64,12 @@ install : install-bash \
 install-bash : test-bash
 	install -m 0755 -d -- \
 		"$(HOME)"/.config \
-		"$(HOME)"/.bashrc.d
+		"$(HOME)"/.bashrc.d \
+		"$(HOME)"/.bash_profile.d
 	install -m 0644 -- bash/bashrc "$(HOME)"/.bashrc
 	install -m 0644 -- bash/bashrc.d/* "$(HOME)"/.bashrc.d
 	install -m 0644 -- bash/bash_profile "$(HOME)"/.bash_profile
+	install -m 0644 -- bash/bash_profile.d/* "$(HOME)"/.bash_profile.d
 	install -m 0644 -- bash/bash_logout "$(HOME)"/.bash_logout
 	install -m 0644 -- bash/bash_completion "$(HOME)"/.config/bash_completion
 
@@ -216,7 +218,7 @@ test-sh :
 	@echo "All sh(1) scripts parsed successfully."
 
 test-bash :
-	@for bash in bash/* bash/bashrc.d/* ; do \
+	@for bash in bash/* bash/bashrc.d/* bash/bash_profile.d/* ; do \
 		if [ -f "$$bash" ] && ! bash -n "$$bash" ; then \
 			exit 1 ; \
 		fi \
