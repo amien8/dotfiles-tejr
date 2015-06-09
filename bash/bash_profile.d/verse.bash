@@ -8,7 +8,8 @@ if [[ $- == *i* ]] && hash verse 2>/dev/null ; then (
         read -r lastversedate < "$versefile"
     fi
     if [[ "$date" > "$lastversedate" ]] ; then
-        printf '\n%s\n\n' "$(verse)"
+        verse
+        printf '\n'
         printf '%s\n' "$date" > "$versefile"
     fi
 ) ; fi
