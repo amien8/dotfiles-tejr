@@ -1,14 +1,5 @@
-# Add the -H parameter to sudo(8) calls, always use the target user's $HOME
-sudo() {
-    if [[ $1 == -v ]] ; then
-        command sudo "$@"
-    else
-        command sudo -H "$@"
-    fi
-}
-
-# Some imperfect but mostly-useful sudo(8) completion
-_sudo() {
+# Some imperfect but mostly-useful sudoedit(8) completion
+_sudoedit() {
     word=${COMP_WORDS[COMP_CWORD]}
     prev=${COMP_WORDS[COMP_CWORD-1]}
 
@@ -24,12 +15,7 @@ _sudo() {
         -*u)
             COMPREPLY=( $(compgen -A user -- "$word") )
             ;;
-
-        # Otherwise complete with commands
-        *)
-            COMPREPLY=( $(compgen -A command -- "$word") )
-            ;;
     esac
 }
-complete -F _sudo -o default sudo
+complete -F _sudoedit -o default sudoedit
 
