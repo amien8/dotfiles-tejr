@@ -22,6 +22,7 @@
 	install-psql \
 	install-readline \
 	install-sh \
+	install-subversion \
 	install-task \
 	install-terminfo \
 	install-tmux \
@@ -139,6 +140,10 @@ install-sh : test-sh
 	install -m 0755 -d -- "$(HOME)"/.profile.d
 	install -m 0644 -- sh/profile "$(HOME)"/.profile
 	install -m 0644 -- sh/profile.d/* "$(HOME)"/.profile.d
+
+install-subversion :
+	install -m 0755 -d -- "$(HOME)"/.subversion
+	install -m 0644 -- subversion/config "$(HOME)"/.subversion/config
 
 install-terminfo :
 	for info in terminfo/*.info ; do \

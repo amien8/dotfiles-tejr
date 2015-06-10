@@ -40,6 +40,8 @@ Configuration is included for:
     Screen
 *   [rxvt-unicode](http://software.schmorp.de/pkg/rxvt-unicode.html) — Fork of
     the rxvt terminal emulator with Unicode support
+*   [Subversion](https://subversion.apache.org/) — Apache Subversion, a version
+    control system
 *   [Vim](http://www.vim.org/) — Vi IMproved, a text editor
 *   [Vimperator](http://www.vimperator.org/vimperator) — Vimperator, a Firefox
     browser extension allowing Vim-like modes and keybindings
