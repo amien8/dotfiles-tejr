@@ -97,11 +97,11 @@ by `.profile` are saved in `.profile.d` and iterated on login for ease of
 management. All of these boil down to exporting variables appropriate to the
 system and the software it has available.
 
-My `.bash_profile` calls `.profile` for variable exports, runs subscripts in
+My `.bash_profile` calls `.profile` and then runs subscripts in
 `.bash_profile.d`. It then runs `.bashrc`, which only applies for interactive
-shells; subscripts are loaded from `.bashrc.d`. interactive shell. The contents
-of this directory changes all the time depending on the host, and only specific
-scripts in it are versioned.
+shells; subscripts for that in turn are loaded from `.bashrc.d`. The contents
+of the two directories changes depending on the host, so only specific scripts
+in it are versioned.
 
 My interactive and scripting shell of choice is Bash; as a GNU/Linux admin who
 ends up installing Bash on \*BSD machines anyway, I very rarely have to write
