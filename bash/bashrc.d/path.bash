@@ -52,7 +52,7 @@ path() {
             IFS=: read -a patharr < <(printf '%s\n' "$PATH")
             local dir
             dir=$1
-            if [[ -z "$dir" ]] ; then
+            if [[ -z $dir ]] ; then
                 printf 'bash: %s: need a directory path to insert\n' \
                     "$FUNCNAME" >&2
                 return 1
@@ -82,7 +82,7 @@ path() {
             IFS=: read -a patharr < <(printf '%s\n' "$PATH")
             local dir
             dir=$1
-            if [[ -z "$dir" ]] ; then
+            if [[ -z $dir ]] ; then
                 printf 'bash: %s: need a directory path to append\n' \
                     "$FUNCNAME" >&2
                 return 1
@@ -112,7 +112,7 @@ path() {
             IFS=: read -a patharr < <(printf '%s\n' "$PATH")
             local dir
             dir=$1
-            if [[ -z "$dir" ]] ; then
+            if [[ -z $dir ]] ; then
                 printf 'bash: %s: need a directory path to remove\n' \
                     "$FUNCNAME" >&2
                 return 1
@@ -148,7 +148,7 @@ path() {
             IFS=: read -a patharr < <(printf '%s\n' "$PATH")
             local dir
             dir=$1
-            if [[ -z "$dir" ]] ; then
+            if [[ -z $dir ]] ; then
                 printf 'bash: %s: need a directory path to check\n' \
                     "$FUNCNAME" >&2
                 return 1
