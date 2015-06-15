@@ -188,12 +188,14 @@ _path() {
             # Complete with one directory
             insert|i|append|add|a|check|c)
                 if ((COMP_CWORD == 2)) ; then
+                    compopt -o filenames
                     COMPREPLY=( $(compgen -A directory -- "$word") )
                 fi
                 ;;
 
             # Complete with any number of directories
             set|s)
+                compopt -o filenames
                 COMPREPLY=( $(compgen -A directory -- "$word") )
                 ;;
 
