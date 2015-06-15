@@ -9,9 +9,13 @@ case $grep_help in
         ;;
 esac
 
-# Use GREP_OPTIONS to add some useful --exclude and --exclude-dir options to
-# grep(1) calls if applicable
+# Use GREP_OPTIONS to add some useful options to grep(1) calls if applicable
 GREP_OPTIONS=
+case $grep_help in
+    *--binary-files*)
+        GREP_OPTIONS=${GREP_OPTIONS:+$GREP_OPTIONS }'--binary-files=without-match'
+        ;;
+esac
 case $grep_help in
     *--exclude*)
         for exclude in .gitignore .gitmodules ; do
