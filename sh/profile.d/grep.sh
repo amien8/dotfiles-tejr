@@ -11,6 +11,7 @@ esac
 
 # Use GREP_OPTIONS to add some useful --exclude and --exclude-dir options to
 # grep(1) calls if applicable
+GREP_OPTIONS=
 case $grep_help in
     *--exclude*)
         for exclude in .gitignore .gitmodules ; do
