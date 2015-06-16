@@ -16,8 +16,8 @@ if shopt -q restricted_shell ; then
     return
 fi
 
-# Keep around a million lines of history in file
-HISTFILESIZE=$((2 ** 20))
+# Keep around sixteen million lines of history in file
+HISTFILESIZE=$((2 ** 24))
 
 # Keep around four thousand lines of history in memory
 HISTSIZE=$((2 ** 12))
