@@ -19,8 +19,8 @@ fi
 # Keep around a million lines of history in file
 HISTFILESIZE=$((2 ** 20))
 
-# Keep around a thousand lines of history in memory
-HISTSIZE=$((2 ** 10))
+# Keep around four thousand lines of history in memory
+HISTSIZE=$((2 ** 12))
 
 # Ignore duplicate commands and whitespace in history
 HISTCONTROL=ignoreboth
