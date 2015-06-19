@@ -1,20 +1,3 @@
-# Unset my GCC_COLORS vars when invoking make(1) if terminal doesn't have
-# color; I have to do this because my wrapper function is ignored by the
-# /bin/sh fork make(1) does, and gcc(1) always uses colors if the variable is
-# set, as opposed to ls(1) and grep(1) which only do it if the --color option
-# is specified appropriately.
-make() {
-    local -i colors
-    colors=$( {
-        tput Co || tput colors
-    } 2>/dev/null )
-    if ((colors >= 8)) ; then
-        command make "$@"
-    else
-        ( unset -v GCC_COLORS ; command make "$@" )
-    fi
-}
-
 # Completion setup for Make, completing targets
 _make() {
     local word
