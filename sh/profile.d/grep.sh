@@ -1,9 +1,13 @@
-# Define and store appropriate colors for grep(1)
-GREP_COLORS='ms=01;31:mc=01;31:sl=:cx=:fn=35:ln=32:bn=32:se=36'
-export GREP_COLORS
-
 # Store grep(1)'s --help output in a variable
 grep_help=$(grep --help 2>/dev/null)
+
+# Use GREP_COLORS to add color output to grep(1) if option available
+case $grep_help in
+    *--color*)
+        GREP_COLORS='ms=01;31:mc=01;31:sl=:cx=:fn=35:ln=32:bn=32:se=36'
+        export GREP_COLORS
+        ;;
+esac
 
 # Use GREP_OPTIONS to add some useful options to grep(1) calls if applicable
 GREP_OPTIONS=
