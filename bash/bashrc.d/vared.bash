@@ -7,7 +7,7 @@ fi
 vared() {
     local opt prompt
     local OPTERR OPTIND OPTARG
-    while getopts 'p:' ; do
+    while getopts 'p:' opt ; do
         case $opt in
             p)
                 prompt=$OPTARG
