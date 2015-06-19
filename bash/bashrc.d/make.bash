@@ -1,3 +1,21 @@
+# Unset all my *_COLORS vars when invoking make(1) if terminal doesn't have
+# color; I have to do this because my wrapper functions are ignored by the
+# /bin/sh fork make(1) does
+make() {
+    local -i colors
+    colors=$( {
+        tput Co || tput colors
+    } 2>/dev/null )
+    if ((colors >= 8)) ; then
+        command make "$@"
+    else
+        (
+            unset -v GCC_COLORS GREP_COLORS LS_COLORS
+            command make "$@"
+        )
+    fi
+}
+
 # Completion setup for Make, completing targets
 _make() {
     local word
