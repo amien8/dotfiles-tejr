@@ -9,35 +9,6 @@ case $grep_help in
         ;;
 esac
 
-# Use GREP_OPTIONS to add some useful options to grep(1) calls if applicable
-GREP_OPTIONS=
-case $grep_help in
-    *--binary-files*)
-        GREP_OPTIONS=${GREP_OPTIONS:+$GREP_OPTIONS }'--binary-files=without-match'
-        ;;
-esac
-case $grep_help in
-    *--exclude*)
-        for exclude in .gitignore .gitmodules ; do
-            GREP_OPTIONS=${GREP_OPTIONS:+$GREP_OPTIONS }'--exclude='$exclude
-        done
-        unset -v exclude
-        ;;
-esac
-case $grep_help in
-    *--exclude-dir*)
-        for exclude_dir in .cvs .git .hg .svn ; do
-            GREP_OPTIONS=${GREP_OPTIONS:+$GREP_OPTIONS }'--exclude-dir='$exclude_dir
-        done
-        unset -v exclude_dir
-        ;;
-esac
-
 # We're done parsing grep(1)'s --help output now
 unset -v grep_help
-
-# Export the grep(1) options if we decided on any
-if [ -n "$GREP_OPTIONS" ] ; then
-    export GREP_OPTIONS
-fi
 
