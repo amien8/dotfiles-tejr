@@ -2,28 +2,18 @@
 grep_help=$(grep --help 2>/dev/null)
 
 # Use GREP_OPTIONS to add some useful options to grep(1) calls if applicable
-GREP_OPTIONS=
-case $grep_help in
-    *--binary-files*)
-        GREP_OPTIONS=${GREP_OPTIONS:+$GREP_OPTIONS }'--binary-files=without-match'
-        ;;
-esac
-case $grep_help in
-    *--exclude*)
-        for exclude in .gitignore .gitmodules ; do
-            GREP_OPTIONS=${GREP_OPTIONS:+$GREP_OPTIONS }'--exclude='$exclude
-        done
-        unset -v exclude
-        ;;
-esac
-case $grep_help in
-    *--exclude-dir*)
-        for exclude_dir in .cvs .git .hg .svn ; do
-            GREP_OPTIONS=${GREP_OPTIONS:+$GREP_OPTIONS }'--exclude-dir='$exclude_dir
-        done
-        unset -v exclude_dir
-        ;;
-esac
+declare -a grep_options
+if [[ $grep_help == *--binary-files* ]] ; then
+    grep_options=("${grep_options[@]}" --binary-files=without-match)
+fi
+if [[ $grep_help == *--exclude* ]] ; then
+    grep_options=("${grep_options[@]}" --exclude={.gitignore,.gitmodules})
+fi
+if [[ $grep_help == *--exclude-dir* ]] ; then
+    grep_options=("${grep_options[@]}" --exclude-dir={.cvs,.git,.hg,.svn})
+fi
+GREP_OPTIONS=${grep_options[*]}
+unset -v grep_options
 
 # We're done parsing grep(1)'s --help output now
 unset -v grep_help
