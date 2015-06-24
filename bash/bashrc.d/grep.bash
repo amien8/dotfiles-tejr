@@ -28,11 +28,6 @@ esac
 # We're done parsing grep(1)'s --help output now
 unset -v grep_help
 
-# Export the grep(1) options if we decided on any
-if [ -n "$GREP_OPTIONS" ] ; then
-    export GREP_OPTIONS
-fi
-
 # Define function wrapper for grep(1) with --color option if GREP_COLORS is
 # set; checks that color is available in the terminal within the function
 if [[ ! -n $GREP_COLORS ]] ; then
