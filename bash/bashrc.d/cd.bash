@@ -3,7 +3,7 @@
 cd() {
     local arg
     local -a opts
-    for arg in "$@" ; do
+    for arg ; do
         case $arg in
             --)
                 shift

@@ -136,7 +136,7 @@ path() {
         set|s)
             local -a newpatharr
             local part
-            for part in "$@" ; do
+            for part ; do
                 newpatharr=("${newpatharr[@]}" "${part%/}")
             done
             PATH=$(IFS=: ; printf '%s' "${newpatharr[*]}")
