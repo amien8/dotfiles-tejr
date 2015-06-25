@@ -3,7 +3,7 @@
 #
 # edda(1) -- Run ed(1) over multiple files, duplicating stdin. Example:
 #
-#   $ edda /etc/app.d/*.conf <<EOF
+#   $ edda -s /etc/app.d/*.conf <<EOF
 #   ,s/foo/bar/g
 #   w
 #   EOF
