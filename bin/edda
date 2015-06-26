@@ -21,6 +21,12 @@ usage() {
     printf 'USAGE: %s [OPTS] [--] FILE1 [FILE2...]\n' "$self"
 }
 
+# Need at least one file
+if ! (($#)) ; then
+    usage >&2
+    exit 1
+fi
+
 # Parse options out, give help if necessary
 declare -a opts
 for arg ; do
@@ -47,12 +53,6 @@ cleanup() {
 }
 trap cleanup EXIT
 cat > "$stdin"
-
-# Need at least one file
-if ! (($#)) ; then
-    usage >&2
-    exit 1
-fi
 
 # Run ed(1) over each file with the options and stdin given
 for file ; do
