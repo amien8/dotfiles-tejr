@@ -43,7 +43,7 @@ done
 # Duplicate stdin into a file, which we'll remove on exit
 stdin=$(mktemp) || exit
 cleanup() {
-    rm -f "$stdin"
+    rm -f -- "$stdin"
 }
 trap cleanup EXIT
 cat > "$stdin"
