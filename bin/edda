@@ -56,6 +56,6 @@ fi
 
 # Run ed(1) over each file with the options and stdin given
 for file ; do
-    ed "${opts[@]}" "$file" < "$stdin"
+    ed "${opts[@]}" -- "$file" < "$stdin"
 done
 
