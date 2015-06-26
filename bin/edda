@@ -27,6 +27,10 @@ if ! (($#)) ; then
     exit 1
 fi
 
+# Need ed(1) -- some systems daring to call themselves UNIX-like don't have it
+# installed by default. What's POSIX, precious?
+hash ed || exit
+
 # Parse options out, give help if necessary
 declare -a opts
 for arg ; do
