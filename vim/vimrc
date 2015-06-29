@@ -559,7 +559,7 @@ endif
 " When opening a large file, take some measures to keep things loading quickly
 if has('eval') && has('autocmd')
 
-  " Threshold is 10 MB in size
+  " Threshold is 10 MiB
   let g:bigfilesize = 10 * 1024 * 1024
 
   " Declare function for turning off slow options
