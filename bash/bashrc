@@ -40,6 +40,9 @@ stty -ixon -ctlecho 2>/dev/null
 # Don't let anyone write(1) to my terminal
 mesg n
 
+# Don't allow the creation of aliases, functions are better
+enable -n alias unalias
+
 # Autocorrect fudged paths in cd calls
 shopt -s cdspell
 # Update the hash table properly
