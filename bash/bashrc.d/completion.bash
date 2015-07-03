@@ -1,8 +1,5 @@
 # Various easy completions
 
-# Alias names
-complete -A alias unalias
-
 # Bash builtins
 complete -A builtin builtin
 
@@ -10,7 +7,7 @@ complete -A builtin builtin
 complete -A setopt set
 
 # Commands
-complete -A command alias command complete coproc exec hash type
+complete -A command command complete coproc exec hash type
 
 # Directories
 complete -A directory cd pushd mkdir rmdir
