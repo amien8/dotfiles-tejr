@@ -85,8 +85,7 @@ endif
 " the open buffers; I'll open the file if I want to complete from it
 set complete-=i
 
-" Rebind Ctrl-C in insert mode to not only leave insert mode without firing
-" InsertLeave events, but also to actually undo the current insert operation
+" Rebind Ctrl-C in insert mode to undo the current insert operation
 inoremap <C-c> <C-c>u
 
 " A few very important custom digraphs
