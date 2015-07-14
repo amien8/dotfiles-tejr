@@ -1,4 +1,4 @@
-# Wrap scp to check for missing colons
+# Wrap scp(1) to check for missing colons
 scp() {
     local argstring
     argstring=$*
