@@ -7,7 +7,6 @@ mpd_port               = "6600"
 mpd_communication_mode = "notifications"
 mpd_connection_timeout = "5"
 mpd_crossfade_time     = "5"
-mpd_music_dir          = "/mnt/shares/music"
 
 # Visualization
 visualizer_fifo_path     = "/tmp/mpd.fifo"
