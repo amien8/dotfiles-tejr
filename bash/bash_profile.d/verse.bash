@@ -4,10 +4,10 @@
 if [[ $- == *i* ]] && hash verse 2>/dev/null ; then (
     date=$(date +%Y-%m-%d)
     versefile=${VERSEFILE:-$HOME/.verse}
-    if [[ -e "$HOME"/.verse ]] ; then
+    if [[ -e $HOME/.verse ]] ; then
         read -r lastversedate < "$versefile"
     fi
-    if [[ "$date" > "$lastversedate" ]] ; then
+    if [[ $date > $lastversedate ]] ; then
         verse
         printf '\n'
         printf '%s\n' "$date" > "$versefile"
