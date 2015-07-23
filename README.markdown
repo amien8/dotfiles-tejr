@@ -175,6 +175,7 @@ things I really do get tired of typing repeatedly:
 
 There are a few other little tricks in `bash/bashrc.d`, including:
 
+*   `apf` — Prepend arguments to a command with ones read from a file
 *   `bd` — Change into a named ancestor of the current directory
 *   `ca` — Count given arguments
 *   `cf` — Count files in a given directory
