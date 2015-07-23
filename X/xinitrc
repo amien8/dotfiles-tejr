@@ -5,7 +5,7 @@ xrdb "$HOME"/.Xresources
 setxkbmap -option ctrl:nocaps
 
 # Apply background image
-feh --bg-scale --no-fehbg -- "$HOME"/.i3/draugen.jpg
+feh --bg-scale --no-fehbg -- "$HOME"/.xbackgrounds/castle.jpg
 
 # Start redshift(1)
 redshift &
