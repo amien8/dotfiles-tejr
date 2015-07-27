@@ -5,8 +5,10 @@
 #   [client]
 #   host=dbhost.example.com
 #   user=foo
-#   database=bar
 #   password=SsJ2pICe226jM
+#
+#   [mysql]
+#   database=bar
 #
 mysql() {
     local config
