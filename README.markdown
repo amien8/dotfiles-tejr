@@ -184,8 +184,8 @@ There are a few other little tricks in `bash/bashrc.d`, including:
 *   `mkcp` — Create a directory and copy arguments into it
 *   `mkmv` — Create a directory and move arguments into it
 *   `pa` — Print given arguments, one per line
-*   `paz` — Print given arguments separated by NULL chars
 *   `path` — Manage the contents of `PATH` conveniently
+*   `paz` — Print given arguments separated by NULL chars
 *   `pd` — Change to the argument’s parent directory
 *   `readz` — Alias for `read -d '' -r`
 *   `scr` — Create a temporary directory and change into it
