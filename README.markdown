@@ -187,6 +187,7 @@ There are a few other little tricks in `bash/bashrc.d`, including:
 *   `paz` — Print given arguments separated by NULL chars
 *   `path` — Manage the contents of `PATH` conveniently
 *   `pd` — Change to the argument’s parent directory
+*   `readz` — Alias for `read -d '' -r`
 *   `scr` — Create a temporary directory and change into it
 *   `sprunge` — Pastebin frontend tool I pilfered from `#bash` on Freenode
 *   `ud` — Change into an indexed ancestor of a directory
