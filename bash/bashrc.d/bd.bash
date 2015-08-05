@@ -1,5 +1,6 @@
 # Move back up the directory tree to the first directory matching the name
 bd() {
+    local dir
 
     # If there are no arguments, we just move up one directory (cd ..)
     if (($#)) ; then
