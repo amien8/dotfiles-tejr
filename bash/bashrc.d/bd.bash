@@ -4,7 +4,7 @@ bd() {
 
     # If there are no arguments, we just move up one directory (cd ..)
     if (($#)) ; then
-        dir="${PWD%/$1*}"/"$1"
+        dir=${PWD%/$1*}/$1
     else
         dir=..
     fi
