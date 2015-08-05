@@ -52,6 +52,7 @@ path() {
             IFS=: read -a patharr < <(printf '%s\n' "$PATH")
             local dir
             dir=$1
+            [[ $dir == / ]] || dir=${dir%/}
             if [[ -z $dir ]] ; then
                 printf 'bash: %s: need a directory path to insert\n' \
                     "$FUNCNAME" >&2
@@ -82,6 +83,7 @@ path() {
             IFS=: read -a patharr < <(printf '%s\n' "$PATH")
             local dir
             dir=$1
+            [[ $dir == / ]] || dir=${dir%/}
             if [[ -z $dir ]] ; then
                 printf 'bash: %s: need a directory path to append\n' \
                     "$FUNCNAME" >&2
@@ -112,6 +114,7 @@ path() {
             IFS=: read -a patharr < <(printf '%s\n' "$PATH")
             local dir
             dir=$1
+            [[ $dir == / ]] || dir=${dir%/}
             if [[ -z $dir ]] ; then
                 printf 'bash: %s: need a directory path to remove\n' \
                     "$FUNCNAME" >&2
@@ -125,9 +128,8 @@ path() {
             local -a newpatharr
             local part
             for part in "${patharr[@]}" ; do
-                if [[ ${dir%/} != "${part%/}" ]] ; then
-                    newpatharr=("${newpatharr[@]}" "$part")
-                fi
+                [[ $dir == "$part" ]] && continue
+                newpatharr=("${newpatharr[@]}" "$part")
             done
             path set "${newpatharr[@]}"
             ;;
@@ -135,9 +137,9 @@ path() {
         # Set the PATH to the given directories without checking existence or uniqueness
         set|s)
             local -a newpatharr
-            local part
-            for part ; do
-                newpatharr=("${newpatharr[@]}" "${part%/}")
+            local dir
+            for dir ; do
+                newpatharr=("${newpatharr[@]}" "$dir")
             done
             PATH=$(IFS=: ; printf '%s' "${newpatharr[*]}")
             ;;
@@ -148,6 +150,7 @@ path() {
             IFS=: read -a patharr < <(printf '%s\n' "$PATH")
             local dir
             dir=$1
+            [[ $dir == / ]] || dir=${dir%/}
             if [[ -z $dir ]] ; then
                 printf 'bash: %s: need a directory path to check\n' \
                     "$FUNCNAME" >&2
@@ -155,7 +158,7 @@ path() {
             fi
             local part
             for part in "${patharr[@]}" ; do
-                if [[ ${dir%/} == "${part%/}" ]] ; then
+                if [[ $dir == "$part" ]] ; then
                     return 0
                 fi
             done

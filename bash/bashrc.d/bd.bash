@@ -31,9 +31,7 @@ bd() {
     # The requested pattern is the first argument; strip trailing slashes if
     # there are any
     local req=$1
-    if [[ $req != / ]] ; then
-        req=${req%%/}
-    fi
+    [[ $req != / ]] || req=${req%/}
 
     # What to do now depends on the request
     local dir
