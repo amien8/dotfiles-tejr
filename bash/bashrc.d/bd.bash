@@ -1,7 +1,27 @@
 # Move back up the directory tree to the first directory matching the name
 bd() {
 
-    # We should have zero or one arguments, bail if there are more
+    # For completeness' sake, we'll pass any options to cd
+    local arg
+    local -a opts
+    for arg ; do
+        case $arg in
+            --)
+                shift
+                break
+                ;;
+            -*)
+                shift
+                opts=("${opts[@]}" "$arg")
+                ;;
+            *)
+                break
+                ;;
+        esac
+    done
+
+    # We should have zero or one arguments after all that, bail if there are
+    # more
     if (($# > 1)) ; then
         printf 'bash: %s: usage: %s [PATH]\n' \
             "$FUNCNAME" "$FUNCNAME" >&2
@@ -55,7 +75,7 @@ bd() {
     esac
 
     # Try to change into the determined directory
-    builtin cd -- "$dir"
+    builtin cd "${opts[@]}" -- "$dir"
 }
 
 # Completion setup for bd
