@@ -2,6 +2,25 @@
 # like cd .., cd ../.., etc
 ud() {
 
+    # For completeness' sake, we'll pass any options to cd
+    local arg
+    local -a opts
+    for arg ; do
+        case $arg in
+            --)
+                shift
+                break
+                ;;
+            -*)
+                shift
+                opts=("${opts[@]}" "$arg")
+                ;;
+            *)
+                break
+                ;;
+        esac
+    done
+
     # Check and save optional first argument, number of steps upward; default
     # to 1 if absent
     local -i steps
@@ -27,7 +46,7 @@ ud() {
     done
 
     # Try to change into it
-    cd -- "$dir"
+    cd "${opts[@]}" -- "$dir"
 }
 
 # Completion is only useful for the second argument
