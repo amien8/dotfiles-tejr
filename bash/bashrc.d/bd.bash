@@ -30,9 +30,8 @@ bd() {
             ;;
 
         # Anything else with a leading / needs to anchor to the start of the
-        # path, strip off any trailing slash
+        # path
         /*)
-            dir=${req%/}
             if [[ ${PWD%*/} != "$dir"/* ]] ; then
                 printf 'bash: %s: Directory name not in path\n' \
                     "$FUNCNAME" >&2
