@@ -4,7 +4,7 @@
 # containing directory. In the absence of an argument, this just shifts up a
 # directory, i.e. `cd ..`
 pd() {
-    local arg target
+    local arg
     local -a opts
     for arg ; do
         case $arg in
@@ -21,6 +21,7 @@ pd() {
                 ;;
         esac
     done
+    local target
     case $# in
         0)
             target=..
