@@ -1,23 +1,62 @@
 # Move back up the directory tree to the first directory matching the name
 bd() {
+
+    # We should have zero or one arguments, bail if there are more
+    if (($# > 1)) ; then
+        printf 'bash: %s: usage: %s [PATH]\n' \
+            "$FUNCNAME" "$FUNCNAME" >&2
+        return 2
+    fi
+
+    # The requested pattern is the first argument; strip trailing slashes if
+    # there are any
+    local req=$1
+    if [[ $req != / ]] ; then
+        req=${req%%/}
+    fi
+
+    # What to do now depends on the request
     local dir
+    case $req in
 
-    # If there are no arguments, we just move up one directory (cd ..)
-    if (($#)) ; then
-        dir=${PWD%/*}
-        dir=${dir%/$1*}/$1
-    else
-        dir=..
-    fi
+        # If no argument at all, just go up one level
+        '')
+            dir=..
+            ;;
 
-    # Check the directory exists and try to cd into it if possible
-    if [[ -d $dir ]] ; then
-        builtin cd -- "$dir"
-    else
-        printf 'bash: %s: No dir found in PWD named %s\n' \
-            "$FUNCNAME" "$1" >&2
-        return 1
-    fi
+        # Just go straight to the root or dot directories if asked
+        /|.|..)
+            dir=$req
+            ;;
+
+        # Anything else with a leading / needs to anchor to the start of the
+        # path, strip off any trailing slash
+        /*)
+            dir=${req%/}
+            if [[ ${PWD%*/} != "$dir"/* ]] ; then
+                printf 'bash: %s: Directory name not in path\n' \
+                    "$FUNCNAME" >&2
+                return 1
+            fi
+            ;;
+
+        # In all other cases, iterate through the directory tree to find a
+        # match, or whittle the dir down to an empty string trying
+        *)
+            dir=${PWD%/*}
+            while [[ -n $dir && $dir != */"$req" ]] ; do
+                dir=${dir%/*}
+            done
+            if [[ -z $dir ]] ; then
+                printf 'bash: %s: Directory name not in path\n' \
+                    "$FUNCNAME" >&2
+                return 1
+            fi
+            ;;
+    esac
+
+    # Try to change into the determined directory
+    builtin cd -- "$dir"
 }
 
 # Completion setup for bd
