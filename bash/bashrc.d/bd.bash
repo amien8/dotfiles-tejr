@@ -50,7 +50,8 @@ bd() {
         # Anything else with a leading / needs to anchor to the start of the
         # path
         /*)
-            if [[ ${PWD%*/} != "$dir"/* ]] ; then
+            dir=$req
+            if [[ $PWD != "$dir"/* ]] ; then
                 printf 'bash: %s: Directory name not in path\n' \
                     "$FUNCNAME" >&2
                 return 1
