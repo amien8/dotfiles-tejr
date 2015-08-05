@@ -4,6 +4,8 @@
 # containing directory. In the absence of an argument, this just shifts up a
 # directory, i.e. `cd ..`
 pd() {
+
+    # For completeness' sake, we'll pass any options to cd
     local arg
     local -a opts
     for arg ; do
@@ -21,6 +23,8 @@ pd() {
                 ;;
         esac
     done
+
+    # Determine target directory
     local target
     case $# in
         0)
@@ -37,6 +41,8 @@ pd() {
             return 2
             ;;
     esac
+
+    # If we have a target directory, try to change into it
     if [[ -n $target ]] ; then
         builtin cd "${opts[@]}" -- "$target"
     else
