@@ -10,6 +10,7 @@
 	install-curl \
 	install-dircolors \
 	install-git \
+	install-gtk \
 	install-gnupg \
 	install-gvim \
 	install-gvim-config \
@@ -97,6 +98,12 @@ install-gnupg : gnupg/gpg.conf
 	install -m 0600 -- gnupg/*.conf "$(HOME)"/.gnupg
 	install -m 0644 -- gnupg/sks-keyservers.net/* \
 		"$(HOME)"/.gnupg/sks-keyservers.net
+
+install-gtk :
+	install -m 0755 -d -- \
+		"$(HOME)"/.config/gtkrc-3.0
+	install -m 0644 -- gtk/gtkrc-2.0 "$(HOME)"/.gtkrc-2.0
+	install -m 0644 -- gtk/gtkrc-3.0/settings.ini "$(HOME)"/.config/gtkrc-3.0
 
 install-i3 : install-x
 	install -m 0755 -d -- "$(HOME)"/.i3

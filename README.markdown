@@ -25,6 +25,8 @@ Configuration is included for:
 *   [Git](http://git-scm.com/) — Distributed version control system
 *   [GnuPG](http://www.gnupg.org/) — GNU Privacy Guard, for private
     communication and file encryption
+*   [GTK+](http://www.gtk.org/) — GIMP Toolkit, for graphical user interface
+    elements
 *   [i3](http://i3wm.org/) — Tiling window manager
 *   [Mutt](http://www.mutt.org/) — Terminal mail user agent
 *   [`mysql(1)`](http://linux.die.net/man/1/mysql) — Command-line MySQL client
