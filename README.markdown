@@ -63,14 +63,12 @@ configuration isn’t too distant from the defaults.
 Installation
 ------------
 
-```bash
-$ git clone git://github.com/tejr/dotfiles.git ~/.dotfiles
-$ cd ~/.dotfiles
-$ git submodule init
-$ make
-$ make -n install
-$ make install
-```
+    $ git clone git://github.com/tejr/dotfiles.git ~/.dotfiles
+    $ cd ~/.dotfiles
+    $ git submodule init
+    $ make
+    $ make -n install
+    $ make install
 
 For the default target, you’ll need `bash(1)`, `git(1)`, `install(1)`,
 `make(1)`, `m4(1)`, and `tic(1)`. You’ll need to have a recent enough version
