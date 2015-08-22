@@ -26,7 +26,7 @@ prompt() {
             PS1=$PS1'\$'
 
             # If Bash 4.0 is available, trim very long paths in prompt
-            if ((10#${BASH_VERSINFO[0]%%[![:digit:]]*} >= 4)) ; then
+            if ((BASH_VERSINFO[0] >= 4)) ; then
                 PROMPT_DIRTRIM=4
             fi
 
