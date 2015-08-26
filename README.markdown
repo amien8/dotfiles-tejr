@@ -240,8 +240,8 @@ as I find it pretty maddening otherwise, particularly when dealing with URLs
 from IRC.
 
 The included `.Xresources` file assumes that `urxvt` can use 256 colors and
-Perl extensions, and has its standard `selection` script available. If you’re
-missing functionality, try changing `perl-ext-common` to `default`.
+Perl extensions. If you’re missing functionality, try changing
+`perl-ext-common` to `default`.
 
 My choice of font is [Ubuntu Mono](http://font.ubuntu.com/), but the file
 should allow falling back to the more common [Deja Vu Sans
