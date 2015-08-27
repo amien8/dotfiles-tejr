@@ -8,6 +8,9 @@ mpd_communication_mode = "notifications"
 mpd_connection_timeout = "5"
 mpd_crossfade_time     = "5"
 
+# No mouse, it confuses tmux/urxvt, and I never use it anyway
+mouse_support = "no"
+
 # Visualization
 visualizer_fifo_path     = "/tmp/mpd.fifo"
 visualizer_in_stereo     = "yes"
