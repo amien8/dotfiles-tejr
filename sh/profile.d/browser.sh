@@ -1,6 +1,6 @@
 # Browser
 if [ -n "$DISPLAY" ] ; then
-    BROWSER=firefox
+    BROWSER=palemoon
 else
     BROWSER=lynx
 fi

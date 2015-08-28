@@ -45,8 +45,6 @@ Configuration is included for:
 *   [Subversion](https://subversion.apache.org/) — Apache Subversion, a version
     control system
 *   [Vim](http://www.vim.org/) — Vi IMproved, a text editor
-*   [Vimperator](http://www.vimperator.org/vimperator) — Vimperator, a Firefox
-    browser extension allowing Vim-like modes and keybindings
 *   [Wyrd](http://pessimization.com/software/wyrd/) — a `curses` calendar
     frontend for [Remind](http://www.roaringpenguin.com/products/remind)
 *   [X11](http://www.x.org/wiki/) — Windowing system with network transparency

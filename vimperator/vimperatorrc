@@ -1,6 +1,0 @@
-" Use letter hint characters rather than numbers
-set hintchars=hjklasdfgyuiopqwertnmzxcvb
-
-" Make Ctrl-A select all in input fields rather than start-of-line
-inoremap <C-a> <C-Home><C-S-End>
-
