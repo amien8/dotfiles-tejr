@@ -1,0 +1,3 @@
+set sort_field=name
+set index_format=" {name:32} {email:128}"
+

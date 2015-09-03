@@ -5,6 +5,7 @@
 	vim \
 	vim-plugins \
 	install \
+	install-abook \
 	install-bash \
 	install-bin \
 	install-curl \
@@ -61,6 +62,11 @@ install : install-bash \
 	install-sh \
 	install-terminfo \
 	install-vim
+
+install-abook :
+	install -m 0755 -d -- \
+		"$(HOME)"/.abook
+	install -m 0644 -- abook/abookrc "$(HOME)"/.abook
 
 install-bash : test-bash
 	install -m 0755 -d -- \

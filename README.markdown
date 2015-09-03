@@ -15,6 +15,7 @@ Tools
 
 Configuration is included for:
 
+*   [Abook](http://abook.sourceforge.net/) — curses address book program
 *   [Bash](https://www.gnu.org/software/bash/) — GNU Bourne-Again Shell,
     including a `~/.profile` configured to work with most Bourne-compatible
     shells
