@@ -15,26 +15,28 @@ path() {
 
         # Print help output (also done if command not found)
         help|h|-h|--help|-\?)
-            printf '%s: Manage contents of PATH variable\n' "$FUNCNAME"
-            printf '\n'
-            printf 'USAGE:\n'
-            printf '  %s h[elp]\n' "$FUNCNAME"
-            printf '    Print this help message (also done if command not found)\n'
-            printf '  %s l[ist]\n' "$FUNCNAME"
-            printf '    Print the current dirs in PATH, one per line (default command)\n'
-            printf '  %s i[nsert] DIR\n' "$FUNCNAME"
-            printf '    Add a directory to the front of PATH, checking for existence and uniqueness\n'
-            printf '  %s a[ppend] DIR\n' "$FUNCNAME"
-            printf '    Add a directory to the end of PATH, checking for existence and uniqueness\n'
-            printf '  %s r[emove] DIR\n' "$FUNCNAME"
-            printf '    Remove all instances of a directory from PATH\n'
-            printf '\n'
-            printf 'INTERNALS:\n'
-            printf '  %s s[et] [DIR1 [DIR2...]]\n' "$FUNCNAME"
-            printf '    Set the PATH to the given directories without checking existence or uniqueness\n'
-            printf '  %s c[heck] DIR\n' "$FUNCNAME"
-            printf '    Return whether DIR is a component of PATH\n'
-            printf '\n'
+            cat <<EOF
+$FUNCNAME: Manage contents of PATH variable
+
+USAGE:
+  $FUNCNAME h[elp]
+    Print this help message (also done if command not found)
+  $FUNCNAME l[ist]
+    Print the current dirs in PATH, one per line (default command)
+  $FUNCNAME i[nsert] DIR
+    Add a directory to the front of PATH, checking for existence and uniqueness
+  $FUNCNAME a[ppend] DIR
+    Add a directory to the end of PATH, checking for existence and uniqueness
+  $FUNCNAME r[emove] DIR
+    Remove all instances of a directory from PATH
+
+INTERNALS:
+  $FUNCNAME s[et] [DIR1 [DIR2...]]
+    Set the PATH to the given directories without checking existence or uniqueness
+  $FUNCNAME c[heck] DIR
+    Return whether DIR is a component of PATH
+
+EOF
             ;;
 
         # Print the current contents of the path
