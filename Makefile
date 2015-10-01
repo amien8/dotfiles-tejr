@@ -83,9 +83,11 @@ install-bash : test-bash
 install-bin : test-bin
 	install -m 0755 -d -- \
 		"$(HOME)"/.local/bin \
-		"$(HOME)"/.local/share/man/man1
+		"$(HOME)"/.local/share/man/man1 \
+		"$(HOME)"/.local/share/man/man8
 	install -m 0755 -- bin/* "$(HOME)"/.local/bin
 	install -m 0644 -- man/man1/* "$(HOME)"/.local/share/man/man1
+	install -m 0644 -- man/man8/* "$(HOME)"/.local/share/man/man8
 
 install-curl :
 	install -m 0644 -- curl/curlrc "$(HOME)"/.curlrc

@@ -290,6 +290,10 @@ your `/etc/manpath` configuration, depending on your system.
 `edda(1)` provides a means to run `ed(1)` over a set of files preserving any
 options, mostly useful for scripts. There’s `--help` output and a manual page.
 
+`sue(8)` execs `sudoedit(8)` as the owner of all the file arguments given,
+perhaps in cases where you may not necessarily have `root` `sudo(8)`
+privileges.
+
 There's also a script `han(1)` to provide a `keywordprg` for Bash script
 development that will look for `help` topics. You could use it from the shell
 too. It also has a brief manual.

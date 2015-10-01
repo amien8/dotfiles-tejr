@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+
+#
+# sue(1) -- Run sudoedit(8) with an appropriate user on a set of files
+#
+# Author: Tom Ryder
+# Copyright: 2015
+# License: Public domain
+#
+
+# Name self
+self=sue
+
+# Define a function to show usage
+usage() {
+    printf '%s: usage: %s FILE1 [FILE2 ...]\n' \
+        "$self" "$self"
+}
+
+# Test the first argument
+case $1 in
+
+    # Give help on stdout if requested
+    -h|--help|-\?)
+        usage
+        exit
+        ;;
+
+    # If no file was given, give help on stderr and bail
+    '')
+        usage >&2
+        exit 1
+        ;;
+esac
+
+# Pull arguments into an array
+declare -a files
+files=("$@")
+
+# Iterate through the files and check they all have the same owner
+user=
+for file in "${files[@]}" ; do
+
+    # Use stat(1) to get the file owner
+    if ! file_owner=$(stat -c %U "$file") ; then
+        printf '%s: Failed to run stat(1) on file %s\n' \
+            "$self" "$file" >&2
+        exit 1
+    fi
+
+    # If this is the first file, we'll use its owner as our user
+    if [[ -z $user ]] ; then
+        user=$file_owner
+
+    # If not, and the user we're going to use and this file's owner don't
+    # match, bail with an error
+    elif [[ $user != $file_owner ]] ; then
+        printf '%s: Files do not share a common owner\n' \
+            "$self" >&2
+        exit 1
+    fi
+done
+
+# If we got this far, there's at least one file and all the files are owned by
+# the same user; we can safely edit them
+exec sudoedit -u "$user" "${files[@]}"
+
