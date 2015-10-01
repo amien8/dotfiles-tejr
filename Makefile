@@ -260,3 +260,17 @@ test-urxvt:
 	done
 	@printf 'All Perl scripts in urxvt/ext parsed successfully.\n'
 
+lint : lint-sh lint-bash lint-bin lint-urxvt
+
+lint-sh :
+	find sh -type f -print -exec shellcheck -- {} \;
+
+lint-bash :
+	find bash -type f -print -exec shellcheck -- {} \;
+
+lint-bin :
+	find bin -type f -print -exec shellcheck -- {} \;
+
+lint-urxvt:
+	find urxvt/ext -type f -print -exec perlcritic --brutal -- {} \;
+

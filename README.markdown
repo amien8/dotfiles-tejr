@@ -202,6 +202,10 @@ You can test that both sets of shell scripts are syntactically correct with
 `make test-bash`, `make test-sh`, or `make test` for everything including the
 scripts in `bin`.
 
+If you have `shellcheck(1)` and/or `perlcritic(1)`, there's a `lint` target
+too for the shell script files and Perl files respectively, but the files don’t
+need to pass that check to be installed.
+
 GnuPG
 -----
 
