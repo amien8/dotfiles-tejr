@@ -35,6 +35,8 @@ Configuration is included for:
 *   [Newsbeuter](http://www.newsbeuter.org/) — Terminal RSS/Atom feed reader
 *   [`psql(1)`](http://linux.die.net/man/1/psql) — Command-line PostgreSQL
     client
+*   [Perl::Critic](http://perlcritic.com/) — static source code analysis engine
+    for Perl
 *   [Readline](http://cnswww.cns.cwru.edu/php/chet/readline/rltop.html) — GNU
     library for user input used by Bash, MySQL, and others
 *   [Taskwarrior](http://taskwarrior.org/projects/show/taskwarrior) —
