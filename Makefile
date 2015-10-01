@@ -234,7 +234,7 @@ test-sh :
 			exit 1 ; \
 		fi \
 	done
-	@echo "All sh(1) scripts parsed successfully."
+	@printf 'All sh(1) scripts parsed successfully.\n'
 
 test-bash :
 	@for bash in bash/* bash/bashrc.d/* bash/bash_profile.d/* ; do \
@@ -242,7 +242,7 @@ test-bash :
 			exit 1 ; \
 		fi \
 	done
-	@echo "All bash(1) scripts parsed successfully."
+	@printf 'All bash(1) scripts parsed successfully.\n'
 
 test-bin :
 	@for bin in bin/* ; do \
@@ -252,11 +252,11 @@ test-bin :
 			sh -n "$$bin" || exit 1 ; \
 		fi ; \
 	done
-	@echo "All shell scripts in bin parsed successfully."
+	@printf 'All shell scripts in bin parsed successfully.\n'
 
 test-urxvt:
 	@for perl in urxvt/ext/* ; do \
 		perl -c "$$perl" >/dev/null || exit 1 ; \
 	done
-	@echo "All Perl scripts in urxvt/ext parsed successfully."
+	@printf 'All Perl scripts in urxvt/ext parsed successfully.\n'
 
