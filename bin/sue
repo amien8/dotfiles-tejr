@@ -42,7 +42,7 @@ user=
 for file in "${files[@]}" ; do
 
     # Use stat(1) to get the file owner
-    if ! file_owner=$(stat -c %U "$file") ; then
+    if ! file_owner=$(stat -c %U -- "$file") ; then
         printf '%s: Failed to run stat(1) on file %s\n' \
             "$self" "$file" >&2
         exit 1
@@ -63,5 +63,5 @@ done
 
 # If we got this far, there's at least one file and all the files are owned by
 # the same user; we can safely edit them
-exec sudoedit -u "$user" "${files[@]}"
+exec sudoedit -u "$user" -- "${files[@]}"
 
