@@ -126,3 +126,6 @@ macro index,pager S 's<enter>' 'Save message blindly'
 # Run getmails(1) to retrieve all mail
 macro generic,index,browser,pager gm '!getmails<enter>' 'Run getmails'
 
+# Shortcut to add addresses to abook
+macro index,pager A '<pipe-message>abook --add-email<enter>' 'Add sender address to abook'
+
