@@ -48,6 +48,7 @@ set mark_old = no
 
 # Headers
 hdr_order Date From To Cc
+set edit_headers = yes
 
 # Index
 set index_format='%4C %Z %{%b %d %Y} %-15.15L (%?l?%4l&%4c?) %s'
