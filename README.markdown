@@ -190,6 +190,7 @@ There are a few other little tricks in `bash/bashrc.d`, including:
 *   `pd` — Change to the argument’s parent directory
 *   `readz` — Alias for `read -d '' -r`
 *   `scr` — Create a temporary directory and change into it
+*   `sd` — Switch to a sibling directory
 *   `sprunge` — Pastebin frontend tool I pilfered from `#bash` on Freenode
 *   `ud` — Change into an indexed ancestor of a directory
 
