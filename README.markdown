@@ -1,14 +1,10 @@
 Dotfiles (Tom Ryder)
 ====================
 
-Personal repository of dotfiles. This is for those settings that migrate well
-from machine to machine and that I consider safe to publish. You’re welcome to
-use them, and there’s an attempt to keep my own personal data out of the files,
-but you’ll probably want to fork it to remove anything peculiar to my setup
-that I’ve left in here.
-
-It’s more likely you’ll want to read the configuration files and find snippets
-relevant to your particular workflow.
+This is my personal repository of [dotfiles](https://dotfiles.github.io/),
+including most of the settings that migrate well between machines. You can fork
+and use this directly, but it’s more likely you’ll want to read the files and
+find snippets relevant to your workflow.
 
 Tools
 -----
