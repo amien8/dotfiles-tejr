@@ -148,7 +148,7 @@ common terminals using both `termcap(5)` and `terminfo(5)`, including \*BSD
 systems. It’s also designed to degrade gracefully for eight-color and no-color
 terminals.
 
-### Completion
+#### Completion
 
 I find the `bash-completion` package a bit too heavy for my tastes, and turn it
 off using a stub file installed in `.config/bash_completion`. The majority of
@@ -167,7 +167,7 @@ things I really do get tired of typing repeatedly:
 *   `pass(1)` entries
 *   `ssh(1)` hostnames from `~/.ssh/config`
 
-### Functions
+#### Functions
 
 There are a few other little tricks in `bash/bashrc.d`, including:
 
@@ -193,16 +193,6 @@ I also wrap a few command calls with functions to stop me from doing silly
 things that the commands themselves don’t catch. My favourite is the one that
 stops me from calling `scp(1)` with no colon in either argument. I also do
 things like give default arguments to `pwgen(1)`.
-
-### Testing
-
-You can test that both sets of shell scripts are syntactically correct with
-`make test-bash`, `make test-sh`, or `make test` for everything including the
-scripts in `bin`.
-
-If you have `shellcheck(1)` and/or `perlcritic(1)`, there's a `lint` target
-too for the shell script files and Perl files respectively, but the files don’t
-need to pass that check to be installed.
 
 ### GnuPG
 
@@ -294,6 +284,18 @@ privileges.
 There's also a script `han(1)` to provide a `keywordprg` for Bash script
 development that will look for `help` topics. You could use it from the shell
 too. It also has a brief manual.
+
+Testing
+-------
+
+You can test that both sets of shell scripts are syntactically correct with
+`make test-bash`, `make test-sh`, or `make test` for everything including the
+scripts in `bin`.
+
+If you have [ShellCheck](http://www.shellcheck.net/) and/or
+[Perl::Critic](http://perlcritic.com), there's a `lint` target for the shell
+script files and Perl files respectively. The files don’t need to pass that
+check to be installed.
 
 Known issues
 ------------
