@@ -9,9 +9,6 @@
 # License: Public domain
 #
 
-# Name self
-self=shoal
-
 # Start by assuming we should parse all hosts
 declare -i shoal
 shoal=1
