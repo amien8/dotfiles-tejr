@@ -27,6 +27,7 @@ fi
 
 # Execute command, print hostname if it returns zero
 while read -r hostname ; do
+    # shellcheck disable=SC2029
     if ssh -nq -- "$hostname" "$@" >/dev/null ; then
         printf '%s\n' "$hostname"
     fi

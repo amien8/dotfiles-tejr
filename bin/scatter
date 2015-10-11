@@ -28,6 +28,7 @@ fi
 # avoid clobbering any of the standard streams
 while read -r hostname <&3 ; do
     printf '%s: %s\n' "$self" "$hostname"
+    # shellcheck disable=SC2029
     ssh -qt -- "$hostname" "$@"
     printf '\n'
 done 3< <(shoal)
