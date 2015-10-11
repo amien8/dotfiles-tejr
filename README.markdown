@@ -6,6 +6,36 @@ including most of the settings that migrate well between machines. You can fork
 and use this directly, but it’s more likely you’ll want to read the files and
 find snippets relevant to your workflow.
 
+Installation
+------------
+
+    $ git clone git://github.com/tejr/dotfiles.git ~/.dotfiles
+    $ cd ~/.dotfiles
+    $ git submodule init
+    $ make
+    $ make -n install
+    $ make install
+
+For the default target, you’ll need `bash(1)`, `git(1)`, `install(1)`,
+`make(1)`, `m4(1)`, and `tic(1)`. You’ll need to have a recent enough version
+of Git to support [submodules](http://git-scm.com/book/en/Git-Tools-Submodules)
+for the Vim installation to work; it’s required for the plugin setup.
+
+The installation `Makefile` will overwrite things standing in the way of its
+installed files without backing them up, so read the output of `make -n
+install` before running `make install` to make sure you aren’t going to lose
+anything unexpected. If you’re still not sure, install it in a temporary
+directory so you can explore:
+
+    $ tmpdir=$(mktemp -d)
+    $ make install HOME="$tmpdir"
+    $ env -i HOME="$tmpdir" TERM="$TERM" bash -l
+
+The default target will install the core terminal-only files (cURL, Git, GnuPG,
+Vim, and shell and terminal setup files). The remaining dotfiles can be
+installed with the other targets. Take a look at the `Makefile` to see what’s
+available.
+
 Tools
 -----
 
@@ -57,38 +87,7 @@ make window switching behave like Vim windows and tmux panes do, and there’s a
 fair few resources defined for rxvt-unicode. Otherwise, the rest of the
 configuration isn’t too distant from the defaults.
 
-Installation
-------------
-
-    $ git clone git://github.com/tejr/dotfiles.git ~/.dotfiles
-    $ cd ~/.dotfiles
-    $ git submodule init
-    $ make
-    $ make -n install
-    $ make install
-
-For the default target, you’ll need `bash(1)`, `git(1)`, `install(1)`,
-`make(1)`, `m4(1)`, and `tic(1)`. You’ll need to have a recent enough version
-of Git to support [submodules](http://git-scm.com/book/en/Git-Tools-Submodules)
-for the Vim installation to work; it’s required for the plugin setup.
-
-The installation `Makefile` will overwrite things standing in the way of its
-installed files without backing them up, so read the output of `make -n
-install` before running `make install` to make sure you aren’t going to lose
-anything unexpected. If you’re still not sure, install it in a temporary
-directory so you can explore:
-
-    $ tmpdir=$(mktemp -d)
-    $ make install HOME="$tmpdir"
-    $ env -i HOME="$tmpdir" TERM="$TERM" bash -l
-
-The default target will install the core terminal-only files (cURL, Git, GnuPG,
-Vim, and shell and terminal setup files). The remaining dotfiles can be
-installed with the other targets. Take a look at the `Makefile` to see what’s
-available.
-
-Shell
------
+### Shell
 
 My `.profile` and other files in `sh` are written in Bourne/POSIX shell script,
 so they should work in most `sh(1)` implementations. Individual scripts called
@@ -205,8 +204,7 @@ If you have `shellcheck(1)` and/or `perlcritic(1)`, there's a `lint` target
 too for the shell script files and Perl files respectively, but the files don’t
 need to pass that check to be installed.
 
-GnuPG
------
+### GnuPG
 
 The configuration for GnuPG is intended to follow [RiseUp’s OpenPGP best
 practices](https://help.riseup.net/en/security/message-security/openpgp/best-practices).
@@ -214,8 +212,7 @@ The configuration file is rebuilt using `m4(1)` and `make(1)` because it
 requires hard-coding a path to the SKS keyserver certificate authority, and
 neither tilde nor `$HOME` expansion works for this.
 
-Mutt
-----
+### Mutt
 
 My mail is kept in individual Maildirs under `~/Mail`, with `inbox` being where
 most unfiltered mail is sent. I use
@@ -233,8 +230,7 @@ You’ll need [Abook](http://abook.sourceforge.net/) installed if you want to us
 the `query_command` I have defined, and [msmtp](http://msmtp.sourceforge.net/)
 for the `sendmail` command.
 
-rxvt-unicode
-------------
+### rxvt-unicode
 
 A tiny script called `clip` is included in `~/.urxvt/ext` to copy selections
 into the X `CLIPBOARD` buffer as well as `PRIMARY`. This is purely preference
@@ -252,8 +248,7 @@ Mono](http://dejavu-fonts.org/wiki/Main_Page). I’ve found
 fonts are not really my cup of tea. The Lohit Kannada font bit is purely to
 make ಠ\_ಠ work correctly. ( ͡° ͜ʖ ͡°) seems to work out of the box.
 
-tmux
-----
+### tmux
 
 These are just generally vi-friendly settings, not much out of the ordinary.
 Note that the configuration presently uses a hard-coded 256-color colorscheme,
@@ -265,8 +260,7 @@ The configuration for Bash includes a `tmux` function designed to make `attach`
 into the default command if no arguments are given and sessions do already
 exist. The default command is normally `new-session`.
 
-Vim
----
+### Vim
 
 The majority of the `.vimrc` file is just setting options, with a few mappings.
 I try not to deviate too much from the Vim defaults behaviour in terms of
