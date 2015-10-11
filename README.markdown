@@ -263,27 +263,24 @@ loaded using @tpope’s [pathogen.vim](https://github.com/tpope/vim-pathogen).
 Scripts
 -------
 
-Three SSH-related scripts and their manuals are included:
-
-*   `shoal(1)` — Print hostnames read from a `ssh_config(5)` file
-*   `scatter(1)` — Run command on multiple hosts read from `shoal(1)` and print
-    output
-*   `shock(1)` — Run command on multiple hosts read from `shoal(1)` and print
-    the hostname if the command returns zero
+*   Three SSH-related scripts:
+    *   `shoal(1)` — Print hostnames read from a `ssh_config(5)` file
+    *   `scatter(1)` — Run command on multiple hosts read from `shoal(1)` and
+        print output
+    *   `shock(1)` — Run command on multiple hosts read from `shoal(1)` and
+        print the hostname if the command returns zero
+*   `edda(1)` provides a means to run `ed(1)` over a set of files preserving
+    any options, mostly useful for scripts. There’s `--help` output and a
+    manual page.
+*   `han(1)` provides a `keywordprg` for Bash script development that will look
+    for `help` topics. You could use it from the shell too. It also has a brief
+    manual.
+*   `sue(8)` execs `sudoedit(8)` as the owner of all the file arguments given,
+    perhaps in cases where you may not necessarily have `root` `sudo(8)`
+    privileges.
 
 If you want to use the manuals, you may need to add `~/.local/share/man` to
 your `/etc/manpath` configuration, depending on your system.
-
-`edda(1)` provides a means to run `ed(1)` over a set of files preserving any
-options, mostly useful for scripts. There’s `--help` output and a manual page.
-
-`sue(8)` execs `sudoedit(8)` as the owner of all the file arguments given,
-perhaps in cases where you may not necessarily have `root` `sudo(8)`
-privileges.
-
-There's also a script `han(1)` to provide a `keywordprg` for Bash script
-development that will look for `help` topics. You could use it from the shell
-too. It also has a brief manual.
 
 Testing
 -------
