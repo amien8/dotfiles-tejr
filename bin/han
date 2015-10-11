@@ -24,8 +24,8 @@
 self=han
 
 # Give up completely if no BASH_VERSINFO (<2.0)
-if ! test "$BASH_VERSINFO" ; then
-    return
+if ! [ -n "$BASH_VERSINFO" ] ; then
+    exit
 fi
 
 # Figure out the options with which we can call help; Bash >=4.0 has an -m
