@@ -175,6 +175,7 @@ There are a few other little tricks in `bash/bashrc.d`, including:
 *   `bd` — Change into a named ancestor of the current directory
 *   `ca` — Count given arguments
 *   `cf` — Count files in a given directory
+*   `fnl` — Run a command and save its output and error into temporary files
 *   `hgrep` — `HISTFILE` search
 *   `mkcd` — Create a directory and change into it
 *   `mkcp` — Create a directory and copy arguments into it
