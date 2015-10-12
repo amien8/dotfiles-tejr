@@ -31,7 +31,7 @@ fnl() {
 
     # Run the command and save its exit status
     local ret
-    command "$@" >"$dir"/stdout 2>"$dir"/stderr
+    "$@" >"$dir"/stdout 2>"$dir"/stderr
     ret=$?
 
     # Note these are *not* local variables
