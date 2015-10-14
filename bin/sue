@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #
-# sue(1) -- Run sudoedit(8) with an appropriate user on a set of files
+# sue(8) -- Run sudoedit(8) with an appropriate user on a set of files
 #
 # Author: Tom Ryder
 # Copyright: 2015
