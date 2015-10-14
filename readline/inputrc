@@ -36,13 +36,13 @@ $if Bash
     # the line
     "\ee": "\C-aexec \C-e"
     # Alt-H (for home) to go $HOME
-    "\eh": "cd\C-j"
+    "\eh": "\C-ucd\C-j\C-y"
     # Alt-L (for ls) to run ls -Al
-    "\el": "ls -Al\C-j"
+    "\el": "\C-uls -Al\C-j\C-y"
     # Alt-M (for muxer) to run tmux
-    "\em": "tmux\C-j"
+    "\em": "\C-utmux\C-j\C-y"
     # Alt-R (for repeat) to run the previous command in history again
-    "\er": "\C-p\C-j"
+    "\er": "\C-u\C-p\C-j\C-y"
     # Alt-S (for set) to wrap current command in (set -x ; ...)
     "\es": "\C-a(set -x ; \C-e)\C-b"
 $endif
