@@ -14,8 +14,7 @@ our $VERSION = 1.0;
 
 sub on_start {
     my ($self) = @_;
-    $self->enable( sel_grab => \&clip );
-    return;
+    return $self->enable( sel_grab => \&clip );
 }
 
 sub clip {
@@ -24,10 +23,10 @@ sub clip {
     utf8::encode($selection);
     open my $clipboard, q{|-}, 'xsel -ib'
       or croak('xsel(1) not available');
-    print {$clipboard} $selection
+    my $written = print {$clipboard} $selection
       or croak('Failed to write to xsel(1) pipe');
     close $clipboard
       or croak('Failed to close xsel(1) pipe');
-    return;
+    return $written;
 }
 
