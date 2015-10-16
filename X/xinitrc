@@ -2,7 +2,7 @@
 xrdb "$HOME"/.Xresources
 
 # Map Caps Lock as a Ctrl key
-setxkbmap -option ctrl:nocaps
+setxkbmap -option ctrl:nocaps -option compose:ralt
 
 # Apply background image
 feh --bg-scale --no-fehbg -- "$HOME"/.xbackgrounds/castle.jpg
