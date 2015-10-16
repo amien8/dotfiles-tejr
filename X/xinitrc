@@ -1,7 +1,8 @@
 # Read X resources
 xrdb "$HOME"/.Xresources
 
-# Map Caps Lock as a Ctrl key
+# Map Caps Lock as a Ctrl key, use right alt as Compose
+# <https://en.wikipedia.org/wiki/Compose_key#Common_compose_combinations>
 setxkbmap -option ctrl:nocaps -option compose:ralt
 
 # Apply background image
