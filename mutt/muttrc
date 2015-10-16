@@ -51,7 +51,7 @@ hdr_order Date From To Cc
 set edit_headers = yes
 
 # Index
-set index_format='%4C %Z %{%b %d %Y} %-15.15L (%?l?%4l&%4c?) %s'
+set index_format = '%4C %Z %{%b %d %Y} %-15.15L (%?l?%4l&%4c?) %s'
 
 # Interaction
 set confirmappend = no
