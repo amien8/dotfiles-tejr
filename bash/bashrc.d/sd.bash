@@ -113,6 +113,8 @@ _sd() {
     local word curdir
     word=${COMP_WORDS[COMP_CWORD]}
     curdir=${PWD##*/}
+    compopt -o filenames
+    local IFS=$'\n'
     COMPREPLY=( $(cd .. && compgen -d -X "$curdir" -- "$word") )
 }
 complete -F _sd sd

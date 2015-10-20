@@ -54,6 +54,8 @@ _ud() {
     if ((COMP_CWORD == 2)) ; then
         local word
         word=${COMP_WORDS[COMP_CWORD]}
+        compopt -o filenames
+        local IFS=$'\n'
         COMPREPLY=( $(compgen -A directory -- "$word" ) )
     else
         return 1

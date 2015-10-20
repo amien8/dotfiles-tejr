@@ -91,6 +91,8 @@ _bd() {
     done < <(printf %s "$PWD")
 
     # Complete with matching dirs
+    compopt -o filenames
+    local IFS=$'\n'
     COMPREPLY=( $(compgen -W "${dirs[*]}" -- "$word") )
 }
 complete -F _bd bd

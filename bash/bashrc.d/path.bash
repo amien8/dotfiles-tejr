@@ -194,6 +194,7 @@ _path() {
             insert|i|append|add|a|check|c)
                 if ((COMP_CWORD == 2)) ; then
                     compopt -o filenames
+                    local IFS=$'\n'
                     COMPREPLY=( $(compgen -A directory -- "$word") )
                 fi
                 ;;
@@ -201,6 +202,7 @@ _path() {
             # Complete with any number of directories
             set|s)
                 compopt -o filenames
+                local IFS=$'\n'
                 COMPREPLY=( $(compgen -A directory -- "$word") )
                 ;;
 
