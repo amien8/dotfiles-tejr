@@ -14,7 +14,7 @@
 # If no arguments are given and there's only one other sibling, switch to that;
 # nice way to quickly toggle between two siblings.
 #
-#     $ cd -- "(mktemp -d)"
+#     $ cd -- "$(mktemp -d)"
 #     $ pwd
 #     /tmp/tmp.ZSunna5Eup
 #     $ mkdir a b
