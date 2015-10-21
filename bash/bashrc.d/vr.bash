@@ -20,7 +20,7 @@ vr() {
             "$FUNCNAME" "$path"
         return 1
     fi
-    
+
     # Ask Git the top level
     local git_root
     git_root=$(cd -- "$path" && git rev-parse --show-toplevel 2>/dev/null)

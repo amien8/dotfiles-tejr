@@ -60,7 +60,7 @@ sd() {
     # If we have one argument, it's easy, we just try to move to that one
     if (($# == 1)) ; then
         dirname=$1
-    
+
     # If no argument, the user is lazy; if there's only one sibling, we'll do
     # what they mean and switch to it
     elif (($# == 0)) ; then
@@ -103,7 +103,7 @@ sd() {
             "$FUNCNAME" "$FUNCNAME" >&2
         return 2
     fi
-    
+
     # Try to change into the determined directory
     builtin cd "${opts[@]}" ../"$dirname"
 }
