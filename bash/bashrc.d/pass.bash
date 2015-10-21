@@ -15,7 +15,6 @@ _pass()
     # doesn't seem to do this properly with a null delimiter)
     local entry
     while IFS= read -d '' -r entry ; do
-        [[ $entry == "${COMP_WORDS[COMP_CWORD]}"* ]] || continue
 
         # We have to use printf %q here to quote the entry, as it may include
         # spaces or newlines, just like any filename
@@ -31,7 +30,7 @@ _pass()
 
         # Gather the entries and remove their .gpg suffix
         declare -a entries
-        entries=(**/*.gpg)
+        entries=("${COMP_WORDS[COMP_CWORD]}"*/**/*.gpg "${COMP_WORDS[COMP_CWORD]}"*.gpg)
         entries=("${entries[@]%.gpg}")
 
         # Bail if no entries to prevent empty output

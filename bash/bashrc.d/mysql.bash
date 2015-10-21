@@ -35,7 +35,6 @@ _mysql() {
     # Return the names of the .cnf files sans prefix as completions
     local db
     while IFS= read -d '' -r db ; do
-        [[ $db == "${COMP_WORDS[COMP_CWORD]}"* ]] || continue
         COMPREPLY=("${COMPREPLY[@]}" "$db")
     done < <(
 
@@ -44,7 +43,7 @@ _mysql() {
 
         # Collect all the config file names, strip off leading path and .cnf
         local -a cnfs
-        cnfs=("$dirname"/*.cnf)
+        cnfs=("$dirname"/"${COMP_WORDS[COMP_CWORD]}"*.cnf)
         cnfs=("${cnfs[@]#$dirname/}")
         cnfs=("${cnfs[@]%.cnf}")
 

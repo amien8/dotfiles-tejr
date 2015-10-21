@@ -199,8 +199,6 @@ _path() {
                 insert|i|append|add|a|check|c|set|s)
                     local dirname
                     while IFS= read -d '' -r dirname ; do
-                        [[ $dirname == "${COMP_WORDS[COMP_CWORD]}"/* ]] \
-                            || continue
                         COMPREPLY=("${COMPREPLY[@]}" "$dirname")
                     done < <(
 
@@ -209,7 +207,7 @@ _path() {
 
                         # Collect directory names, strip trailing slash
                         local -a dirnames
-                        dirnames=(*/)
+                        dirnames=("${COMP_WORDS[COMP_CWORD]}"*/)
                         dirnames=("${dirnames[@]%/}")
 
                         # Bail if no results to prevent empty output

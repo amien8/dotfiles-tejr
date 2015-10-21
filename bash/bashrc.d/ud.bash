@@ -58,7 +58,6 @@ _ud() {
     # Iterate through directories, null-separated, add them to completions
     local dirname
     while IFS= read -d '' -r dirname ; do
-        [[ $dirname == "${COMP_WORDS[COMP_CWORD]}"* ]] || continue
         COMPREPLY=("${COMPREPLY[@]}" "$dirname")
     done < <(
 
@@ -67,7 +66,7 @@ _ud() {
 
         # Collect directory names, strip trailing slashes
         local -a dirnames
-        dirnames=(*/)
+        dirnames=("${COMP_WORDS[COMP_CWORD]}"*/)
         dirnames=("${dirnames[@]%/}")
 
         # Bail if no results to prevent empty output
