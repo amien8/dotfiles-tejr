@@ -2,7 +2,7 @@
 _make() {
 
     # Bail if no legible Makefile
-    [[ ! -r Makefile ]] || return 1
+    [[ -r Makefile ]] || return 1
 
     # Build a list of targets by parsing the Makefile
     local -a targets tokens
