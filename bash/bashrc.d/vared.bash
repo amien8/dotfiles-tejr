@@ -1,7 +1,5 @@
 # Requires Bash >= 4.0 for read -i and ${!name}
-if ((BASH_VERSINFO[0] < 4)) ; then
-    return
-fi
+((BASH_VERSINFO[0] >= 4)) || return
 
 # Edit named variables' values
 vared() {
