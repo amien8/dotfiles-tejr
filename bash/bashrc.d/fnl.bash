@@ -3,8 +3,8 @@
 # the exit status of the command.
 #
 #     $ fnl grep foo /bar
-#     declare -- fnl_stdout="/tmp/fnl.xQmhe/stdout"
-#     declare -- fnl_stderr="/tmp/fnl.xQmhe/stderr"
+#     declare -p fnl_stdout="/tmp/fnl.xQmhe/stdout"
+#     declare -p fnl_stderr="/tmp/fnl.xQmhe/stderr"
 #
 fnl() {
 
