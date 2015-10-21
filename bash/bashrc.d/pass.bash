@@ -18,7 +18,8 @@ _pass()
 
         # We have to use printf %q here to quote the entry, as it may include
         # spaces or newlines, just like any filename
-        COMPREPLY=("${COMPREPLY[@]}" "$(printf %q "$entry")")
+        COMPREPLY=("${COMPREPLY[@]}" "$entry")
+
     done < <(
 
         # Set shell options to expand globs the way we expect
@@ -37,7 +38,7 @@ _pass()
         ((${#entries[@]})) || exit 1
 
         # Print all the entries, null-delimited
-        printf '%s\0' "${entries[@]}"
+        printf '%q\0' "${entries[@]}"
     )
 }
 complete -F _pass pass
