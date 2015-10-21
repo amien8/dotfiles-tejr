@@ -111,9 +111,6 @@ sd() {
 # Completion function for sd; any sibling directories, excluding the self
 _sd() {
 
-    # The completed results are filenames
-    compopt -o filenames
-
     # Only makes sense for the first argument
     ((COMP_CWORD == 1)) || return 1
 
@@ -143,5 +140,5 @@ _sd() {
         printf '%s\0' "${dirnames[@]}"
     )
 }
-complete -F _sd sd
+complete -F _sd -o filenames sd
 

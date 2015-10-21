@@ -52,9 +52,6 @@ ud() {
 # Completion setup for ud
 _ud() {
 
-    # The completions given are filenames and may require escaping
-    compopt -o filenames
-
     # Only makes sense for the second argument
     ((COMP_CWORD == 2)) || return 1
 
@@ -80,5 +77,5 @@ _ud() {
         printf '%s\0' "${dirnames[@]}"
     )
 }
-complete -F _ud ud
+complete -F _ud -o filenames ud
 

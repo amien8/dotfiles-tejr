@@ -1,9 +1,6 @@
 # Completion for ftp with .netrc machines
 _ftp() {
 
-    # Do default completion if no results
-    compopt -o default
-
     # Bail if the .netrc file is illegible
     local netrc
     netrc=$HOME/.netrc
@@ -33,5 +30,5 @@ _ftp() {
         COMPREPLY=("${COMPREPLY[@]}" "$machine")
     done
 }
-complete -F _ftp ftp
+complete -F _ftp -o default ftp
 

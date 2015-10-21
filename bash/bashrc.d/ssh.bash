@@ -1,9 +1,6 @@
 # Completion for ssh/sftp/ssh-copy-id with config hostnames
 _ssh() {
 
-    # Use default completion if no matches
-    compopt -o default
-
     # Read hostnames from existent config files, no asterisks
     local -a hosts
     local config option value
@@ -22,5 +19,5 @@ _ssh() {
         COMPREPLY=("${COMPREPLY[@]}" "$host")
     done
 }
-complete -F _ssh ssh sftp ssh-copy-id
+complete -F _ssh -o default ssh sftp ssh-copy-id
 

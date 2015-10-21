@@ -197,7 +197,6 @@ _path() {
 
                 # Complete with a directory
                 insert|i|append|add|a|check|c|set|s)
-                    compopt -o filenames
                     local dirname
                     while IFS= read -d '' -r dirname ; do
                         [[ $dirname == "${COMP_WORDS[COMP_CWORD]}"/* ]] \
@@ -223,7 +222,6 @@ _path() {
 
                 # Complete with directories from PATH
                 remove|rm|r)
-                    compopt -o filenames
                     local -a promptarr
                     IFS=: read -d '' -a promptarr < <(printf '%s\0' "$PATH")
                     local part
@@ -242,5 +240,10 @@ _path() {
             ;;
     esac
 }
-complete -F _path path
+
+# The use of -o filenames isn't strictly correct. The first completed world
+# will actually just be a simple string, the sub-command to use. However in
+# practice it doesn't matter as it's a fixed set of strings that won't be
+# quoted anyway.
+complete -F _path -o filenames path
 

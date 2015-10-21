@@ -1,9 +1,6 @@
 # Completion for git local branch names
 _git() {
 
-    # Use default completion if no matches
-    compopt -o default
-
     # Bail if not a git repo (or no git!)
     git rev-parse --git-dir >/dev/null 2>&1 || return 1
 
@@ -26,5 +23,5 @@ _git() {
             ;;
     esac
 }
-complete -F _git git
+complete -F _git -o default git
 

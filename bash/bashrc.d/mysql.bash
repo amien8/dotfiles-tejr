@@ -24,10 +24,6 @@ mysql() {
 # Completion setup for MySQL for configured databases
 _mysql() {
 
-    # The completed results are filenames, and if there are no matches, do
-    # default completion
-    compopt -o filenames -o default
-
     # Only makes sense for first argument
     ((COMP_CWORD == 1)) || return 1
 
@@ -59,5 +55,5 @@ _mysql() {
         printf '%s\0' "${cnfs[@]}"
     )
 }
-complete -F _mysql mysql
+complete -F _mysql -o default -o filenames mysql
 

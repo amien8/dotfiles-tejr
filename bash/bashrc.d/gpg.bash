@@ -15,9 +15,6 @@ gpg() {
 # Completion for gpg with long options
 _gpg() {
 
-    # Complete with directories/files if no matches
-    compopt -o default
-
     # Bail if no gpg(1)
     hash gpg 2>/dev/null || return 1
 
@@ -31,5 +28,5 @@ _gpg() {
         COMPREPLY=("${COMPREPLY[@]}" "$option")
     done < <(gpg --dump-options 2>/dev/null)
 }
-complete -F _gpg gpg
+complete -F _gpg -o default gpg
 

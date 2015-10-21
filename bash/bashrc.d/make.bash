@@ -1,9 +1,6 @@
 # Completion setup for Make, completing targets
 _make() {
 
-    # Do default completion if no matches
-    compopt -o default
-
     # Bail if no legible Makefile
     [[ ! -r Makefile ]] || return 1
 
@@ -29,5 +26,5 @@ _make() {
         COMPREPLY=("${COMPREPLY[@]}" "$target")
     done
 }
-complete -F _make make
+complete -F _make -o default make
 

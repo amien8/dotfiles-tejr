@@ -80,9 +80,6 @@ bd() {
 # Completion setup for bd
 _bd() {
 
-    # The completions given are filenames and may require escaping
-    compopt -o filenames
-
     # Only makes sense for the first argument
     ((COMP_CWORD == 1)) || return 1
 
@@ -101,5 +98,5 @@ _bd() {
         COMPREPLY=("${COMPREPLY[@]}" "$dirname")
     done
 }
-complete -F _bd bd
+complete -F _bd -o filenames bd
 
