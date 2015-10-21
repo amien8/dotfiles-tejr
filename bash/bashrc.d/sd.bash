@@ -104,7 +104,7 @@ sd() {
         return 2
     fi
     
-    # Try to change into the determine directory
+    # Try to change into the determined directory
     builtin cd "${opts[@]}" -- ../"$dirname"
 }
 
