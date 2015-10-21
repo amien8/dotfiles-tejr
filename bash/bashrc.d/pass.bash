@@ -26,12 +26,11 @@ _pass()
         shopt -u dotglob
         shopt -s globstar nullglob
 
-        # Change into password directory, or bail
-        cd -- "$passdir" 2>/dev/null || exit
-
         # Gather the entries and remove their .gpg suffix
         declare -a entries
-        entries=("${COMP_WORDS[COMP_CWORD]}"*/**/*.gpg "${COMP_WORDS[COMP_CWORD]}"*.gpg)
+        entries=("$passdir"/"${COMP_WORDS[COMP_CWORD]}"*/**/*.gpg \
+            "$passdir"/"${COMP_WORDS[COMP_CWORD]}"*.gpg)
+        entries=("${entries[@]#$passdir/}")
         entries=("${entries[@]%.gpg}")
 
         # Bail if no entries to prevent empty output
