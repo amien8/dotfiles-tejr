@@ -105,7 +105,7 @@ sd() {
     fi
     
     # Try to change into the determined directory
-    builtin cd "${opts[@]}" -- ../"$dirname"
+    builtin cd "${opts[@]}" ../"$dirname"
 }
 
 # Completion function for sd; any sibling directories, excluding the self
