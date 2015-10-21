@@ -14,7 +14,7 @@ _git() {
                 branch=${branch##*/}
                 [[ $branch == "${COMP_WORDS[COMP_CWORD]}"* ]] || continue
                 COMPREPLY=("${COMPREPLY[@]}" "$branch")
-            done < <(git for-each-ref refs/{heads,tags} 2>/dev/null)
+            done < <(git for-each-ref refs/heads refs/tags 2>/dev/null)
             return
             ;;
 
