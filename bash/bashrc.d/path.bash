@@ -186,7 +186,7 @@ _path() {
         # Complete operation as first word
         1)
             for cmd in help list insert append remove set check ; do
-                [[ $cmd == "${COMP_REPLY[COMP_CWORD]}"* ]] || continue
+                [[ $cmd == "${COMP_WORDS[COMP_CWORD]}"* ]] || continue
                 COMPREPLY=("${COMPREPLY[@]}" "$cmd")
             done
             ;;
