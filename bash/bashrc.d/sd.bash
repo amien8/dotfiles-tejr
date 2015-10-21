@@ -119,7 +119,6 @@ _sd() {
 
     # Build list of matching sibiling directories
     while IFS= read -d '' -r dirname ; do
-        [[ $dirname == "${COMP_WORDS[COMP_CWORD]}"* ]] || continue
         COMPREPLY=("${COMPREPLY[@]}" "$dirname")
     done < <(
 
@@ -129,7 +128,7 @@ _sd() {
         # Collect directory names, exclude current directory, strip leading ../
         # and trailing /
         local -a dirnames
-        dirnames=(../!("${PWD##*/}")/)
+        dirnames=(../"${COMP_WORDS[COMP_CWORD]}"*/)
         dirnames=("${dirnames[@]#../}")
         dirnames=("${dirnames[@]%/}")
 
