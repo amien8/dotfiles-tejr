@@ -1,17 +1,16 @@
 # Completion setup for Make, completing targets
 _make() {
-    local word
-    word=${COMP_WORDS[COMP_CWORD]}
 
-    # Quietly bail if no legible Makefile
-    if [[ ! -r Makefile ]] ; then
-        return 1
-    fi
+    # Do default completion if no matches
+    compopt -o default
+
+    # Bail if no legible Makefile
+    [[ ! -r Makefile ]] || return 1
 
     # Build a list of targets by parsing the Makefile
     local -a targets tokens
     local target line
-        while read -r line ; do
+    while read -r line ; do
         if [[ $line == *:* ]] ; then
             target=$line
             target=${target%%:*}
@@ -25,7 +24,10 @@ _make() {
     done < Makefile
 
     # Complete with matching targets
-    COMPREPLY=( $(compgen -W "${targets[*]}" -- "$word") )
+    for target in "${targets[@]}" ; do
+        [[ $target == "${COMP_WORDS[COMP_CWORD]}"* ]] || continue
+        COMPREPLY=("${COMPREPLY[@]}" "$target")
+    done
 }
-complete -F _make -o default make
+complete -F _make make
 

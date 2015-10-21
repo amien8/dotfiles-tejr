@@ -14,23 +14,22 @@ gpg() {
 
 # Completion for gpg with long options
 _gpg() {
-    local word
-    word=${COMP_WORDS[COMP_CWORD]}
+
+    # Complete with directories/files if no matches
+    compopt -o default
 
     # Bail if no gpg(1)
-    if ! hash gpg 2>/dev/null ; then
-        return 1
-    fi
+    hash gpg 2>/dev/null || return 1
 
-    # Bail if word doesn't start with two dashes
-    if [[ $word != --* ]] ; then
-        return 1
-    fi
+    # Bail if not completing an option
+    [[ ${COMP_WORDS[COMP_CWORD]} == --* ]] || return 1
 
-    # Generate completion reply
-    COMPREPLY=( $(compgen -W \
-        "$(gpg --dump-options 2>/dev/null)" \
-        -- "$word") )
+    # Generate completion reply from gpg(1) options
+    local option
+    while read -r option ; do
+        [[ $option == "${COMP_WORDS[COMP_CWORD]}"* ]] || continue
+        COMPREPLY=("${COMPREPLY[@]}" "$option")
+    done < <(gpg --dump-options 2>/dev/null)
 }
-complete -F _gpg -o default gpg
+complete -F _gpg gpg
 

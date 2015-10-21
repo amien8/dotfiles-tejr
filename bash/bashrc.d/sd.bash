@@ -55,11 +55,11 @@ sd() {
 
     # Set up local variable for the sibling to which we'll attempt to move,
     # assuming we find one
-    local dir
+    local dirname
 
     # If we have one argument, it's easy, we just try to move to that one
     if (($# == 1)) ; then
-        dir=$1
+        dirname=$1
     
     # If no argument, the user is lazy; if there's only one sibling, we'll do
     # what they mean and switch to it
@@ -68,7 +68,7 @@ sd() {
         # This subshell switches on globbing functions to try to find all the
         # current directory's siblings; it exits non-zero if it found anything
         # other than one
-        if ! dir=$(
+        if ! dirname=$(
             shopt -s dotglob extglob nullglob
             local -a siblings
 
@@ -92,7 +92,7 @@ sd() {
         # This block is run if the subshell fails due to there not being a
         # single sibling
         ) ; then
-            printf 'bash: %s: No single sibling dir\n' \
+            printf 'bash: %s: No single sibling directory\n' \
                 "$FUNCNAME" >&2
             return 1
         fi
@@ -105,17 +105,43 @@ sd() {
     fi
     
     # Try to change into the determine directory
-    builtin cd "${opts[@]}" -- ../"$dir"
+    builtin cd "${opts[@]}" -- ../"$dirname"
 }
 
 # Completion function for sd; any sibling directories, excluding the self
 _sd() {
-    local word curdir
-    word=${COMP_WORDS[COMP_CWORD]}
-    curdir=${PWD##*/}
+
+    # The completed results are filenames
     compopt -o filenames
-    local IFS=$'\n'
-    COMPREPLY=( $(cd .. && compgen -d -X "$curdir" -- "$word") )
+
+    # Only makes sense for the first argument
+    ((COMP_CWORD == 1)) || return 1
+
+    # Current directory can't be root directory
+    [[ $PWD != / ]] || return 1
+
+    # Build list of matching sibiling directories
+    while IFS= read -d '' -r dirname ; do
+        [[ $dirname == "${COMP_WORDS[COMP_CWORD]}"* ]] || continue
+        COMPREPLY=("${COMPREPLY[@]}" "$dirname")
+    done < <(
+
+        # Set options to glob correctly
+        shopt -s dotglob extglob nullglob
+
+        # Collect directory names, exclude current directory, strip leading ../
+        # and trailing /
+        local -a dirnames
+        dirnames=(../!("${PWD##*/}")/)
+        dirnames=("${dirnames[@]#../}")
+        dirnames=("${dirnames[@]%/}")
+
+        # Bail if no results to prevent empty output
+        ((${#dirnames[@]})) || exit 1
+
+        # Print results, null-delimited
+        printf '%s\0' "${dirnames[@]}"
+    )
 }
 complete -F _sd sd
 

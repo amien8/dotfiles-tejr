@@ -37,8 +37,8 @@ vr() {
         return
     fi
 
-    # If we have a .svn dir, iterate upwards until we find an ancestor that
-    # doesn't; hopefully that's the root
+    # If we have a .svn directory, iterate upwards until we find an ancestor
+    # that doesn't; hopefully that's the root
     if [[ -d $path/.svn ]] ; then
         local search
         search=$path

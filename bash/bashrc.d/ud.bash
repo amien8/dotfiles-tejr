@@ -32,34 +32,53 @@ ud() {
 
     # Check and save optional second argument, target directory; default to
     # $PWD (typical usage case)
-    local dir
-    dir=${2:-$PWD}
-    if [[ ! -e $dir ]] ; then
-        printf 'bash: %s: Target dir %s does not exist\n' "$FUNCNAME" "$2" >&2
+    local dirname
+    dirname=${2:-$PWD}
+    if [[ ! -e $dirname ]] ; then
+        printf 'bash: %s: Target directory %s does not exist\n' "$FUNCNAME" "$2" >&2
         return 1
     fi
 
     # Append /.. to the target the specified number of times
     local -i i
     for (( i = 0 ; i < steps ; i++ )) ; do
-        dir=${dir%/}/..
+        dirname=${dirname%/}/..
     done
 
     # Try to change into it
-    cd "${opts[@]}" -- "$dir"
+    cd "${opts[@]}" -- "$dirname"
 }
 
-# Completion is only useful for the second argument
+# Completion setup for ud
 _ud() {
-    if ((COMP_CWORD == 2)) ; then
-        local word
-        word=${COMP_WORDS[COMP_CWORD]}
-        compopt -o filenames
-        local IFS=$'\n'
-        COMPREPLY=( $(compgen -A directory -- "$word" ) )
-    else
-        return 1
-    fi
+
+    # The completions given are filenames and may require escaping
+    compopt -o filenames
+
+    # Only makes sense for the second argument
+    ((COMP_CWORD == 2)) || return 1
+
+    # Iterate through directories, null-separated, add them to completions
+    local dirname
+    while IFS= read -d '' -r dirname ; do
+        [[ $dirname == "${COMP_WORDS[COMP_CWORD]}"* ]] || continue
+        COMPREPLY=("${COMPREPLY[@]}" "$dirname")
+    done < <(
+
+        # Set options to glob correctly
+        shopt -s dotglob nullglob
+
+        # Collect directory names, strip trailing slashes
+        local -a dirnames
+        dirnames=(*/)
+        dirnames=("${dirnames[@]%/}")
+
+        # Bail if no results to prevent empty output
+        ((${#dirnames[@]})) || exit 1
+
+        # Print results null-delimited
+        printf '%s\0' "${dirnames[@]}"
+    )
 }
 complete -F _ud ud
 

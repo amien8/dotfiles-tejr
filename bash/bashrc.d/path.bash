@@ -22,7 +22,7 @@ USAGE:
   $FUNCNAME h[elp]
     Print this help message (also done if command not found)
   $FUNCNAME l[ist]
-    Print the current dirs in PATH, one per line (default command)
+    Print the current directories in PATH, one per line (default command)
   $FUNCNAME i[nsert] DIR
     Add a directory to the front of PATH, checking for existence and uniqueness
   $FUNCNAME a[ppend] DIR
@@ -52,30 +52,30 @@ EOF
         insert|i)
             local -a patharr
             IFS=: read -a patharr < <(printf '%s\n' "$PATH")
-            local dir
-            dir=$1
-            [[ $dir == / ]] || dir=${dir%/}
-            if [[ -z $dir ]] ; then
+            local dirname
+            dirname=$1
+            [[ $dirname == / ]] || dirname=${dirname%/}
+            if [[ -z $dirname ]] ; then
                 printf 'bash: %s: need a directory path to insert\n' \
                     "$FUNCNAME" >&2
                 return 1
             fi
-            if [[ ! -d $dir ]] ; then
+            if [[ ! -d $dirname ]] ; then
                 printf 'bash: %s: %s not a directory\n' \
-                    "$FUNCNAME" "$dir" >&2
+                    "$FUNCNAME" "$dirname" >&2
                 return 1
             fi
-            if [[ $dir == *:* ]] ; then
+            if [[ $dirname == *:* ]] ; then
                 printf 'bash: %s: Cannot add insert directory %s with colon in name\n' \
-                    "$FUNCNAME" "$dir" >&2
+                    "$FUNCNAME" "$dirname" >&2
                 return 1
             fi
-            if path check "$dir" ; then
+            if path check "$dirname" ; then
                 printf 'bash: %s: %s already in PATH\n' \
-                    "$FUNCNAME" "$dir" >&2
+                    "$FUNCNAME" "$dirname" >&2
                 return 1
             fi
-            patharr=("$dir" "${patharr[@]}")
+            patharr=("$dirname" "${patharr[@]}")
             path set "${patharr[@]}"
             ;;
 
@@ -83,30 +83,30 @@ EOF
         append|add|a)
             local -a patharr
             IFS=: read -a patharr < <(printf '%s\n' "$PATH")
-            local dir
-            dir=$1
-            [[ $dir == / ]] || dir=${dir%/}
-            if [[ -z $dir ]] ; then
+            local dirname
+            dirname=$1
+            [[ $dirname == / ]] || dirname=${dirname%/}
+            if [[ -z $dirname ]] ; then
                 printf 'bash: %s: need a directory path to append\n' \
                     "$FUNCNAME" >&2
                 return 1
             fi
-            if [[ ! -d $dir ]] ; then
+            if [[ ! -d $dirname ]] ; then
                 printf 'bash: %s: %s not a directory\n' \
-                    "$FUNCNAME" "$dir" >&2
+                    "$FUNCNAME" "$dirname" >&2
                 return 1
             fi
-            if [[ $dir == *:* ]] ; then
+            if [[ $dirname == *:* ]] ; then
                 printf 'bash: %s: Cannot append directory %s with colon in name\n' \
-                    "$FUNCNAME" "$dir" >&2
+                    "$FUNCNAME" "$dirname" >&2
                 return 1
             fi
-            if path check "$dir" ; then
+            if path check "$dirname" ; then
                 printf 'bash: %s: %s already in PATH\n' \
-                    "$FUNCNAME" "$dir" >&2
+                    "$FUNCNAME" "$dirname" >&2
                 return 1
             fi
-            patharr=("${patharr[@]}" "$dir")
+            patharr=("${patharr[@]}" "$dirname")
             path set "${patharr[@]}"
             ;;
 
@@ -114,23 +114,23 @@ EOF
         remove|rm|r)
             local -a patharr
             IFS=: read -a patharr < <(printf '%s\n' "$PATH")
-            local dir
-            dir=$1
-            [[ $dir == / ]] || dir=${dir%/}
-            if [[ -z $dir ]] ; then
+            local dirname
+            dirname=$1
+            [[ $dirname == / ]] || dirname=${dirname%/}
+            if [[ -z $dirname ]] ; then
                 printf 'bash: %s: need a directory path to remove\n' \
                     "$FUNCNAME" >&2
                 return 1
             fi
-            if ! path check "$dir" ; then
+            if ! path check "$dirname" ; then
                 printf 'bash: %s: %s not in PATH\n' \
-                    "$FUNCNAME" "$dir" >&2
+                    "$FUNCNAME" "$dirname" >&2
                 return 1
             fi
             local -a newpatharr
             local part
             for part in "${patharr[@]}" ; do
-                [[ $dir == "$part" ]] && continue
+                [[ $dirname == "$part" ]] && continue
                 newpatharr=("${newpatharr[@]}" "$part")
             done
             path set "${newpatharr[@]}"
@@ -139,9 +139,9 @@ EOF
         # Set the PATH to the given directories without checking existence or uniqueness
         set|s)
             local -a newpatharr
-            local dir
-            for dir ; do
-                newpatharr=("${newpatharr[@]}" "$dir")
+            local dirname
+            for dirname ; do
+                newpatharr=("${newpatharr[@]}" "$dirname")
             done
             PATH=$(IFS=: ; printf '%s' "${newpatharr[*]}")
             ;;
@@ -150,17 +150,17 @@ EOF
         check|c)
             local -a patharr
             IFS=: read -a patharr < <(printf '%s\n' "$PATH")
-            local dir
-            dir=$1
-            [[ $dir == / ]] || dir=${dir%/}
-            if [[ -z $dir ]] ; then
+            local dirname
+            dirname=$1
+            [[ $dirname == / ]] || dirname=${dirname%/}
+            if [[ -z $dirname ]] ; then
                 printf 'bash: %s: need a directory path to check\n' \
                     "$FUNCNAME" >&2
                 return 1
             fi
             local part
             for part in "${patharr[@]}" ; do
-                if [[ $dir == "$part" ]] ; then
+                if [[ $dirname == "$part" ]] ; then
                     return 0
                 fi
             done
@@ -179,51 +179,68 @@ EOF
 
 # Completion for path
 _path() {
-    local word
-    word=${COMP_WORDS[COMP_CWORD]}
 
-    # Complete operation as first word
-    if ((COMP_CWORD == 1)) ; then
-        COMPREPLY=( $(compgen -W \
-            'help list insert append remove set check' \
-            -- "$word") )
-    else
-        case ${COMP_WORDS[1]} in
+    # What to do depends on which word we're completing
+    case $COMP_CWORD in
 
-            # Complete with one directory
-            insert|i|append|add|a|check|c)
-                if ((COMP_CWORD == 2)) ; then
+        # Complete operation as first word
+        1)
+            for cmd in help list insert append remove set check ; do
+                [[ $cmd == "${COMP_REPLY[COMP_CWORD]}"* ]] || continue
+                COMPREPLY=("${COMPREPLY[@]}" "$cmd")
+            done
+            ;;
+
+        # Complete with either directories or $PATH entries as all other words
+        *)
+            case ${COMP_WORDS[1]} in
+
+                # Complete with a directory
+                insert|i|append|add|a|check|c|set|s)
                     compopt -o filenames
-                    local IFS=$'\n'
-                    COMPREPLY=( $(compgen -A directory -- "$word") )
-                fi
-                ;;
+                    local dirname
+                    while IFS= read -d '' -r dirname ; do
+                        [[ $dirname == "${COMP_WORDS[COMP_CWORD]}"/* ]] \
+                            || continue
+                        COMPREPLY=("${COMPREPLY[@]}" "$dirname")
+                    done < <(
 
-            # Complete with any number of directories
-            set|s)
-                compopt -o filenames
-                local IFS=$'\n'
-                COMPREPLY=( $(compgen -A directory -- "$word") )
-                ;;
+                        # Set options to glob correctly
+                        shopt -s dotglob nullglob
 
-            # Complete with directories from PATH
-            remove|rm|r)
-                local -a promptarr
-                IFS=: read -a promptarr < <(printf '%s\n' "$PATH")
-                local part
-                for part in "${promptarr[@]}" ; do
-                    if [[ $part && $part == "$word"* ]] ; then
+                        # Collect directory names, strip trailing slash
+                        local -a dirnames
+                        dirnames=(*/)
+                        dirnames=("${dirnames[@]%/}")
+
+                        # Bail if no results to prevent empty output
+                        ((${#dirnames[@]})) || exit 1
+
+                        # Print results, null-delimited
+                        printf '%s\0' "${dirnames[@]}"
+                    )
+                    ;;
+
+                # Complete with directories from PATH
+                remove|rm|r)
+                    compopt -o filenames
+                    local -a promptarr
+                    IFS=: read -d '' -a promptarr < <(printf '%s\0' "$PATH")
+                    local part
+                    for part in "${promptarr[@]}" ; do
+                        [[ $part == "${COMP_WORDS[COMP_CWORD]}"* ]] \
+                            || continue
                         COMPREPLY=("${COMPREPLY[@]}" "$part")
-                    fi
-                done
-                ;;
+                    done
+                    ;;
 
-            # No completion
-            *)
-                return 1
-                ;;
-        esac
-    fi
+                # No completion
+                *)
+                    return 1
+                    ;;
+            esac
+            ;;
+    esac
 }
 complete -F _path path
 

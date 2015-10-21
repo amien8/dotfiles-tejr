@@ -23,20 +23,20 @@ fnl() {
     fi
 
     # Create a temporary directory or bail
-    local template dir
+    local template dirname
     template=$FUNCNAME.$1.XXXXX
-    if ! dir=$(mktemp -dt -- "$template") ; then
+    if ! dirname=$(mktemp -dt -- "$template") ; then
         return
     fi
 
     # Run the command and save its exit status
     local ret
-    "$@" >"$dir"/stdout 2>"$dir"/stderr
+    "$@" >"$dirname"/stdout 2>"$dirname"/stderr
     ret=$?
 
     # Note these are *not* local variables
     # shellcheck disable=SC2034
-    fnl_stdout=$dir/stdout fnl_stderr=$dir/stderr
+    fnl_stdout=$dirname/stdout fnl_stderr=$dirname/stderr
     declare -p fnl_std{out,err}
 
     # Return the exit status of the command, not the declare builtin

@@ -1,23 +1,26 @@
 # Completion for ssh/sftp/ssh-copy-id with config hostnames
 _ssh() {
-    local word
-    word=${COMP_WORDS[COMP_CWORD]}
+
+    # Use default completion if no matches
+    compopt -o default
 
     # Read hostnames from existent config files, no asterisks
     local -a hosts
     local config option value
     for config in "$HOME"/.ssh/config /etc/ssh/ssh_config ; do
-        if [[ -e $config ]] ; then
-            while read -r option value _ ; do
-                if [[ $option == Host && $value != *'*'* ]] ; then
-                    hosts=("${hosts[@]}" "$value")
-                fi
-            done < "$config"
-        fi
+        [[ -e $config ]] || continue
+        while read -r option value _ ; do
+            [[ $option == Host ]] || continue
+            [[ $value != *'*'* ]] || continue
+            hosts=("${hosts[@]}" "$value")
+        done < "$config"
     done
 
     # Generate completion reply
-    COMPREPLY=( $(compgen -W "${hosts[*]}" -- "$word") )
+    for host in "${hosts[@]}" ; do
+        [[ $host == "${COMP_WORDS[COMP_CWORD]}"* ]] || continue
+        COMPREPLY=("${COMPREPLY[@]}" "$host")
+    done
 }
-complete -F _ssh -o default ssh sftp ssh-copy-id
+complete -F _ssh ssh sftp ssh-copy-id
 

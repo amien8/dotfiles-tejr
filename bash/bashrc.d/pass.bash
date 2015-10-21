@@ -1,7 +1,5 @@
-# Requires Bash >= 4.0 for dotglob, nullglob, and globstar
-if ((BASH_VERSINFO[0] < 4)) ; then
-    return
-fi
+# Requires Bash >= 4.0 for globstar
+((BASH_VERSINFO[0] >= 4)) || return
 
 # Custom completion for pass(1), because I don't like the one included with the
 # distribution
@@ -10,25 +8,23 @@ _pass()
     # If we can't read the password directory, just bail
     local passdir
     passdir=${PASSWORD_STORE_DIR:-$HOME/.password-store}
-    if [[ ! -r $passdir ]] ; then
-        return 1
-    fi
+    [[ -r $passdir ]] || return 1
 
     # Iterate through list of .gpg paths, extension stripped, null-delimited,
     # and filter them down to the ones matching the completing word (compgen
     # doesn't seem to do this properly with a null delimiter)
-    local word entry
-    word=${COMP_WORDS[COMP_CWORD]}
-    while read -d '' -r entry ; do
-        if [[ $entry == "$word"* ]] ; then
-            COMPREPLY=("${COMPREPLY[@]}" "$entry")
-        fi
+    local entry
+    while IFS= read -d '' -r entry ; do
+        [[ $entry == "${COMP_WORDS[COMP_CWORD]}"* ]] || continue
+
+        # We have to use printf %q here to quote the entry, as it may include
+        # spaces or newlines, just like any filename
+        COMPREPLY=("${COMPREPLY[@]}" "$(printf %q "$entry")")
     done < <(
 
         # Set shell options to expand globs the way we expect
         shopt -u dotglob
-        shopt -s nullglob
-        shopt -s globstar
+        shopt -s globstar nullglob
 
         # Change into password directory, or bail
         cd -- "$passdir" 2>/dev/null || exit
@@ -38,10 +34,11 @@ _pass()
         entries=(**/*.gpg)
         entries=("${entries[@]%.gpg}")
 
+        # Bail if no entries to prevent empty output
+        ((${#entries[@]})) || exit 1
+
         # Print all the entries, null-delimited
-        if ((${#entries[@]})) ; then
-            printf '%s\0' "${entries[@]}"
-        fi
+        printf '%s\0' "${entries[@]}"
     )
 }
 complete -F _pass pass

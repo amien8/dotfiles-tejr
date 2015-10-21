@@ -34,24 +34,24 @@ bd() {
     [[ $req != / ]] || req=${req%/}
 
     # What to do now depends on the request
-    local dir
+    local dirname
     case $req in
 
         # If no argument at all, just go up one level
         '')
-            dir=..
+            dirname=..
             ;;
 
         # Just go straight to the root or dot directories if asked
         /|.|..)
-            dir=$req
+            dirname=$req
             ;;
 
         # Anything else with a leading / needs to anchor to the start of the
         # path
         /*)
-            dir=$req
-            if [[ $PWD != "$dir"/* ]] ; then
+            dirname=$req
+            if [[ $PWD != "$dirname"/* ]] ; then
                 printf 'bash: %s: Directory name not in path\n' \
                     "$FUNCNAME" >&2
                 return 1
@@ -59,13 +59,13 @@ bd() {
             ;;
 
         # In all other cases, iterate through the directory tree to find a
-        # match, or whittle the dir down to an empty string trying
+        # match, or whittle the dirname down to an empty string trying
         *)
-            dir=${PWD%/*}
-            while [[ -n $dir && $dir != */"$req" ]] ; do
-                dir=${dir%/*}
+            dirname=${PWD%/*}
+            while [[ -n $dirname && $dirname != */"$req" ]] ; do
+                dirname=${dirname%/*}
             done
-            if [[ -z $dir ]] ; then
+            if [[ -z $dirname ]] ; then
                 printf 'bash: %s: Directory name not in path\n' \
                     "$FUNCNAME" >&2
                 return 1
@@ -74,26 +74,32 @@ bd() {
     esac
 
     # Try to change into the determined directory
-    builtin cd "${opts[@]}" -- "$dir"
+    builtin cd "${opts[@]}" -- "$dirname"
 }
 
 # Completion setup for bd
 _bd() {
-    local word
-    word=${COMP_WORDS[COMP_CWORD]}
 
-    # Build a list of dirs in $PWD
-    local -a dirs
-    while read -d / -r dir ; do
-        if [[ -n $dir ]] ; then
-            dirs=("${dirs[@]}" "$dir")
-        fi
-    done < <(printf %s "$PWD")
-
-    # Complete with matching dirs
+    # The completions given are filenames and may require escaping
     compopt -o filenames
-    local IFS=$'\n'
-    COMPREPLY=( $(compgen -W "${dirs[*]}" -- "$word") )
+
+    # Only makes sense for the first argument
+    ((COMP_CWORD == 1)) || return 1
+
+    # Build a list of dirnames in $PWD
+    local -a dirnames
+    IFS=/ read -d '' -a dirnames < <(printf '%s\0' "${PWD#/}")
+
+    # Remove the last element in the array (the current directory)
+    ((${#dirnames[@]})) || return 1
+    dirnames=("${dirnames[@]:0:$((${#dirnames[@]}-1))}")
+
+    # Add the matching dirnames to the reply
+    local dirname
+    for dirname in "${dirnames[@]}" ; do
+        [[ $dirname == "${COMP_WORDS[COMP_CWORD]}"* ]] || continue
+        COMPREPLY=("${COMPREPLY[@]}" "$dirname")
+    done
 }
 complete -F _bd bd
 
