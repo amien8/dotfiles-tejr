@@ -8,7 +8,7 @@ autocmd BufNewFile,BufRead
     \ /etc/default/*
     \ setlocal filetype=sh
 
-" Files in **/.dotfiles/sh/** are shell script.
+" Files in **/.dotfiles/sh/** are shell script
 autocmd BufNewFile,BufRead
     \ **/.dotfiles/sh/**
     \ setlocal filetype=sh
@@ -19,7 +19,7 @@ autocmd BufNewFile,BufRead
     \ let g:is_bash = 1 |
     \ setlocal filetype=sh
 
-" Files in **/.dotfiles/bash/** are Bash script.
+" Files in **/.dotfiles/bash/** are Bash script
 autocmd BufNewFile,BufRead
     \ **/.dotfiles/bash/**
     \ let g:is_bash = 1 |
