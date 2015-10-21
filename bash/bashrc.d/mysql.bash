@@ -51,8 +51,8 @@ _mysql() {
         ((${#cnfs[@]})) || exit 1
 
         # Print the conf names, null-delimited
-        printf '%s\0' "${cnfs[@]}"
+        printf '%q\0' "${cnfs[@]}"
     )
 }
-complete -F _mysql -o default -o filenames mysql
+complete -F _mysql -o default mysql
 

@@ -133,12 +133,20 @@ _sd() {
         dirnames=("${dirnames[@]#../}")
         dirnames=("${dirnames[@]%/}")
 
+        # Iterate again, but exclude the current directory this time
+        local -a sibs
+        local dirname
+        for dirname in "${dirnames[@]}" ; do
+            [[ $dirname != "${PWD##*/}" ]] || continue
+            sibs=("${sibs[@]}" "$dirname")
+        done
+
         # Bail if no results to prevent empty output
-        ((${#dirnames[@]})) || exit 1
+        ((${#sibs[@]})) || exit 1
 
         # Print results, null-delimited
-        printf '%s\0' "${dirnames[@]}"
+        printf '%q\0' "${sibs[@]}"
     )
 }
-complete -F _sd -o filenames sd
+complete -F _sd sd
 
