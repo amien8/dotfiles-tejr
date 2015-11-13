@@ -293,7 +293,7 @@ You can test that both sets of shell scripts are syntactically correct with
 scripts in `bin`.
 
 If you have [ShellCheck](http://www.shellcheck.net/) and/or
-[Perl::Critic](http://perlcritic.com), there's a `lint` target for the shell
+[Perl::Critic](http://perlcritic.com), there’s a `lint` target for the shell
 script files and Perl files respectively. The files don’t need to pass that
 check to be installed.
 
