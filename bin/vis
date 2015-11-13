@@ -1,0 +1,75 @@
+#!/usr/bin/env bash
+
+#
+# vis(1) -- Create and edit executable scripts in a directory VISPATH (defaults
+# to ~/.local/bin).
+#
+# Author: Tom Ryder
+# Copyright: 2015
+# License: Public domain
+#
+ 
+# Name self
+self=vis
+
+# Define a function to show usage
+usage() {
+	printf '%s: usage: %s [EDITOR_OPTS] [--] FILE1 [FILE2...]\n' \
+		"$self" "$self"
+}
+
+# Process options, including detecting requests for help
+declare -a opts
+for arg ; do
+    case $arg in
+		--help|-h|-\?)
+			usage
+			exit 0
+			;;
+        --)
+            shift
+            break
+            ;;
+        -*)
+            shift
+            opts=("${opts[@]}" "$arg")
+            ;;
+        *)
+            break
+            ;;
+    esac
+done
+
+# If no arguments left, spit usage as an error and bail
+if ! (($#)) ; then
+	usage >&2
+	exit 1
+fi
+
+# Create the script directory if it doesn't exist yet
+vispath=${VISPATH:-$HOME/.local/bin}
+if [[ ! -d $vispath ]] ; then
+	mkdir -p -- "$vispath" || exit
+fi
+
+# Create a new array with the script directory prepended to the given names
+declare -a files
+files=("${@/#/$vispath/}")
+
+# Collect the names of any scripts that don't exist yet so we can make them
+# executable after we're done editing
+declare -a creations
+for file in "${files[@]}" ; do
+    [[ -e $file ]] && continue
+    creations=("${creations[@]}" "$file")
+done
+
+# Run the editor; if EDITOR isn't set, use vi(1)
+"${EDITOR:-vi}" "${opts[@]}" -- "${files[@]}"
+
+# Make any created scripts executable if they now appear to be files
+for creation in "${creations[@]}" ; do
+    [[ -f $creation ]] || continue
+    chmod +x -- "$creation"
+done
+

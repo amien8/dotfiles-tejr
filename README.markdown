@@ -279,6 +279,8 @@ Scripts
 *   `sue(8)` execs `sudoedit(8)` as the owner of all the file arguments given,
     perhaps in cases where you may not necessarily have `root` `sudo(8)`
     privileges.
+*   `vis(1)` edits executable script files in `VISPATH`, defaulting to
+    `~/.local/bin`, for personal scripting snippets.
 
 If you want to use the manuals, you may need to add `~/.local/share/man` to
 your `/etc/manpath` configuration, depending on your system.
