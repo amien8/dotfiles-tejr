@@ -14,18 +14,18 @@ self=vis
 
 # Define a function to show usage
 usage() {
-	printf '%s: usage: %s [EDITOR_OPTS] [--] FILE1 [FILE2...]\n' \
-		"$self" "$self"
+    printf '%s: usage: %s [EDITOR_OPTS] [--] FILE1 [FILE2...]\n' \
+        "$self" "$self"
 }
 
 # Process options, including detecting requests for help
 declare -a opts
 for arg ; do
     case $arg in
-		--help|-h|-\?)
-			usage
-			exit 0
-			;;
+        --help|-h|-\?)
+            usage
+            exit 0
+            ;;
         --)
             shift
             break
@@ -42,14 +42,14 @@ done
 
 # If no arguments left, spit usage as an error and bail
 if ! (($#)) ; then
-	usage >&2
-	exit 1
+    usage >&2
+    exit 1
 fi
 
 # Create the script directory if it doesn't exist yet
 vispath=${VISPATH:-$HOME/.local/bin}
 if [[ ! -d $vispath ]] ; then
-	mkdir -p -- "$vispath" || exit
+    mkdir -p -- "$vispath" || exit
 fi
 
 # Create a new array with the script directory prepended to the given names
