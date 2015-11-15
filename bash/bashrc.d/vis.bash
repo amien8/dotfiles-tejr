@@ -12,7 +12,7 @@ _vis() {
         files=("${VISPATH:-$HOME/.local/bin}"/"${COMP_WORDS[COMP_CWORD]}"*)
         declare -a executables
         for file in "${files[@]}" ; do
-            [[ -x $file ]] || continue
+            [[ -f $file && -x $file ]] || continue
             executables=("${executables[@]}" "${file##*/}")
         done
         ((${#executables[@]})) || exit 1
