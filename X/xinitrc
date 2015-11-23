@@ -7,7 +7,8 @@ xrdb "$HOME"/.Xresources
 setxkbmap -option compose:ralt,ctrl:nocaps,terminate:ctrl_alt_bksp
 
 # Apply background image
-feh --bg-scale --no-fehbg -- "$HOME"/.xbackgrounds/castle.jpg
+# Edited cover of Darkthrone's 1992 album "A Blaze in the Northern Sky"
+feh --bg-scale --no-fehbg -- "$HOME"/.xbackgrounds/blaze.jpg
 
 # Start redshift(1)
 redshift &
