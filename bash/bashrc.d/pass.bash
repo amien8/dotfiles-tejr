@@ -15,11 +15,7 @@ _pass()
     # doesn't seem to do this properly with a null delimiter)
     local entry
     while IFS= read -d '' -r entry ; do
-
-        # We have to use printf %q here to quote the entry, as it may include
-        # spaces or newlines, just like any filename
         COMPREPLY=("${COMPREPLY[@]}" "$entry")
-
     done < <(
 
         # Set shell options to expand globs the way we expect
