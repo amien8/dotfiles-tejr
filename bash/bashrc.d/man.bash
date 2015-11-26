@@ -31,7 +31,7 @@ _man() {
     #
     IFS=$'\n' read -a COMPREPLY -d '' -r < <(
 
-        # Don't return dotfiles, and expand empty globs to just nothing
+        # Do not return dotfiles, and expand empty globs to just nothing
         shopt -u dotglob
         shopt -s nullglob
 
