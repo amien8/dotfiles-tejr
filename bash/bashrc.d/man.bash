@@ -19,9 +19,10 @@ _man() {
     # read -a rather than adding each element individually, as it's much faster
     IFS=/ read -a COMPREPLY -d '' -r < <(
 
-        # Do not return dotfiles, and expand empty globs to just nothing
+        # Do not return dotfiles, give us extended globbing, and expand empty
+        # globs to just nothing
         shopt -u dotglob
-        shopt -s nullglob
+        shopt -s extglob nullglob
 
         # Start an array of pages
         declare -a pages
@@ -32,13 +33,13 @@ _man() {
         # Iterate through the manual page paths and add every manual page we find
         for manpath in "${manpaths[@]}" ; do
             [[ $manpath ]] || continue
-            pages=("${pages[@]}" "$manpath"/"$section"*/"$word"*)
+            pages=("${pages[@]}" "$manpath"/"$section"*/"$word"*.[0-9]*)
         done
 
         # Strip paths, .gz suffixes, and finally .<section> suffixes
         pages=("${pages[@]##*/}")
-        pages=("${pages[@]%.gz}")
-        pages=("${pages[@]%.*}")
+        pages=("${pages[@]%.@([glx]z|bz2|lzma|Z)}")
+        pages=("${pages[@]%.[0-9]*}")
 
         # Bail out if we ended up with no pages somehow to prevent us from
         # printing
