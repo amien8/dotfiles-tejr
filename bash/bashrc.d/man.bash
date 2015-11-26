@@ -39,7 +39,7 @@ _man() {
         declare -a pages
 
         # Break manpath(1) output into an array of paths
-        IFS=: read -a manpaths -r < <(manpath)
+        IFS=: read -a manpaths -r < <(manpath 2>/dev/null)
 
         # Iterate through the manual page paths and add every manual page we find
         for manpath in "${manpaths[@]}" ; do
