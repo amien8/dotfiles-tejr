@@ -98,6 +98,12 @@ if ((BASH_VERSINFO[0] == 4)) ; then
     fi
 fi
 
+# Set a simpler custom COMPWORDS to exclude colons; a colon, even unescaped, is
+# not part of the shell syntax and it could well be part of filenames, so it
+# should not be subject to wordsplitting in completion. Otherwise it messes up
+# completion for e.g. Perl library man(1) pages (Net::DNS, Perl::Critic etc)
+COMP_WORDBREAKS=' ><=;|&("'\'$'\n'
+
 # Load any supplementary scripts
 if [[ -d $HOME/.bashrc.d ]] ; then
     for bashrc in "$HOME"/.bashrc.d/*.bash ; do
