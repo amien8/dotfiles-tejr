@@ -98,11 +98,12 @@ if ((BASH_VERSINFO[0] == 4)) ; then
     fi
 fi
 
-# Set a simpler custom COMPWORDS to exclude colons; a colon, even unescaped, is
-# not part of the shell syntax and it could well be part of filenames, so it
-# should not be subject to wordsplitting in completion. Otherwise it messes up
-# completion for e.g. Perl library man(1) pages (Net::DNS, Perl::Critic etc)
-COMP_WORDBREAKS=' ><=;|&("'\'$'\n'
+# If COMP_WORDBREAKS has a value, strip all colons from it; this allows
+# completing filenames correctly, since an unquoted colon is not a syntactic
+# character: <http://tiswww.case.edu/php/chet/bash/FAQ> (E13)
+if [[ $COMP_WORDBREAKS ]] ; then
+    COMP_WORDBREAKS=${COMP_WORDBREAKS//:}
+fi
 
 # Load any supplementary scripts
 if [[ -d $HOME/.bashrc.d ]] ; then
