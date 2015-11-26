@@ -36,7 +36,7 @@ if ((BASH_VERSINFO[0] >= 4)) ; then
 fi
 
 # Create a temporary file and set up a trap to get rid of it.
-tmpdir=$(mktemp -dt "$self".XXXXX) || exit
+tmpdir=$(mktemp -dt "$self".XXXXXX) || exit
 cleanup() {
     rm -fr -- "$tmpdir"
 }
