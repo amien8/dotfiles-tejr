@@ -15,7 +15,8 @@ _man() {
         section='man'${COMP_WORDS[COMP_CWORD-1]}
     fi
 
-    # Read slash-separated output from a subshell into the COMPREPLY array
+    # Read slash-separated output from a subshell into the COMPREPLY array; use
+    # read -a rather than adding each element individually, as it's much faster
     IFS=/ read -a COMPREPLY -d '' -r < <(
 
         # Do not return dotfiles, and expand empty globs to just nothing
@@ -43,8 +44,7 @@ _man() {
         # printing
         ((${#pages[@]})) || exit 1
 
-        # Print the pages array to stdout, newline-separated; see above
-        # explanation
+        # Print the pages array to stdout, slash-separated, null-terminated
         (IFS=/ ; printf '%q\0' "${pages[*]}")
     )
 }
