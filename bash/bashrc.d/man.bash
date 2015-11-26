@@ -15,21 +15,8 @@ _man() {
         section='man'${COMP_WORDS[COMP_CWORD-1]}
     fi
 
-    #
-    # Read newline-separated output from a subshell into the COMPREPLY array.
-    #
-    # This is subtly wrong. Given that it's just a path, there's theoretically
-    # no reason that the name of a man(1) page couldn't contain a newline. If
-    # one of them does, then this method will include some junk manual page
-    # names. But who on earth makes a manual page with a newline in the name?
-    #
-    # Using null separators doesn't work, because read prioritises reading the
-    # end of the line before it does field-splitting, and filling COMPREPLY
-    # entry-by-entry is *really* slow, so this is the least-wrong solution I
-    # could come up with that allows me to use a subshell to elegantly set
-    # globbing shell options.
-    #
-    IFS=$'\n' read -a COMPREPLY -d '' -r < <(
+    # Read slash-separated output from a subshell into the COMPREPLY array
+    IFS=/ read -a COMPREPLY -d '' -r < <(
 
         # Do not return dotfiles, and expand empty globs to just nothing
         shopt -u dotglob
@@ -58,7 +45,7 @@ _man() {
 
         # Print the pages array to stdout, newline-separated; see above
         # explanation
-        (IFS=$'\n' ; printf '%s\0' "${pages[*]}")
+        (IFS=/ ; printf '%s\0' "${pages[*]}")
     )
 }
 complete -F _man -o default man
