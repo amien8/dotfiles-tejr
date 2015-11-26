@@ -58,7 +58,7 @@ _man() {
 
         # Print the pages array to stdout, newline-separated; see above
         # explanation
-        (IFS=$'\n' ; printf %s "${pages[*]}")
+        (IFS=$'\n' ; printf '%s\0' "${pages[*]}")
     )
 }
 complete -F _man -o default man
