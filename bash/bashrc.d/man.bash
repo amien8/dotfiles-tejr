@@ -10,7 +10,7 @@ _man() {
 
     # If this is the second word, and the previous word was a number, we'll
     # assume that's the section to search
-    local section 
+    local section
     if ((COMP_CWORD > 1)) && [[ ${COMP_WORDS[COMP_CWORD-1]} != [^0-9] ]] ; then
         section='man'${COMP_WORDS[COMP_CWORD-1]}
     fi
