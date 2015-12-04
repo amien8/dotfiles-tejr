@@ -67,19 +67,19 @@ install : install-bash \
 install-abook :
 	install -m 0755 -d -- \
 		"$(HOME)"/.abook
-	install -m 0644 -- abook/abookrc "$(HOME)"/.abook
+	install -pm 0644 -- abook/abookrc "$(HOME)"/.abook
 
 install-bash : test-bash
 	install -m 0755 -d -- \
 		"$(HOME)"/.config \
 		"$(HOME)"/.bashrc.d \
 		"$(HOME)"/.bash_profile.d
-	install -m 0644 -- bash/bashrc "$(HOME)"/.bashrc
-	install -m 0644 -- bash/bashrc.d/* "$(HOME)"/.bashrc.d
-	install -m 0644 -- bash/bash_profile "$(HOME)"/.bash_profile
-	install -m 0644 -- bash/bash_profile.d/* "$(HOME)"/.bash_profile.d
-	install -m 0644 -- bash/bash_logout "$(HOME)"/.bash_logout
-	install -m 0644 -- bash/bash_completion "$(HOME)"/.config/bash_completion
+	install -pm 0644 -- bash/bashrc "$(HOME)"/.bashrc
+	install -pm 0644 -- bash/bashrc.d/* "$(HOME)"/.bashrc.d
+	install -pm 0644 -- bash/bash_profile "$(HOME)"/.bash_profile
+	install -pm 0644 -- bash/bash_profile.d/* "$(HOME)"/.bash_profile.d
+	install -pm 0644 -- bash/bash_logout "$(HOME)"/.bash_logout
+	install -pm 0644 -- bash/bash_completion "$(HOME)"/.config/bash_completion
 
 install-bin : test-bin
 	install -m 0755 -d -- \
@@ -87,35 +87,35 @@ install-bin : test-bin
 		"$(HOME)"/.local/share/man/man1 \
 		"$(HOME)"/.local/share/man/man8
 	install -m 0755 -- bin/* "$(HOME)"/.local/bin
-	install -m 0644 -- man/man1/* "$(HOME)"/.local/share/man/man1
-	install -m 0644 -- man/man8/* "$(HOME)"/.local/share/man/man8
+	install -pm 0644 -- man/man1/* "$(HOME)"/.local/share/man/man1
+	install -pm 0644 -- man/man8/* "$(HOME)"/.local/share/man/man8
 
 install-curl :
-	install -m 0644 -- curl/curlrc "$(HOME)"/.curlrc
+	install -pm 0644 -- curl/curlrc "$(HOME)"/.curlrc
 
 install-dircolors :
-	install -m 0644 -- dircolors/dircolors "$(HOME)"/.dircolors
+	install -pm 0644 -- dircolors/dircolors "$(HOME)"/.dircolors
 
 install-git :
-	install -m 0644 -- git/gitconfig "$(HOME)"/.gitconfig
+	install -pm 0644 -- git/gitconfig "$(HOME)"/.gitconfig
 
 install-gnupg : gnupg/gpg.conf
 	install -m 0700 -d -- \
 		"$(HOME)"/.gnupg \
 		"$(HOME)"/.gnupg/sks-keyservers.net
-	install -m 0600 -- gnupg/*.conf "$(HOME)"/.gnupg
-	install -m 0644 -- gnupg/sks-keyservers.net/* \
+	install -pm 0600 -- gnupg/*.conf "$(HOME)"/.gnupg
+	install -pm 0644 -- gnupg/sks-keyservers.net/* \
 		"$(HOME)"/.gnupg/sks-keyservers.net
 
 install-gtk :
 	install -m 0755 -d -- \
 		"$(HOME)"/.config/gtkrc-3.0
-	install -m 0644 -- gtk/gtkrc-2.0 "$(HOME)"/.gtkrc-2.0
-	install -m 0644 -- gtk/gtkrc-3.0/settings.ini "$(HOME)"/.config/gtkrc-3.0
+	install -pm 0644 -- gtk/gtkrc-2.0 "$(HOME)"/.gtkrc-2.0
+	install -pm 0644 -- gtk/gtkrc-3.0/settings.ini "$(HOME)"/.config/gtkrc-3.0
 
 install-i3 : install-x
 	install -m 0755 -d -- "$(HOME)"/.i3
-	install -m 0644 -- i3/* "$(HOME)"/.i3
+	install -pm 0644 -- i3/* "$(HOME)"/.i3
 
 install-maildir :
 	install -m 0755 -d -- \
@@ -130,38 +130,38 @@ install-mutt : install-maildir
 	install -m 0755 -d -- \
 		"$(HOME)"/.mutt \
 		"$(HOME)"/.cache/mutt
-	install -m 0644 -- mutt/muttrc "$(HOME)"/.muttrc
+	install -pm 0644 -- mutt/muttrc "$(HOME)"/.muttrc
 
 install-ncmcpp :
 	install -m 0755 -d -- "$(HOME)"/.ncmpcpp
-	install -m 0644 -- ncmpcpp/config "$(HOME)"/.ncmpcpp/config
+	install -pm 0644 -- ncmpcpp/config "$(HOME)"/.ncmpcpp/config
 
 install-newsbeuter :
 	install -m 0755 -d -- \
 		"$(HOME)"/.config/newsbeuter \
 		"$(HOME)"/.local/share/newsbeuter
-	install -m 0644 -- newsbeuter/config "$(HOME)"/.config/newsbeuter/config
+	install -pm 0644 -- newsbeuter/config "$(HOME)"/.config/newsbeuter/config
 
 install-mysql :
-	install -m 0644 -- mysql/my.cnf "$(HOME)"/.my.cnf
+	install -pm 0644 -- mysql/my.cnf "$(HOME)"/.my.cnf
 
 install-perlcritic:
-	install -m 0644 -- perlcritic/perlcriticrc "$(HOME)"/.perlcriticrc
+	install -pm 0644 -- perlcritic/perlcriticrc "$(HOME)"/.perlcriticrc
 
 install-psql :
-	install -m 0644 -- psql/psqlrc "$(HOME)"/.psqlrc
+	install -pm 0644 -- psql/psqlrc "$(HOME)"/.psqlrc
 
 install-readline :
-	install -m 0644 -- readline/inputrc "$(HOME)"/.inputrc
+	install -pm 0644 -- readline/inputrc "$(HOME)"/.inputrc
 
 install-sh : test-sh
 	install -m 0755 -d -- "$(HOME)"/.profile.d
-	install -m 0644 -- sh/profile "$(HOME)"/.profile
-	install -m 0644 -- sh/profile.d/* "$(HOME)"/.profile.d
+	install -pm 0644 -- sh/profile "$(HOME)"/.profile
+	install -pm 0644 -- sh/profile.d/* "$(HOME)"/.profile.d
 
 install-subversion :
 	install -m 0755 -d -- "$(HOME)"/.subversion
-	install -m 0644 -- subversion/config "$(HOME)"/.subversion/config
+	install -pm 0644 -- subversion/config "$(HOME)"/.subversion/config
 
 install-terminfo :
 	for info in terminfo/*.info ; do \
@@ -169,10 +169,10 @@ install-terminfo :
 	done
 
 install-task :
-	install -m 0644 -- task/taskrc "$(HOME)"/.taskrc
+	install -pm 0644 -- task/taskrc "$(HOME)"/.taskrc
 
 install-tmux :
-	install -m 0644 -- tmux/tmux.conf "$(HOME)"/.tmux.conf
+	install -pm 0644 -- tmux/tmux.conf "$(HOME)"/.tmux.conf
 
 install-urxvt : test-urxvt
 	install -m 0755 -d -- "$(HOME)"/.urxvt/ext
@@ -186,10 +186,10 @@ install-gvim : install-vim \
 	install-gvim-config
 
 install-vim-config :
-	install -m 0644 -- vim/vimrc "$(HOME)"/.vimrc
+	install -pm 0644 -- vim/vimrc "$(HOME)"/.vimrc
 
 install-gvim-config :
-	install -m 0644 -- vim/gvimrc "$(HOME)"/.gvimrc
+	install -pm 0644 -- vim/gvimrc "$(HOME)"/.gvimrc
 
 install-vim-plugins : vim-plugins install-vim-config
 	install -m 0755 -d -- "$(HOME)"/.vim/bundle
@@ -202,12 +202,12 @@ install-vim-plugins : vim-plugins install-vim-config
 	find vim/bundle -name .git -prune -o \
 		\( -type f ! -name '.git*' -print \) | \
 			while IFS= read -r file ; do \
-				install -m 0644 -- \
+				install -pm 0644 -- \
 					"$$file" "$(HOME)"/.vim/"$${file#vim/}" ; \
 			done
 	for dir in vim/after/* ; do \
 		install -m 0755 -d -- "$(HOME)"/.vim/after/"$${dir##*/}" ; \
-		install -m 0644 -- "$$dir"/* \
+		install -pm 0644 -- "$$dir"/* \
 			"$(HOME)"/.vim/after/"$${dir##*/}" ; \
 	done
 
@@ -218,17 +218,17 @@ install-vim-pathogen : install-vim-plugins
 		"$(HOME)"/.vim/autoload/pathogen.vim
 
 install-wyrd :
-	install -m 0644 -- wyrd/wyrdrc "$(HOME)"/.wyrdrc
+	install -pm 0644 -- wyrd/wyrdrc "$(HOME)"/.wyrdrc
 
 install-x :
 	install -m 0755 -d -- \
 		"$(HOME)"/.config \
 		"$(HOME)"/.xbackgrounds
-	install -m 0644 -- X/redshift.conf "$(HOME)"/.config/redshift.conf
-	install -m 0644 -- X/backgrounds/* "$(HOME)"/.xbackgrounds
-	install -m 0644 -- X/Xresources "$(HOME)"/.Xresources
-	install -m 0644 -- X/xbindkeysrc "$(HOME)"/.xbindkeysrc
-	install -m 0644 -- X/xinitrc "$(HOME)"/.xinitrc
+	install -pm 0644 -- X/redshift.conf "$(HOME)"/.config/redshift.conf
+	install -pm 0644 -- X/backgrounds/* "$(HOME)"/.xbackgrounds
+	install -pm 0644 -- X/Xresources "$(HOME)"/.Xresources
+	install -pm 0644 -- X/xbindkeysrc "$(HOME)"/.xbindkeysrc
+	install -pm 0644 -- X/xinitrc "$(HOME)"/.xinitrc
 
 test : test-sh test-bash test-bin test-urxvt
 
