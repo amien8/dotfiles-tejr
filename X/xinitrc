@@ -13,6 +13,9 @@ feh --bg-scale --no-fehbg -- "$HOME"/.xbackgrounds/blaze.jpg
 # Start dunst(1) to display libnotify messages
 dunst &
 
+# Start mpdlrc-notify-send <https://github.com/tejr/mpdlrc/>
+mpdlrc-notify-send &
+
 # Start redshift(1)
 redshift &
 
