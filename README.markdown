@@ -49,6 +49,8 @@ Configuration is included for:
     URL syntax
 *   [`dircolors(1)`](https://www.gnu.org/software/coreutils/manual/html_node/dircolors-invocation.html)
     — Color GNU `ls(1)` output
+*   [Dunst](http://knopwob.org/dunst/) — A lightweight X11 notification daemon
+    that works with `libnotify`
 *   [Git](http://git-scm.com/) — Distributed version control system
 *   [GnuPG](http://www.gnupg.org/) — GNU Privacy Guard, for private
     communication and file encryption
