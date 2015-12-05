@@ -10,6 +10,7 @@
 	install-bin \
 	install-curl \
 	install-dircolors \
+	install-dunst \
 	install-git \
 	install-gtk \
 	install-gnupg \
@@ -95,6 +96,10 @@ install-curl :
 
 install-dircolors :
 	install -pm 0644 -- dircolors/dircolors "$(HOME)"/.dircolors
+
+install-dunst : install-x
+	install -m 0755 -d -- "$(HOME)"/.config/dunst
+	install -pm 0644 -- dunst/dunstrc "$(HOME)"/.config/dunst
 
 install-git :
 	install -pm 0644 -- git/gitconfig "$(HOME)"/.gitconfig

@@ -1,0 +1,49 @@
+[global]
+    alignment            = left
+    allow_markup         = no
+    bounce_freq          = 0
+    browser              = palemoon
+    dmenu                = dmenu -p dunst:
+    follow               = mouse
+    font                 = Verdana 11 Bold
+    format               = "%s %b"
+    geometry             = "350x5-0-17"
+    history_length       = 20
+    horizontal_padding   = 8
+    icon_position        = off
+    idle_threshold       = 0
+    ignore_newline       = no
+    indicate_hidden      = no
+    line_height          = 0
+    monitor              = 0
+    padding              = 8
+    separator_color      = frame
+    separator_height     = 0
+    show_age_threshold   = -1
+    show_indicators      = no
+    shrink               = no
+    sort                 = yes
+    startup_notification = false
+    sticky_history       = yes
+    transparency         = 0
+    word_wrap            = yes
+
+[frame]
+    width = 1
+    color = "#333333"
+
+[urgency_low]
+    background = "#222222"
+    foreground = "#bbbbbb"
+    timeout    = 10
+
+[urgency_normal]
+    background = "#285577"
+    foreground = "#ffffff"
+    timeout    = 10
+
+[urgency_critical]
+    background = "#900000"
+    foreground = "#ffffff"
+    timeout    = 0
+
