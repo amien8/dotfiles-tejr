@@ -69,7 +69,7 @@ Configuration is included for:
     library for user input used by Bash, MySQL, and others
 *   [Taskwarrior](http://taskwarrior.org/projects/show/taskwarrior) —
     Command-line task list manager
-*   [tmux](http://tmux.sourceforge.net/) — Terminal multiplexer similar to GNU
+*   [tmux](https://tmux.github.io/) — Terminal multiplexer similar to GNU
     Screen
 *   [rxvt-unicode](http://software.schmorp.de/pkg/rxvt-unicode.html) — Fork of
     the rxvt terminal emulator with Unicode support
