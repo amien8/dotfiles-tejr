@@ -25,6 +25,9 @@
 [submodule "vim/bundle/surround"]
     path = vim/bundle/surround
     url = git://github.com/tpope/vim-surround.git
+[submodule "vim/bundle/targets"]
+	path = vim/bundle/targets
+	url = git://github.com/wellle/targets.vim
 [submodule "vim/bundle/tmux"]
     path = vim/bundle/tmux
     url = git://github.com/tejr/vim-tmux.git
