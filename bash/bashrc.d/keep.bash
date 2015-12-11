@@ -120,7 +120,7 @@ EOF
         keeps=("${bashkeep}"/*.bash)
         keeps=("${keeps[@]##*/}")
         keeps=("${keeps[@]%.bash}")
-        ((${keeps[@]})) || exit 0
+        ((${#keeps[@]})) || exit 0
         printf '%s\n' "${keeps[@]}"
     )
 }
