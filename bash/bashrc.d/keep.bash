@@ -114,11 +114,15 @@ EOF
     fi
 
     # Otherwise the user must want us to print all the NAMEs kept
-    local -a keeps
-    keeps=("${bashkeep}"/*.bash)
-    keeps=("${keeps[@]##*/}")
-    keeps=("${keeps[@]%.bash}")
-    printf '%s\n' "${keeps[@]}"
+    (
+        shopt -s dotglob nullglob
+        declare -a keeps
+        keeps=("${bashkeep}"/*.bash)
+        keeps=("${keeps[@]##*/}")
+        keeps=("${keeps[@]%.bash}")
+        ((${keeps[@]})) || exit 0
+        printf '%s\n' "${keeps[@]}"
+    )
 }
 
 # Complete calls to keep with existing function names and variable names
