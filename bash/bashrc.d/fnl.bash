@@ -23,8 +23,9 @@ fnl() {
     fi
 
     # Create a temporary directory or bail
-    local dirname
-    if ! dirname=$(mktemp -dt -- "$FUNCNAME"."$1".XXXXXX) ; then
+    local dirname template
+    template=$FUNCNAME.$1.XXXXXX
+    if ! dirname=$(mktemp -dt -- "$template") ; then
         return
     fi
 
