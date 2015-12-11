@@ -1,10 +1,29 @@
 #
-# Main function for bashkeep; provided with a list of NAMEs, whether shell
-# functions or variables, writes the current definition of each NAME to a
-# directory $BASHKEEP (defaults to ~/.bashkeep.d) with a .bash suffix, each
-# of which is reloaded each time this file is called. This allows you to
-# quickly arrange to keep that useful shell function or variable you made
-# inline on subsequent logins.
+# keep -- Main function for bashkeep; provided with a list of NAMEs, whether
+# shell functions or variables, writes the current definition of each NAME to a
+# directory $BASHKEEP (defaults to ~/.bashkeep.d) with a .bash suffix, each of
+# which is reloaded each time this file is called. This allows you to quickly
+# arrange to keep that useful shell function or variable you made inline on
+# subsequent logins.
+#
+# Consider a shell function declared inline with the NAME 'ayy':
+#
+#   $ ayy() { printf '%s\n' lmao ; }
+#   $ ayy
+#   lmao
+#   $ keep ayy
+#   $ keep
+#   ayy
+#   $ exit
+#
+# Then, on next login, the function is redefined for you:
+#
+#   $ ayy
+#   lmao
+#
+# To get rid of it:
+#
+#   $ keep -d ayy
 #
 keep() {
 
