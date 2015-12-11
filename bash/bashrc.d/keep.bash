@@ -11,6 +11,7 @@ keep() {
     # Figure out the directory to which we're reading and writing these scripts
     local bashkeep
     bashkeep=${BASHKEEP:-$HOME/.bashkeep.d}
+    mkdir -p -- "$bashkeep" || return
 
     # Parse options
     local opt delete
